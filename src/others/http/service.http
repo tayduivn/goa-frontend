@@ -1,0 +1,81 @@
+GET {{host}}/api/public/service/getID/1
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+###
+
+GET {{host}}/api/public/service/getAll
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+###
+
+GET {{host}}/api/public/service/getID/1
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+###
+
+GET {{host}}/api/public/service/getAllByCategory/7
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+###
+
+POST {{host}}/api/admin/service/register
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer {{auth_token}}
+
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+Content-Type: text/plain
+
+Testing
+
+--WebAppBoundary
+Content-Disposition: form-data; name="category_idcategory"
+Content-Type: text/plain
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="fuki.jpeg"
+Content-Type: image/jpeg
+
+< ./../image/fuki.jpeg
+--WebAppBoundary--
+
+###
+
+POST {{host}}/api/admin/service/update
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer {{auth_token}}
+
+--WebAppBoundary
+Content-Disposition: form-data; name="idservice"
+Content-Type: text/plain
+
+10
+
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+Content-Type: text/plain
+
+Testing 2
+
+--WebAppBoundary
+Content-Disposition: form-data; name="category_idcategory"
+Content-Type: text/plain
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="fuki_two.jpeg"
+Content-Type: image/jpeg
+
+< ./../image/fuki_two.jpeg
+--WebAppBoundary--
+###
+
+DELETE {{host}}/api/admin/service/delete
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "idservice": "2"
+}
+###

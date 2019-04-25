@@ -1,0 +1,96 @@
+@import "navigation.css";
+
+@font-face {
+  font-family: Lato;
+  src: url(../fonts/Lato-Regular.ttf) format('truetype');
+}
+
+*, body {
+  font-family: Lato, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif, helvetica, arial, sans-serif;
+  font-size: 1rem;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F4F4F4;
+}
+
+figure {
+  margin: 0;
+}
+
+ul, ol, dl {
+  list-style: none;
+  margin: 0;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+
+a:active {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bolder;
+  line-height: inherit;
+  margin: 0;
+}
+
+.width-reset {
+  display: inline;
+  width: auto !important;
+}
+
+/* Custom */
+.global-link {
+  color: #6ccef8;
+}
+
+.global-link:hover {
+  color: #74a0c7 !important;
+}
+
+.modal-vue--content {
+  padding: 5px 30px 15px;
+}
+
+hr {
+  margin: 10px 0;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(214, 214, 214, 0.1);
+}
+
+button.global-next-button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 4px solid #00B437;
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding-bottom: 10px;
+}
+
+/* Slick */
+.slick-prev:before, .slick-next:before {
+  color: black;
+  font-size: 24px;
+}

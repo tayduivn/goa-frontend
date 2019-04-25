@@ -1,0 +1,69 @@
+GET {{host}}/api/messagenotification/getID/3
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+###
+
+GET {{host}}/api/messagenotification/getMessageByUser/3
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+###
+
+GET {{host}}/api/messagenotification/getMessageByUserStatusRead/2/2
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+###
+
+GET {{host}}/api/messagenotification/getAll
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+###
+
+POST {{host}}/api/messagenotification/register
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer {{auth_token}}
+
+--WebAppBoundary
+Content-Disposition: form-data; name="message"
+Content-Type: text/plain
+
+Message test
+
+--WebAppBoundary
+Content-Disposition: form-data; name="user_iduser"
+Content-Type: text/plain
+
+2
+
+--WebAppBoundary
+Content-Disposition: form-data; name="active"
+Content-Type: text/plain
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="fuki.jpeg"
+Content-Type: image/jpeg
+
+< ./../image/fuki.jpeg
+--WebAppBoundary--
+
+###
+
+PUT {{host}}/api/messagenotification/update
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "idmessage_notification": "3",
+  "message": "Hola",
+  "user_iduser": "5"
+}
+###
+
+DELETE {{host}}/api/messagenotification/delete
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "idmessage_notification": "3"
+}
+###
