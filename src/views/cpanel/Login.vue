@@ -69,7 +69,7 @@
                 localStorage.setItem("email", this.user.email)
                 localStorage.setItem("password", this.user.password)
               }
-              this.$router.push('/cpanel/admin')
+              this.$router.push('/cpanel')
             }
             console.clear()
           })

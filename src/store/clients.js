@@ -2,6 +2,7 @@ import axios from 'axios'
 import config from "./../config/config";
 import {handleError} from "../utils/util"
 import swal from 'vue-sweetalert2';
+import {apiUsers} from "../utils/endpoints"
 
 export default {
   state: {
@@ -29,7 +30,7 @@ export default {
       commit('SET_CLIENTS', 'loading')
       axios({
         method: 'GET',
-        url: `${config.api_url}/api/admin/user/typeuser/cliente`,
+        url: `${config.api_url}${apiUsers.all}`,
         headers: {
           Authorization: localStorage.token
         },

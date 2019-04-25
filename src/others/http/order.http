@@ -1,19 +1,11 @@
 GET {{host}}/api/order/getID/4
 Accept: application/json
 Authorization: Bearer {{auth_token}}
-
-###
-
-GET {{host}}/api/order/getStatus/Cancelado
-Accept: application/json
-Authorization: Bearer {{auth_token}}
-
 ###
 
 GET {{host}}/api/order/getAll
 Accept: application/json
 Authorization: Bearer {{auth_token}}
-
 ###
 
 POST {{host}}/api/order/register
@@ -30,7 +22,6 @@ Authorization: Bearer {{auth_token}}
   "date_created": "2019/03/18",
   "user_iduser": "1"
 }
-
 ###
 
 PUT {{host}}/api/admin/order/update
@@ -50,45 +41,6 @@ Authorization: Bearer {{auth_token}}
 }
 ###
 
-PUT {{host}}/api/admin/order/updateActive
-Content-Type: application/json
-Authorization: Bearer {{auth_token}}
-
-{
-  "active": "1"
-}
-
-###
-
-PUT {{host}}/api/admin/order/updatestatus
-Content-Type: application/json
-Authorization: Bearer {{auth_token}}
-
-{
-  "idorder": "3",
-  "origin_order": "Valencia",
-  "destination_order": "Maracay",
-  "maximum_delivery_date": "2019-04-18",
-  "maximum_withdrawal_date": "2019-04-26",
-  "message": "Hola",
-  "price": "3123",
-  "status": "Cancelado",
-  "user_iduser": "3",
-  "date_created": null,
-  "iduser": "3",
-  "name": "ivans1041",
-  "email": "ivans1041@gmail.com",
-  "street": "Calle Santa Rita",
-  "phone": "04164318061",
-  "person_name": "Ivans",
-  "person_last_name": "Del Pino",
-  "name_truck": null,
-  "emailSender": "desarrollo.theroom@gmail.com",
-  "emailRecipient": "ivans1041@gmail.com"
-}
-
-###
-
 DELETE {{host}}/api/order/delete
 Content-Type: application/json
 Authorization: Bearer {{auth_token}}
@@ -96,5 +48,4 @@ Authorization: Bearer {{auth_token}}
 {
   "idorder": "4"
 }
-
 ###

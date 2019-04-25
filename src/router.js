@@ -99,9 +99,9 @@ let router = new Router({
       meta: {isNoUserLogAdmin: true}
     },
     {
-      path: '/cpanel/admin',
+      path: '/cpanel',
       name: 'Base',
-      redirect: '/cpanel/admin/home',
+      redirect: '/cpanel/home',
       component: () => import('./views/cpanel/Base'),
       meta: {requiresAuthAdmin: true},
       children: [

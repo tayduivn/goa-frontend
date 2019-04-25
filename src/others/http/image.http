@@ -1,46 +1,24 @@
-GET {{host}}/api/payment/getID/4
+GET {{host}}/api/images?id=1
 Accept: application/json
 Authorization: Bearer {{auth_token}}
+
 ###
 
-GET {{host}}/api/payment/getAll
+GET {{host}}/api/images?order=DESC
 Accept: application/json
 Authorization: Bearer {{auth_token}}
+
 ###
 
-POST {{host}}/api/payment/register
+POST {{host}}/api/images/register
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 Authorization: Bearer {{auth_token}}
 
 --WebAppBoundary
-Content-Disposition: form-data; name="name"
-Content-Type: text/plain
-
-Category test
---WebAppBoundary
-Content-Disposition: form-data; name="image"; filename="fuki.jpeg"
-Content-Type: image/jpeg
-
-< ./../image/fuki.jpeg
---WebAppBoundary--
-
-###
-
-POST {{host}}/api/admin/payment/update
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer {{auth_token}}
-
---WebAppBoundary
-Content-Disposition: form-data; name="idpayment"
+Content-Disposition: form-data; name="product_id"
 Content-Type: text/plain
 
 1
-
---WebAppBoundary
-Content-Disposition: form-data; name="name"
-Content-Type: text/plain
-
-Category test
 --WebAppBoundary
 Content-Disposition: form-data; name="image"; filename="fuki.jpeg"
 Content-Type: image/jpeg
@@ -50,11 +28,32 @@ Content-Type: image/jpeg
 
 ###
 
-DELETE {{host}}/api/payment/delete
+POST {{host}}/api/images/update
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer {{auth_token}}
+
+--WebAppBoundary
+Content-Disposition: form-data; name="product_id"
+Content-Type: text/plain
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="fuki.jpeg"
+Content-Type: image/jpeg
+
+< ./../image/fuki.jpeg
+--WebAppBoundary--
+
+###
+
+###
+
+DELETE {{host}}/api/images/delete
 Content-Type: application/json
 Authorization: Bearer {{auth_token}}
 
 {
-  "idpayment": "4"
+  "id": "1"
 }
+
 ###

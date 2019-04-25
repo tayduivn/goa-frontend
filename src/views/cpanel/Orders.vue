@@ -121,7 +121,6 @@
   import {modelObject} from "../../services/model/model-object"
   import DataOrderTable from "../../components/DataOrderTable"
   import {modelMessageNotification} from "../../services/model/model-message-notification"
-  import io from 'socket.io-client'
 
   export default {
     name: "Orders",
@@ -141,7 +140,6 @@
         notification: modelMessageNotification,
         open: false,
         idTransport: this.$route.params.id,
-        socket: io(config.socket_url),
       }
     },
     computed: {
@@ -168,7 +166,6 @@
           .then(() => {
             this.$store.dispatch('getActiveOrder', 2)
               .then(res => {
-                this.socket.emit('order', {count: res})
               })
               .catch(err => {
                 handleError(this.$swal, err)
@@ -186,7 +183,6 @@
         this.$store.dispatch('getStatusContent', this.stateOrderSelected)
         this.order = modelOrder.reset()
         this.hideModal()
-        console.clear()
       },
       editStatusOrder(state, title = "Desea Actualizar el status") {
         confirmMessage(this.$swal, title)

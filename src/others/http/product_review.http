@@ -1,0 +1,44 @@
+GET {{host}}/api/public/reviews?id=1
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+GET {{host}}/api/public/reviews
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+POST {{host}}/api/reviews
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "message": "Hola producto",
+  "stars": 4,
+  "user_id": 1,
+  "product_id": 2
+}
+
+###
+PUT {{host}}/api/reviews
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": 1,
+  "message": "Hola producto",
+  "stars": 5,
+  "user_id": 1,
+  "product_id": 1
+}
+
+###
+DELETE {{host}}/api/reviews
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": "4"
+}
+
+###

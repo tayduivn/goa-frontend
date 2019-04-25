@@ -88,20 +88,6 @@
 <script>
   export default {
     name: "NavBar",
-    sockets: {
-      connect: function () {
-        console.log('socket connected')
-      },
-      notification: function (data) {
-        const item = localStorage.getItem('user')
-        if (item !== null && item !== undefined) {
-          const user = JSON.parse(item)
-          if (user !== null && user !== undefined && user.constructor === Object && user.iduser !== undefined && user.iduser !== null && user.iduser === data.user_iduser) {
-            this.$store.commit('SET_NOTIFICATIONS_WITHOUT_READ', data.count)
-          }
-        }
-      }
-    },
     computed: {
       user() {
         if (this.$store.getters.getUser !== '') {

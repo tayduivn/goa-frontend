@@ -80,10 +80,12 @@
 }
 
 .sidenav__list-item:first-child {
-  background-color: #FE0100;
+  align-items: center;
+  background-color: #0d0d0d;
+  display: flex;
   height: 50px;
   margin-bottom: 10px;
-  padding: 0 20px;
+  padding: 10px 20px;
 }
 
 .sidenav__list-item:first-child img {

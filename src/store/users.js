@@ -2,18 +2,17 @@ import axios from 'axios'
 import config from "./../config/config";
 import {handleError} from "../utils/util"
 import swal from 'vue-sweetalert2';
+import {apiUsers} from "../utils/endpoints"
 
 export default {
   state: {
     token: false,
     user: '',
-    profile: {},
     users: [],
     levelUser: "",
   },
   getters: {
     getUsers: state => state.users,
-    getProfile: state => state.profile,
     getUser: state => state.user,
     getLevelUser: state => state.levelUser,
     getToken: state => !!state.token
@@ -30,9 +29,6 @@ export default {
     SET_USERS(state, users) {
       state.users = users
     },
-    SET_PROFILE(state, profile) {
-      state.profile = profile
-    },
     logout(state) {
       state.token = false
       state.user = ''
@@ -40,31 +36,12 @@ export default {
     },
   },
   actions: {
-    getProfile({commit}, idUser) {
-      commit('SET_PROFILE', 'loading')
-      axios({
-        method: 'GET',
-        url: `${config.api_url}/api/user/profile/${idUser}`,
-        headers: {
-          Authorization: localStorage.token
-        },
-      })
-        .then(res => {
-          if (res.data.data.length === 0) {
-            commit('SET_PROFILE', 'empty')
-          } else
-            commit('SET_PROFILE', res.data.data)
-        })
-        .catch(err => {
-          commit('SET_PROFILE', 'error')
-          handleError(swal, err)
-        })
-    },
-    getUsers({commit}) {
+    getUsers({commit}, query = '') {
       commit('SET_USERS', 'loading')
+      const url = `${config.api_url}${apiUsers.all}${query}`
       axios({
         method: 'GET',
-        url: `${config.api_url}/api/admin/user/typeuser/administrador`,
+        url: url,
         headers: {
           Authorization: localStorage.token
         },
@@ -82,14 +59,15 @@ export default {
     },
     login({commit}, user) {
       return new Promise((resolve, reject) => {
+        let url = `${config.api_url}${apiUsers.login}`
+        console.log(url)
         axios({
           method: 'POST',
-          url: `${config.api_url}/api/public/user/login`,
+          url: url,
           data: user
         })
           .then(resp => {
-            const type = resp.data.data.user.type === 'Transportista' ? 'Cliente' : resp.data.data.user.type
-            if (type === user.type) {
+            if (resp.data.data.user.name === user.type) {
               const token = resp.data.data.token
               const user = JSON.stringify(resp.data.data.user)
               localStorage.token = `Bearer ${token}`

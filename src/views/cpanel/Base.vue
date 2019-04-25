@@ -10,7 +10,7 @@
         <div class="dropdown">
           <button @click.prevent="dropdownShow" class="dropbtn"></button>
           <div id="myDropdown" class="dropdown-content">
-            <router-link to="/cpanel/admin/profile">Perfil</router-link>
+            <router-link to="/cpanel/profile">Perfil</router-link>
             <a @click.prevent="logout">Salir</a>
           </div>
         </div>
@@ -23,31 +23,31 @@
       </div>
       <ul class="sidenav__list">
         <li class="sidenav__list-item">
-          <img src="../../assets/logo.png" alt="logo">
+          <img src="../../assets/logo.png" alt="logo"> <span class="ml-3"><strong>Garden of America</strong></span>
         </li>
         <li class="sidenav__list-item">
-          <router-link to="/cpanel/admin/client">Clientes</router-link>
+          <router-link to="/cpanel/client">Clientes</router-link>
         </li>
         <li class="sidenav__list-item">
-          <router-link to="/cpanel/admin/products">Productos</router-link>
+          <router-link to="/cpanel/products">Productos</router-link>
         </li>
         <li class="sidenav__list-item">
-          <router-link to="/cpanel/admin/categories">Categorías</router-link>
+          <router-link to="/cpanel/categories">Categorías</router-link>
         </li>
         <li class="sidenav__list-item">
-          <router-link to="/cpanel/admin/reviews">Reviews</router-link>
+          <router-link to="/cpanel/reviews">Reviews</router-link>
         </li>
         <li class="sidenav__list-item">
-          <router-link to="/cpanel/admin/orders">
+          <router-link to="/cpanel/orders">
             Ordenes
             <span style="display: none" :class="{isActive: (ordersBase > 0)}">{{ordersBase}}</span>
           </router-link>
         </li>
         <li class="sidenav__list-item">
-          <router-link to="/cpanel/admin/carts">Carritos</router-link>
+          <router-link to="/cpanel/carts">Carritos</router-link>
         </li>
         <li class="sidenav__list-item">
-          <router-link to="/cpanel/admin/users">Usuarios</router-link>
+          <router-link to="/cpanel/users">Usuarios</router-link>
         </li>
       </ul>
     </aside>
@@ -117,22 +117,13 @@
         }
       }
     },
-    sockets: {
-      connect: function () {
-        console.log('socket connected')
-      },
-      order: function (data) {
-        console.log(data)
-        this.$store.commit('SET_ACTIVE_ORDER', data.count)
-      }
-    },
     computed: {
       ordersBase() {
         return this.$store.getters.getActiveOrder
       }
     },
     created() {
-      this.$store.dispatch('getActiveOrder', 2)
+      /*this.$store.dispatch('getActiveOrder', 2)*/
     },
     methods: {
       dropdownShow() {
