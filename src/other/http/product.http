@@ -4,7 +4,7 @@ Authorization: Bearer {{auth_token}}
 
 ###
 
-GET {{host}}/api/products?order=DESC
+GET {{host}}/api/products
 Accept: application/json
 Authorization: Bearer {{auth_token}}
 
@@ -15,15 +15,16 @@ Content-Type: application/json
 Authorization: Bearer {{auth_token}}
 
 {
-  "sku": "17",
-  "name": "13456",
-  "description_short": "Valencia",
-  "description_one": "Hola 11",
-  "description_two": "Hola 22",
-  "preparation": "preparación",
-  "regular_price": "321312",
-  "quantity": "23",
-  "user_id": "1"
+  "id": "",
+  "sku": "13213",
+  "name": "Cacao 5",
+  "description_short": "Hola",
+  "description_one": "Hola 1",
+  "description_two": "Hola 2",
+  "preparation": "Prepa",
+  "quantity": "2",
+  "user_id": "",
+  "regular_price": "100"
 }
 
 ###

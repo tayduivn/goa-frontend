@@ -2,6 +2,7 @@ import axios from 'axios'
 import config from "./../config/config";
 import {handleError} from "../utils/util"
 import swal from 'vue-sweetalert2';
+import {apiCategories} from "../utils/endpoints"
 
 export default {
   state: {
@@ -29,7 +30,7 @@ export default {
       commit('SET_CATEGORIES', 'loading')
       axios({
         method: 'GET',
-        url: `${config.api_url}/api/public/category/getAll`,
+        url: `${apiCategories.allPublic}`,
         headers: {
           Authorization: localStorage.token
         },

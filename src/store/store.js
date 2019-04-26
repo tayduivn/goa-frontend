@@ -9,7 +9,7 @@ import transportService from './transport-service'
 import messageOrders from './message-orders'
 import orders from './orders'
 import service from './services'
-import objects from './objects'
+import products from './products'
 import content from './content'
 import payment from './payment'
 import images from './images'
@@ -28,7 +28,7 @@ export default new Vuex.Store({
     transportService,
     messageOrders,
     orders,
-    objects,
+    products,
     notifications,
     service
   }

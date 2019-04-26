@@ -45,13 +45,13 @@
 </template>
 
 <script>
-  import {modelObject} from "../../../services/model/model-object"
+  import {modelProduct} from "../../../services/model/model-product"
 
   export default {
     name: "ProductsMessage",
     data() {
       return {
-        object: modelObject,
+        object: modelProduct,
       }
     },
     computed: {
@@ -60,13 +60,13 @@
       }
     },
     created() {
-      this.object = modelObject.reset()
+      this.object = modelProduct.reset()
       this.$store.dispatch('getServicesCategory', localStorage.getItem('idCategory'))
       this.$parent.setCurrentPath()
       try {
         this.object = JSON.parse(this.$store.getters.getObject)
       } catch (e) {
-        this.object = modelObject.reset()
+        this.object = modelProduct.reset()
       }
     },
     methods: {

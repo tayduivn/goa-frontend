@@ -118,7 +118,7 @@
   import {handleError, listState} from "../../utils/util"
   import {confirmMessage, successMessage} from "../../utils/handle-message"
   import {modelOrder} from "../../services/model/model-orders"
-  import {modelObject} from "../../services/model/model-object"
+  import {modelProduct} from "../../services/model/model-product"
   import DataOrderTable from "../../components/DataOrderTable"
   import {modelMessageNotification} from "../../services/model/model-message-notification"
 
@@ -136,7 +136,7 @@
         statesOrder: listState,
         stateOrderSelected: 'Todo',
         order: modelOrder,
-        object: modelObject,
+        object: modelProduct,
         notification: modelMessageNotification,
         open: false,
         idTransport: this.$route.params.id,

@@ -1,42 +1,71 @@
+import config from "./../config/config";
+import axios from "axios"
+
+function getAxios(endPoint, method, data) {
+  return axios({
+    method: method,
+    url: endPoint,
+    headers: {
+      Authorization: localStorage.token
+    },
+    data: data
+  })
+}
+
 const apiUsers = {
-  login: '/api/public/users/login',
-  register: '/api/public/users/register',
-  forgot: '/api/public/users/forgot',
-  password: '/api/users/password',
-  all: '/api/users',
+  login: `${config.api_url}/api/public/users/login`,
+  register: `${config.api_url}/api/public/users/register`,
+  forgot: `${config.api_url}/api/public/users/forgot`,
+  password: `${config.api_url}/api/users/password`,
+  all: `${config.api_url}/api/users`,
 }
 
 const apiCategories = {
-  all: '/api/categories',
-  allPublic: '/api/public/categories',
+  all: `${config.api_url}/api/categories`,
+  allPublic: `${config.api_url}/api/public/categories`,
+}
+
+const apiProductsCategories = {
+  all: `${config.api_url}/api/categories/products`,
 }
 
 const apiImages = {
-  all: '/api/images',
-  register: '/api/images/register',
-  update: '/api/images/update',
-  allPublic: '/api/public/images',
+  all: `${config.api_url}/api/images`,
+  register: `${config.api_url}/api/images/register`,
+  update: `${config.api_url}/api/images/update`,
+  allPublic: `${config.api_url}/api/public/images`,
 }
 
 const apiReviews = {
-  all: '/api/reviews',
-  allPublic: '/api/public/reviews',
+  all: `${config.api_url}/api/reviews`,
+  allPublic: `${config.api_url}/api/public/reviews`,
 }
 
 const apiTransactions = {
-  all: '/api/transactions',
+  all: `${config.api_url}/api/transactions`,
 }
 
 const apiProducts = {
-  all: '/api/products',
+  all: `${config.api_url}/api/products`,
 }
 
 const apiOrders = {
-  all: '/api/orders',
+  all: `${config.api_url}/api/orders`,
 }
 
 const apiCarts = {
-  all: '/api/carts',
+  all: `${config.api_url}/api/carts`,
 }
 
-export {apiUsers, apiCategories, apiImages, apiReviews, apiTransactions, apiCarts, apiOrders, apiProducts};
+export {
+  getAxios,
+  apiUsers,
+  apiCategories,
+  apiImages,
+  apiReviews,
+  apiTransactions,
+  apiCarts,
+  apiOrders,
+  apiProducts,
+  apiProductsCategories
+};

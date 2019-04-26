@@ -89,6 +89,14 @@ button.global-next-button {
   padding-bottom: 10px;
 }
 
+button[disabled=disabled], button:disabled {
+  background-color: grey !important;
+  border-color: transparent !important;
+  color: white;
+  cursor: no-drop;
+  padding: 8px !important;
+}
+
 /* Slick */
 .slick-prev:before, .slick-next:before {
   color: black;

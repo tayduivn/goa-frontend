@@ -1,5 +1,4 @@
 import axios from 'axios'
-import config from "./../config/config";
 import {handleError} from "../utils/util"
 import swal from 'vue-sweetalert2';
 import {apiUsers} from "../utils/endpoints"
@@ -38,7 +37,7 @@ export default {
   actions: {
     getUsers({commit}, query = '') {
       commit('SET_USERS', 'loading')
-      const url = `${config.api_url}${apiUsers.all}${query}`
+      const url = `${apiUsers.all}${query}`
       axios({
         method: 'GET',
         url: url,
@@ -59,7 +58,7 @@ export default {
     },
     login({commit}, user) {
       return new Promise((resolve, reject) => {
-        let url = `${config.api_url}${apiUsers.login}`
+        let url = `${apiUsers.login}`
         console.log(url)
         axios({
           method: 'POST',
