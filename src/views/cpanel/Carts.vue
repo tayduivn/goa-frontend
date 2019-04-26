@@ -1,10 +1,10 @@
 <template>
   <div>
 
-    <div v-if="images && images === 'loading'">
+    <div v-if="carts && carts === 'loading'">
       <h3>Cargando datos...</h3>
     </div>
-    <div v-else-if="images && images !== 'empty'">
+    <div v-else-if="carts && carts !== 'empty'">
       <div class="d-flex justify-content-between mb-3">
         <h3 class="mb-2">Lista de Imágenes</h3>
         <div class="text-right">
@@ -21,16 +21,16 @@
         </tr>
         </thead>
         <tbody>
-        <tr v-for="(image, index) of images" :key="image.idimages">
+        <tr v-for="(cart, index) of carts" :key="cart.idcarts">
           <th scope="col">{{++index}}</th>
-          <td>{{formaDate(image.date_created)}}</td>
+          <td>{{formaDate(cart.date_created)}}</td>
           <td>
-            <button class="btn btn-sm btn-success" @click.prevent="openModal(image, false)">
+            <button class="btn btn-sm btn-success" @click.prevent="openModal(cart, false)">
               Editar
             </button>
           </td>
           <td>
-            <button class="btn btn-sm btn-danger" @click.prevent="deleteData(image.idimages)">
+            <button class="btn btn-sm btn-danger" @click.prevent="deleteData(cart.idcarts)">
               Eliminar
             </button>
           </td>
@@ -38,7 +38,7 @@
         </tbody>
       </table>
     </div>
-    <div v-else-if="images && images === 'empty'">
+    <div v-else-if="carts && carts === 'empty'">
       <div class="d-flex justify-content-between mb-3">
         <h3>No hay datos registrados</h3>
         <div class="text-right">
@@ -46,7 +46,7 @@
         </div>
       </div>
     </div>
-    <div v-else-if="images && images === 'error'">
+    <div v-else-if="carts && carts === 'error'">
       <h3>Error recuperando datos</h3>
     </div>
 
@@ -54,22 +54,7 @@
       <template slot="close-icon">
         <CloseImageSVG/>
       </template>
-      <h3>Información para la imagen</h3>
-      <form @submit.prevent="sendData">
-        <div class="form-group">
-          <label>Imagen</label>
-          <input type="file" class="form-control" accept="image/*" @change="subirImagen" required>
-          <p class="m-0 p-0 text-left">
-            <small>Subir una imagen.</small>
-          </p>
-        </div>
-        <div v-if="image.idimages !== ''" class="image-content">
-          <img :src="image.image" :alt="image.name">
-        </div>
-        <div class="text-right">
-          <button type="submit" class="btn-sm btn-primary">Guardar</button>
-        </div>
-      </form>
+      <h3>Información del carrito</h3>
     </vue-modaltor>
 
   </div>
@@ -93,7 +78,7 @@
       }
     },
     computed: {
-      images() {
+      carts() {
         return this.$store.getters.getCarts
       }
     },
@@ -101,9 +86,9 @@
       this.$store.dispatch('getCarts')
     },
     methods: {
-      openModal(image) {
+      openModal(cart) {
         this.open = true
-        this.image = image
+        this.cart = cart
       },
       hideModal() {
         this.open = false
@@ -116,12 +101,12 @@
 </script>
 
 <style scoped>
-  .image-content {
+  .cart-content {
     width: 200px;
     height: 200px;
   }
 
-  .image-content img {
+  .cart-content img {
     width: 100%;
   }
 </style>

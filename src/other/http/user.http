@@ -10,7 +10,7 @@ Content-Type: application/json
 
 ###
 
-GET {{host}}/api/users?type=Cliente
+GET {{host}}/api/users
 Accept: application/json
 Authorization: Bearer {{auth_token}}
 ###

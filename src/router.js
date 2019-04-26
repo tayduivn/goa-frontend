@@ -126,6 +126,11 @@ let router = new Router({
           component: () => import('./views/cpanel/Users')
         },
         {
+          path: 'roles',
+          name: 'roles',
+          component: () => import('./views/cpanel/Roles')
+        },
+        {
           path: 'profile',
           name: 'profileAdmin',
           component: () => import('./views/cpanel/Profile')

@@ -51,7 +51,7 @@ export default {
     },
     login({commit}, user) {
       return new Promise((resolve, reject) => {
-        getAxios(apiUsers.login, 'GET')
+        getAxios(apiUsers.login, 'POST', user)
           .then(resp => {
             if (resp.data.data.user.name === user.type) {
               const token = resp.data.data.token

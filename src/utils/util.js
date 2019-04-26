@@ -45,6 +45,9 @@ function handleError(swal, err, message = '') {
       case 404:
         validateMessage()
         break
+      case 409:
+        validateMessage()
+        break
       case 500:
         validateMessage()
         break
@@ -54,7 +57,6 @@ function handleError(swal, err, message = '') {
     }
   } else {
     infoMessage(swal, err, 'Error Desconocido')
-    console.log(err)
   }
 }
 
