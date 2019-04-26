@@ -54,7 +54,7 @@
                  required pattern="^\S{6,}$"
                  onchange="this.setCustomValidity(this.validity.patternMismatch ? 'La contraseña no es igual' : '');">
         </div>
-        <button type="submit" class="btn btn-primary">Unete</button>
+        <button type="submit" class="btn btn-primary">Únete</button>
         <p class="mt-5 register-politics">Al oprimir Únete a TSL, usted acepta los términos y condiciones del
           <a href="/#">Acuerdo de usuario de TSL</a> & <a href="/#">Política de Privacidad</a>.
         </p>
@@ -68,7 +68,6 @@
   import {handleError} from "../../utils/util"
   import config from "../../config/config"
   import axios from "axios"
-  import {modelTransportService} from "../../services/model/model-transport-service"
 
   export default {
     name: 'register',
@@ -96,46 +95,12 @@
           user_iduser: '',
           name_truck: '',
         },
-        serviceTransport: modelTransportService
       }
     },
     methods: {
       activeClient(isClient) {
         this.isClient = isClient
         this.isTransport = !isClient
-      },
-      registerServiceTransport() {
-        this.serviceTransport.name_service = "Sin nombre"
-        this.serviceTransport.distance = "0"
-        this.serviceTransport.prom_price = "0"
-        this.serviceTransport.weight = "0"
-        this.serviceTransport.size = "0"
-        axios({
-          method: 'POST',
-          url: `${config.api_url}/api/public/transportservice/register`,
-          data: this.serviceTransport
-        })
-          .then(() => {
-            successMessage(this.$swal, null, "Registrado")
-            this.$router.push('profile')
-          })
-          .catch(err => {
-            handleError(this.$swal, err, "Error registrando datos para el transportista")
-          })
-      },
-      registerTransport() {
-        axios({
-          method: 'POST',
-          url: `${config.api_url}/api/public/transport/register`,
-          data: this.userTransport
-        })
-          .then(res => {
-            this.serviceTransport.transport_idtransport = res.data.data.idTransport
-            this.registerServiceTransport()
-          })
-          .catch(err => {
-            handleError(this.$swal, err, "Error registrando datos para el transportista")
-          })
       },
       send() {
         this.user.type = this.isClient ? "Cliente" : "Transportista"
@@ -145,14 +110,9 @@
           url: `${config.api_url}/api/public/user/register`,
           data: this.user
         })
-          .then((res) => {
-            if (this.isTransport) {
-              this.userTransport.user_iduser = res.data.data.idUser
-              this.registerTransport()
-            } else {
-              successMessage(this.$swal, null, "Registrado")
-              this.$router.push('ship')
-            }
+          .then(() => {
+            successMessage(this.$swal, null, "Registrado")
+            this.$router.push('ship')
           })
           .catch(err => {
             handleError(this.$swal, err)

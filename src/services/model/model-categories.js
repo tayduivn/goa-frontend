@@ -1,10 +1,8 @@
 const modelCategory = {
-  idcategory: "",
-  name: "",
+  id: "",
   image: "",
   reset: function () {
-    this.idcategory = ""
-    this.name = ""
+    this.id = ""
     this.image = ""
     return modelCategory
   }

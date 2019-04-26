@@ -4,7 +4,6 @@ function successMessage(swal, title = 'Correcto', text = '') {
     title: title,
     text: text
   });
-  console.clear()
 }
 
 function errorMessage(swal, error, text = 'Algo salió mal') {

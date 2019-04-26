@@ -1,15 +1,25 @@
 import config from "./../config/config";
 import axios from "axios"
 
-function getAxios(endPoint, method, data) {
-  return axios({
-    method: method,
-    url: endPoint,
-    headers: {
-      Authorization: localStorage.token
-    },
-    data: data
-  })
+function getAxios(endPoint, method, data = null) {
+  if (data === null) {
+    return axios({
+      method: method,
+      url: endPoint,
+      headers: {
+        Authorization: localStorage.token
+      },
+    })
+  } else {
+    return axios({
+      method: method,
+      url: endPoint,
+      headers: {
+        Authorization: localStorage.token
+      },
+      data: data
+    })
+  }
 }
 
 const apiUsers = {

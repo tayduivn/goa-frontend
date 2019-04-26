@@ -61,7 +61,7 @@
         <CloseImageSVG/>
       </template>
       <div v-if="modalType === 'products'">
-        <h3>Información de los productos</h3>
+        <h3>Información de los productos | Fecha creación {{product.inserted_at}}</h3>
         <form @submit.prevent="sendData">
           <div class="row">
             <div class="form-group col-md-4 col-12">
@@ -106,7 +106,7 @@
         </form>
       </div>
       <div v-else-if="modalType === 'categories'">
-        <h4>Categorías</h4>
+        <h4>{{product.name}} - Categorías</h4>
         <div v-if="product.id === ''">
           <p>Primero necesitas crear el producto antes de asignar una categoría</p>
         </div>
@@ -119,6 +119,8 @@
         </form>
       </div>
       <div v-else-if="modalType === 'images'">
+        <h4>{{product.name}}</h4>
+        <hr>
         <h4>Agregar imagen</h4>
         <form @submit.prevent="saveDataImage">
           <div class="form-group">

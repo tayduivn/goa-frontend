@@ -106,7 +106,7 @@
   import config from "./../../config/config";
   import {handleError} from "../../utils/util"
   import {confirmMessage, successMessage} from "../../utils/handle-message"
-  import {modelService} from "../../services/model/model-service"
+  import {modelReviews} from "../../services/model/model-reviews"
 
   export default {
     name: "Transactions",
@@ -119,7 +119,7 @@
     components: {CloseImageSVG},
     data() {
       return {
-        service: modelService,
+        service: modelReviews,
         formData: null,
         open: false
       }
@@ -157,7 +157,7 @@
       successRequest (title) {
         successMessage(this.$swal, title)
         this.$store.dispatch('getServices')
-        this.service = modelService.reset()
+        this.service = modelReviews.reset()
         this.hideModal()
         console.clear()
       },
@@ -232,7 +232,7 @@
       },
       hideModal() {
         this.open = false
-        this.service = modelService.reset()
+        this.service = modelReviews.reset()
         const file = document.getElementById("image-service");
         file.value = file.defaultValue;
       },

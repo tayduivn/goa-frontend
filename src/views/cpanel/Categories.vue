@@ -22,17 +22,17 @@
         </tr>
         </thead>
         <tbody>
-        <tr v-for="(category, index) of categories" :key="category.idcategory">
+        <tr v-for="(category, index) of categories" :key="category.id">
           <th scope="col">{{++index}}</th>
           <td>{{category.name}}</td>
-          <td>{{formaDate(category.date_created)}}</td>
+          <td>{{formaDate(category.inserted_at)}}</td>
           <td>
-            <button class="btn btn-sm btn-success" @click.prevent="openModal(category, false)">
+            <button class="btn btn-sm btn-success" @click.prevent="openModal(category)">
               Editar
             </button>
           </td>
           <td>
-            <button class="btn btn-sm btn-danger" @click.prevent="deleteData(category.idcategory)">
+            <button class="btn btn-sm btn-danger" @click.prevent="deleteData(category.id)">
               Eliminar
             </button>
           </td>
@@ -62,14 +62,6 @@
           <label for="name" class="mt-3 mb-3">Nombre</label>
           <input class="form-control" id="name" type="text" v-model="category.name" required>
         </div>
-        <div class="form-group">
-          <label>Imagen</label>
-          <input id="image-category" type="file" class="form-control" accept="image/*" @change="subirImagen" required>
-          <p class="m-0 p-0 text-left"><small>Subir una imagen.</small></p>
-        </div>
-        <div v-if="category.idcategory !== ''" class="image-content">
-          <img :src="category.image" :alt="category.name">
-        </div>
         <div class="text-right">
           <button type="submit" class="btn-sm btn-primary">Guardar</button>
         </div>
@@ -81,11 +73,10 @@
 
 <script>
   import CloseImageSVG from "../../components/CloseImageSVG"
-  import axios from 'axios'
-  import config from "./../../config/config";
   import {handleError} from "../../utils/util"
   import {confirmMessage, successMessage} from "../../utils/handle-message"
   import {modelCategory} from "../../services/model/model-categories"
+  import {apiCategories, getAxios} from "../../utils/endpoints"
 
   export default {
     name: "categories",
@@ -114,82 +105,42 @@
     },
     methods: {
       sendData() {
-        if (this.category.idcategory === '') {
+        if (this.category.id === '') {
           this.saveData()
         } else {
           this.editData()
         }
       },
-      subirImagen(event) {
-        let files = event.target.files
-        this.formData.delete('image')
-        if (files.length) {
-          for (let image of files) {
-            this.formData.append('image', image, image.name)
-          }
-        }
-      },
-      successRequest (title) {
+      successRequest(title) {
         successMessage(this.$swal, title)
         this.$store.dispatch('getCategories')
-        this.category = modelCategory.reset()
         this.hideModal()
-        console.clear()
-      },
-      formDataSend() {
-        this.formData.delete('idcategory')
-        this.formData.append('idcategory', this.category.idcategory)
-        this.formData.delete('name')
-        this.formData.append('name', this.category.name)
       },
       saveData() {
-        this.formDataSend()
-        axios({
-          method: 'POST',
-          url: `${config.api_url}/api/admin/category/register`,
-          headers: {
-            Authorization: localStorage.token
-          },
-          data: this.formData
-        })
+        getAxios(apiCategories.all, 'POST', this.category)
           .then(() => {
-            this.successRequest("Creado", "Creado")
+            this.successRequest("Creado")
           })
           .catch(err => {
             handleError(this.$swal, err)
           })
       },
       editData() {
-        this.formDataSend()
-        axios({
-          method: 'POST',
-          url: `${config.api_url}/api/admin/category/update`,
-          headers: {
-            Authorization: localStorage.token
-          },
-          data: this.formData
-        })
+        getAxios(apiCategories.all, 'PUT', this.category)
           .then(() => {
-            this.successRequest("Creado", "Editado")
+            this.successRequest("Editado")
           })
           .catch(err => {
             handleError(this.$swal, err)
           })
       },
-      deleteData(idcategory) {
+      deleteData(id) {
         confirmMessage(this.$swal)
           .then(res => {
-            if (res){
-              axios({
-                method: 'DELETE',
-                url: `${config.api_url}/api/admin/category/delete`,
-                headers: {
-                  Authorization: localStorage.token
-                },
-                data: {idcategory}
-              })
+            if (res) {
+              getAxios(apiCategories.all, 'DELETE', {id})
                 .then(() => {
-                  this.successRequest("Creado", "Eliminado")
+                  this.successRequest("Eliminado")
                 })
                 .catch(err => {
                   handleError(this.$swal, err)
@@ -197,17 +148,15 @@
             }
           })
       },
-      openModal(category, isCreate = true) {
+      openModal(category) {
         this.open = true
-        if (!isCreate) {
+        if (category !== null) {
           this.category = category
         }
       },
       hideModal() {
         this.open = false
         this.category = modelCategory.reset()
-        const file = document.getElementById("image-category");
-        file.value = file.defaultValue;
       },
       formaDate(today) {
         return new Date(today).toLocaleDateString("es-ES")
@@ -222,7 +171,7 @@
     height: 200px;
   }
 
-  .image-content img{
+  .image-content img {
     width: 100%;
   }
 </style>

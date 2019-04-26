@@ -1,4 +1,4 @@
-import {errorMessage} from "./handle-message"
+import {infoMessage} from "./handle-message"
 import store from "../store/store"
 import config from "../config/config"
 import router from "../router"
@@ -29,9 +29,9 @@ function updateOrderOptions(data) {
 function handleError(swal, err, message = '') {
   function validateMessage() {
     if (message === '')
-      errorMessage(swal, err, err.response.data.message)
+      infoMessage(swal, err, err.response.data.message)
     else
-      errorMessage(swal, err, message)
+      infoMessage(swal, err, message)
   }
 
   if (err.response) {
@@ -49,11 +49,11 @@ function handleError(swal, err, message = '') {
         validateMessage()
         break
       default:
-        errorMessage(swal, err, 'Error Desconocido')
+        infoMessage(swal, err, 'Error Desconocido')
         break
     }
   } else {
-    errorMessage(swal, err, 'Error Desconocido')
+    infoMessage(swal, err, 'Error Desconocido')
     console.log(err)
   }
 }

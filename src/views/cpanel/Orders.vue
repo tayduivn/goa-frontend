@@ -120,7 +120,6 @@
   import {modelOrder} from "../../services/model/model-orders"
   import {modelProduct} from "../../services/model/model-product"
   import DataOrderTable from "../../components/DataOrderTable"
-  import {modelMessageNotification} from "../../services/model/model-message-notification"
 
   export default {
     name: "Orders",
@@ -137,7 +136,6 @@
         stateOrderSelected: 'Todo',
         order: modelOrder,
         object: modelProduct,
-        notification: modelMessageNotification,
         open: false,
         idTransport: this.$route.params.id,
       }
@@ -206,7 +204,6 @@
               })
                 .then(res => {
                   if (state === 'Cancelado') {
-                    this.notification = modelMessageNotification.reset()
                     if (res.data.data.isPayment) {
                       this.successRequest("Creado", 'Enviado, revise su bandeja de entrada para obtener información de la mediación')
                     } else {

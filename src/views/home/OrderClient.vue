@@ -113,7 +113,6 @@
   import {modelOrder} from "../../services/model/model-orders"
   import {modelProduct} from "../../services/model/model-product"
   import DataOrderTable from "../../components/DataOrderTable"
-  import {modelMessageOrders} from "../../services/model/model-message-orders"
   import {modelPayment} from "../../services/model/model-payment"
 
   export default {
@@ -132,7 +131,6 @@
         stateOrder: 'Esperando',
         order: modelOrder,
         object: modelProduct,
-        messageOrder: modelMessageOrders,
         payment: modelPayment,
         open: false,
       }
@@ -156,10 +154,8 @@
         this.$store.dispatch('getStatusContent', this.stateOrder)
         this.order = modelOrder.reset()
         this.object = modelProduct.reset()
-        this.messageOrder = modelMessageOrders.reset()
         this.payment = modelPayment.reset()
         this.hideModal()
-        console.clear()
       },
       sendData(title, action, state = '') {
         confirmMessage(this.$swal, title)
