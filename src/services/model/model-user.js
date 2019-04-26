@@ -5,46 +5,25 @@ const modelUserLogin = {
 }
 
 const modelUser = {
-  iduser: "",
-  name: "",
-  password: "",
+  id: "",
   email: "",
-  street: "",
+  first_name: "",
+  last_name: "",
+  password: "",
+  address: "",
   phone: "",
-  type: "",
+  role_id: "",
   reset: function () {
-    this.iduser = ""
-    this.name = ""
-    this.password = ""
+    this.id = ""
     this.email = ""
-    this.street = ""
+    this.first_name = ""
+    this.last_name = ""
+    this.password = ""
+    this.address = ""
     this.phone = ""
-    this.type = ""
+    this.role_id = ""
     return modelUser
   }
 }
 
-const modelUserTransport = {
-  iduser: "",
-  name: "",
-  password: "",
-  email: "",
-  street: "",
-  phone: "",
-  type: "",
-  idtransport: "",
-  name_truck: "",
-  reset: function () {
-    this.iduser = ""
-    this.name = ""
-    this.password = ""
-    this.email = ""
-    this.street = ""
-    this.phone = ""
-    this.type = ""
-    this.idtransport = ""
-    this.name_truck = ""
-  }
-}
-
-export {modelUser, modelUserLogin, modelUserTransport};
+export {modelUser, modelUserLogin};

@@ -1,5 +1,4 @@
-import axios from "axios"
-import {apiProducts} from "../utils/endpoints"
+import {apiProducts, getAxios} from "../utils/endpoints"
 import {handleError} from "../utils/util"
 import swal from "vue-sweetalert2"
 
@@ -19,14 +18,9 @@ export default {
   },
   actions: {
     getProducts({commit}) {
-      return new Promise((resolve) => {commit('SET_PRODUCTS', 'loading')
-        axios({
-          method: 'GET',
-          url: `${apiProducts.all}`,
-          headers: {
-            Authorization: localStorage.token
-          },
-        })
+      return new Promise((resolve) => {
+        commit('SET_PRODUCTS', 'loading')
+        getAxios(apiProducts.all, 'GET')
           .then(res => {
             if (res.data.data.length === 0) {
               commit('SET_PRODUCTS', 'empty')

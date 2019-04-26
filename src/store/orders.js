@@ -1,7 +1,6 @@
-import axios from 'axios'
-import config from "./../config/config";
 import {handleError} from "../utils/util"
 import swal from "vue-sweetalert2";
+import {apiOrders, getAxios} from "../utils/endpoints"
 
 export default {
   state: {
@@ -34,13 +33,7 @@ export default {
   actions: {
     getOrders({commit}) {
       commit('SET_ORDERS', 'loading')
-      axios({
-        method: 'GET',
-        url: `${config.api_url}/api/order/getAll`,
-        headers: {
-          Authorization: localStorage.token
-        },
-      })
+      getAxios(apiOrders.all, 'GET')
         .then(res => {
           if (res.data.data.length === 0) {
             commit('SET_ORDERS', 'empty')
@@ -53,14 +46,9 @@ export default {
         })
     },
     getStatusOrder({commit}, status) {
+      console.log(status)
       commit('SET_STATUS_ORDER', 'loading')
-      axios({
-        method: 'GET',
-        url: `${config.api_url}/api/order/getStatus/${status}`,
-        headers: {
-          Authorization: localStorage.token
-        },
-      })
+      getAxios(apiOrders.all, 'GET')
         .then(res => {
           if (res.data.data.length === 0) {
             commit('SET_STATUS_ORDER', 'empty')
@@ -73,14 +61,9 @@ export default {
         })
     },
     getActiveOrder({commit}, active) {
+      console.log(active)
       return new Promise((resolve) => {
-        axios({
-          method: 'GET',
-          url: `${config.api_url}/api/order/getActive/${active}`,
-          headers: {
-            Authorization: localStorage.token
-          },
-        })
+        getAxios(apiOrders.all, 'GET')
           .then(res => {
             commit('SET_ACTIVE_ORDER', res.data.data.count)
             resolve(res.data.data.count)

@@ -1,40 +1,25 @@
-import axios from 'axios'
-import config from "./../config/config";
 import {handleError} from "../utils/util"
 import swal from 'vue-sweetalert2';
-import {apiUsers} from "../utils/endpoints"
+import {apiUsers, getAxios} from "../utils/endpoints"
 
 export default {
   state: {
     clients: [],
-    client: {},
   },
   mutations: {
     SET_CLIENTS(state, clients) {
       state.clients = clients
     },
-    SET_CLIENT(state, client) {
-      state.client = client
-    }
   },
   getters: {
     getClients: (state) => {
       return state.clients
     },
-    getClient: (state) => {
-      return state.client
-    }
   },
   actions: {
     getClients({commit}) {
       commit('SET_CLIENTS', 'loading')
-      axios({
-        method: 'GET',
-        url: `${config.api_url}${apiUsers.all}`,
-        headers: {
-          Authorization: localStorage.token
-        },
-      })
+      getAxios(apiUsers.all, 'GET')
         .then(res => {
           if (res.data.data.length === 0) {
             commit('SET_CLIENTS', 'empty')

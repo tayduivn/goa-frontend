@@ -3,16 +3,11 @@ import Vuex from 'vuex'
 import user from './users'
 import categories from './categories'
 import client from './clients'
-import notifications from './notifications'
-import transports from './transports'
-import transportService from './transport-service'
-import messageOrders from './message-orders'
 import orders from './orders'
 import service from './reviews'
 import products from './products'
-import content from './content'
-import payment from './payment'
-import images from './images'
+import cart from './cart'
+import transaction from './transaction'
 
 Vue.use(Vuex)
 
@@ -20,16 +15,11 @@ export default new Vuex.Store({
   modules: {
     user,
     categories,
-    content,
+    cart,
     client,
-    transports,
-    payment,
-    images,
-    transportService,
-    messageOrders,
+    transaction,
     orders,
     products,
-    notifications,
     service
   }
 })

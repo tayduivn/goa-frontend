@@ -63,7 +63,7 @@
         </tr>
         <tr>
           <td scope="col" width="250px">Mensaje</td>
-          <td>{{review.review_message}}</td>
+          <td>{{review.message}}</td>
         </tr>
         <tr>
           <td scope="col" width="250px">Estrellas</td>

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import {handleError} from "../utils/util"
 import swal from 'vue-sweetalert2';
-import {apiUsers} from "../utils/endpoints"
+import {apiUsers, getAxios} from "../utils/endpoints"
 
 export default {
   state: {
@@ -37,14 +37,7 @@ export default {
   actions: {
     getUsers({commit}, query = '') {
       commit('SET_USERS', 'loading')
-      const url = `${apiUsers.all}${query}`
-      axios({
-        method: 'GET',
-        url: url,
-        headers: {
-          Authorization: localStorage.token
-        },
-      })
+      getAxios(`${apiUsers.all}${query}`, 'GET')
         .then(res => {
           if (res.data.data.length === 0) {
             commit('SET_USERS', 'empty')
@@ -58,13 +51,7 @@ export default {
     },
     login({commit}, user) {
       return new Promise((resolve, reject) => {
-        let url = `${apiUsers.login}`
-        console.log(url)
-        axios({
-          method: 'POST',
-          url: url,
-          data: user
-        })
+        getAxios(apiUsers.login, 'GET')
           .then(resp => {
             if (resp.data.data.user.name === user.type) {
               const token = resp.data.data.token
