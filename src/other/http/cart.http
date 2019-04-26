@@ -1,44 +1,64 @@
-GET {{host}}/api/content/getID/4
+GET {{host}}/api/carts?id=1
 Accept: application/json
 Authorization: Bearer {{auth_token}}
+
 ###
 
-GET {{host}}/api/content/getAll
+GET {{host}}/api/carts
 Accept: application/json
 Authorization: Bearer {{auth_token}}
-###u
 
-GET {{host}}/api/content/getStatus/Todo
-Accept: application/json
-Authorization: Bearer {{auth_token}}
 ###
 
-POST {{host}}/api/content/register
+GET {{host}}/api/carts?orderByUser=true
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+GET {{host}}/api/carts?userId=2
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+GET {{host}}/api/carts/getStatus/Todo
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+POST {{host}}/api/carts
 Content-Type: application/json
 Authorization: Bearer {{auth_token}}
 
 {
+  "price": "400",
+  "quantity": "20",
+  "user_id": "2",
+  "product_id": "1"
+}
+
+###
+
+PUT {{host}}/api/admin/carts/update
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": "3",
   "object_idobject": "2",
   "order_idorder": "5"
 }
+
 ###
 
-PUT {{host}}/api/admin/content/update
+DELETE {{host}}/api/carts/delete
 Content-Type: application/json
 Authorization: Bearer {{auth_token}}
 
 {
-  "idcontent": "3",
-  "object_idobject": "2",
-  "order_idorder": "5"
+  "id": "3"
 }
-###
 
-DELETE {{host}}/api/content/delete
-Content-Type: application/json
-Authorization: Bearer {{auth_token}}
-
-{
-  "idcontent": "3"
-}
 ###

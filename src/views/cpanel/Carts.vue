@@ -6,32 +6,26 @@
     </div>
     <div v-else-if="carts && carts !== 'empty'">
       <div class="d-flex justify-content-between mb-3">
-        <h3 class="mb-2">Lista de Imágenes</h3>
-        <div class="text-right">
-          <button class="btn-sm btn-primary" @click.prevent="openModal(null)">Crear nuevo</button>
-        </div>
+        <h3 class="mb-2">Lista de Carritos</h3>
       </div>
       <table class="table table-striped">
         <thead>
         <tr>
           <th scope="col" width="10px">Nº</th>
+          <th scope="col">Usuario</th>
           <th scope="col">Fecha</th>
           <th scope="col" width="10"></th>
           <th scope="col" width="10"></th>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="(cart, index) of carts" :key="cart.idcarts">
+        <tr v-for="(cart, index) of carts" :key="cart.cart_id">
           <th scope="col">{{++index}}</th>
-          <td>{{formaDate(cart.date_created)}}</td>
+          <td>{{cart.email}}</td>
+          <td>{{formaDate(cart.inserted_at)}}</td>
           <td>
-            <button class="btn btn-sm btn-success" @click.prevent="openModal(cart, false)">
-              Editar
-            </button>
-          </td>
-          <td>
-            <button class="btn btn-sm btn-danger" @click.prevent="deleteData(cart.idcarts)">
-              Eliminar
+            <button class="btn btn-sm btn-primary" @click.prevent="openModal(cart)">
+              Mostrar
             </button>
           </td>
         </tr>
@@ -41,9 +35,6 @@
     <div v-else-if="carts && carts === 'empty'">
       <div class="d-flex justify-content-between mb-3">
         <h3>No hay datos registrados</h3>
-        <div class="text-right">
-          <button class="btn-sm btn-primary" @click.prevent="openModal(null)">Crear nuevo</button>
-        </div>
       </div>
     </div>
     <div v-else-if="carts && carts === 'error'">
@@ -55,6 +46,35 @@
         <CloseImageSVG/>
       </template>
       <h3>Información del carrito</h3>
+      <div v-if="cart && cart === 'loading'">
+        <h3>Cargando datos...</h3>
+      </div>
+      <table v-else-if="cart && cart !== 'empty'" class="table table-custom mt-3 mb-4 text-center">
+        <tbody>
+        <tr>
+          <th scope="col" width="10px">Nº</th>
+          <th scope="col">Producto</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Cantidad a Comprar</th>
+          <th scope="col">Total</th>
+        </tr>
+        <tr v-for="(item, index) of cart" :key="item.item_id">
+          <td>{{++index}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.price}}</td>
+          <td>{{item.cart_quantity}}</td>
+          <td>{{item.cart_quantity * item.price}}</td>
+        </tr>
+        </tbody>
+      </table>
+      <div v-else-if="cart && cart === 'empty'">
+        <div class="d-flex justify-content-between mb-3">
+          <h3>No hay datos registrados</h3>
+        </div>
+      </div>
+      <div v-else-if="cart && cart === 'error'">
+        <h3>Error recuperando datos</h3>
+      </div>
     </vue-modaltor>
 
   </div>
@@ -74,12 +94,15 @@
     },
     data() {
       return {
-        open: false
+        open: false,
       }
     },
     computed: {
       carts() {
         return this.$store.getters.getCarts
+      },
+      cart() {
+        return this.$store.getters.getCartsByUser
       }
     },
     created() {
@@ -88,7 +111,7 @@
     methods: {
       openModal(cart) {
         this.open = true
-        this.cart = cart
+        this.$store.dispatch('getCartsByUser', cart.user_id)
       },
       hideModal() {
         this.open = false
