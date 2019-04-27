@@ -1,84 +1,42 @@
 <template>
   <div class="mt-4">
-    <h5>Datos del cliente y el envío</h5>
+    <h5>Datos del cliente</h5>
     <table class="table table-custom mt-3 mb-4">
       <tbody>
       <tr>
         <td scope="col" width="250px">Nombre de usuario</td>
-        <td>{{order.name}}</td>
-      </tr>
-      <tr>
-        <td scope="col" width="250px">Nombre de Transportista</td>
-        <td>{{order.name_truck}}</td>
-      </tr>
-      <tr>
-        <td scope="col">Correo</td>
         <td>{{order.email}}</td>
       </tr>
       <tr>
+        <td scope="col" width="250px">Nombre del Cliente</td>
+        <td>{{order.first_name}} {{order.last_name}}</td>
+      </tr>
+      <tr>
         <td scope="col">Dirección</td>
-        <td>{{order.street}}</td>
+        <td>{{order.address}}</td>
       </tr>
       <tr>
         <td scope="col">Teléfono</td>
         <td>{{order.phone}}</td>
       </tr>
-      <tr>
-        <td scope="col">Origen</td>
-        <td>{{order.origin_order}}</td>
-      </tr>
-      <tr>
-        <td scope="col">Destino</td>
-        <td>{{order.destination_order}}</td>
-      </tr>
-      <tr>
-        <td scope="col">Máximo tiempo de recogida</td>
-        <td>{{order.maximum_delivery_date}}</td>
-      </tr>
-      <tr>
-        <td scope="col">Máximo tiempo de entrega</td>
-        <td>{{order.maximum_withdrawal_date}}</td>
-      </tr>
-      <tr>
-        <td scope="col">Mensaje</td>
-        <td>{{order.message}}</td>
-      </tr>
-      <tr>
-        <td scope="col">Precio ofertado</td>
-        <td>{{order.price}}</td>
-      </tr>
-      <tr>
-        <td scope="col">Fecha de creación</td>
-        <td>{{formaDate}}</td>
-      </tr>
       </tbody>
     </table>
     <h5>Datos del producto</h5>
-    <table class="table-object table table-custom mt-3">
+    <table class="table table-custom mt-3 mb-4 text-center">
       <tbody>
       <tr>
-        <td scope="col" width="250px">Nombre</td>
-        <td>{{object.name_object}}</td>
+        <th scope="col" width="10px">Nº</th>
+        <th scope="col">Producto</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Cantidad a Comprar</th>
+        <th scope="col">Total</th>
       </tr>
-      <tr>
-        <td scope="col" width="250px">Image</td>
-        <td><img :src="object.image" :alt="object.name"></td>
-      </tr>
-      <tr>
-        <td scope="col">Altura</td>
-        <td>{{object.height}}</td>
-      </tr>
-      <tr>
-        <td scope="col">Anchura</td>
-        <td>{{object.width}}</td>
-      </tr>
-      <tr>
-        <td scope="col">Peso</td>
-        <td>{{object.weight}}</td>
-      </tr>
-      <tr>
-        <td scope="col">Cantidad</td>
-        <td>{{object.quantity}}</td>
+      <tr v-for="(item, index) of order.products" :key="item.id">
+        <td>{{++index}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.cart_quantity}}</td>
+        <td>{{item.cart_quantity * item.price}}</td>
       </tr>
       </tbody>
     </table>
@@ -89,8 +47,10 @@
     name: 'DataOrderTable',
     props: {
       formaDate: {},
-      object: {},
       order: {}
+    },
+    created() {
+      console.log(`order${JSON.stringify(this.order)}`)
     }
   }
 </script>

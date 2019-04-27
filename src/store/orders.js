@@ -5,15 +5,19 @@ import {apiOrders, getAxios} from "../utils/endpoints"
 export default {
   state: {
     orders: [],
-    statusOrders: [],
+    cartUserOrders: [],
+    cartOrders: [],
     activeOrders: [],
   },
   mutations: {
     SET_ORDERS(state, orders) {
       state.orders = orders
     },
-    SET_STATUS_ORDER(state, statusOrders) {
-      state.statusOrders = statusOrders
+    SET_CART_USER_ORDERS(state, cartUserOrders) {
+      state.cartUserOrders = cartUserOrders
+    },
+    SET_USER_ORDERS(state, cartOrders) {
+      state.cartOrders = cartOrders
     },
     SET_ACTIVE_ORDER(state, activeOrders) {
       state.activeOrders = activeOrders
@@ -23,17 +27,20 @@ export default {
     getOrders: (state) => {
       return state.orders
     },
-    getStatusOrder: (state) => {
-      return state.statusOrders
+    getCartUserOrder: (state) => {
+      return state.cartUserOrders
+    },
+    getUserOrder: (state) => {
+      return state.cartOrders
     },
     getActiveOrder: (state) => {
       return state.activeOrders
     },
   },
   actions: {
-    getOrders({commit}) {
+    getOrders({commit}, status) {
       commit('SET_ORDERS', 'loading')
-      getAxios(apiOrders.all, 'GET')
+      getAxios(`${apiOrders.all}?status=${status}`, 'GET')
         .then(res => {
           if (res.data.data.length === 0) {
             commit('SET_ORDERS', 'empty')
@@ -45,18 +52,32 @@ export default {
           handleError(swal, err)
         })
     },
-    getStatusOrder({commit}, status) {
-      console.log(status)
-      commit('SET_STATUS_ORDER', 'loading')
-      getAxios(apiOrders.all, 'GET')
+    getCartUserOrder({commit}, order) {
+      commit('SET_CART_USER_ORDERS', 'loading')
+      getAxios(`${apiOrders.all}?userId=${order.userId}&cartId=${order.cartId}`, 'GET')
         .then(res => {
           if (res.data.data.length === 0) {
-            commit('SET_STATUS_ORDER', 'empty')
-          } else
-            commit('SET_STATUS_ORDER', res.data.data)
+            commit('SET_CART_USER_ORDERS', 'empty')
+          } else {
+            commit('SET_CART_USER_ORDERS', res.data.data)
+          }
         })
         .catch(err => {
-          commit('SET_STATUS_ORDER', 'empty')
+          commit('SET_CART_USER_ORDERS', 'empty')
+          handleError(swal, err)
+        })
+    },
+    getUserOrder({commit}, userId) {
+      commit('SET_USER_ORDERS', 'loading')
+      getAxios(`${apiOrders.all}?userId=${userId}`, 'GET')
+        .then(res => {
+          if (res.data.data.length === 0) {
+            commit('SET_USER_ORDERS', 'empty')
+          } else
+            commit('SET_USER_ORDERS', res.data.data)
+        })
+        .catch(err => {
+          commit('SET_USER_ORDERS', 'empty')
           handleError(swal, err)
         })
     },

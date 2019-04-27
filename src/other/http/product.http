@@ -17,13 +17,13 @@ Authorization: Bearer {{auth_token}}
 {
   "id": "",
   "sku": "13213",
-  "name": "Cacao 5",
+  "name": "Cacao 2",
   "description_short": "Hola",
   "description_one": "Hola 1",
   "description_two": "Hola 2",
   "preparation": "Prepa",
   "quantity": "2",
-  "user_id": "",
+  "user_id": "1",
   "regular_price": "100"
 }
 

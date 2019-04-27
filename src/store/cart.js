@@ -26,7 +26,7 @@ export default {
   actions: {
     getCarts({commit}) {
       commit('SET_CARTS', 'loading')
-      getAxios(`${apiCarts.all}?orderByUser=true`, 'GET')
+      getAxios(`${apiCarts.all}?showByUser=true`, 'GET')
         .then(res => {
           if (res.data.data.length === 0) {
             commit('SET_CARTS', 'empty')

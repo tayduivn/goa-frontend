@@ -17,10 +17,10 @@
       </div>
     </div>
     <hr>
-    <div v-if="contents && contents === 'loading'">
+    <div v-if="orders && orders === 'loading'">
       <h3>Cargando datos...</h3>
     </div>
-    <div v-else-if="contents && contents !== 'empty'">
+    <div v-else-if="orders && orders !== 'empty'">
       <div class="d-flex justify-content-between mb-3">
         <h3 class="mb-2">Lista de ordenes </h3>
       </div>
@@ -28,21 +28,16 @@
         <thead>
         <tr>
           <th scope="col" width="10px">Nº</th>
-          <th scope="col">Orden Destino</th>
-          <th scope="col">Status</th>
-          <th scope="col">Visto</th>
+          <th scope="col">Usuario</th>
           <th scope="col">Fecha</th>
           <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="(order, index) of contents" :key="order.idmessage_order">
+        <tr v-for="(order, index) of orders" :key="order.order_id">
           <th scope="col">{{++index}}</th>
-          <td>{{order.destination_order}}</td>
-          <td>{{order.status}}</td>
-          <td v-if="order.active_order === '1'">Si</td>
-          <td v-else-if="order.active_order === '2'">No</td>
-          <td>{{formaDate(order.date_created)}}</td>
+          <td>{{order.email}}</td>
+          <td>{{formaDate(order.order_inserted_at)}}</td>
           <td>
             <button class="btn btn-sm btn-primary" @click.prevent="openModal(order)">
               Mostrar
@@ -52,10 +47,10 @@
         </tbody>
       </table>
     </div>
-    <div v-else-if="contents && contents === 'empty'">
+    <div v-else-if="orders && orders === 'empty'">
       <h3>No hay datos registrados</h3>
     </div>
-    <div v-else-if="contents && contents === 'error'">
+    <div v-else-if="orders && orders === 'error'">
       <h3>Error recuperando datos</h3>
     </div>
 
@@ -64,48 +59,51 @@
         <CloseImageSVG/>
       </template>
       <div class="d-flex justify-content-between align-items-center mt-5">
-        <h3>Detalle de la orden Nº {{order.idorder}} - {{order.status}}</h3>
-        <router-link v-if="order.status === 'Esperando'" tag="button" class="ml-3 btn btn-sm btn-primary"
-                     :to="`/cpanel/admin/transport`">
-          Buscar transportista
-        </router-link>
+        <h3>Detalle de la orden Nº {{order.id}} - {{order.status}}</h3>
       </div>
-      <div class="mt-4" v-if="order.status !== 'Cancelado'">
-        <hr>
-        <h5>Proceso de cancelación</h5>
-        <small>Se enviará la información al correo del cliente y administrador en caso de que haya un pago y requiera
-          devolución
-        </small>
-        <div class="mt-3">
-          <div class="form-group">
-            <input class="form-control" type="text" v-model="notification.message" placeholder="Deja un mensaje">
-          </div>
-          <div class="text-right">
-            <button class="btn-sm btn-danger"
-                    @click.prevent="editStatusOrder('Cancelado', 'Desea cancelar la orden')">
-              Cancelar
-            </button>
-          </div>
-        </div>
-        <hr>
-      </div>
-      <div v-if="payment && order.status === 'Deposito Enviado'">
-        <div class="d-flex justify-content-between align-items-center mt-4">
-          <h5>Datos del pago</h5>
-          <button class="btn-sm btn-primary" @click.prevent="editStatusOrder('Esperando Transportista')">
-            Pago verificado, notificar transportista
-          </button>
-        </div>
-        <table class="table-payment table table-custom mt-3 mb-4">
+      <hr>
+      <div class="mt-4">
+        <h5>Datos del cliente</h5>
+        <table class="table table-custom mt-3 mb-4">
           <tbody>
           <tr>
-            <td scope="col" width="250px">Image</td>
-            <td><img :src="payment.image" :alt="payment.name"></td>
+            <td scope="col" width="250px">Nombre de usuario</td>
+            <td>{{order.email}}</td>
+          </tr>
+          <tr>
+            <td scope="col" width="250px">Nombre del Cliente</td>
+            <td>{{order.first_name}} {{order.last_name}}</td>
+          </tr>
+          <tr>
+            <td scope="col">Dirección</td>
+            <td>{{order.address}}</td>
+          </tr>
+          <tr>
+            <td scope="col">Teléfono</td>
+            <td>{{order.phone}}</td>
+          </tr>
+          </tbody>
+        </table>
+        <h5>Datos del producto</h5>
+        <table class="table table-custom mt-3 mb-4 text-center">
+          <tbody>
+          <tr>
+            <th scope="col" width="10px">Nº</th>
+            <th scope="col">Producto</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Cantidad a Comprar</th>
+            <th scope="col">Total</th>
+          </tr>
+          <tr v-for="(item, index) of order.products" :key="item.id">
+            <td>{{++index}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.cart_quantity}}</td>
+            <td>{{item.cart_quantity * item.price}}</td>
           </tr>
           </tbody>
         </table>
       </div>
-      <DataOrderTable :forma-date="formaDate(order.date_created)" :object="object" :order="order"/>
     </vue-modaltor>
 
   </div>
@@ -113,13 +111,10 @@
 
 <script>
   import CloseImageSVG from "../../components/CloseImageSVG"
-  import axios from 'axios'
-  import config from "./../../config/config";
   import {handleError, listState} from "../../utils/util"
   import {confirmMessage, successMessage} from "../../utils/handle-message"
-  import {modelOrder} from "../../services/model/model-orders"
-  import {modelProduct} from "../../services/model/model-product"
   import DataOrderTable from "../../components/DataOrderTable"
+  import {apiOrders, getAxios} from "../../utils/endpoints"
 
   export default {
     name: "Orders",
@@ -133,53 +128,28 @@
     data() {
       return {
         statesOrder: listState,
-        stateOrderSelected: 'Todo',
-        order: modelOrder,
-        object: modelProduct,
+        stateOrderSelected: listState[0],
         open: false,
-        idTransport: this.$route.params.id,
       }
     },
     computed: {
-      contents() {
-        return this.$store.getters.getStatusContent
+      orders() {
+        return this.$store.getters.getOrders
       },
-      payment() {
-        return this.$store.getters.getPayment
+      order() {
+        return this.$store.getters.getCartUserOrder
       },
     },
     created() {
-      this.$store.dispatch('getStatusContent', this.stateOrderSelected)
+      this.$store.dispatch('getOrders', this.stateOrderSelected)
     },
     methods: {
-      updateActiveOrder(idorder) {
-        axios({
-          method: 'PUT',
-          url: `${config.api_url}/api/admin/order/updateActive`,
-          headers: {
-            Authorization: localStorage.token
-          },
-          data: {active: 1, idorder}
-        })
-          .then(() => {
-            this.$store.dispatch('getActiveOrder', 2)
-              .then(res => {
-              })
-              .catch(err => {
-                handleError(this.$swal, err)
-              })
-          })
-          .catch(err => {
-            handleError(this.$swal, err)
-          })
-      },
       changeState() {
-        this.$store.dispatch('getStatusContent', this.stateOrderSelected)
+        this.$store.dispatch('getOrders', this.stateOrderSelected)
       },
       successRequest(title) {
         successMessage(this.$swal, title)
-        this.$store.dispatch('getStatusContent', this.stateOrderSelected)
-        this.order = modelOrder.reset()
+        this.$store.dispatch('getOrders', this.stateOrderSelected)
         this.hideModal()
       },
       editStatusOrder(state, title = "Desea Actualizar el status") {
@@ -187,28 +157,10 @@
           .then(res => {
             if (res) {
               this.order.status = state
-              if (state === 'Cancelado') {
-                this.order.user_iduser = this.order.iduser
-                this.order.emailSender = JSON.parse(localStorage.getItem('user')).email
-                this.order.emailRecipient = this.order.email
-                this.order.message = this.notification.message
-              }
-              console.log(JSON.stringify(this.order))
-              axios({
-                method: 'PUT',
-                url: `${config.api_url}/api/admin/order/updatestatus`,
-                headers: {
-                  Authorization: localStorage.token
-                },
-                data: this.order
-              })
+              getAxios(apiOrders.all, 'PUT', this.order)
                 .then(res => {
                   if (state === 'Cancelado') {
-                    if (res.data.data.isPayment) {
-                      this.successRequest("Creado", 'Enviado, revise su bandeja de entrada para obtener información de la mediación')
-                    } else {
-                      this.successRequest("Creado", 'Orden cancelada correctamente')
-                    }
+                    this.successRequest("Creado", 'Orden cancelada correctamente')
                   } else {
                     this.successRequest("Creado", "Registrado")
                   }
@@ -219,44 +171,12 @@
             }
           })
       },
-      openModal(content) {
+      openModal(order) {
         this.open = true
-        this.object.idobject = content.idobject
-        this.object.name_object = content.name_object
-        this.object.image = content.image
-        this.object.height = content.height
-        this.object.width = content.width
-        this.object.weight = content.weight
-        this.object.quantity = content.quantity
-        this.object.service_idservice = content.service_idservice
-
-        this.order.idorder = content.idorder
-        this.order.origin_order = content.origin_order
-        this.order.destination_order = content.destination_order
-        this.order.maximum_delivery_date = content.maximum_delivery_date
-        this.order.maximum_withdrawal_date = content.maximum_withdrawal_date
-        this.order.message = content.message
-        this.order.price = content.price
-        this.order.status = content.status
-        this.order.user_iduser = content.user_iduser
-        this.order.date_created = content.date_created
-
-        this.order.iduser = content.iduser
-        this.order.name = content.name
-        this.order.email = content.email
-        this.order.street = content.street
-        this.order.phone = content.phone
-        this.order.person_name = content.person_name
-        this.order.person_last_name = content.person_last_name
-        this.order.name_truck = content.name_truck
-        this.$store.dispatch('getPayment', content.idorder)
-
-        if (content.active_order === '2') {
-          this.updateActiveOrder(this.order.idorder)
-          this.$store.dispatch('getStatusContent', this.stateOrderSelected)
-        }
+        this.$store.dispatch('getCartUserOrder', {userId: order.user_id, cartId: order.cart_id})
       },
       hideModal() {
+        this.$store.commit('SET_CART_USER_ORDERS', [])
         this.open = false
       },
       formaDate(today) {
@@ -267,7 +187,7 @@
 </script>
 
 <style scoped lang="scss">
-  .table-payment img {
+  .table-transaction img {
     width: 100%;
   }
 </style>

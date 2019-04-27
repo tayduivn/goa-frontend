@@ -4,15 +4,10 @@ import config from "../config/config"
 import router from "../router"
 
 const listState = [
-  'Todo',
-  'Esperando',
-  'Deposito Esperando',
-  'Deposito Enviado',
-  'Esperando Transportista',
+  'Pendiente',
   'Enviando',
-  'Enviado',
-  'Recibido',
-  'Cancelado'
+  'Completado',
+  'Cancelado',
 ]
 
 function updateOrderOptions(data) {
