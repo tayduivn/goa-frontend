@@ -15,7 +15,7 @@
 }
 
 body {
-  background-color: #F4F4F4;
+  background-color: white;
 }
 
 figure {
@@ -79,10 +79,10 @@ hr {
 
 button.global-button {
   border: none;
-  font-size: 1.2rem;
+  font-size: .9rem;
   font-weight: 600;
   outline: none;
-  padding: 10px;
+  padding: 5px 10px;
 }
 
 button.global-button.green {

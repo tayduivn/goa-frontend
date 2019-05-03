@@ -1,7 +1,9 @@
 <template>
-  <div class="baseV">
+  <div class="base">
     <NavBarC/>
-    <router-view/>
+    <main>
+      <router-view/>
+    </main>
     <FooterC/>
   </div>
 </template>
@@ -11,7 +13,7 @@
   import FooterC from '../../components/Footer.vue'
 
   export default {
-    name: 'baseV',
+    name: 'base',
     components: {
       NavBarC,
       FooterC
@@ -21,6 +23,8 @@
 
 <style lang="scss">
   .base {
-    background-color: #F2F2F2;
+    main {
+      padding-top: 61px;
+    }
   }
 </style>
