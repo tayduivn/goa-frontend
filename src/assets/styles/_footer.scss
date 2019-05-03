@@ -1,0 +1,96 @@
+footer {
+  .foot-email {
+    color: white;
+    background-color: $green-three;
+    border-top: 4px solid $green-two;
+    padding: 20px 20px 60px;
+    width: 100%;
+
+    .email-box {
+      margin: 0 auto;
+      max-width: 1360px;
+
+      p {
+        display: block;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      .email-info {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin: 1% auto 0;
+        width: 50%;
+
+        p {
+          display: inline-block;
+          text-transform: uppercase;
+        }
+
+        input[type='email'] {
+          background: white;
+          border-radius: 5px;
+          font-size: .9rem;
+          padding: 5px 10px 8px;
+          margin: 0 5%;
+          color: $color-font;
+        }
+
+        button {
+          border: 2px solid #E8E8EA;
+          color: white;
+          padding: 5px 20px;
+        }
+      }
+    }
+  }
+
+  .foot-social {
+    background-color: #2e2e2e;
+    color: white;
+    width: 100%;
+
+    .social-box {
+      margin: 0 auto;
+      padding: 40px 0 10px;
+      width: 80%;
+
+      .social-payment-content {
+        display: flex;
+        justify-content: space-between;
+
+        .payment-content {
+
+          h4 {
+            margin: 2% 0;
+            text-transform: uppercase;
+          }
+
+          img {
+            padding: 0 5px;
+          }
+        }
+
+        .social-content {
+          align-self: flex-end;
+
+          a {
+            margin: 0 25px;
+          }
+        }
+      }
+
+      .social-foot {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 4%;
+
+        p {
+          align-self: flex-end;
+          font-size: .8rem;
+        }
+      }
+    }
+  }
+}

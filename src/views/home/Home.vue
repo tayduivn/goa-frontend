@@ -15,8 +15,8 @@
     </section>
     <section class="home-info">
       <div class="info-box">
-        <p class="pt-4">Import, export and distribution of products.</p>
-        <p class="pb-4">(Perishable and not perishable)</p>
+        <p>Import, export and distribution of products.</p>
+        <p>(Perishable and not perishable)</p>
         <div class="box-info-image">
           <img src="./../../assets/img/index/Secc1_Img_1.jpg" alt="info 1">
           <img src="./../../assets/img/index/Secc1_Img_2.jpg" alt="info 2">
