@@ -38,7 +38,7 @@
         <input type="file" class="form-control" accept="image/*" @change="subirImagen">
       </div>
       <div class="mt-4 text-right">
-        <button class="global-next-button" type="submit">Siguiente</button>
+        <button class="global-button" type="submit">Siguiente</button>
       </div>
     </form>
   </div>

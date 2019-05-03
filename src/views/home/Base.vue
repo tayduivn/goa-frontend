@@ -1,6 +1,5 @@
 <template>
   <div class="baseV">
-    <HeaderC/>
     <NavBarC/>
     <router-view/>
     <FooterC/>
@@ -8,16 +7,13 @@
 </template>
 
 <script>
-  // @ is an alias to /src
   import NavBarC from '../../components/NavBar.vue'
-  import HeaderC from '../../components/Header.vue'
   import FooterC from '../../components/Footer.vue'
 
   export default {
     name: 'baseV',
     components: {
       NavBarC,
-      HeaderC,
       FooterC
     }
   }

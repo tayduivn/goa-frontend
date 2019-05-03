@@ -1,91 +1,34 @@
 <template>
-  <nav class="navbar navbar-expand-md pt-0 pb-0 pr-0 pl-0 navbar-light bg-light">
-    <router-link class="navbar-brand image" to="/">
-      <img src="./../assets/logo.png" alt="tsl logo">
-    </router-link>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a href="/#" class="nav-link" data-target="#navbarSupportedContent" data-toggle="collapse">About us</a>
-        </li>
-        <li class="nav-item">
-          <router-link to="/products" class="nav-link" data-target="#navbarSupportedContent" data-toggle="collapse">
-            Store
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <a href="/#" class="nav-link" data-target="#navbarSupportedContent" data-toggle="collapse">Our mission</a>
-        </li>
-        <li class="nav-item">
-          <a href="/#" class="nav-link" data-target="#navbarSupportedContent" data-toggle="collapse">Representations</a>
-        </li>
-      </ul>
-      <ul v-if="validateUser()" class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarUser" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
-            Usuario
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarUser">
-            <router-link :to="{name: 'profileUser'}" class="nav-link">Mi Perfil</router-link>
-            <router-link :to="{name: 'profile-message'}" class="nav-link">
-              Carrito <span class="notificationDisplay">{{notificationCount}}</span>
-            </router-link>
-            <router-link :to="{name: 'order-transport'}" class="nav-link">
-              Mis solicitudes
-            </router-link>
-            <a class="nav-link" @click.prevent="logout">Salir</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <router-link
-              class="nav-link"
-              data-target="#navbarSupportedContent"
-              data-toggle="collapse"
-              to="/help"
-          >Ayuda
-          </router-link>
-        </li>
-      </ul>
-      <ul v-else class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <router-link
-              class="nav-link d-"
-              data-target="#navbarSupportedContent"
-              data-toggle="collapse"
-              to="/login"
-          >Iniciar sesión
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link
-              class="nav-link"
-              data-target="#navbarSupportedContent"
-              data-toggle="collapse"
-              to="/register"
-          >Registrar
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link
-              class="nav-link"
-              data-target="#navbarSupportedContent"
-              data-toggle="collapse"
-              to="/help"
-          >Ayuda
-          </router-link>
-        </li>
-      </ul>
+  <header>
+    <div class="header-content">
+      <router-link to="/" id="logo"></router-link>
+      <nav>
+        <a class="scrollLink" href="https://theroom.com.ve/#index-dev-web" onclick="menuResponsive()">
+          About us
+        </a>
+        <a class="scrollLink" href="https://theroom.com.ve/#index-dev-app" onclick="menuResponsive()">
+          Store
+        </a>
+        <a class="scrollLink" href="https://theroom.com.ve/#index-edit-video" onclick="menuResponsive()">
+          Our Mission
+        </a>
+        <a class="scrollLink" href="https://theroom.com.ve/#index-edit-video" onclick="menuResponsive()">
+          Representations
+        </a>
+      </nav>
+      <router-link to="/" id="cart">
+        <img src="../assets/img/Header/icon_cart.png" alt="cart">
+      </router-link>
+      <router-link to="/" id="menu-profile">
+        <img src="../assets/img/Header/icon_menu.png" alt="menu profile">
+      </router-link>
     </div>
-  </nav>
+  </header>
 </template>
 
 <script>
+  import jQuery from 'jquery'
+
   export default {
     name: "NavBar",
     computed: {
@@ -106,6 +49,35 @@
           return 0
         }
       }
+    },
+    mounted() {
+      /* Menu responsive */
+      jQuery('nav').before('<div id="smartbutton"></div>');
+      const smartButton = jQuery('#smartbutton');
+      smartButton.append('<div class="buttonline"></div>');
+      smartButton.append('<div class="buttonline"></div>');
+      smartButton.append('<div class="buttonline"></div>');
+
+      function menuResponsive() {
+        jQuery('nav').animate({height: 'toggle'}, 200);
+      }
+
+      smartButton.click(function () {
+        menuResponsive()
+      });
+
+      /* Scroll */
+      jQuery(document).ready(function () {
+        jQuery("a.scrollLink").click(function () {
+          const linkHref = jQuery(this).attr("href")
+          const idElement = linkHref.substr(linkHref.indexOf("#"))
+          jQuery('html, body').animate({
+            scrollTop: jQuery(idElement).offset().top
+          }, 1000);
+          return false;
+        });
+      });
+
     },
     created() {
       if (this.user !== null && this.user !== undefined && this.user.constructor === Object) {
@@ -132,50 +104,158 @@
 </script>
 
 
-<style scoped lang="scss">
-  .navbar {
-    background-color: white !important;
-    height: 80px;
-    position: relative;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+<style scoped>
+  /* Header */
+  header {
+    background-color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+  }
 
-    .image {
-      height: 100%;
-      padding: 0;
+  header .header-content {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1360px;
+  }
 
-      img {
-        height: 100%;
-        width: 100%;
-      }
+  header nav a {
+    color: #646464;
+    padding: 10px 15px;
+    text-transform: uppercase;
+  }
+
+  header nav a:hover {
+    color: white;
+  }
+
+  @media screen and (min-width: 1920px) {
+
+  }
+
+  @media screen and (min-width: 1360px) {
+
+  }
+
+  @media screen and (max-width: 1024px) {
+    header .header-content {
+      max-width: 1024px;
     }
+  }
 
-    .notificationHide {
-      display: none;
-    }
-
-    .notificationDisplay {
-      background-color: #6ccef8;
-      border-radius: 50%;
-      color: white;
-      display: inline-block;
-      padding: 5px;
-    }
-
-    .nav-item {
+  @media screen and (max-width: 700px) {
+    header nav a {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+      display: block;
       padding: 10px;
     }
 
-    @media (max-width: 768px) {
-      .navbar-collapse {
-        z-index: 1000;
-        background-color: white;
-        box-shadow: 0 10px 0 0 rgba(0, 0, 0, 0.2),
-        0 5px 0 0 rgba(0, 0, 0, 0.19);
-      }
+    header nav a:last-child {
+      border-bottom: none;
+    }
 
-      .dropdown-menu a {
-        padding: 10px;
-      }
+    header .header-content {
+      display: block;
+      overflow: hidden;
     }
   }
+
+  @media screen and (max-width: 400px) {
+  }
+
+  /* Menu */
+  #logo {
+    background-image: url('../assets/img/Header/Logo_GoA_Head.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    float: left;
+    height: 40px; /* your logo here! */
+    max-width: 280px;
+    width: calc(100% - 50px);
+  }
+
+  nav {
+    flex: none;
+    float: right;
+  }
+
+  .navitem {
+    color: #999;
+    font-family: Helvetica;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 5px;
+    padding: 8px;
+    text-decoration: none;
+  }
+
+  .navitem:first-child {
+    margin-left: 0;
+  }
+
+  .navitem:hover {
+    color: white;
+  }
+
+  #smartbutton {
+    border: 1px solid #999;
+    border-radius: 6px;
+    cursor: pointer;
+    display: none;
+    float: right;
+    height: 32px;
+    margin-top: 5px;
+    padding: 7px;
+    width: 30px;
+  }
+
+  .buttonline {
+    background-color: #999;
+    height: 3px;
+    margin-top: 4px;
+  }
+
+  .buttonline:first-child {
+    margin-top: 0px;
+  }
+
+  /* standard menu */
+  @media only screen and (min-width: 701px) {
+    #smartbutton {
+      display: none;
+    }
+
+    nav {
+      display: inline-block !important;
+    }
+  }
+
+  /* smart menu */
+  @media only screen and (max-width: 700px) {
+    #smartbutton {
+      display: inline-block;
+    }
+
+    nav {
+      display: none;
+      position: relative;
+      top: 5px;
+      width: 100%;
+    }
+
+    .navitem {
+      border-top: 1px solid #999;
+      display: block;
+      margin: 0;
+    }
+
+    .navitem:hover {
+      background-color: #333;
+    }
+  }
+
 </style>

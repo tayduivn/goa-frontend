@@ -16,7 +16,7 @@ let router = new Router({
       children: [
         {
           path: 'home',
-          name: 'homeV',
+          name: 'home',
           component: () => import('./views/home/Home'),
           meta: {requiresPublicClient: true}
         },
@@ -52,7 +52,7 @@ let router = new Router({
         },
         {
           path: 'cart',
-          name: 'ProductsCheckout',
+          name: 'ProductsCart',
           component: () => import('./views/home/ship/ProductsCart'),
           meta: {requiresAuth: true},
         },

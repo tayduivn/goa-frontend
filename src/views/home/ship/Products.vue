@@ -1,26 +1,35 @@
 <template>
-  <div class="ship">
-    <div v-if="categories && categories === 'loading'" class="card text-center mt-3 mb-3">
-      <h3>Cargando datos...</h3>
-    </div>
-    <div class="ship-content" v-else-if="categories && categories !== 'empty'">
-      <h3>Nuevo envío</h3>
-      <div class="ship-sub-content">
-        <div class="row">
-          <router-link :to="`detail-ship/${category.idcategory}/object`" class="col-md-3 text-center ship-item"
-                       v-for="category in this.categories" :key="category.idcategory">
-            <img :src="category.image" :alt="category.nabla">
-            <h6>{{category.name}}</h6>
-            <p>{{category.description}}</p>
+  <div class="products">
+    <div class="products-box">
+      <div v-if="products && products === 'loading'" class="card text-center mt-3 mb-3">
+        <h3>Cargando datos...</h3>
+      </div>
+
+      <div class="products-content" v-else-if="products && products !== 'empty'">
+        <div class="product-filter">
+          <h4>Filters {{}}</h4>
+          <div v-for="category in categories" :key="category.id">
+            <label :for="category.id">{{ category.name }}
+              <input type="checkbox" :id="category.id" :value="category.id">
+            </label>
+          </div>
+        </div>
+        <div v-for="product in products" :key="product.id">
+          <router-link :to="`products-detail/${product.id}`" class="col-md-3 text-center products-item"
+                       v-for="product in this.products" :key="product.id">
+            <img :src="product.image" :alt="product.nabla">
+            <h6>{{product.name}}</h6>
+            <p>{{product.description}}</p>
           </router-link>
         </div>
       </div>
-    </div>
-    <div v-else-if="categories && categories === 'empty'" class="card text-center mt-3 mb-3">
-      <h3>No hay datos registrados</h3>
-    </div>
-    <div v-else-if="categories && categories === 'error'" class="card text-center mt-3 mb-3">
-      <h3>Error recuperando datos</h3>
+
+      <div v-else-if="products && products === 'empty'" class="card text-center mt-3 mb-3">
+        <h3>No hay datos registrados</h3>
+      </div>
+      <div v-else-if="products && products === 'error'" class="card text-center mt-3 mb-3">
+        <h3>Error recuperando datos</h3>
+      </div>
     </div>
   </div>
 </template>
@@ -29,52 +38,23 @@
   export default {
     name: 'Products',
     computed: {
+      products() {
+        return this.$store.getters.getProducts
+      },
       categories() {
         return this.$store.getters.getCategories
-      }
+      },
     },
     created() {
+      this.$store.dispatch('getProducts')
       this.$store.dispatch('getCategories')
     },
   }
 </script>
 
 <style scoped lang="scss">
-  .ship {
+  .products {
     max-width: 1024px;
     margin: 0 auto;
-
-    h3 {
-      background-color: white;
-      padding: 20px 20px 30px;
-    }
-
-    .ship-sub-content {
-      border-bottom: 1px solid #efefef;
-      border-top: 1px solid #efefef;
-      width: 100%;
-
-      .row {
-        .ship-item {
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-end;
-          padding: 30px 20px 20px;
-
-          h6 {
-            margin: 8% 0 4%;
-            text-transform: uppercase;
-          }
-
-          p {
-            line-height: 1.2rem;
-          }
-
-          img {
-            width: 100%;
-          }
-        }
-      }
-    }
   }
 </style>
