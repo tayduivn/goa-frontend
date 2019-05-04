@@ -50,7 +50,7 @@ export default {
             if (res.data.data.length === 0) {
               commit('SET_PRODUCT', 'empty')
             } else {
-              commit('SET_PRODUCT', res.data.data)
+              commit('SET_PRODUCT', res.data.data[0])
               resolve()
             }
           })

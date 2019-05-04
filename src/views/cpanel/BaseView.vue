@@ -68,7 +68,7 @@
   import jQuery from "jquery";
 
   export default {
-    name: "Base",
+    name: "cPanelBaseView",
     metaInfo: {
       title: 'TSL cPanel',
       titleTemplate: (title) => {

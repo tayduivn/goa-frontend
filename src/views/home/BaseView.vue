@@ -13,7 +13,7 @@
   import FooterC from '../../components/Footer.vue'
 
   export default {
-    name: 'base',
+    name: 'BaseView',
     components: {
       NavBarC,
       FooterC

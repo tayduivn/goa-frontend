@@ -1,10 +1,10 @@
-GET {{host}}/api/products?id=1
+GET {{host}}/api/public/products?id=1
 Accept: application/json
 Authorization: Bearer {{auth_token}}
 
 ###
 
-GET {{host}}/api/products
+GET {{host}}/api/public/products
 Accept: application/json
 Authorization: Bearer {{auth_token}}
 

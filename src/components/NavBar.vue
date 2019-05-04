@@ -42,13 +42,13 @@
       levelUser() {
         return this.$store.getters.getLevelUser
       },
-      notificationCount() {
+      /*notificationCount() {
         if (this.user !== null && this.user !== undefined && this.user.constructor === Object) {
           return this.$store.getters.getNotificationsStatusRead
         } else {
           return 0
         }
-      }
+      }*/
     },
     mounted() {
       /* Menu responsive */
@@ -80,9 +80,9 @@
 
     },
     created() {
-      if (this.user !== null && this.user !== undefined && this.user.constructor === Object) {
+      /*if (this.user !== null && this.user !== undefined && this.user.constructor === Object) {
         this.$store.dispatch('getNotificationsStatusRead', {iduser: this.user.iduser, status: 2})
-      }
+      }*/
     },
     methods: {
       validateUser() {

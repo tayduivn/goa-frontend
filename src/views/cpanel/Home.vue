@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: "Home",
+    name: "cPanelHome",
     metaInfo: {
       title: 'TSL cPanel',
       titleTemplate: (title) => {

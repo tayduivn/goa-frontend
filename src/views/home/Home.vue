@@ -24,6 +24,10 @@
         </div>
       </div>
     </section>
+    <div class="global-separator">
+      <div class="line"></div>
+      <img src="./../../assets/img/index/Logo_iso_Separador.png" alt="goa logo">
+    </div>
     <section class="home-products">
       <div class="products-box">
         <h2>New Products</h2>

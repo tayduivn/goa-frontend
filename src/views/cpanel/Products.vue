@@ -179,7 +179,7 @@
   import {apiImages, apiProducts, apiProductsCategories, getAxios} from "../../utils/endpoints"
 
   export default {
-    name: "products",
+    name: "cPanelProducts",
     metaInfo: {
       title: 'TSL cPanel',
       titleTemplate: (title) => {

@@ -10,9 +10,9 @@ let router = new Router({
   routes: [
     {
       path: '/',
-      name: 'index',
+      name: 'BaseView',
       redirect: 'home',
-      component: () => import('./views/home/Base'),
+      component: () => import('./views/home/BaseView'),
       children: [
         {
           path: 'home',
@@ -100,14 +100,14 @@ let router = new Router({
     },
     {
       path: '/cpanel',
-      name: 'Base',
+      name: 'cPanelBaseView',
       redirect: '/cpanel/home',
-      component: () => import('./views/cpanel/Base'),
+      component: () => import('./views/cpanel/BaseView'),
       meta: {requiresAuthAdmin: true},
       children: [
         {
-          path: 'home',
-          name: 'home',
+          path: 'p-home',
+          name: 'cPanelHome',
           component: () => import('./views/cpanel/Home')
         },
         {
@@ -141,8 +141,8 @@ let router = new Router({
           component: () => import('./views/cpanel/Transactions')
         },
         {
-          path: 'products',
-          name: 'Products',
+          path: 'p-products',
+          name: 'cPanelProducts',
           component: () => import('./views/cpanel/Products')
         },
         {
