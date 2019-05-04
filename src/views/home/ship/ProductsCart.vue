@@ -10,7 +10,7 @@
         <h2>Shopping Cart</h2>
 
         <div class="cart-content">
-          <div class="cart-carts">
+          <div class="cart-products">
             <table class="table table-custom mt-3 mb-4 text-center">
               <tbody>
               <tr>
@@ -20,31 +20,37 @@
                 <th scope="col">Qty</th>
               </tr>
               <tr v-for="item of carts" :key="item.item_id">
-                <td><img :src="item.images[0].image" :alt="item.name">}}</td>
+                <td><img :src="item.images[0].image" :alt="item.name"></td>
                 <td>{{item.name}}</td>
                 <td>{{item.price}}</td>
                 <td>
-                  <button @click.prevent="minusQuantity">-</button>
-                  <input type="number" id="quantity" :value="item.cart_quantity">
-                  <button @click.prevent="moreQuantity">-</button>
+                  <div class="info-quantity">
+                    <div>
+                      <button @click.prevent="quantityProduct(false)">-</button>
+                      <input type="text" id="quantity" v-model="quantityValue" disabled>
+                      <button @click.prevent="quantityProduct(true)">+</button>
+                    </div>
+                  </div>
                 </td>
               </tr>
               </tbody>
             </table>
-            <button @click.prevent="updateCart" class="button-update-cart">Update Shopping Cart</button>
+            <div class="text-right">
+              <button @click.prevent="updateCart" class="global-button button-update-cart">Update Shopping Cart</button>
+            </div>
           </div>
           <div class="cart-summary">
             <h3>Summary</h3>
-            <div class="d-flex justify-content-between">
-              <h4>Estimated Total</h4>
+            <div class="d-flex justify-content-between mt-2 mb-1">
+              <h6>Estimated Total</h6>
               <!-- Todo: total cart value -->
               <p>${{carts[0].price}}</p>
             </div>
             <p>Shipping and Tax</p>
-            <div class="summary-separator"></div>
+            <hr class="mt-4">
             <div class="summary">
-              <router-link to="/carts"> Continue Shopping</router-link>
-              <button class="global-button" @click.prevent="sendCart">Checkout</button>
+              <router-link to="/carts" tag="button" class="global-button transparent"> Continue Shopping</router-link>
+              <button class="global-button green" @click.prevent="sendCart">Checkout</button>
             </div>
           </div>
         </div>
@@ -76,10 +82,16 @@
   import SearchComponent from "../../../components/SearchComponent"
   import {apiCarts, getAxios} from "../../../utils/endpoints"
   import {handleError} from "../../../utils/util"
+  import {infoMessage} from "../../../utils/handle-message"
 
   export default {
     name: "ProductCart",
     components: {SearchComponent},
+    data() {
+      return {
+        quantityValue: 1
+      }
+    },
     computed: {
       carts() {
         return this.$store.getters.getCartsByUser
@@ -104,6 +116,21 @@
           .catch(err => {
             handleError(this.$swal, err)
           })
+      },
+      quantityProduct(isPlus) {
+        if (isPlus && this.product.quantity <= this.quantityValue) {
+          infoMessage(this.$swal, null, 'This is the max in the store')
+          return
+        }
+        if (!isPlus && this.quantityValue <= 1) {
+          infoMessage(this.$swal, null, '1 is the minimum')
+          return
+        }
+        if (isPlus) {
+          this.quantityValue = this.quantityValue + 1
+        } else {
+          this.quantityValue = this.quantityValue - 1
+        }
       },
     },
   }

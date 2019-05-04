@@ -1,9 +1,71 @@
 .cart {
+  color: $color-font;
+
   .cart-box {
     width: 100%;
 
+    h2 {
+      padding: 40px 0;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
     .cart-content {
       @include div-adjust(1360px);
+      display: flex;
+
+      .cart-products {
+        @include div-display(63%);
+        margin-right: 2%;
+
+        table td {
+          vertical-align: middle;
+        }
+
+        table tr:last-child {
+          border-bottom: 1px solid #CCC;
+        }
+
+        table th {
+          border-top: none;
+        }
+
+        img {
+          width: 100px;
+        }
+
+        .button-update-cart {
+          color: $color-font;
+          background-color: #CBF5F3;
+          font-weight: normal;
+          padding: 5px 40px;
+        }
+      }
+
+      .cart-summary {
+        @include div-display(35%);
+        background-color: #E7E7E7;
+        align-self: flex-start;
+        padding: 20px;
+
+        .summary {
+          button {
+            overflow: hidden;
+            width: 48%;
+            white-space: nowrap;
+          }
+
+          button:first-child {
+            margin-right: 2%;
+            padding: 8px 0;
+          }
+
+          button:last-child {
+            margin-left: 2%;
+            padding: 9px 0;
+          }
+        }
+      }
     }
   }
 }

@@ -149,6 +149,31 @@ button[disabled=disabled], button:disabled {
   z-index: 10;
 }
 
+/* quantity box */
+.info-quantity {
+  margin: 4% 0 5%;
+}
+
+.info-quantity label {
+  margin-right: 2%;
+}
+
+.info-quantity div {
+  border: 1px solid #494949;
+  display: inline-block;
+  padding: 5px;
+}
+
+.info-quantity input[type=text] {
+  background: white;
+  text-align: center;
+  width: 30px;
+}
+
+.info-quantity button {
+  background: transparent;
+}
+
 /* Slick */
 .slick-prev:before, .slick-next:before {
   color: black;
