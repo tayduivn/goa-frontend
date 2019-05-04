@@ -16,10 +16,10 @@
           Representations
         </a>
       </nav>
-      <router-link to="/" id="cart">
+      <router-link to="/cart" id="cart">
         <img src="../assets/img/Header/icon_cart.png" alt="cart">
       </router-link>
-      <router-link to="/" id="menu-profile">
+      <router-link to="/profile" id="menu-profile">
         <img src="../assets/img/Header/icon_menu.png" alt="menu profile">
       </router-link>
     </div>
