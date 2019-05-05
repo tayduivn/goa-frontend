@@ -2,11 +2,12 @@
   <div class="home">
     <section class="home-sub-head">
       <div class="sub-head-box">
-        <div class="sub-head-content">
-          <div class="sub-head-products">
-            <img src="./../../assets/img/index/Cacao_Head_1.png" alt="products">
-            <img src="./../../assets/img/index/Cacao_Head_1.png" alt="products">
-            <img src="./../../assets/img/index/Cacao_Head_1.png" alt="products">
+        <div class="sub-head-content" v-if="productsLimit&& productsLimit.length
+                                      && productsLimit !== 'empty' && productsLimit !== 'loading'">
+          <div class="sub-head-products" v-for="item in productsLimit" :key="item.id">
+            <router-link :to="`products-detail/${item.id}`">
+              <img :src="item.images[0].image" :alt="item.name">
+            </router-link>
           </div>
           <p>Ready to use in the preparation of our delicious</p>
           <button class="global-button green">buy now</button>
@@ -14,13 +15,13 @@
       </div>
     </section>
     <section class="home-info">
-      <div class="info-box" v-if="productsLimit&& productsLimit.length">
+      <div class="info-box">
         <p>Import, export and distribution of products.</p>
         <p>(Perishable and not perishable)</p>
-        <div class="box-info-image" v-for="item in productsLimit" :key="item.id">
-          <div v-if="item.images[0]">
-            <img :src="item.images[0].image" :alt="item.name">
-          </div>
+        <div class="box-info-image">
+          <img src="./../../assets/img/index/Secc1_Img_1.jpg" alt="info 1">
+          <img src="./../../assets/img/index/Secc1_Img_2.jpg" alt="info 2">
+          <img src="./../../assets/img/index/Secc1_Img_3.jpg" alt="info 3">
         </div>
       </div>
     </section>
@@ -31,17 +32,18 @@
     <section class="home-products">
       <div class="products-box">
         <h2>New Products</h2>
-        <div class="content-slick" v-if="productsNews && productsNews.length">
-          <slick
-              ref="slick"
-              :options="slickOptions">
+        <div class="content-slick"
+             v-if="productsNews && productsNews.length && productsNews !== 'empty' && productsNews !== 'loading'">
+          <slick ref="slick-one" :options="slickOptions">
             <div v-for="item in productsNews" :key="item.id" class="slick-product-content">
-              <img :src="item.images[0]" :alt="item.name">
-              <p>{{item.name}}</p>
-              <p>{{item.regular_price}}</p>
-              <router-link :to="`products-detail/${product.id}`" tag="button"
-                           class="global-button transparent pl-4 pr-4">
-                Buy Now
+              <router-link :to="`products-detail/${item.id}`">
+                <img :src="item.images[0].image" :alt="item.name">
+                <p>{{item.name}}</p>
+                <p>{{item.regular_price}}</p>
+                <router-link :to="`products-detail/${item.id}`" tag="button"
+                             class="global-button transparent pl-4 pr-4">
+                  Buy Now
+                </router-link>
               </router-link>
             </div>
           </slick>
@@ -66,17 +68,18 @@
     <section class="home-products">
       <div class="products-box">
         <h2>Our Favorites</h2>
-        <div class="content-slick" v-if="productsFavorites && productsFavorites.length">
-          <slick
-              ref="slick"
-              :options="slickOptions">
+        <div class="content-slick" v-if="productsFavorites && productsFavorites.length
+        && productsFavorites !== 'empty' && productsFavorites !== 'loading'">
+          <slick ref="slick" :options="slickOptionsTwo">
             <div v-for="item in productsFavorites" :key="item.id" class="slick-product-content">
-              <img :src="item.images[0]" :alt="item.name">
-              <p>{{item.name}}</p>
-              <p>{{item.regular_price}}</p>
-              <router-link :to="`products-detail/${product.id}`" tag="button"
-                           class="global-button transparent pl-4 pr-4">
-                Buy Now
+              <router-link :to="`products-detail/${item.id}`">
+                <img :src="item.images[0].image" :alt="item.name">
+                <p>{{item.name}}</p>
+                <p>{{item.regular_price}}</p>
+                <router-link :to="`products-detail/${item.id}`" tag="button"
+                             class="global-button transparent pl-4 pr-4">
+                  Buy Now
+                </router-link>
               </router-link>
             </div>
           </slick>
@@ -139,6 +142,22 @@
       return {
         open: false,
         slickOptions: {
+          ref: 'slick-one',
+          autoplay: true,
+          arrows: true,
+          dots: false,
+          slidesToShow: 4,
+          responsive: [
+            {
+              breakpoint: 900,
+              settings: {
+                arrows: false,
+                dots: true,
+              }
+            }
+          ]
+        },
+        slickOptionsTwo: {
           autoplay: true,
           arrows: true,
           dots: false,

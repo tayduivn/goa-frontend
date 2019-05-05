@@ -21,9 +21,10 @@
         padding: 60px 20px 40px 100px;
 
         .sub-head-products {
+          display: inline-block;
+          padding: 0 10px;
 
           img {
-            margin: 0 4%;
             width: 100px;
           }
         }

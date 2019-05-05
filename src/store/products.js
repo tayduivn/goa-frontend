@@ -79,40 +79,34 @@ export default {
         })
     },
     getProductsNews({commit}, query = '') {
-      return new Promise((resolve) => {
-        commit('SET_PRODUCTS_NEWS', 'loading')
-        getAxios(`${apiProducts.allPublic}${query}`, 'GET')
-          .then(res => {
-            if (res.data.data.length === 0) {
-              commit('SET_PRODUCTS_NEWS', 'empty')
-            } else {
-              commit('SET_PRODUCTS_NEWS', res.data.data)
-              resolve()
-            }
-          })
-          .catch(err => {
-            commit('SET_PRODUCTS_NEWS', 'error')
-            handleError(swal, err)
-          })
-      })
+      commit('SET_PRODUCTS_NEWS', 'loading')
+      getAxios(`${apiProducts.allPublic}${query}`, 'GET')
+        .then(res => {
+          if (res.data.data.length === 0) {
+            commit('SET_PRODUCTS_NEWS', 'empty')
+          } else {
+            commit('SET_PRODUCTS_NEWS', res.data.data)
+          }
+        })
+        .catch(err => {
+          commit('SET_PRODUCTS_NEWS', 'error')
+          handleError(swal, err)
+        })
     },
     getProductsFavorites({commit}, query = '') {
-      return new Promise((resolve) => {
-        commit('SET_PRODUCTS_FAVORITES', 'loading')
-        getAxios(`${apiProducts.allPublic}${query}`, 'GET')
-          .then(res => {
-            if (res.data.data.length === 0) {
-              commit('SET_PRODUCTS_FAVORITES', 'empty')
-            } else {
-              commit('SET_PRODUCTS_FAVORITES', res.data.data)
-              resolve()
-            }
-          })
-          .catch(err => {
-            commit('SET_PRODUCTS_FAVORITES', 'error')
-            handleError(swal, err)
-          })
-      })
+      commit('SET_PRODUCTS_FAVORITES', 'loading')
+      getAxios(`${apiProducts.allPublic}${query}`, 'GET')
+        .then(res => {
+          if (res.data.data.length === 0) {
+            commit('SET_PRODUCTS_FAVORITES', 'empty')
+          } else {
+            commit('SET_PRODUCTS_FAVORITES', res.data.data)
+          }
+        })
+        .catch(err => {
+          commit('SET_PRODUCTS_FAVORITES', 'error')
+          handleError(swal, err)
+        })
     },
     getProduct({commit}, query = '') {
       return new Promise((resolve) => {

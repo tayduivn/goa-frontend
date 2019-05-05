@@ -4,7 +4,7 @@ Authorization: Bearer {{auth_token}}
 
 ###
 
-GET {{host}}/api/public/products?favorite=true&limit=1
+GET {{host}}/api/public/products?favorite=true&limit=15
 Accept: application/json
 Authorization: Bearer {{auth_token}}
 
