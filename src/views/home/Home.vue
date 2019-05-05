@@ -14,13 +14,13 @@
       </div>
     </section>
     <section class="home-info">
-      <div class="info-box">
+      <div class="info-box" v-if="productsLimit&& productsLimit.length">
         <p>Import, export and distribution of products.</p>
         <p>(Perishable and not perishable)</p>
-        <div class="box-info-image">
-          <img src="./../../assets/img/index/Secc1_Img_1.jpg" alt="info 1">
-          <img src="./../../assets/img/index/Secc1_Img_2.jpg" alt="info 2">
-          <img src="./../../assets/img/index/Secc1_Img_3.jpg" alt="info 3">
+        <div class="box-info-image" v-for="item in productsLimit" :key="item.id">
+          <div v-if="item.images[0]">
+            <img :src="item.images[0].image" :alt="item.name">
+          </div>
         </div>
       </div>
     </section>
@@ -31,24 +31,16 @@
     <section class="home-products">
       <div class="products-box">
         <h2>New Products</h2>
-        <!--<div class="content-slick" v-if="images && images.length">-->
-        <div class="content-slick">
+        <div class="content-slick" v-if="productsNews && productsNews.length">
           <slick
               ref="slick"
               :options="slickOptions">
-            <!--<div v-for="item in products" :key="item.id" class="slick-image-content">
+            <div v-for="item in productsNews" :key="item.id" class="slick-product-content">
               <img :src="item.images[0]" :alt="item.name">
               <p>{{item.name}}</p>
               <p>{{item.regular_price}}</p>
-              <router-link :to="`products-detail/${product.id}`" tag="button" class="global-button transparent">
-                Buy Now
-              </router-link>
-            </div>-->
-            <div class="slick-product-content">
-              <img src="./../../assets/img/index/Cacao_Head_1.png" alt="item.name">
-              <p class="mt-3 mb-3">Nombre</p>
-              <p class="mt-3 mb-4">Precio</p>
-              <router-link to="products-detail/1" tag="button" class="global-button transparent pl-4 pr-4">
+              <router-link :to="`products-detail/${product.id}`" tag="button"
+                           class="global-button transparent pl-4 pr-4">
                 Buy Now
               </router-link>
             </div>
@@ -74,15 +66,16 @@
     <section class="home-products">
       <div class="products-box">
         <h2>Our Favorites</h2>
-        <div class="content-slick">
+        <div class="content-slick" v-if="productsFavorites && productsFavorites.length">
           <slick
               ref="slick"
               :options="slickOptions">
-            <div class="slick-product-content">
-              <img src="./../../assets/img/index/Cacao_Head_1.png" alt="item.name">
-              <p class="mt-3 mb-3">Nombre</p>
-              <p class="mt-3 mb-4">Precio</p>
-              <router-link to="products-detail/1" tag="button" class="global-button transparent pl-4 pr-4">
+            <div v-for="item in productsFavorites" :key="item.id" class="slick-product-content">
+              <img :src="item.images[0]" :alt="item.name">
+              <p>{{item.name}}</p>
+              <p>{{item.regular_price}}</p>
+              <router-link :to="`products-detail/${product.id}`" tag="button"
+                           class="global-button transparent pl-4 pr-4">
                 Buy Now
               </router-link>
             </div>
@@ -116,7 +109,8 @@
             <p>GOA, represents several companies in America that can offer a line of products of high demand and also
               specialized products. We also offer advice and management of formalities before governmental entities such
               as FDA, USDA, CBP.</p>
-            <p class="mt-4">REPRESENTATIONS: Some to review since what we are looking for is to manage products that identify with
+            <p class="mt-4">REPRESENTATIONS: Some to review since what we are looking for is to manage products that
+              identify with
               our
               business vision but have a business area for the management of other categories.</p>
           </div>
@@ -174,12 +168,20 @@
       });
     },
     computed: {
-      categories() {
-        return this.$store.getters.getProducts
+      productsLimit() {
+        return this.$store.getters.getProductsLimit
+      },
+      productsNews() {
+        return this.$store.getters.getProductsNews
+      },
+      productsFavorites() {
+        return this.$store.getters.getProductsFavorites
       },
     },
     created() {
-      this.$store.dispatch('getProducts')
+      this.$store.dispatch('getProductsLimit', '?order=RAND&limit=3')
+      this.$store.dispatch('getProductsNews', '?new=true&limit=15')
+      this.$store.dispatch('getProductsFavorites', '?favorite=true&limit=15')
     },
   };
 </script>

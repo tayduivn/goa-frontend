@@ -13,10 +13,11 @@ Content-Type: application/json
 Authorization: Bearer {{auth_token}}
 
 {
+  "title": "Hi",
   "message": "Hola producto",
-  "stars": 4,
+  "stars": 6,
   "user_id": 1,
-  "product_id": 2
+  "product_id": 4
 }
 
 ###

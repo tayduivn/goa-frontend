@@ -5,6 +5,9 @@ import swal from "vue-sweetalert2"
 export default {
   state: {
     products: [],
+    productsLimit: [],
+    productsNews: [],
+    productsFavorites: [],
     product: {},
   },
   mutations: {
@@ -14,10 +17,28 @@ export default {
     SET_PRODUCT(state, product) {
       state.product = product
     },
+    SET_PRODUCTS_LIMIT(state, productsLimit) {
+      state.productsLimit = productsLimit
+    },
+    SET_PRODUCTS_NEWS(state, productsNews) {
+      state.productsNews = productsNews
+    },
+    SET_PRODUCTS_FAVORITES(state, productsFavorites) {
+      state.productsFavorites = productsFavorites
+    },
   },
   getters: {
     getProducts: (state) => {
       return state.products
+    },
+    getProductsLimit: (state) => {
+      return state.productsLimit
+    },
+    getProductsNews: (state) => {
+      return state.productsNews
+    },
+    getProductsFavorites: (state) => {
+      return state.productsFavorites
     },
     getProduct: (state) => {
       return state.product
@@ -42,7 +63,58 @@ export default {
           })
       })
     },
-    getProduct({commit}, query) {
+    getProductsLimit({commit}, query = '') {
+      commit('SET_PRODUCTS_LIMIT', 'loading')
+      getAxios(`${apiProducts.allPublic}${query}`, 'GET')
+        .then(res => {
+          if (res.data.data.length === 0) {
+            commit('SET_PRODUCTS_LIMIT', 'empty')
+          } else {
+            commit('SET_PRODUCTS_LIMIT', res.data.data)
+          }
+        })
+        .catch(err => {
+          commit('SET_PRODUCTS_LIMIT', 'error')
+          handleError(swal, err)
+        })
+    },
+    getProductsNews({commit}, query = '') {
+      return new Promise((resolve) => {
+        commit('SET_PRODUCTS_NEWS', 'loading')
+        getAxios(`${apiProducts.allPublic}${query}`, 'GET')
+          .then(res => {
+            if (res.data.data.length === 0) {
+              commit('SET_PRODUCTS_NEWS', 'empty')
+            } else {
+              commit('SET_PRODUCTS_NEWS', res.data.data)
+              resolve()
+            }
+          })
+          .catch(err => {
+            commit('SET_PRODUCTS_NEWS', 'error')
+            handleError(swal, err)
+          })
+      })
+    },
+    getProductsFavorites({commit}, query = '') {
+      return new Promise((resolve) => {
+        commit('SET_PRODUCTS_FAVORITES', 'loading')
+        getAxios(`${apiProducts.allPublic}${query}`, 'GET')
+          .then(res => {
+            if (res.data.data.length === 0) {
+              commit('SET_PRODUCTS_FAVORITES', 'empty')
+            } else {
+              commit('SET_PRODUCTS_FAVORITES', res.data.data)
+              resolve()
+            }
+          })
+          .catch(err => {
+            commit('SET_PRODUCTS_FAVORITES', 'error')
+            handleError(swal, err)
+          })
+      })
+    },
+    getProduct({commit}, query = '') {
       return new Promise((resolve) => {
         commit('SET_PRODUCT', 'loading')
         getAxios(`${apiProducts.allPublic}${query}`, 'GET')
