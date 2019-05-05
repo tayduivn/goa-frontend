@@ -1,6 +1,10 @@
 .home {
   color: $color-font;
 
+  .global-separator {
+    top: -18px
+  }
+
   .home-sub-head {
     color: white;
     width: 100%;

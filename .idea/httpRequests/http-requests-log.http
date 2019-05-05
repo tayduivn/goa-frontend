@@ -1,3 +1,19 @@
+GET http://goa-backend/api/public/products
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-05-04T022727.200.json
+
+###
+
+GET http://goa-backend/api/public/products
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-05-04T022135.200.json
+
+###
+
 GET http://goa-backend/api/carts?id=1
 Accept: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
@@ -434,36 +450,6 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpb
 }
 
 <> 2019-04-27T103900.201.json
-
-###
-
-POST http://goa-backend/api/carts/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-{
-  "price": "400",
-  "quantity": "20",
-  "cart_id": "2",
-  "product_id": "3"
-}
-
-<> 2019-04-27T103855.409.json
-
-###
-
-POST http://goa-backend/api/carts/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-{
-  "price": "400",
-  "quantity": "20",
-  "cart_id": "2",
-  "product_id": "3"
-}
-
-<> 2019-04-27T103827.201.json
 
 ###
 

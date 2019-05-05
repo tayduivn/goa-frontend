@@ -116,9 +116,12 @@
             <img src="./../../../assets/img/index/Cacao_Head_1.png" alt="item.name">
             <p class="mt-3 mb-3">Nombre</p>
             <p class="mt-3 mb-4">Precio</p>
-            <router-link to="products-detail/1" tag="button" class="global-button transparent pl-4 pr-4">
-              Buy Now
-            </router-link>
+            <div class="d-flex justify-content-center">
+              <router-link :to="`products-detail/${product.id}`" tag="button"
+                           class="global-button transparent pl-4 pr-4">
+                Buy Now
+              </router-link>
+            </div>
           </div>
         </div>
 

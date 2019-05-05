@@ -1,0 +1,50 @@
+.products {
+  .products-box {
+    width: 100%;
+
+    .products-content {
+      @include div-adjust(1);
+      display: flex;
+
+      .product-filter {
+        @include div-display(30%);
+        background-color: #E7E7E7;
+        height: 100%;
+        padding: 20px 40px 20px 80px;
+
+        .filter-category {
+
+        }
+      }
+
+      .products-all {
+        @include div-display(70%);
+        display: flex;
+        flex-wrap: wrap;
+
+        .product-item {
+          margin: 0 2%;
+          width: 22%;
+
+          h6 {
+            margin: 10% 0 8%;
+          }
+
+          a:hover {
+            color: inherit;
+          }
+
+          img {
+            width: 100%;
+          }
+
+          button {
+            display: block;
+            margin: 10% auto 0;
+          }
+        }
+      }
+    }
+
+  }
+}
