@@ -112,16 +112,21 @@
         </div>
         <div class="products-box">
           <h2>Related Products</h2>
-          <div class="slick-product-content">
-            <img src="./../../../assets/img/index/Cacao_Head_1.png" alt="item.name">
-            <p class="mt-3 mb-3">Nombre</p>
-            <p class="mt-3 mb-4">Precio</p>
-            <div class="d-flex justify-content-center">
-              <router-link :to="`products-detail/${product.id}`" tag="button"
-                           class="global-button transparent pl-4 pr-4">
-                Buy Now
-              </router-link>
-            </div>
+          <div class="content-slick" v-if="productsCategories&& productsCategories.length
+        && productsCategories!== 'empty' && productsCategories!== 'loading'">
+            <slick ref="slick" :options="slickOptionsTwo">
+              <div v-for="item in productsCategories" :key="item.id" class="slick-product-content">
+                <router-link :to="`products-detail/${item.id}`">
+                  <img :src="item.images[0].image" :alt="item.name">
+                  <p>{{item.name}}</p>
+                  <p>{{item.regular_price}}</p>
+                  <router-link :to="`products-detail/${item.id}`" tag="button"
+                               class="global-button transparent pl-4 pr-4">
+                    Buy Now
+                  </router-link>
+                </router-link>
+              </div>
+            </slick>
           </div>
         </div>
 
@@ -129,7 +134,7 @@
           <template slot="close-icon">
             <CloseImageSVG/>
           </template>
-          <h3>Review to Product {{product.name}}</h3>
+          <h3>Review to {{product.name}}</h3>
           <form @submit.prevent="saveData">
             <div class="form-group">
               <label for="title" class="mt-3 mb-3">Title</label>
@@ -189,7 +194,7 @@
           autoplay: true,
           arrows: true,
           dots: false,
-          slidesToShow: 3,
+          slidesToShow: 4,
           responsive: [
             {
               breakpoint: 900,
@@ -218,13 +223,13 @@
       product() {
         return this.$store.getters.getProduct
       },
-      products() {
-        return this.$store.getters.getProducts
+      productsCategories() {
+        return this.$store.getters.getProductsCategories
       },
     },
     created() {
       this.$store.dispatch('getProduct', `?id=${this.$route.params.id}`)
-      this.$store.dispatch('getProducts')
+      this.$store.dispatch('getProductsCategories', '?category=true&limit=4')
     },
     methods: {
       searchProduct() {
