@@ -1,4 +1,4 @@
-GET {{host}}/api/carts?id=1
+GET {{host}}/api/carts?id=2
 Accept: application/json
 Authorization: Bearer {{auth_token}}
 
@@ -11,6 +11,12 @@ Authorization: Bearer {{auth_token}}
 ###
 
 GET {{host}}/api/carts?orderByUser=true
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+GET {{host}}/api/carts?userId=1&status=current
 Accept: application/json
 Authorization: Bearer {{auth_token}}
 

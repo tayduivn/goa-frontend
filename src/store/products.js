@@ -8,6 +8,7 @@ export default {
     productsLimit: [],
     productsNews: [],
     productsFavorites: [],
+    productsCategories: [],
     product: {},
   },
   mutations: {
@@ -26,6 +27,9 @@ export default {
     SET_PRODUCTS_FAVORITES(state, productsFavorites) {
       state.productsFavorites = productsFavorites
     },
+    SET_PRODUCTS_CATEGORIES(state, productsCategories) {
+      state.productsCategories = productsCategories
+    },
   },
   getters: {
     getProducts: (state) => {
@@ -39,6 +43,9 @@ export default {
     },
     getProductsFavorites: (state) => {
       return state.productsFavorites
+    },
+    getProductsCategories: (state) => {
+      return state.productsCategories
     },
     getProduct: (state) => {
       return state.product
@@ -105,6 +112,21 @@ export default {
         })
         .catch(err => {
           commit('SET_PRODUCTS_FAVORITES', 'error')
+          handleError(swal, err)
+        })
+    },
+    getProductsCategories({commit}, query = '') {
+      commit('SET_PRODUCTS_CATEGORIES', 'loading')
+      getAxios(`${apiProducts.allPublic}${query}`, 'GET')
+        .then(res => {
+          if (res.data.data.length === 0) {
+            commit('SET_PRODUCTS_CATEGORIES', 'empty')
+          } else {
+            commit('SET_PRODUCTS_CATEGORIES', res.data.data)
+          }
+        })
+        .catch(err => {
+          commit('SET_PRODUCTS_CATEGORIES', 'error')
           handleError(swal, err)
         })
     },

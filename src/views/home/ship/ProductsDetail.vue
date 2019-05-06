@@ -9,7 +9,9 @@
       <div v-else-if="product && product !== 'empty'">
         <div class="product-box">
           <div class="product-content">
+
             <div class="product-detail-content">
+
               <div class="product-images">
                 <img :src="product.images[0].image" :alt="product.name">
                 <slick
@@ -20,6 +22,7 @@
                   </div>
                 </slick>
               </div>
+
               <div class="product-info">
                 <h3>{{product.name}}</h3>
                 <p>{{product.description_short}}</p>
@@ -28,7 +31,7 @@
                   <img src="../../../assets/img/product-description/star_icon.png" alt="start product">
                   <img src="../../../assets/img/product-description/star_icon.png" alt="start product">
                   <img src="../../../assets/img/product-description/star_icon.png" alt="start product">
-                  <h6>{{product.stars}} Reviews</h6>
+                  <h6>{{product.reviews.length}} Reviews</h6>
                 </div>
                 <p>{{product.regular_price}}</p>
                 <div class="info-quantity">
@@ -39,7 +42,7 @@
                     <button @click.prevent="quantityProduct(true)">+</button>
                   </div>
                 </div>
-                <button class="global-button green">Buy Now</button>
+                <button class="global-button green" @click.prevent="saveCart">Buy Now</button>
                 <p>{{product.description_one}}</p>
                 <div class="info-preparation">
                   <div>
@@ -50,6 +53,7 @@
                 </div>
               </div>
             </div>
+
             <div class="product-share">
               <a href="/#">
                 <img src="./../../../assets/img/product-description/share_facebook_icon.png" alt="ico facebook">
@@ -59,6 +63,7 @@
               </a>
               <h3>Share</h3>
             </div>
+
             <div class="product-description-box">
               <div class="head-content tab">
                 <p class="tablinks active" @click.prevent="openTab($event, 'description')">Product Description</p>
@@ -74,47 +79,36 @@
                 <img :src="product.images[0].image" :alt="product.name">
               </div>
             </div>
+
             <div id="review" class="product-review-content tabcontent">
               <div class="review-head">
                 <h3>Customer Reviews</h3>
                 <button @click.prevent="openModal" class="global-button transparent">write a review</button>
               </div>
-              <div class="review-info">
+              <div v-for="review in product.reviews" :key="review.id" class="review-info">
                 <h6>{{product.first_name}} {{product.last_name}}</h6>
                 <div>
-                  <img src="../../../assets/img/product-description/star_icon.png" alt="start product">
-                  <img src="../../../assets/img/product-description/star_icon.png" alt="start product">
-                  <img src="../../../assets/img/product-description/star_icon.png" alt="start product">
-                  <img src="../../../assets/img/product-description/star_icon.png" alt="start product">
+                  <img src="../../../assets/img/product-description/star_icon.png" alt="start product"
+                       v-for="index in parseInt(review.stars)" :key="index">
                 </div>
-                <h6>{{product.title}}</h6>
-                <span>{{product.message}}</span>
-                <!-- Todo: Starts -->
-              </div>
-              <div class="review-info">
-                <h6>{{product.first_name}} {{product.last_name}}</h6>
-                <div>
-                  <img src="../../../assets/img/product-description/star_icon.png" alt="start product">
-                  <img src="../../../assets/img/product-description/star_icon.png" alt="start product">
-                  <img src="../../../assets/img/product-description/star_icon.png" alt="start product">
-                  <img src="../../../assets/img/product-description/star_icon.png" alt="start product">
-                </div>
-                <h6>{{product.title}}</h6>
-                <span>{{product.message}}</span>
-                <!-- Todo: Starts -->
+                <h6>{{review.title}}</h6>
+                <span>{{review.message}}</span>
               </div>
             </div>
+
           </div>
         </div>
+
         <div class="global-separator">
           <div class="line"></div>
           <img src="./../../../assets/img/index/Logo_iso_Separador.png" alt="goa logo">
         </div>
+
         <div class="products-box">
           <h2>Related Products</h2>
           <div class="content-slick" v-if="productsCategories&& productsCategories.length
         && productsCategories!== 'empty' && productsCategories!== 'loading'">
-            <slick ref="slick" :options="slickOptionsTwo">
+            <slick ref="slick" :options="slickOptions">
               <div v-for="item in productsCategories" :key="item.id" class="slick-product-content">
                 <router-link :to="`products-detail/${item.id}`">
                   <img :src="item.images[0].image" :alt="item.name">
@@ -229,13 +223,22 @@
     },
     created() {
       this.$store.dispatch('getProduct', `?id=${this.$route.params.id}`)
-      this.$store.dispatch('getProductsCategories', '?category=true&limit=4')
+      this.$store.dispatch('getProductsCategories', `?id=${this.$route.params.id}&category=true&limit=15&order=RAND`)
     },
     methods: {
       searchProduct() {
       },
       saveData() {
         getAxios(apiReviews.all, 'POST', this.review)
+          .then(() => {
+            this.successRequest("Creado")
+          })
+          .catch(err => {
+            handleError(this.$swal, err)
+          })
+      },
+      saveCart() {
+        getAxios(apiReviews.all, 'POST', this.cart)
           .then(() => {
             this.successRequest("Creado")
           })

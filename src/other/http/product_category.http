@@ -9,8 +9,8 @@ Content-Type: application/json
 Authorization: Bearer {{auth_token}}
 
 {
-  "product_id": "3",
-  "category_id": "26"
+  "product_id": "4",
+  "category_id": "1"
 }
 
 ###

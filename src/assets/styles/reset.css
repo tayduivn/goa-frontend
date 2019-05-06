@@ -120,6 +120,10 @@ button[disabled=disabled], button:disabled {
   text-transform: uppercase;
 }
 
+.products-box p:nth-of-type(1), .products-box button {
+  margin: 5% 0;
+}
+
 .slick-product-content {
   text-align: center;
 }
