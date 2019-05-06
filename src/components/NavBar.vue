@@ -47,7 +47,7 @@
         if (this.user !== null && this.user !== undefined && this.user.constructor === Object) {
           const cartsByUser = this.$store.getters.getCartsByUser
           if (cartsByUser !== 'empty' && cartsByUser !== 'error' && cartsByUser !== 'loading') {
-            return cartsByUser[0].products.length
+            return cartsByUser.products.length
           } else {
             return 0
           }

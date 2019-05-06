@@ -46,8 +46,8 @@ export default {
             if (res.data.data.length === 0) {
               commit('SET_CART', 'empty')
             } else {
-              commit('SET_CART', res.data.data)
-              resolve(res.data.data)
+              commit('SET_CART', res.data.data[0])
+              resolve(res.data.data[0])
             }
           })
           .catch(err => {
