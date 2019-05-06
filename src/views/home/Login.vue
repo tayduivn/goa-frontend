@@ -5,7 +5,7 @@
         <h2>LOG IN</h2>
         <hr>
         <h5 class="mt-4 mb-4">¿You not have account?
-          <router-link to="/register">ÚNETE</router-link>
+          <router-link to="/register">JOIN</router-link>
         </h5>
         <div class="form-group">
           <label for="name">Email</label>
@@ -75,7 +75,13 @@
                 localStorage.setItem("email", this.user.email)
                 localStorage.setItem("password", this.user.password)
               }
-              this.$router.push('home')
+              this.$store.dispatch('getCartsByUser', `?userId=${res.data.data.user.id}&status=current`)
+                .then(() => {
+                  this.$router.push('home')
+                })
+                .catch(err => {
+                  handleError(this.$swal, err)
+                })
             }
           })
           .catch(err => {

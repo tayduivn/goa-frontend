@@ -98,7 +98,8 @@
       },
     },
     created() {
-      this.$store.dispatch('getCartsByUser', JSON.parse(localStorage.getItem('user')).id)
+      const id = JSON.parse(localStorage.getItem('user')).id
+      this.$store.dispatch('getCartsByUser', `?userId=${id}`)
     },
     methods: {
       minusQuantity() {

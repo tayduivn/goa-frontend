@@ -111,7 +111,7 @@
     methods: {
       openModal(cart) {
         this.open = true
-        this.$store.dispatch('getCartsByUser', cart.user_id)
+        this.$store.dispatch('getCartsByUser', `?userId=${cart.user_id}`)
       },
       hideModal() {
         this.open = false

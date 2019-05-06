@@ -38,19 +38,24 @@ export default {
           handleError(swal, err)
         })
     },
-    getCartsByUser({commit}, id) {
+    getCartsByUser({commit}, query = '') {
       commit('SET_CART', 'loading')
-      getAxios(`${apiCarts.all}?idUser=${id}`, 'GET')
-        .then(res => {
-          if (res.data.data.length === 0) {
+      return new Promise((resolve, reject) => {
+        getAxios(`${apiCarts.all}${query}`, 'GET')
+          .then(res => {
+            if (res.data.data.length === 0) {
+              commit('SET_CART', 'empty')
+            } else {
+              commit('SET_CART', res.data.data)
+              resolve(res)
+            }
+          })
+          .catch(err => {
             commit('SET_CART', 'empty')
-          } else
-            commit('SET_CART', res.data.data)
-        })
-        .catch(err => {
-          commit('SET_CART', 'empty')
-          handleError(swal, err)
-        })
+            handleError(swal, err)
+            reject(err)
+          })
+      })
     },
   }
 }
