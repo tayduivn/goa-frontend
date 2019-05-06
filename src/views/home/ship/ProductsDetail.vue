@@ -172,9 +172,10 @@
   import Slick from 'vue-slick';
   import CloseImageSVG from "../../../components/CloseImageSVG"
   import {modelReviews} from "../../../services/model/model-reviews"
-  import {apiReviews, getAxios} from "../../../utils/endpoints"
+  import {apiCartsProducts, apiReviews, getAxios} from "../../../utils/endpoints"
   import {handleError} from "../../../utils/util"
-  import {infoMessage} from "../../../utils/handle-message"
+  import {infoMessage, successMessage} from "../../../utils/handle-message"
+  import {modelCartProducts} from "../../../services/model/model-cart-products"
 
   export default {
     name: 'ProductsDetail',
@@ -183,6 +184,7 @@
       return {
         open: false,
         review: modelReviews,
+        cartProducts: modelCartProducts,
         quantityValue: 1,
         slickOptions: {
           autoplay: true,
@@ -231,16 +233,20 @@
       saveData() {
         getAxios(apiReviews.all, 'POST', this.review)
           .then(() => {
-            this.successRequest("Creado")
+            successMessage(this.$swal, "Creado")
           })
           .catch(err => {
             handleError(this.$swal, err)
           })
       },
       saveCart() {
-        getAxios(apiReviews.all, 'POST', this.cart)
+        this.cartProducts.quantity = this.quantityValue
+        this.cartProducts.product_id = this.product.id
+        this.cartProducts.cart_id = localStorage.getItem('cartId')
+        console.log(JSON.stringify(this.cartProducts))
+        getAxios(apiCartsProducts.all, 'POST', this.cartProducts)
           .then(() => {
-            this.successRequest("Creado")
+            successMessage(this.$swal, "Creado")
           })
           .catch(err => {
             handleError(this.$swal, err)

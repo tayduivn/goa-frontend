@@ -76,7 +76,8 @@
                 localStorage.setItem("password", this.user.password)
               }
               this.$store.dispatch('getCartsByUser', `?userId=${res.data.data.user.id}&status=current`)
-                .then(() => {
+                .then((res) => {
+                  localStorage.setItem('cartId', res[0].cart_id)
                   this.$router.push('home')
                 })
                 .catch(err => {

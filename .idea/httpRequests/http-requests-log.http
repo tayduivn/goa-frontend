@@ -1,3 +1,119 @@
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+{
+  "id": "",
+  "quantity": 1,
+  "cart_id": "4",
+  "product_id": "4"
+}
+
+<> 2019-05-06T011422.409.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+{
+  "id": "",
+  "quantity": 1,
+  "cart_id": "4",
+  "product_id": "4"
+}
+
+<> 2019-05-06T011412.201.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+{
+  "id": "",
+  "quantity": 1,
+  "cart_id": "4",
+  "product_id": "4"
+}
+
+<> 2019-05-06T010943.409.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+{
+  "id": "",
+  "quantity": 1,
+  "cart_id": null,
+  "product_id": "4"
+}
+
+<> 2019-05-06T010821.409.json
+
+###
+
+GET http://goa-backend/api/carts?userId=2&status=current
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+<> 2019-05-06T010408.200.json
+
+###
+
+GET http://goa-backend/api/carts?userId=2&status=current
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+<> 2019-05-06T120743.200.json
+
+###
+
+GET http://goa-backend/api/carts?userId=7&status=current
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+<> 2019-05-06T120736.200.json
+
+###
+
+GET http://goa-backend/api/carts?userId=7&status=current
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+<> 2019-05-06T120713.200.json
+
+###
+
+GET http://goa-backend/api/carts?userId=7&status=current
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+<> 2019-05-06T120533.200.json
+
+###
+
+GET http://goa-backend/api/carts?userId=7&status=current
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+<> 2019-05-06T120429.200.json
+
+###
+
+GET http://goa-backend/api/carts?userId=2&status=current
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+<> 2019-05-06T120358.200.json
+
+###
+
 POST http://goa-backend/api/public/users/register
 Content-Type: application/json
 
@@ -329,94 +445,6 @@ Accept: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
 
 <> 2019-05-06T102014.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T101953.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T101918.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=checkout
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T100247.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T100239.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T100211.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T100141.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T100119.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T095927.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T095913.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T095900.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T095835.200.json
 
 ###
 

@@ -47,7 +47,7 @@ export default {
               commit('SET_CART', 'empty')
             } else {
               commit('SET_CART', res.data.data)
-              resolve(res)
+              resolve(res.data.data)
             }
           })
           .catch(err => {

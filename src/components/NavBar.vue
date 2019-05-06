@@ -17,6 +17,7 @@
         </a>
       </nav>
       <router-link to="/cart" id="cart">
+        <span class="number-products">{{notificationCount}}</span>
         <img src="../assets/img/Header/icon_cart.png" alt="cart">
       </router-link>
       <router-link to="/profile" id="menu-profile">
@@ -42,13 +43,18 @@
       levelUser() {
         return this.$store.getters.getLevelUser
       },
-      /*notificationCount() {
+      notificationCount() {
         if (this.user !== null && this.user !== undefined && this.user.constructor === Object) {
-          return this.$store.getters.getNotificationsStatusRead
+          const cartsByUser = this.$store.getters.getCartsByUser
+          if (cartsByUser !== 'empty' && cartsByUser !== 'error' && cartsByUser !== 'loading') {
+            return cartsByUser[0].products.length
+          } else {
+            return 0
+          }
         } else {
           return 0
         }
-      }*/
+      }
     },
     mounted() {
       /* Menu responsive */
@@ -80,9 +86,9 @@
 
     },
     created() {
-      /*if (this.user !== null && this.user !== undefined && this.user.constructor === Object) {
-        this.$store.dispatch('getNotificationsStatusRead', {iduser: this.user.iduser, status: 2})
-      }*/
+      if (this.user !== null && this.user !== undefined && this.user.constructor === Object) {
+        this.$store.dispatch('getCartsByUser', `?userId=${this.user.id}&status=current`)
+      }
     },
     methods: {
       validateUser() {
@@ -131,6 +137,15 @@
 
   header nav a:hover {
     color: white;
+  }
+
+  header span.number-products {
+    background-color: darkred;
+    border-radius: 50%;
+    font-size: .7rem;
+    color: white;
+    margin-right: 2%;
+    padding: 2px 5px;
   }
 
   @media screen and (min-width: 1920px) {
