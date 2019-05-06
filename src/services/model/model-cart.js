@@ -1,15 +1,11 @@
 const modelCart= {
   id: "",
-  price: "",
-  quantity: "",
   user_id: "",
-  product_id: "",
+  status: "",
   reset: function () {
     this.id = ""
-    this.price = ""
-    this.quantity = ""
     this.user_id = ""
-    this.product_id = ""
+    this.status = ""
     return modelCart
   }
 }

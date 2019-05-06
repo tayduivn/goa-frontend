@@ -1,63 +1,50 @@
 <template>
   <div class="register">
     <div class="card mt-5 mb-5 register-content">
-      <h2 class="mb-4 p-4">Únete a TSL</h2>
-      <h4 class="pr-4 pl-4 pb-4">Elige entre...</h4>
-      <div class="row register-user-type">
-        <button @click="activeClient(true)" class="col-md-6" :class="{active: isClient}">
-          Cliente
-        </button>
-        <button @click="activeClient(false)" class="col-md-6" :class="{active: isTransport}">
-          Transportista
-        </button>
-      </div>
-      <form v-if="isClient || isTransport" @submit.prevent="send()" class="p-4">
-        <div v-if="isTransport" class="form-group">
-          <label for="name_truck">Alias como transportista</label>
-          <input v-model="userTransport.name_truck" type="text" class="form-control" id="name_truck" required>
-        </div>
-        <div class="form-group">
-          <label for="person_name">Nombre</label>
-          <input v-model="user.person_name" type="text" class="form-control" id="person_name" required>
-        </div>
-        <div class="form-group">
-          <label for="person_last_name">Apellido</label>
-          <input v-model="user.person_last_name" type="text" class="form-control" id="person_last_name" required>
-        </div>
-        <div class="form-group">
-          <label for="name">Nombre de usuario</label>
-          <input v-model="user.name" type="text" class="form-control" id="name" required>
-        </div>
-        <div class="form-group">
-          <label for="phone">Número de teléfono</label>
-          <input v-model="user.phone" type="tel" name="phone" class="form-control" id="phone" required>
-        </div>
-        <div class="form-group">
-          <label for="direction">Dirección</label>
-          <input v-model="user.street" type="text" name="street" class="form-control" id="direction" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Correo</label>
-          <input v-model="user.email" type="email" name="email" class="form-control" id="email" required>
-        </div>
-        <div class="form-group">
-          <label for="password1">Contraseña</label>
-          <input v-model="user.password" type="password" class="form-control" id="password1"
-                 required pattern=".{6,}"
-                 onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Mínimo de 6 caracteres' : '');
+      <h2 class="mb-4 p-4">Join to Gardens of America</h2>
+      <form @submit.prevent="send()" class="p-4">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="first_name">Name</label>
+              <input v-model="user.first_name" type="text" class="form-control" id="first_name" required>
+            </div>
+            <div class="form-group">
+              <label for="last_name">Last Name</label>
+              <input v-model="user.last_name" type="text" class="form-control" id="last_name" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Number of phone</label>
+              <input v-model="user.phone" type="tel" name="phone" class="form-control" id="phone" required>
+            </div>
+            <div class="form-group">
+              <label for="direction">Address</label>
+              <input v-model="user.address" type="text" name="address" class="form-control" id="direction" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="email-goa">Email</label>
+              <input v-model="user.email" type="email" name="email-goa" class="form-control" id="email-goa" required>
+            </div>
+            <div class="form-group">
+              <label for="password1">Password</label>
+              <input v-model="user.password" type="password" class="form-control" id="password1"
+                     required pattern=".{6,}"
+                     onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Minimum of 6 characters' : '');
                    if(this.checkValidity()) form.password_two.pattern = this.value;">
-          <small class="form-text text-muted">Nunca compartas tu contraseña con nadie.</small>
+            </div>
+            <div class="form-group">
+              <label for="password_two">Insert again the password</label>
+              <input type="password" class="form-control" id="password_two"
+                     required pattern="^\S{6,}$"
+                     onchange="this.setCustomValidity(this.validity.patternMismatch ? 'The password not match' : '');">
+            </div>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="password_two">Ingrese de nuevo la Contraseña</label>
-          <input type="password" class="form-control" id="password_two"
-                 required pattern="^\S{6,}$"
-                 onchange="this.setCustomValidity(this.validity.patternMismatch ? 'La contraseña no es igual' : '');">
+        <div class="text-right">
+          <button type="submit" class="btn btn-primary">Join</button>
         </div>
-        <button type="submit" class="btn btn-primary">Únete</button>
-        <p class="mt-5 register-politics">Al oprimir Únete a TSL, usted acepta los términos y condiciones del
-          <a href="/#">Acuerdo de usuario de TSL</a> & <a href="/#">Política de Privacidad</a>.
-        </p>
       </form>
     </div>
   </div>
@@ -66,53 +53,39 @@
 <script>
   import {successMessage} from "../../utils/handle-message"
   import {handleError} from "../../utils/util"
-  import config from "../../config/config"
-  import axios from "axios"
+  import {modelUser} from "../../services/model/model-user"
+  import {apiCarts, apiUsers, getAxios} from "../../utils/endpoints"
+  import {modelCart} from "../../services/model/model-cart"
 
   export default {
     name: 'register',
     metaInfo: {
-      title: 'TSL',
+      title: 'GOA',
       titleTemplate: (title) => {
-        return `${title} | Registrar`
+        return `${title} | register`
       }
     },
     data: function () {
       return {
-        isTransport: false,
-        isClient: false,
-        user: {
-          name: '',
-          person_name: '',
-          person_last_name: '',
-          password: '',
-          phone: '',
-          street: '',
-          email: '',
-          type: ''
-        },
-        userTransport: {
-          user_iduser: '',
-          name_truck: '',
-        },
+        user: modelUser
       }
     },
     methods: {
-      activeClient(isClient) {
-        this.isClient = isClient
-        this.isTransport = !isClient
-      },
       send() {
-        this.user.type = this.isClient ? "Cliente" : "Transportista"
+        this.user.role_id = 2
         console.log(JSON.stringify(this.user))
-        axios({
-          method: 'POST',
-          url: `${config.api_url}/api/public/user/register`,
-          data: this.user
-        })
-          .then(() => {
-            successMessage(this.$swal, null, "Registrado")
-            this.$router.push('ship')
+        getAxios(apiUsers.register, 'POST', this.user)
+          .then((res) => {
+            const cart = modelCart
+            cart.user_id = res.data.data.idUser
+            getAxios(apiCarts.all, 'POST', cart)
+              .then(() => {
+                successMessage(this.$swal, null, "Registrado")
+                this.$router.push('login')
+              })
+              .catch(err => {
+                handleError(this.$swal, err)
+              })
           })
           .catch(err => {
             handleError(this.$swal, err)

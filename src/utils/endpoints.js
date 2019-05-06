@@ -68,6 +68,10 @@ const apiCarts = {
   all: `${config.api_url}/api/carts`,
 }
 
+const apiCartsProducts = {
+  all: `${config.api_url}/api/carts/products`,
+}
+
 export {
   getAxios,
   apiUsers,
@@ -76,6 +80,7 @@ export {
   apiReviews,
   apiTransactions,
   apiCarts,
+  apiCartsProducts,
   apiOrders,
   apiProducts,
   apiProductsCategories

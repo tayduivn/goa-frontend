@@ -13,31 +13,40 @@ Content-Type: application/json
 GET {{host}}/api/users
 Accept: application/json
 Authorization: Bearer {{auth_token}}
+
 ###
 
 GET {{host}}/src/uploads/7738d966b6fb7811.jpeg
 Accept: application/json
+
 ###
 
 GET {{host}}/api/public/endpoints
 Accept: application/json
+
 ###
 
 GET {{host}}/api/users/profile/3
 Accept: application/json
 Authorization: Bearer {{auth_token}}
+
 ###
 
 POST {{host}}/api/public/users/register
 Content-Type: application/json
 
 {
+  "name": "ivans51",
+  "first_name": "ivans",
+  "last_name": "del pino",
   "password": "123456",
-  "email": "Ivans20@gmail.com",
-  "first_name": "Maracay",
-  "last_name": "04125456465",
-  "role_id": "1"
+  "phone": "04164318061",
+  "address": "Calle Santa Rita",
+  "email": "ivans54@gmail.com",
+  "type": "",
+  "role_id": 2
 }
+
 ###
 
 PUT {{host}}/api/users/update
@@ -51,6 +60,7 @@ Authorization: Bearer {{auth_token}}
   "phone": "04125456465",
   "type": "Administrador"
 }
+
 ###
 
 DELETE {{host}}/api/users/delete
@@ -60,4 +70,5 @@ Authorization: Bearer {{auth_token}}
 {
   "usersid": "1"
 }
+
 ###

@@ -2,15 +2,14 @@
   <div class="login">
     <div class="login-content mt-5 mb-5 card p-4">
       <form @submit.prevent="send()">
-        <h2>INICIAR SESIÓN</h2>
+        <h2>LOG IN</h2>
         <hr>
-        <h5 class="mt-4 mb-4">¿No tiene una cuenta?
+        <h5 class="mt-4 mb-4">¿You not have account?
           <router-link to="/register">ÚNETE</router-link>
         </h5>
         <div class="form-group">
-          <label for="name">Correo o Nombre de usuario</label>
+          <label for="name">Email</label>
           <input v-model="user.email" type="text" class="form-control" id="name">
-          <small id="emailHelp" class="form-text text-muted">Nosotros no compartiremos tu correo con nadie.</small>
         </div>
         <div class="form-group">
           <label for="pass">Password</label>
@@ -18,15 +17,15 @@
         </div>
         <div class="d-flex justify-content-between align-items-center mt-4 mb-4">
           <label class="width-reset mb-0">
-            <input class="mr-2" type="checkbox" v-model="isRemember"/><span>Recordarme</span>
+            <input class="mr-2" type="checkbox" v-model="isRemember"/><span>Remember me</span>
           </label>
           <h5>
-            <router-link to="/forgot">¿Olvido su contraseña?</router-link>
+            <router-link to="/forgot">¿Forget your password?</router-link>
           </h5>
         </div>
         <hr>
         <div class="text-center mt-4 mb-2">
-          <button type="submit">Iniciar sesión</button>
+          <button type="submit">Log in</button>
         </div>
       </form>
     </div>
