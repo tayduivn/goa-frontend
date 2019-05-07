@@ -40,7 +40,8 @@
                 </tbody>
               </table>
               <div class="text-right">
-                <button @click.prevent="updateCart" class="global-button button-update-cart">Update Shopping Cart
+                <button @click.prevent="updateCart" class="global-button button-update-cart">
+                  Update Shopping Cart
                 </button>
               </div>
             </div>
@@ -55,7 +56,7 @@
             <hr class="mt-4">
             <div class="summary">
               <router-link to="/products" tag="button" class="global-button transparent">Continue Shopping</router-link>
-              <button class="global-button green" @click.prevent="sendCart">Checkout</button>
+              <button class="global-button green" @click.prevent="openModal">Checkout</button>
             </div>
           </div>
         </div>
@@ -79,6 +80,57 @@
             </slick>
           </div>
         </div>
+
+        <vue-modaltor :visible="open" @hide="hideModal">
+          <template slot="close-icon">
+            <CloseImageSVG/>
+          </template>
+          <h3>Method of Payment</h3>
+          <hr>
+          <form @submit.prevent="saveTransaction">
+            <div class="form-group">
+              <label for="payments">Select your method of payment</label>
+              <select class="form-control width-reset ml-2" name="payments" id="payments" required
+                      v-model="transaction.processor">
+                <option v-for="item in payments" :key="item.id" :value="item.name">
+                  {{ item.name }}
+                </option>
+              </select>
+            </div>
+            <div class="form-group" v-if="transaction.processor === 'Selection'">
+              <label for="title" class="mt-3 mb-3">Processor</label>
+              <input class="form-control" id="title" type="text" required disabled>
+            </div>
+            <div class="form-group" v-else>
+              <label for="title-two" class="mt-3 mb-3">Processor</label>
+              <input class="form-control" id="title-two" type="text" v-model="transaction.processor" required disabled>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="cc_num" class="mt-3 mb-3">cc_num</label>
+                <input class="form-control" id="cc_num" type="number" v-model="transaction.cc_num" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="cc_type" class="mt-3 mb-3">cc_type</label>
+                <input class="form-control" id="cc_type" type="number" v-model="transaction.cc_type" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="start_date" class="mt-3 mb-3">Start Date</label>
+                <input class="form-control" id="start_date" type="date" v-model="transaction.start_date" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="end_date" class="mt-3 mb-3">End Date</label>
+                <input class="form-control" id="end_date" type="date" v-model="transaction.end_date" required>
+              </div>
+            </div>
+            <div class="text-right">
+              <button type="submit" class="btn-sm btn-primary">Guardar</button>
+            </div>
+          </form>
+        </vue-modaltor>
+
       </div>
 
       <div v-else-if="cart && cart === 'empty'" class="d-flex justify-content-between mb-3">
@@ -94,19 +146,30 @@
 <script>
   import SearchComponent from "../../../components/SearchComponent"
   import Slick from 'vue-slick';
-  import {apiCarts, apiCartsProducts, getAxios} from "../../../utils/endpoints"
+  import {apiCarts, apiCartsProducts, apiTransactions, getAxios} from "../../../utils/endpoints"
   import {handleError} from "../../../utils/util"
   import {infoMessage, successMessage} from "../../../utils/handle-message"
   import {modelCart} from "../../../services/model/model-cart"
+  import CloseImageSVG from "../../../components/CloseImageSVG"
+  import {modelTransaction} from "../../../services/model/model-transaction"
 
   export default {
     name: "ProductCart",
-    components: {SearchComponent, Slick},
+    components: {SearchComponent, Slick, CloseImageSVG},
     data() {
       return {
+        open: false,
         quantityValue: [],
         cart: modelCart,
+        transaction: modelTransaction.reset(),
         totalPrice: 0,
+        payments: [
+          {id: 1, name: 'Amazon'},
+          {id: 2, name: 'American Express'},
+          {id: 3, name: 'Mastercard'},
+          {id: 4, name: 'Paypal'},
+          {id: 5, name: 'Visa'}
+        ],
         slickOptions: {
           autoplay: true,
           arrows: true,
@@ -166,10 +229,30 @@
             handleError(this.$swal, err)
           })
       },
-      sendCart() {
+      saveCart() {
         getAxios(apiCarts.all, 'POST', this.cart)
           .then(res => {
 
+          })
+          .catch(err => {
+            handleError(this.$swal, err)
+          })
+      },
+      saveTransaction() {
+        /* TODO: add method of payment */
+        this.transaction.processor_trans_id = 1
+        this.transaction.code = 1
+
+        this.transaction.cart_id  = this.carts.cart_id
+        this.transaction.user_id = this.carts.user_id
+        this.transaction.total = this.totalPrice
+        this.transaction.subtotal = this.totalPrice
+
+        console.log(JSON.stringify(this.transaction))
+        getAxios(apiTransactions.all, 'POST', this.transaction)
+          .then(() => {
+            successMessage(this.$swal, 'Transaction success')
+            this.$router.push('order-client')
           })
           .catch(err => {
             handleError(this.$swal, err)
@@ -193,6 +276,13 @@
         }
         this.quantityValue[index].quantity = isPlus ? parseInt(this.quantityValue[index].quantity) + 1 : parseInt(this.quantityValue[index].quantity) - 1
         this.getTotalPrice()
+      },
+      openModal() {
+        this.transaction = modelTransaction.reset()
+        this.open = true
+      },
+      hideModal() {
+        this.open = false
       },
     },
   }

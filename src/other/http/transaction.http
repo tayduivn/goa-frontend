@@ -1,64 +1,62 @@
-GET {{host}}/api/public/object/getID/1
+GET {{host}}/api/public/transaction/getID/1
 Accept: application/json
 Authorization: Bearer {{auth_token}}
+
 ###
 
-GET {{host}}/api/public/object/getAll
+GET {{host}}/api/public/transaction/getAll
 Accept: application/json
 Authorization: Bearer {{auth_token}}
-###
-
-POST {{host}}/api/admin/object/register
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer {{auth_token}}
-
---WebAppBoundary
-Content-Disposition: form-data; name="name"
-Content-Type: text/plain
-
-Category test
---WebAppBoundary
-Content-Disposition: form-data; name="service_idservice"
-Content-Type: text/plain
-
-3
---WebAppBoundary
-Content-Disposition: form-data; name="image"; filename="fuki.jpeg"
-Content-Type: image/jpeg
-
-< ./../image/fuki.jpeg
---WebAppBoundary--
 
 ###
 
-POST {{host}}/api/admin/object/update
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer {{auth_token}}
-
---WebAppBoundary
-Content-Disposition: form-data; name="idobject"
-Content-Type: text/plain
-
-1
-
---WebAppBoundary
-Content-Disposition: form-data; name="name"
-Content-Type: text/plain
-
-Category test
---WebAppBoundary
-Content-Disposition: form-data; name="image"; filename="fuki.jpeg"
-Content-Type: image/jpeg
-
-< ./../image/fuki.jpeg
---WebAppBoundary--
-###
-
-DELETE {{host}}/api/admin/object/delete
+POST {{host}}/api/transactions
 Content-Type: application/json
 Authorization: Bearer {{auth_token}}
 
 {
-  "idobject": "1"
+  "id": "",
+  "code": 1,
+  "processor": "American Express",
+  "processor_trans_id": 1,
+  "cc_num": "23",
+  "cc_type": "123",
+  "start_date": "2019-05-01",
+  "end_date": "2019-05-15",
+  "cart_id": "1",
+  "user_id": "2",
+  "total": 2700,
+  "subtotal": 2700
 }
+
+###
+
+PUT {{host}}/api/transaction
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": "",
+  "code": 1,
+  "processor": "Amazon",
+  "processor_trans_id": 1,
+  "cc_num": "121",
+  "cc_type": "211",
+  "start_date": "2019-05-15",
+  "end_date": "2019-05-23",
+  "user_id": "",
+  "total": 2700,
+  "subtotal": 2700
+}
+
+###
+
+DELETE {{host}}/api/transaction
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": "1"
+}
+
 ###

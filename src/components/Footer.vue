@@ -2,6 +2,7 @@
   <footer>
     <div class="foot-email">
       <div class="email-box">
+        <!-- TODO: send email -->
         <p>Sign up for our newsletter and be the first to know about our new products.</p>
         <div class="email-info">
           <p>Keep in touch</p>
