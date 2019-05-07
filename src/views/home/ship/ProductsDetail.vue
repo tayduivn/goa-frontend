@@ -261,11 +261,7 @@
           infoMessage(this.$swal, null, '1 is the minimum')
           return
         }
-        if (isPlus) {
-          this.quantityValue = this.quantityValue + 1
-        } else {
-          this.quantityValue = this.quantityValue - 1
-        }
+        this.quantityValue = isPlus ? this.quantityValue + 1 : this.quantityValue - 1
       },
       openModal() {
         this.open = true

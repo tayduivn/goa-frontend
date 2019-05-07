@@ -1,3 +1,39 @@
+GET http://goa-backend/api/carts?userId=2&status=current
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+<> 2019-05-06T034544.200.json
+
+###
+
+GET http://goa-backend/api/carts?orderByUser=true
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+<> 2019-05-06T034542.200.json
+
+###
+
+POST http://goa-backend/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "Ivans10@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-06T034539.200.json
+
+###
+
+GET http://goa-backend/api/carts?userId=2&status=current
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-05-06T034531.401.json
+
+###
+
 GET http://goa-backend/api/public/products?id=1&category=true&limit=15&order=RAND
 Accept: application/json
 Authorization: Bearer
@@ -413,38 +449,6 @@ Accept: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
 
 <> 2019-05-06T102929.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T102852.500.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T102806.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T102745.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T102644.200.json
 
 ###
 

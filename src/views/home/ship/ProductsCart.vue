@@ -19,18 +19,21 @@
                 <th scope="col">Price</th>
                 <th scope="col">Qty</th>
               </tr>
-              <tr v-for="item of carts.products" :key="item.id">
-                <td><img :src="item.images[0].image" :alt="item.name"></td>
-                <td>{{item.name}}</td>
-                <td>{{item.regular_price}}</td>
+              <tr v-for="(product, index) of carts.products" :key="product.id">
+                <td><img :src="product.images[0].image" :alt="product.name"></td>
+                <td>{{product.name}}</td>
+                <td>{{product.regular_price}}</td>
                 <td>
                   <div class="info-quantity">
                     <div>
-                      <button @click.prevent="quantityProduct(false)">-</button>
-                      <input type="text" id="quantity" v-model="quantityValue" disabled>
-                      <button @click.prevent="quantityProduct(true)">+</button>
+                      <button @click.prevent="quantityProduct(false, index)">-</button>
+                      <input type="text" :value="quantityValue[index]">
+                      <button @click.prevent="quantityProduct(true, index)">+</button>
                     </div>
                   </div>
+                  <small v-if="product.quantity < parseInt(quantityValue[index])">
+                    The maximum in store is {{product.quantity}}
+                  </small>
                 </td>
               </tr>
               </tbody>
@@ -43,13 +46,12 @@
             <h3>Summary</h3>
             <div class="d-flex justify-content-between mt-2 mb-1">
               <h6>Estimated Total</h6>
-              <!-- Todo: total cart value -->
-              <p>${{carts.products[0].regular_price}}</p>
+              <p>${{totalPrice}}</p>
             </div>
             <p>Shipping and Tax</p>
             <hr class="mt-4">
             <div class="summary">
-              <router-link to="/carts" tag="button" class="global-button transparent">Continue Shopping</router-link>
+              <router-link to="/products" tag="button" class="global-button transparent">Continue Shopping</router-link>
               <button class="global-button green" @click.prevent="sendCart">Checkout</button>
             </div>
           </div>
@@ -92,13 +94,16 @@
   import {apiCarts, getAxios} from "../../../utils/endpoints"
   import {handleError} from "../../../utils/util"
   import {infoMessage} from "../../../utils/handle-message"
+  import {modelCartProducts} from "../../../services/model/model-cart-products"
 
   export default {
     name: "ProductCart",
     components: {SearchComponent, Slick},
     data() {
       return {
-        quantityValue: 1,
+        quantityValue: [],
+        cartProduct: modelCartProducts,
+        totalPrice: 0,
         slickOptions: {
           autoplay: true,
           arrows: true,
@@ -125,20 +130,27 @@
       },
     },
     created() {
-      const id = JSON.parse(localStorage.getItem('user')).id
-      this.$store.dispatch('getCartsByUser', `?userId=${id}&status=current`)
-        .then(res => {
-          this.$store.dispatch('getProductsCategories', `?id=${res.products[0].id}&category=true&limit=15&order=RAND`)
-        })
-        .catch(err => {
-          handleError(this.$swal, err)
-        })
+      this.getCartProduct()
     },
     methods: {
+      getCartProduct() {
+        const id = JSON.parse(localStorage.getItem('user')).id
+        this.$store.dispatch('getCartsByUser', `?userId=${id}&status=current`)
+          .then(res => {
+            res.products.forEach((value, index) => {
+              this.quantityValue[index] = parseInt(value.cart_quantity)
+            })
+            this.getTotalPrice()
+            this.$store.dispatch('getProductsCategories', `?id=${res.products[0].id}&category=true&limit=15&order=RAND`)
+          })
+          .catch(err => {
+            handleError(this.$swal, err)
+          })
+      },
       updateCart() {
         getAxios(apiCarts.all, 'PUT')
-          .then(res => {
-
+          .then(() => {
+            this.getCartProduct()
           })
           .catch(err => {
             handleError(this.$swal, err)
@@ -153,20 +165,23 @@
             handleError(this.$swal, err)
           })
       },
-      quantityProduct(isPlus) {
-        if (isPlus && this.product.quantity <= this.quantityValue) {
+      getTotalPrice() {
+        this.carts.products.forEach((value, index) => {
+          this.totalPrice = this.totalPrice + (parseInt(value.regular_price) * parseInt(this.quantityValue[index]))
+        })
+        return this.totalPrice
+      },
+      quantityProduct(isPlus, index) {
+        console.log(parseInt(this.quantityValue[index]))
+        if (isPlus && this.carts.products[index].quantity <= parseInt(this.quantityValue[index])) {
           infoMessage(this.$swal, null, 'This is the max in the store')
           return
         }
-        if (!isPlus && this.quantityValue <= 1) {
+        if (!isPlus && parseInt(this.quantityValue[index]) <= 1) {
           infoMessage(this.$swal, null, '1 is the minimum')
           return
         }
-        if (isPlus) {
-          this.quantityValue = this.quantityValue + 1
-        } else {
-          this.quantityValue = this.quantityValue - 1
-        }
+        this.quantityValue[index] = isPlus ? parseInt(this.quantityValue[index]) + 1 : parseInt(this.quantityValue[index]) - 1
       },
     },
   }
@@ -174,4 +189,10 @@
 
 <style scoped lang="scss">
   $color-message: #337670;
+
+  .cart {
+    small {
+      color: red;
+    }
+  }
 </style>
