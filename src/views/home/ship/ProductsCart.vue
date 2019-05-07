@@ -11,35 +11,38 @@
 
         <div class="cart-content">
           <div class="cart-products">
-            <table class="table table-custom mt-3 mb-4 text-center">
-              <tbody>
-              <tr>
-                <th scope="col" width="10px"></th>
-                <th scope="col"></th>
-                <th scope="col">Price</th>
-                <th scope="col">Qty</th>
-              </tr>
-              <tr v-for="(product, index) of carts.products" :key="product.id">
-                <td><img :src="product.images[0].image" :alt="product.name"></td>
-                <td>{{product.name}}</td>
-                <td>{{product.regular_price}}</td>
-                <td>
-                  <div class="info-quantity">
-                    <div>
-                      <button @click.prevent="quantityProduct(false, index)">-</button>
-                      <input type="text" :value="quantityValue[index]" disabled>
-                      <button @click.prevent="quantityProduct(true, index)">+</button>
+            <div v-if="quantityValue.length > 0" class="cart-table">
+              <table class="table table-custom mt-3 mb-4 text-center">
+                <tbody>
+                <tr>
+                  <th scope="col" width="10px"></th>
+                  <th scope="col"></th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Qty</th>
+                </tr>
+                <tr v-for="(product, index) of carts.products" :key="product.id">
+                  <td><img :src="product.images[0].image" :alt="product.name"></td>
+                  <td>{{product.name}}</td>
+                  <td>{{product.regular_price}}</td>
+                  <td>
+                    <div class="info-quantity">
+                      <div>
+                        <button @click.prevent="quantityProduct(false, index)">-</button>
+                        <input type="text" :value="quantityValue[index].quantity" disabled>
+                        <button @click.prevent="quantityProduct(true, index)">+</button>
+                      </div>
                     </div>
-                  </div>
-                  <small v-if="product.quantity < parseInt(quantityValue[index])">
-                    The maximum in store is {{product.quantity}}
-                  </small>
-                </td>
-              </tr>
-              </tbody>
-            </table>
-            <div class="text-right">
-              <button @click.prevent="updateCart" class="global-button button-update-cart">Update Shopping Cart</button>
+                    <small v-if="product.quantity < parseInt(quantityValue[index].quantity)">
+                      The maximum in store is {{product.quantity}}
+                    </small>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <div class="text-right">
+                <button @click.prevent="updateCart" class="global-button button-update-cart">Update Shopping Cart
+                </button>
+              </div>
             </div>
           </div>
           <div class="cart-summary">
@@ -91,10 +94,10 @@
 <script>
   import SearchComponent from "../../../components/SearchComponent"
   import Slick from 'vue-slick';
-  import {apiCarts, getAxios} from "../../../utils/endpoints"
+  import {apiCarts, apiCartsProducts, getAxios} from "../../../utils/endpoints"
   import {handleError} from "../../../utils/util"
-  import {infoMessage} from "../../../utils/handle-message"
-  import {modelCartProducts} from "../../../services/model/model-cart-products"
+  import {infoMessage, successMessage} from "../../../utils/handle-message"
+  import {modelCart} from "../../../services/model/model-cart"
 
   export default {
     name: "ProductCart",
@@ -102,7 +105,7 @@
     data() {
       return {
         quantityValue: [],
-        cartProduct: modelCartProducts,
+        cart: modelCart,
         totalPrice: 0,
         slickOptions: {
           autoplay: true,
@@ -138,7 +141,11 @@
         this.$store.dispatch('getCartsByUser', `?userId=${id}&status=current`)
           .then(res => {
             res.products.forEach((value, index) => {
-              this.quantityValue[index] = parseInt(value.cart_quantity)
+              this.quantityValue[index] = {
+                cart_product_id: value.cart_product_id,
+                product_id: value.product_id,
+                quantity: parseInt(value.cart_quantity)
+              }
             })
             this.getTotalPrice()
             this.$store.dispatch('getProductsCategories', `?id=${res.products[0].id}&category=true&limit=15&order=RAND`)
@@ -148,16 +155,19 @@
           })
       },
       updateCart() {
-        getAxios(apiCarts.all, 'PUT')
+        const data1 = {products: this.quantityValue}
+        console.log(JSON.stringify(data1))
+        getAxios(apiCartsProducts.all, 'PUT', data1)
           .then(() => {
             this.getCartProduct()
+            successMessage(this.$swal, 'Updated')
           })
           .catch(err => {
             handleError(this.$swal, err)
           })
       },
       sendCart() {
-        getAxios(apiCarts.all, 'POST')
+        getAxios(apiCarts.all, 'POST', this.cart)
           .then(res => {
 
           })
@@ -168,20 +178,20 @@
       getTotalPrice() {
         let totalPrice = 0
         this.carts.products.forEach((value, index) => {
-          totalPrice = (parseInt(value.regular_price) * parseInt(this.quantityValue[index])) + totalPrice
+          totalPrice = (parseInt(value.regular_price) * parseInt(this.quantityValue[index].quantity)) + totalPrice
         })
         this.totalPrice = totalPrice
       },
       quantityProduct(isPlus, index) {
-        if (isPlus && this.carts.products[index].quantity <= parseInt(this.quantityValue[index])) {
+        if (isPlus && this.carts.products[index].quantity <= parseInt(this.quantityValue[index].quantity)) {
           infoMessage(this.$swal, null, 'This is the max in the store')
           return
         }
-        if (!isPlus && parseInt(this.quantityValue[index]) <= 1) {
+        if (!isPlus && parseInt(this.quantityValue[index].quantity) <= 1) {
           infoMessage(this.$swal, null, '1 is the minimum')
           return
         }
-        this.quantityValue[index] = isPlus ? parseInt(this.quantityValue[index]) + 1 : parseInt(this.quantityValue[index]) - 1
+        this.quantityValue[index].quantity = isPlus ? parseInt(this.quantityValue[index].quantity) + 1 : parseInt(this.quantityValue[index].quantity) - 1
         this.getTotalPrice()
       },
     },
