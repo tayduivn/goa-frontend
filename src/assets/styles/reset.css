@@ -179,6 +179,24 @@ button[disabled=disabled], button:disabled {
   background: transparent;
 }
 
+/* Order message */
+.order-message-empty {
+  margin: 10% auto 5%;
+}
+
+.order-message-empty h3 {
+  color: #898989;
+  font-size: 1.4rem;
+}
+
+.order-message-empty button {
+  background-color: transparent;
+  border: 4px solid #00b437;
+  color: #00b437;
+  margin: 5% 0 0;
+  padding: 10px 40px;
+}
+
 /* Slick */
 .slick-prev:before, .slick-next:before {
   color: black;

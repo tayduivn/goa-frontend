@@ -133,10 +133,13 @@
 
       </div>
 
-      <div v-else-if="cart && cart === 'empty'" class="d-flex justify-content-between mb-3">
-        <h3>No hay datos registrados</h3>
+      <div v-else-if="carts && carts === 'empty'" class="d-flex justify-content-between mb-3">
+        <div class="order-message-empty text-center">
+          <h3>Actualmente no tiene envíos en este estado</h3>
+          <router-link to="products" tag="button">Comience un nuevo envío</router-link>
+        </div>
       </div>
-      <div v-else-if="cart && cart === 'error'">
+      <div v-else-if="carts && carts === 'error'">
         <h3>Error recuperando datos</h3>
       </div>
     </div>
@@ -146,7 +149,7 @@
 <script>
   import SearchComponent from "../../../components/SearchComponent"
   import Slick from 'vue-slick';
-  import {apiCarts, apiCartsProducts, apiTransactions, getAxios} from "../../../utils/endpoints"
+  import {apiCartsProducts, apiTransactions, getAxios} from "../../../utils/endpoints"
   import {handleError} from "../../../utils/util"
   import {infoMessage, successMessage} from "../../../utils/handle-message"
   import {modelCart} from "../../../services/model/model-cart"
@@ -229,21 +232,12 @@
             handleError(this.$swal, err)
           })
       },
-      saveCart() {
-        getAxios(apiCarts.all, 'POST', this.cart)
-          .then(res => {
-
-          })
-          .catch(err => {
-            handleError(this.$swal, err)
-          })
-      },
       saveTransaction() {
         /* TODO: add method of payment */
         this.transaction.processor_trans_id = 1
         this.transaction.code = 1
 
-        this.transaction.cart_id  = this.carts.cart_id
+        this.transaction.cart_id = this.carts.cart_id
         this.transaction.user_id = this.carts.user_id
         this.transaction.total = this.totalPrice
         this.transaction.subtotal = this.totalPrice
@@ -292,6 +286,11 @@
   $color-message: #337670;
 
   .cart {
+    .cart-box {
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+
     small {
       color: red;
     }

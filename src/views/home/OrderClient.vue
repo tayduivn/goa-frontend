@@ -2,29 +2,15 @@
   <div class="order">
     <div class="order-order">
       <div class="status-order mb-5">
-        <button :class="{active: (stateOrder === 'Esperando')}" @click="changeStatus('Esperando')">
-          En proceso
-        </button>
-        <button :class="{active: (stateOrder === 'Deposito Esperando')}" @click="changeStatus('Deposito Esperando')">
-          Esperando deposito
-        </button>
-        <button :class="{active: (stateOrder === 'Enviando')}" @click="changeStatus('Enviando')">
-          Enviando
-        </button>
-        <button :class="{active: (stateOrder === 'Enviado')}" @click="changeStatus('Enviado')">
-          Enviados
-        </button>
-        <button :class="{active: (stateOrder === 'Recibido')}" @click="changeStatus('Recibido')">
-          Completado
-        </button>
-        <button :class="{active: (stateOrder === 'Cancelado')}" @click="changeStatus('Cancelado')">
-          Mediación
+        <button v-for="item in listState" :key="item" :class="{active: (stateOrder === item)}"
+                @click="changeStatus(item)">
+          {{ item }}
         </button>
       </div>
       <div v-if="orders && orders === 'loading'">
         <h3>Cargando datos...</h3>
       </div>
-      <div v-else-if="orders && orders !== 'empty'">
+      <div v-else-if="orders && orders !== 'empty' && orders !== 'loading'">
         <div class="d-flex justify-order-between mb-3">
           <h5 class="mb-2">Listado de ordenes</h5>
         </div>
@@ -67,51 +53,72 @@
       <template slot="close-icon">
         <CloseImageSVG/>
       </template>
-      <div class="d-flex justify-content-between align-items-center mt-5">
-        <h3>Detalle de la orden Nº {{order.id}} - {{order.status}}</h3>
+      <div v-if="order && order === 'loading'">
+        <h3>Loading...</h3>
       </div>
-      <hr>
-      <div class="mt-4">
-        <h5>Datos del cliente</h5>
-        <table class="table table-custom mt-3 mb-4">
-          <tbody>
-          <tr>
-            <td scope="col" width="250px">Nombre de usuario</td>
-            <td>{{order.email}}</td>
-          </tr>
-          <tr>
-            <td scope="col" width="250px">Nombre del Cliente</td>
-            <td>{{order.first_name}} {{order.last_name}}</td>
-          </tr>
-          <tr>
-            <td scope="col">Dirección</td>
-            <td>{{order.address}}</td>
-          </tr>
-          <tr>
-            <td scope="col">Teléfono</td>
-            <td>{{order.phone}}</td>
-          </tr>
-          </tbody>
-        </table>
-        <h5>Datos del producto</h5>
-        <table class="table table-custom mt-3 mb-4 text-center">
-          <tbody>
-          <tr>
-            <th scope="col" width="10px">Nº</th>
-            <th scope="col">Producto</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Cantidad a Comprar</th>
-            <th scope="col">Total</th>
-          </tr>
-          <tr v-for="(item, index) of order.products" :key="item.id">
-            <td>{{++index}}</td>
-            <td>{{item.name}}</td>
-            <td>{{item.price}}</td>
-            <td>{{item.cart_quantity}}</td>
-            <td>{{item.cart_quantity * item.price}}</td>
-          </tr>
-          </tbody>
-        </table>
+
+      <div v-else-if="order && order !== 'empty' && order.products && order.products.length">
+        <div class="d-flex justify-content-between align-items-center mt-5">
+          <h3>Detail of the order Nº {{order.id}} - {{order.status}}</h3>
+        </div>
+        <hr>
+        <div class="mt-4">
+          <h5>Data of client</h5>
+          <table class="table table-custom mt-3 mb-4">
+            <tbody>
+            <tr>
+              <td scope="col" width="250px">Name of user</td>
+              <td>{{order.email}}</td>
+            </tr>
+            <tr>
+              <td scope="col" width="250px">Name of client</td>
+              <td>{{order.first_name}} {{order.last_name}}</td>
+            </tr>
+            <tr>
+              <td scope="col">Address</td>
+              <td>{{order.address}}</td>
+            </tr>
+            <tr>
+              <td scope="col">Phone</td>
+              <td>{{order.phone}}</td>
+            </tr>
+            </tbody>
+          </table>
+          <h5>Data of product</h5>
+          <table class="table table-custom mt-3 mb-4 text-center">
+            <tbody>
+            <tr>
+              <th scope="col" width="10px">Nº</th>
+              <th scope="col">Product</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Total</th>
+            </tr>
+            <tr v-for="(item, index) of order.products" :key="item.cart_product_id">
+              <td>{{++index}}</td>
+              <td>{{item.name}}</td>
+              <td>{{item.regular_price}}</td>
+              <td>{{item.cart_quantity}}</td>
+              <td>{{item.cart_quantity * item.regular_price}}</td>
+            </tr>
+            <tr>
+              <th scope="col" width="10px"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col">{{getTotalPrice}}</th>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div v-else-if="order && order === 'empty'">
+        <h3>No data</h3>
+      </div>
+
+      <div v-else-if="order && order === 'error'">
+        <h3>Error recuperando datos</h3>
       </div>
     </vue-modaltor>
 
@@ -124,8 +131,6 @@
   import {handleError, listState, updateOrderOptions} from "../../utils/util"
   import {successMessage} from "../../utils/handle-message"
   import {modelOrder} from "../../services/model/model-orders"
-  import {modelProduct} from "../../services/model/model-product"
-  import {modelTransaction} from "../../services/model/model-transaction"
 
   export default {
     name: "order-client",
@@ -141,8 +146,6 @@
         formData: null,
         listState: listState,
         stateOrder: listState[0],
-        object: modelProduct,
-        payment: modelTransaction,
         open: false,
       }
     },
@@ -152,6 +155,13 @@
       },
       order() {
         return this.$store.getters.getCartUserOrder
+      },
+      getTotalPrice() {
+        let totalPrice = 0
+        this.order.products.forEach((value) => {
+          totalPrice = (parseInt(value.regular_price) * parseInt(value.cart_quantity)) + totalPrice
+        })
+        return totalPrice
       },
     },
     created() {
@@ -167,8 +177,6 @@
         successMessage(this.$swal, title)
         this.$store.dispatch('getStatusContent', this.stateOrder)
         this.order = modelOrder.reset()
-        this.object = modelProduct.reset()
-        this.payment = modelTransaction.reset()
         this.hideModal()
       },
       editStatusOrder(title = "Registrado", state) {
@@ -224,23 +232,6 @@
 
         .active {
           border-bottom: 5px solid #74a0c7;
-        }
-      }
-
-      .order-message-empty {
-        margin: 10% 0 5%;
-
-        h3 {
-          color: #898989;
-          font-size: 1.4rem;
-        }
-
-        button {
-          background-color: transparent;
-          border: 4px solid #00b437;
-          color: #00b437;
-          padding: 10px 40px;
-          margin: 5% 0 0;
         }
       }
     }

@@ -59,7 +59,7 @@ export default {
           if (res.data.data.length === 0) {
             commit('SET_CART_USER_ORDERS', 'empty')
           } else {
-            commit('SET_CART_USER_ORDERS', res.data.data)
+            commit('SET_CART_USER_ORDERS', res.data.data[0])
           }
         })
         .catch(err => {
