@@ -16,9 +16,9 @@ Authorization: Bearer {{auth_token}}
 
 {
   "id": "",
-  "quantity": 1,
-  "cart_id": "4",
-  "product_id": "4"
+  "quantity": 2,
+  "cart_id": 1,
+  "product_id": 4
 }
 
 ###

@@ -1,16 +1,621 @@
-GET http://goa-backend/api/carts?userId=2&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
 
-<> 2019-05-06T034544.200.json
+{
+  "id": "",
+  "quantity": 2,
+  "cart_id": 1,
+  "product_id": 4
+}
+
+<> 2019-05-07T032656.409.json
 
 ###
 
-GET http://goa-backend/api/carts?orderByUser=true
-Accept: application/json
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 2,
+  "cart_id": 1,
+  "product_id": 4
+}
+
+<> 2019-05-07T032606.201.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 3,
+  "cart_id": 1,
+  "product_id": 4
+}
+
+<> 2019-05-07T032557.409.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 3,
+  "cart_id": 1,
+  "product_id": 4
+}
+
+<> 2019-05-07T032548.409.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 2,
+  "cart_id": 1,
+  "product_id": 4
+}
+
+<> 2019-05-07T032532.409.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 2,
+  "cart_id": 1,
+  "product_id": 4
+}
+
+<> 2019-05-07T032522.201.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 2,
+  "cart_id": 1,
+  "product_id": 4
+}
+
+<> 2019-05-07T032509.409.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 2,
+  "cart_id": 1,
+  "product_id": 4
+}
+
+<> 2019-05-07T032457.409.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 2,
+  "cart_id": 1,
+  "product_id": 4
+}
+
+<> 2019-05-07T032436.409.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 2,
+  "cart_id": 1,
+  "product_id": 4
+}
+
+<> 2019-05-07T032412.201.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 2,
+  "cart_id": 1,
+  "product_id": 4
+}
+
+<> 2019-05-07T032340.409.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 10,
+  "cart_id": 1,
+  "product_id": 4
+}
+
+<> 2019-05-07T032328.409.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 10,
+  "cart_id": 1,
+  "product_id": 4
+}
+
+<> 2019-05-07T032243.409.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 10,
+  "cart_id": 1,
+  "product_id": 4
+}
+
+<> 2019-05-07T032156.409.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 10,
+  "cart_id": 1,
+  "product_id": 4
+}
+
+<> 2019-05-07T032137.409.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 10,
+  "cart_id": 1,
+  "product_id": 4
+}
+
+<> 2019-05-07T032030.409.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 10,
+  "cart_id": 1,
+  "product_id": 4
+}
+
+<> 2019-05-07T031938.409.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 10,
+  "cart_id": 1,
+  "product_id": 4
+}
+
+<> 2019-05-07T031811.201.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 10,
+  "cart_id": 1,
+  "product_id": 4
+}
+
+<> 2019-05-07T031534.201.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 10,
+  "cart_id": 1,
+  "product_id": 4
+}
+
+<> 2019-05-07T031507.201.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 10,
+  "cart_id": 1,
+  "product_id": 4
+}
+
+<> 2019-05-07T031419.201.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 10,
+  "cart_id": 1,
+  "product_id": 4
+}
+
+<> 2019-05-07T031254.201.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 10,
+  "cart_id": 1,
+  "product_id": 4
+}
+
+<> 2019-05-07T031246.409.json
+
+###
+
+POST http://goa-backend/api/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "sku": "13213",
+  "name": "Cacao 2",
+  "description_short": "Hola",
+  "description_one": "Hola 1",
+  "description_two": "Hola 2",
+  "preparation": "Prepa",
+  "quantity": 2,
+  "user_id": "1",
+  "regular_price": "100"
+}
+
+<> 2019-05-07T031241.400.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 10,
+  "cart_id": 1,
+  "product_id": 4
+}
+
+<> 2019-05-07T031222.201.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 10,
+  "cart_id": 1,
+  "product_id": 4
+}
+
+<> 2019-05-07T031036.201.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 10,
+  "cart_id": 1,
+  "product_id": 3
+}
+
+<> 2019-05-07T030847.500.html
+
+###
+
+POST http://goa-backend/api/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "sku": "13213",
+  "name": "Cacao 2",
+  "description_short": "Hola",
+  "description_one": "Hola 1",
+  "description_two": "Hola 2",
+  "preparation": "Prepa",
+  "quantity": 2,
+  "user_id": "1",
+  "regular_price": "100"
+}
+
+<> 2019-05-07T030838.201.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 10,
+  "cart_id": 1,
+  "product_id": 3
+}
+
+<> 2019-05-07T030821.201.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 10,
+  "cart_id": 1,
+  "product_id": 3
+}
+
+<> 2019-05-07T030751.201.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "quantity": 10,
+  "cart_id": 1,
+  "product_id": 3
+}
+
+<> 2019-05-07T030654.201.json
+
+###
+
+POST http://goa-backend/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "Ivans20@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-07T030648.200.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer
+
+{
+  "id": "",
+  "quantity": 10,
+  "cart_id": 1,
+  "product_id": 3
+}
+
+<> 2019-05-07T030638.401.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
 
-<> 2019-05-06T034542.200.json
+{
+  "id": "",
+  "quantity": 10,
+  "cart_id": 1,
+  "product_id": 3
+}
+
+<> 2019-05-07T121331.201.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+{
+  "id": "",
+  "quantity": 10,
+  "cart_id": 1,
+  "product_id": 2
+}
+
+<> 2019-05-07T121229.500.html
+
+###
+
+POST http://goa-backend/api/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+{
+  "id": "",
+  "sku": "13213",
+  "name": "Cacao 2",
+  "description_short": "Hola",
+  "description_one": "Hola 1",
+  "description_two": "Hola 2",
+  "preparation": "Prepa",
+  "quantity": 2,
+  "user_id": "1",
+  "regular_price": "100"
+}
+
+<> 2019-05-07T121225.201.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+{
+  "id": "",
+  "quantity": 10,
+  "cart_id": 1,
+  "product_id": 2
+}
+
+<> 2019-05-07T121043.201.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+{
+  "id": "",
+  "quantity": 10,
+  "cart_id": 1,
+  "product_id": 2
+}
+
+<> 2019-05-07T120946.201.json
+
+###
+
+POST http://goa-backend/api/carts/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+{
+  "id": "",
+  "quantity": 10,
+  "cart_id": 1,
+  "product_id": 2
+}
+
+<> 2019-05-07T120421.201.json
+
+###
+
+POST http://goa-backend/api/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+{
+  "id": "",
+  "sku": "13213",
+  "name": "Cacao 2",
+  "description_short": "Hola",
+  "description_one": "Hola 1",
+  "description_two": "Hola 2",
+  "preparation": "Prepa",
+  "quantity": "2",
+  "user_id": "1",
+  "regular_price": "100"
+}
+
+<> 2019-05-07T115838.201.json
 
 ###
 
@@ -22,179 +627,7 @@ Content-Type: application/json
   "password": "123456"
 }
 
-<> 2019-05-06T034539.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=2&status=current
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-05-06T034531.401.json
-
-###
-
-GET http://goa-backend/api/public/products?id=1&category=true&limit=15&order=RAND
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-05-06T033124.200.json
-
-###
-
-GET http://goa-backend/api/public/products?id=1&category=true&limit=15&order=RAND
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T023023.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=2&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T022903.200.json
-
-###
-
-GET http://goa-backend/api/public/products?id=2&category=true&limit=15&order=RAND
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T022755.500.json
-
-###
-
-GET http://goa-backend/api/public/products?id=2&category=true&limit=15&order=RAND
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T022658.500.json
-
-###
-
-GET http://goa-backend/api/public/products?id=2&category=true&limit=15&order=RAND
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T022536.500.json
-
-###
-
-POST http://goa-backend/api/carts/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-{
-  "id": "",
-  "quantity": 1,
-  "cart_id": "4",
-  "product_id": "4"
-}
-
-<> 2019-05-06T011422.409.json
-
-###
-
-POST http://goa-backend/api/carts/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-{
-  "id": "",
-  "quantity": 1,
-  "cart_id": "4",
-  "product_id": "4"
-}
-
-<> 2019-05-06T011412.201.json
-
-###
-
-POST http://goa-backend/api/carts/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-{
-  "id": "",
-  "quantity": 1,
-  "cart_id": "4",
-  "product_id": "4"
-}
-
-<> 2019-05-06T010943.409.json
-
-###
-
-POST http://goa-backend/api/carts/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-{
-  "id": "",
-  "quantity": 1,
-  "cart_id": null,
-  "product_id": "4"
-}
-
-<> 2019-05-06T010821.409.json
-
-###
-
-GET http://goa-backend/api/carts?userId=2&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T010408.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=2&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T120743.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=7&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T120736.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=7&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T120713.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=7&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T120533.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=7&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T120429.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=2&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T120358.200.json
+<> 2019-05-07T115823.200.json
 
 ###
 
@@ -202,18 +635,17 @@ POST http://goa-backend/api/public/users/register
 Content-Type: application/json
 
 {
-  "name": "ivans51",
   "first_name": "ivans",
   "last_name": "del pino",
   "password": "123456",
   "phone": "04164318061",
   "address": "Calle Santa Rita",
-  "email": "ivans54@gmail.com",
+  "email": "ivans20@gmail.com",
   "type": "",
   "role_id": 2
 }
 
-<> 2019-05-06T114629.201.json
+<> 2019-05-07T115811.409.json
 
 ###
 
@@ -221,234 +653,175 @@ POST http://goa-backend/api/public/users/register
 Content-Type: application/json
 
 {
-  "name": "ivans51",
+  "name": "ivans20",
   "first_name": "ivans",
   "last_name": "del pino",
   "password": "123456",
   "phone": "04164318061",
   "address": "Calle Santa Rita",
-  "email": "ivans51@gmail.com",
+  "email": "ivans20@gmail.com",
   "type": "",
   "role_id": 2
 }
 
-<> 2019-05-06T110325.201.json
+<> 2019-05-07T115803.409.json
 
 ###
 
-GET http://goa-backend/api/carts?id=2
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+POST http://goa-backend/api/public/users/register
+Content-Type: application/json
 
-<> 2019-05-06T105656.200.json
+{
+  "name": "ivans10",
+  "first_name": "ivans",
+  "last_name": "del pino",
+  "password": "123456",
+  "phone": "04164318061",
+  "address": "Calle Santa Rita",
+  "email": "ivans10@gmail.com",
+  "type": "",
+  "role_id": 2
+}
 
-###
-
-GET http://goa-backend/api/carts?id=3
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T105652.200.json
-
-###
-
-GET http://goa-backend/api/carts?id=1
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T105647.200.json
+<> 2019-05-07T115751.409.json
 
 ###
 
-GET http://goa-backend/api/carts
-Accept: application/json
+PUT http://goa-backend/api/carts/products
+Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
 
-<> 2019-05-06T105641.200.json
+{
+  "products": [
+    {
+      "cart_product_id": "17",
+      "product_id": "1",
+      "quantity": 3
+    },
+    {
+      "cart_product_id": "6",
+      "product_id": "3",
+      "quantity": 1
+    }
+  ]
+}
+
+<> 2019-05-07T103044.201.json
 
 ###
 
-GET http://goa-backend/api/carts?orderByUser=true
-Accept: application/json
+PUT http://goa-backend/api/carts/products
+Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
 
-<> 2019-05-06T105629.200.json
+{
+  "products": [
+    {
+      "cart_product_id": "17",
+      "product_id": "1",
+      "quantity": 1
+    },
+    {
+      "cart_product_id": "6",
+      "product_id": "3",
+      "quantity": 2
+    }
+  ]
+}
+
+<> 2019-05-07T103025.201.json
 
 ###
 
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
+PUT http://goa-backend/api/carts/products
+Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
 
-<> 2019-05-06T105513.200.json
+{
+  "products": [
+    {
+      "cart_product_id": "17",
+      "product_id": "1",
+      "quantity": 1
+    },
+    {
+      "cart_product_id": "6",
+      "product_id": "3",
+      "quantity": 2
+    }
+  ]
+}
+
+<> 2019-05-07T103000.201.json
 
 ###
 
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
+PUT http://goa-backend/api/carts/products
+Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
 
-<> 2019-05-06T105454.200.json
+{
+  "products": [
+    {
+      "cart_product_id": "17",
+      "product_id": "1",
+      "quantity": 1
+    },
+    {
+      "cart_product_id": "6",
+      "product_id": "3",
+      "quantity": 2
+    }
+  ]
+}
+
+<> 2019-05-07T102939.409.json
 
 ###
 
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
+PUT http://goa-backend/api/carts/products
+Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
 
-<> 2019-05-06T105228.200.json
+{
+  "products": [
+    {
+      "cart_product_id": "17",
+      "product_id": "1",
+      "quantity": 1
+    },
+    {
+      "cart_product_id": "6",
+      "product_id": "3",
+      "quantity": 2
+    }
+  ]
+}
+
+<> 2019-05-07T102910.500.html
 
 ###
 
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
+PUT http://goa-backend/api/carts/products
+Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
 
-<> 2019-05-06T105122.200.json
+{
+  "products": [
+    {
+      "cart_product_id": "17",
+      "product_id": "1",
+      "quantity": 1
+    },
+    {
+      "cart_product_id": "6",
+      "product_id": "3",
+      "quantity": 2
+    }
+  ]
+}
 
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T105106.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T105030.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T104934.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T104853.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T104834.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T104755.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T104242.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T104225.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T103506.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T103421.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T103350.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T103306.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T103239.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T103216.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T103045.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T103026.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T102953.200.json
-
-###
-
-GET http://goa-backend/api/carts?userId=1&status=current
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-06T102929.200.json
+<> 2019-05-07T102840.409.json
 
 ###
 

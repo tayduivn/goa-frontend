@@ -34,7 +34,7 @@ Authorization: Bearer {{auth_token}}
   "description_one": "Hola 1",
   "description_two": "Hola 2",
   "preparation": "Prepa",
-  "quantity": "2",
+  "quantity": 2,
   "user_id": "1",
   "regular_price": "100"
 }
