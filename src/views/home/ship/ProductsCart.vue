@@ -27,7 +27,7 @@
                   <div class="info-quantity">
                     <div>
                       <button @click.prevent="quantityProduct(false, index)">-</button>
-                      <input type="text" :value="quantityValue[index]">
+                      <input type="text" :value="quantityValue[index]" disabled>
                       <button @click.prevent="quantityProduct(true, index)">+</button>
                     </div>
                   </div>
@@ -166,13 +166,13 @@
           })
       },
       getTotalPrice() {
+        let totalPrice = 0
         this.carts.products.forEach((value, index) => {
-          this.totalPrice = this.totalPrice + (parseInt(value.regular_price) * parseInt(this.quantityValue[index]))
+          totalPrice = (parseInt(value.regular_price) * parseInt(this.quantityValue[index])) + totalPrice
         })
-        return this.totalPrice
+        this.totalPrice = totalPrice
       },
       quantityProduct(isPlus, index) {
-        console.log(parseInt(this.quantityValue[index]))
         if (isPlus && this.carts.products[index].quantity <= parseInt(this.quantityValue[index])) {
           infoMessage(this.$swal, null, 'This is the max in the store')
           return
@@ -182,6 +182,7 @@
           return
         }
         this.quantityValue[index] = isPlus ? parseInt(this.quantityValue[index]) + 1 : parseInt(this.quantityValue[index]) - 1
+        this.getTotalPrice()
       },
     },
   }
