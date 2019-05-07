@@ -113,7 +113,6 @@
   import CloseImageSVG from "../../components/CloseImageSVG"
   import {handleError, listState} from "../../utils/util"
   import {confirmMessage, successMessage} from "../../utils/handle-message"
-  import DataOrderTable from "../../components/DataOrderTable"
   import {apiOrders, getAxios} from "../../utils/endpoints"
 
   export default {
@@ -124,7 +123,7 @@
         return `${title} | Ordenes`
       }
     },
-    components: {DataOrderTable, CloseImageSVG},
+    components: {CloseImageSVG},
     data() {
       return {
         statesOrder: listState,
@@ -158,7 +157,7 @@
             if (res) {
               this.order.status = state
               getAxios(apiOrders.all, 'PUT', this.order)
-                .then(res => {
+                .then(() => {
                   if (state === 'Cancelado') {
                     this.successRequest("Creado", 'Orden cancelada correctamente')
                   } else {
