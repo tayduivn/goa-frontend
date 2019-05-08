@@ -52,10 +52,10 @@ export default {
     },
   },
   actions: {
-    getProducts({commit}) {
+    getProducts({commit}, query = '') {
       return new Promise((resolve) => {
         commit('SET_PRODUCTS', 'loading')
-        getAxios(apiProducts.allPublic, 'GET')
+        getAxios(`${apiProducts.allPublic}${query}`, 'GET')
           .then(res => {
             if (res.data.data.length === 0) {
               commit('SET_PRODUCTS', 'empty')

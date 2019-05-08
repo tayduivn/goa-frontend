@@ -8,8 +8,8 @@
       <div class="products-content" v-else-if="products && products !== 'empty'">
         <div class="product-filter">
           <h4>Filters {{}}</h4>
-          <label v-for="category in categories" :key="category.id" class="filter-category" :for="category.id">
-            <input type="checkbox" :id="category.id" :value="category.id">
+          <label v-for="(category, index) in categories" :key="category.id" class="filter-category" :for="category.id">
+            <input type="checkbox" :id="category.id" v-model="checkList[index]" @change="getProductsCheck()">
             {{category.name }}
           </label>
         </div>
@@ -41,6 +41,11 @@
 <script>
   export default {
     name: 'Products',
+    data() {
+      return {
+        checkList: []
+      }
+    },
     computed: {
       products() {
         return this.$store.getters.getProducts
@@ -52,6 +57,17 @@
     created() {
       this.$store.dispatch('getProducts')
       this.$store.dispatch('getCategories')
+    },
+    methods: {
+      getProductsCheck() {
+        let query = ''
+        this.categories.forEach((category, index) => {
+          if (this.checkList[index]) query = `${query}${category.name},`
+        })
+        if (query !== '') query = `?categoryName=${query}`
+        console.log(query)
+        this.$store.dispatch('getProducts', query)
+      }
     },
   }
 </script>

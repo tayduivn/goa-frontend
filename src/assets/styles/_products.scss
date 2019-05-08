@@ -13,15 +13,31 @@
         padding: 20px 40px 20px 80px;
 
         h4 {
-          margin: 5% 0;
+          margin: 10% 0 20%;
         }
 
         .filter-category {
           margin: 3% 0;
+          cursor: pointer;
 
-          input {
-            background-color: $green-three;
+          input[type="checkbox"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
             margin-right: 5px;
+            cursor: pointer;
+
+            /* Styling checkbox */
+            width: 16px;
+            height: 16px;
+            background-color: white;
+            border: 1px solid #898989;
+            border-radius: 2px;
+          }
+
+          input[type="checkbox"]:checked {
+            background-color: $green-three;
+            border: none;
           }
         }
       }
