@@ -8,11 +8,10 @@
       <div class="products-content" v-else-if="products && products !== 'empty'">
         <div class="product-filter">
           <h4>Filters {{}}</h4>
-          <div v-for="category in categories" :key="category.id" class="filter-category">
-            <label :for="category.id">{{ category.name }}
-              <input type="checkbox" :id="category.id" :value="category.id">
-            </label>
-          </div>
+          <label v-for="category in categories" :key="category.id" class="filter-category" :for="category.id">
+            <input type="checkbox" :id="category.id" :value="category.id">
+            {{category.name }}
+          </label>
         </div>
         <div class="products-all">
           <div v-for="product in products" :key="product.id" class="product-item">

@@ -12,8 +12,17 @@
         height: 100%;
         padding: 20px 40px 20px 80px;
 
-        .filter-category {
+        h4 {
+          margin: 5% 0;
+        }
 
+        .filter-category {
+          margin: 3% 0;
+
+          input {
+            background-color: $green-three;
+            margin-right: 5px;
+          }
         }
       }
 
