@@ -1,4 +1,44 @@
 .products {
+  .products-head {
+    background-image: url("../../assets/img/Store/Cacao_head_img.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-bottom: 15px solid $green-three;
+    @include div-adjust(1360px);
+
+    h2 {
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+
+  .products-foot {
+    @include div-adjust(1360px);
+    position: relative;
+
+    img {
+      width: 100%;
+    }
+
+    img:last-child {
+      position: absolute;
+      right: 10%;
+      top: 22%;
+      width: 100px;
+    }
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: flex-end;
+
+    .selected {
+
+    }
+  }
+
   .products-box {
     width: 100%;
 
@@ -46,8 +86,14 @@
         @include div-display(70%);
         display: flex;
         flex-wrap: wrap;
+        padding: 10px;
+
+        .card {
+          width: 100%;
+        }
 
         .product-item {
+          display: inline-block;
           margin: 0 2%;
           width: 22%;
 
