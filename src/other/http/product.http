@@ -16,7 +16,7 @@ Authorization: Bearer {{auth_token}}
 
 ###
 
-GET {{host}}/api/public/products
+GET {{host}}/api/public/products?limit=5&page=4
 Accept: application/json
 Authorization: Bearer {{auth_token}}
 
@@ -35,7 +35,7 @@ Authorization: Bearer {{auth_token}}
 {
   "id": "",
   "sku": "13213",
-  "name": "Cacao 3",
+  "name": "Cacao 20",
   "description_short": "Hola",
   "description_one": "Hola 1",
   "description_two": "Hola 2",
