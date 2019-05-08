@@ -59,7 +59,12 @@
 
       <div v-else-if="order && order !== 'empty' && order.products && order.products.length">
         <div class="d-flex justify-content-between align-items-center mt-5">
-          <h3>Detail of the order Nº {{order.id}} - {{order.status}}</h3>
+          <h3>Detail of the order Nº {{order.order_id}} - {{order.order_status}}</h3>
+          <button v-if="order.order_status === 'Enviando' || order.order_status === 'Pendiente'"
+                  class="btn btn-sm btn-primary"
+                  @click.prevent="editStatusOrder">
+            Change status to complete
+          </button>
         </div>
         <hr>
         <div class="mt-4">
@@ -127,10 +132,9 @@
 
 <script>
   import CloseImageSVG from "../../components/CloseImageSVG"
-  import axios from 'axios'
-  import {handleError, listState, updateOrderOptions} from "../../utils/util"
+  import {handleError, listState} from "../../utils/util"
   import {successMessage} from "../../utils/handle-message"
-  import {modelOrder} from "../../services/model/model-orders"
+  import {apiOrders, getAxios} from "../../utils/endpoints"
 
   export default {
     name: "order-client",
@@ -143,7 +147,6 @@
     },
     data() {
       return {
-        formData: null,
         listState: listState,
         stateOrder: listState[0],
         open: false,
@@ -166,7 +169,6 @@
     },
     created() {
       this.$store.dispatch('getOrders', this.stateOrder)
-      this.formData = new FormData()
     },
     methods: {
       changeStatus(state) {
@@ -175,16 +177,16 @@
       },
       successRequest(title) {
         successMessage(this.$swal, title)
-        this.$store.dispatch('getStatusContent', this.stateOrder)
-        this.order = modelOrder.reset()
+        this.$store.dispatch('getOrders', this.stateOrder)
         this.hideModal()
       },
-      editStatusOrder(title = "Registrado", state) {
-        this.order.status = state
-        console.log(JSON.stringify(this.order))
-        axios(updateOrderOptions(this.order))
+      editStatusOrder() {
+        getAxios(apiOrders.all, 'PUT', {
+          id: this.order.order_id,
+          status: 'Completado'
+        })
           .then(() => {
-            this.successRequest("Creado", title)
+            this.successRequest("Updated")
           })
           .catch(err => {
             handleError(this.$swal, err)
