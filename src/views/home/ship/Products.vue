@@ -41,9 +41,13 @@
           </div>
 
           <div class="pagination">
-            <h5 v-for="item in items" :key="item" :class="{selected: (item === 1)}">{{ item }}</h5>
-            <span>Next</span>
-            <img src="../../../assets/img/Store/Arrow_icon_down.png" alt="image next">
+            <h6 v-for="item in items" :key="item" :class="{selected: (item === 1)}" @click.prevent="getPageProduct">
+              {{ item }}
+            </h6>
+            <div class="next" @click.prevent="getPageProduct">
+              <span>next</span>
+              <img src="../../../assets/img/Store/Arrow_icon_down.png" alt="image next">
+            </div>
           </div>
         </div>
       </div>
@@ -91,7 +95,20 @@
         if (query !== '') query = `?categoryName=${query.substring(0, query.length - 1)}`
         console.log(query)
         this.$store.dispatch('getProducts', query)
-      }
+      },
+      getPageProduct() {
+        this.checkCount = 0
+        let query = ''
+        this.categories.forEach((category, index) => {
+          if (this.checkList[index]) {
+            this.checkCount++
+            query = `${query}${category.name},`
+          }
+        })
+        if (query !== '') query = `?categoryName=${query.substring(0, query.length - 1)}`
+        console.log(query)
+        this.$store.dispatch('getProducts', query)
+      },
     },
   }
 </script>
