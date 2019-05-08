@@ -3,7 +3,7 @@ Accept: application/json
 Authorization: Bearer {{auth_token}}
 
 ###
-GET {{host}}/api/orders?userId=2&cartId=1
+GET {{host}}/api/orders?userId=2&cartId=1&status=enviando
 Accept: application/json
 Authorization: Bearer {{auth_token}}
 
@@ -39,13 +39,11 @@ PUT {{host}}/api/orders
 Content-Type: application/json
 Authorization: Bearer {{auth_token}}
 
-
 {
   "id": "2",
-  "subtotal": "2200",
-  "total": "2500",
-  "user_id": "1",
-  "cart_id": "1"
+  "subtotal": "2700",
+  "total": "2700",
+  "status": "Enviando"
 }
 
 ###

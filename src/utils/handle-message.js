@@ -1,12 +1,13 @@
-function successMessage(swal, title = 'Correcto', text = '') {
+function successMessage(swal, title = 'Success', text = '') {
   swal({
     type: 'success',
     title: title,
     text: text
   });
+  console.clear()
 }
 
-function errorMessage(swal, error, text = 'Algo salió mal') {
+function errorMessage(swal, error, text = 'Something went wrong') {
   swal({
     type: 'error',
     title: 'Error',
@@ -25,15 +26,15 @@ function infoMessage(swal, error, text = '') {
     console.log(error)
 }
 
-function confirmMessage(swal, title = '¿Desea eliminarlo?', text = "No se podrá revertir.") {
+function confirmMessage(swal, title = 'You desire delete it?', text = "You can't revert it") {
   return new Promise((resolve) => {
     swal({
       title: title,
       text: text,
       type: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Sí',
-      cancelButtonText: 'No',
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'Not',
       reverseButtons: true
     }).then((resultado) => {
       if (resultado.value) {

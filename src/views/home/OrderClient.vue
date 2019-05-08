@@ -192,7 +192,7 @@
       },
       openModal(order) {
         this.open = true
-        this.$store.dispatch('getCartUserOrder', {userId: order.user_id, cartId: order.cart_id})
+        this.$store.dispatch('getCartUserOrder', `?userId=${order.user_id}&cartId=${order.cart_id}&status=${this.stateOrder}`)
       },
       hideModal() {
         this.$store.commit('SET_CART_USER_ORDERS', [])

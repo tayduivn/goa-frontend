@@ -4,16 +4,12 @@
     <div class="d-flex justify-content-between">
       <div class="form-group">
         <label for="state" class="font-weight-bold">Selecciona un estado</label>
-        <select class="form-control width-reset ml-3" name="state" id="state" v-model="stateOrderSelected">
+        <select class="form-control width-reset ml-3" name="state" id="state" @change="changeState"
+                v-model="stateOrderSelected">
           <option v-for="item in statesOrder" :key="item">
             {{ item }}
           </option>
         </select>
-      </div>
-      <div class="text-right">
-        <button class="btn btn-sm btn-primary" @click.prevent="changeState">
-          Mostrar
-        </button>
       </div>
     </div>
     <hr>
@@ -58,51 +54,84 @@
       <template slot="close-icon">
         <CloseImageSVG/>
       </template>
-      <div class="d-flex justify-content-between align-items-center mt-5">
-        <h3>Detalle de la orden Nº {{order.id}} - {{order.status}}</h3>
+      <div v-if="order && order === 'loading'">
+        <h3>Loading...</h3>
       </div>
-      <hr>
-      <div class="mt-4">
-        <h5>Datos del cliente</h5>
-        <table class="table table-custom mt-3 mb-4">
-          <tbody>
-          <tr>
-            <td scope="col" width="250px">Nombre de usuario</td>
-            <td>{{order.email}}</td>
-          </tr>
-          <tr>
-            <td scope="col" width="250px">Nombre del Cliente</td>
-            <td>{{order.first_name}} {{order.last_name}}</td>
-          </tr>
-          <tr>
-            <td scope="col">Dirección</td>
-            <td>{{order.address}}</td>
-          </tr>
-          <tr>
-            <td scope="col">Teléfono</td>
-            <td>{{order.phone}}</td>
-          </tr>
-          </tbody>
-        </table>
-        <h5>Datos del producto</h5>
-        <table class="table table-custom mt-3 mb-4 text-center">
-          <tbody>
-          <tr>
-            <th scope="col" width="10px">Nº</th>
-            <th scope="col">Producto</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Cantidad a Comprar</th>
-            <th scope="col">Total</th>
-          </tr>
-          <tr v-for="(item, index) of order.products" :key="item.id">
-            <td>{{++index}}</td>
-            <td>{{item.name}}</td>
-            <td>{{item.price}}</td>
-            <td>{{item.cart_quantity}}</td>
-            <td>{{item.cart_quantity * item.price}}</td>
-          </tr>
-          </tbody>
-        </table>
+      <div v-else-if="order && order !== 'empty' && order.products && order.products.length">
+        <div class="d-flex justify-content-between align-items-center mt-5">
+          <h3>Detail of the order Nº {{order.order_id}} - {{order.order_status}}</h3>
+        </div>
+        <hr>
+        <form class="d-flex align-items-center mt-3" @submit.prevent="editStatusOrder">
+          <div class="form-group mb-0">
+            <label for="status">Select status</label>
+            <select class="form-control width-reset ml-3 mr-3" name="status" id="status" required
+                    v-model="selectedStatus">
+              <option v-if="order.order_status !== 'Pendiente'" value="Pendiente">Pendiente</option>
+              <option v-if="order.order_status !== 'Enviando'" value="Enviando">Enviando</option>
+              <option v-if="order.order_status !== 'Cancelado'" value="Cancelado">Cancelar</option>
+            </select>
+          </div>
+          <button class="btn btn-sm btn-primary" type="submit">Change status</button>
+        </form>
+        <hr>
+        <div class="mt-4">
+          <h5>Data of client</h5>
+          <table class="table table-custom mt-3 mb-4">
+            <tbody>
+            <tr>
+              <td scope="col" width="250px">Name of user</td>
+              <td>{{order.email}}</td>
+            </tr>
+            <tr>
+              <td scope="col" width="250px">Name of client</td>
+              <td>{{order.first_name}} {{order.last_name}}</td>
+            </tr>
+            <tr>
+              <td scope="col">Address</td>
+              <td>{{order.address}}</td>
+            </tr>
+            <tr>
+              <td scope="col">Phone</td>
+              <td>{{order.phone}}</td>
+            </tr>
+            </tbody>
+          </table>
+          <h5>Data of product</h5>
+          <table class="table table-custom mt-3 mb-4 text-center">
+            <tbody>
+            <tr>
+              <th scope="col" width="10px">Nº</th>
+              <th scope="col">Product</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Total</th>
+            </tr>
+            <tr v-for="(item, index) of order.products" :key="item.cart_product_id">
+              <td>{{++index}}</td>
+              <td>{{item.name}}</td>
+              <td>{{item.regular_price}}</td>
+              <td>{{item.cart_quantity}}</td>
+              <td>{{item.cart_quantity * item.regular_price}}</td>
+            </tr>
+            <tr>
+              <th scope="col" width="10px"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col">{{getTotalPrice}}</th>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div v-else-if="order && order === 'empty'">
+        <h3>No data</h3>
+      </div>
+
+      <div v-else-if="order && order === 'error'">
+        <h3>Error recuperando datos</h3>
       </div>
     </vue-modaltor>
 
@@ -112,7 +141,7 @@
 <script>
   import CloseImageSVG from "../../components/CloseImageSVG"
   import {handleError, listState} from "../../utils/util"
-  import {confirmMessage, successMessage} from "../../utils/handle-message"
+  import {successMessage} from "../../utils/handle-message"
   import {apiOrders, getAxios} from "../../utils/endpoints"
 
   export default {
@@ -128,6 +157,7 @@
       return {
         statesOrder: listState,
         stateOrderSelected: listState[0],
+        selectedStatus: '',
         open: false,
       }
     },
@@ -137,6 +167,13 @@
       },
       order() {
         return this.$store.getters.getCartUserOrder
+      },
+      getTotalPrice() {
+        let totalPrice = 0
+        this.order.products.forEach((value) => {
+          totalPrice = (parseInt(value.regular_price) * parseInt(value.cart_quantity)) + totalPrice
+        })
+        return totalPrice
       },
     },
     created() {
@@ -151,28 +188,26 @@
         this.$store.dispatch('getOrders', this.stateOrderSelected)
         this.hideModal()
       },
-      editStatusOrder(state, title = "Desea Actualizar el status") {
-        confirmMessage(this.$swal, title)
-          .then(res => {
-            if (res) {
-              this.order.status = state
-              getAxios(apiOrders.all, 'PUT', this.order)
-                .then(() => {
-                  if (state === 'Cancelado') {
-                    this.successRequest("Creado", 'Orden cancelada correctamente')
-                  } else {
-                    this.successRequest("Creado", "Registrado")
-                  }
-                })
-                .catch(err => {
-                  handleError(this.$swal, err)
-                })
+      editStatusOrder() {
+        this.order.id = this.order.order_id
+        this.order.status = this.selectedStatus
+        console.log(JSON.stringify(this.order))
+        getAxios(apiOrders.all, 'PUT', this.order)
+          .then(() => {
+            if (this.selectedStatus === 'Cancelado') {
+              this.successRequest('The order was canceled successfully')
+            } else {
+              this.successRequest("Updated")
             }
+          })
+          .catch(err => {
+            handleError(this.$swal, err)
           })
       },
       openModal(order) {
         this.open = true
-        this.$store.dispatch('getCartUserOrder', {userId: order.user_id, cartId: order.cart_id})
+        console.log(this.stateOrderSelected)
+        this.$store.dispatch('getCartUserOrder', `?userId=${order.user_id}&cartId=${order.cart_id}&status=${this.stateOrderSelected}`)
       },
       hideModal() {
         this.$store.commit('SET_CART_USER_ORDERS', [])

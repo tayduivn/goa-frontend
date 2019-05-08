@@ -52,9 +52,9 @@ export default {
           handleError(swal, err)
         })
     },
-    getCartUserOrder({commit}, order) {
+    getCartUserOrder({commit}, query = '') {
       commit('SET_CART_USER_ORDERS', 'loading')
-      getAxios(`${apiOrders.all}?userId=${order.userId}&cartId=${order.cartId}`, 'GET')
+      getAxios(`${apiOrders.all}${query}`, 'GET')
         .then(res => {
           if (res.data.data.length === 0) {
             commit('SET_CART_USER_ORDERS', 'empty')
