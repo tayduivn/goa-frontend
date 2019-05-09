@@ -39,14 +39,8 @@ let router = new Router({
           meta: {isNoUserLog: true}
         },
         {
-          path: 'products',
+          path: 'products/:name?',
           name: 'Products',
-          component: () => import('./views/home/ship/Products'),
-          meta: {requiresAuth: true}
-        },
-        {
-          path: 'products/:name',
-          name: 'ProductsName',
           component: () => import('./views/home/ship/Products'),
           meta: {requiresAuth: true}
         },

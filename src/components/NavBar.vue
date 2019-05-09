@@ -6,9 +6,9 @@
         <a class="scrollLink" href="https://theroom.com.ve/#index-dev-web" onclick="menuResponsive()">
           About us
         </a>
-        <a class="scrollLink" href="https://theroom.com.ve/#index-dev-app" onclick="menuResponsive()">
+        <router-link class="scrollLink" to="products">
           Store
-        </a>
+        </router-link>
         <a class="scrollLink" href="https://theroom.com.ve/#index-edit-video" onclick="menuResponsive()">
           Our Mission
         </a>

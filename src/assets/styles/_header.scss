@@ -2,7 +2,7 @@
 header {
   background-color: white;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  padding: 10px;
+  padding: 30px 10px 0 10px;
   position: fixed;
   width: 100%;
   z-index: 1000;
@@ -10,6 +10,7 @@ header {
 
 header .header-content {
   align-items: center;
+  position: relative;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
@@ -23,7 +24,11 @@ header nav a {
 }
 
 header nav a:hover {
-  color: white;
+  color: $green-three;
+}
+
+header nav a.router-link-active {
+  color: $green-three;
 }
 
 header #cart {
@@ -82,7 +87,9 @@ header span.number-products {
   background-repeat: no-repeat;
   background-size: contain;
   float: left;
-  height: 40px; /* your logo here! */
+  position: relative;
+  top: -15px;
+  height: 80px; /* your logo here! */
   max-width: 280px;
   width: calc(100% - 50px);
 }
@@ -90,6 +97,11 @@ header span.number-products {
 nav {
   flex: none;
   float: right;
+}
+
+nav a {
+  font-weight: 600;
+  font-size: .9rem;
 }
 
 .navitem {

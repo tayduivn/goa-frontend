@@ -2,10 +2,9 @@
   <div class="base">
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" @click.prevent="closeNav()">&times;</a>
-      <a href="#">About</a>
-      <a href="#">Services</a>
-      <a href="#">Clients</a>
-      <a href="#">Contact</a>
+      <router-link to="">Profile</router-link>
+      <router-link to="">History</router-link>
+      <router-link to="">Logout</router-link>
     </div>
     <div id="main">
       <NavBarC/>
@@ -41,7 +40,7 @@
 <style lang="scss">
   .base {
     main {
-      padding-top: 61px;
+      padding-top: 111px;
     }
   }
 </style>

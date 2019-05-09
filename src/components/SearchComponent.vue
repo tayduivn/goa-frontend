@@ -3,8 +3,11 @@
     <div class="search-content">
       <form @submit.prevent="searchProduct">
         <label for="search-product">Search the Store</label>
-        <input type="search" id="search-product" v-model="nameProduct">
-        <button type="submit" class="btn btn-sm">Buscar</button>
+        <div class="input-search">
+          <input type="text" id="search-product" v-model="nameProduct">
+          <img @click.prevent="searchProduct" class="button-search"
+               src="../assets/img/product-description/search_icon.png" alt="ico search">
+        </div>
       </form>
     </div>
   </div>
@@ -19,7 +22,8 @@
     },
     methods: {
       searchProduct() {
-        this.$parent.searchProduct(this.nameProduct)
+        if (this.nameProduct !== '')
+          this.$parent.searchProduct(this.nameProduct)
       }
     }
   }
@@ -57,10 +61,27 @@
       margin: 0 auto;
       width: 80%;
 
-      input {
-        border-radius: 5px;
-        padding: 2px 5px;
-        width: 250px;
+      form {
+        display: flex;
+        align-items: center;
+
+        .input-search {
+          position: relative;
+
+          .button-search {
+            cursor: pointer;
+            right: 5px;
+            position: absolute;
+            top: 4px;
+            width: 15px;
+          }
+
+          input {
+            border-radius: 5px;
+            padding: 2px 5px;
+            width: 250px;
+          }
+        }
       }
     }
   }
