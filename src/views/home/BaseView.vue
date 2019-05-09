@@ -2,9 +2,9 @@
   <div class="base">
     <div id="mySidenav" class="index-sidenav">
       <a href="javascript:void(0)" class="closebtn" @click.prevent="closeNav()">&times;</a>
-      <router-link to="">Profile</router-link>
-      <router-link to="">History</router-link>
-      <router-link to="">Logout</router-link>
+      <router-link to="profile">Profile</router-link>
+      <router-link to="order-client">History</router-link>
+      <button tag="a" @click.prevent="logout">Logout</button>
     </div>
     <div id="main">
       <NavBarC/>
@@ -33,6 +33,12 @@
       closeNav() {
         document.getElementById("mySidenav").style.width = "0";
       },
+      logout() {
+        this.$store.dispatch('logout')
+          .then(() => {
+            this.$router.push('/home')
+          })
+      }
     },
   }
 </script>

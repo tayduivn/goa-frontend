@@ -11,16 +11,17 @@
   padding-top: 60px;
 }
 
-.index-sidenav a {
+.index-sidenav a, .index-sidenav button {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
   color: #818181;
   display: block;
   transition: 0.3s;
+  background: transparent;
 }
 
-.index-sidenav a:hover {
+.index-sidenav a:hover, .index-sidenav button:hover {
   color: #f1f1f1;
 }
 

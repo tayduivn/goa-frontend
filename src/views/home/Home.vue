@@ -149,6 +149,7 @@
           arrows: true,
           dots: false,
           slidesToShow: 4,
+          slidesToScroll: 4,
           responsive: [
             {
               breakpoint: 900,
@@ -164,6 +165,7 @@
           arrows: true,
           dots: false,
           slidesToShow: 4,
+          slidesToScroll: 4,
           responsive: [
             {
               breakpoint: 900,

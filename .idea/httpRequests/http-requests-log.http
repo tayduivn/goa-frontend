@@ -1,3 +1,65 @@
+PUT http://goa-backend/api/users/password
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "user_id": "1",
+  "email": "ivans10@gmail.com",
+  "first_name": "Ivans",
+  "last_name": "Del Pino",
+  "password": "123456",
+  "address": "Santa Rita",
+  "phone": "04165646545",
+  "active": "1",
+  "role_id": "1",
+  "inserted_at": "2019-05-07 11:57:09",
+  "updated_at": "2019-05-07 11:57:09",
+  "id": "1",
+  "name": "Administrador",
+  "newPassword": "123456"
+}
+
+<> 2019-05-09T025610.500.html
+
+###
+
+PUT http://goa-backend/api/users/password
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "user_id": "1",
+  "email": "ivans10@gmail.com",
+  "first_name": "Ivans",
+  "last_name": "Del Pino",
+  "password": "123456",
+  "address": "Santa Rita",
+  "phone": "04165646545",
+  "active": "1",
+  "role_id": "1",
+  "inserted_at": "2019-05-07 11:57:09",
+  "updated_at": "2019-05-07 11:57:09",
+  "id": "1",
+  "name": "Administrador",
+  "newPassword": "123456"
+}
+
+<> 2019-05-09T025519.500.html
+
+###
+
+POST http://goa-backend/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "Ivans20@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-09T025445.200.json
+
+###
+
 GET http://goa-backend/api/public/products?categoryName=Alimentos
 Accept: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
@@ -450,43 +512,6 @@ Accept: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
 
 <> 2019-05-08T115911.200.json
-
-###
-
-GET http://goa-backend/api/public/products
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-08T115754.200.json
-
-###
-
-GET http://goa-backend/api/public/products
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-08T115652.500.json
-
-###
-
-POST http://goa-backend/api/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-{
-  "id": "",
-  "sku": "13213",
-  "name": "Cacao 20",
-  "description_short": "Hola",
-  "description_one": "Hola 1",
-  "description_two": "Hola 2",
-  "preparation": "Prepa",
-  "quantity": 2,
-  "user_id": "1",
-  "regular_price": "100"
-}
-
-<> 2019-05-08T115500.201.json
 
 ###
 

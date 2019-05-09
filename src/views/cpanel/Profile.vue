@@ -8,12 +8,8 @@
       <h3>Information of the profile</h3>
       <form @submit.prevent="editData">
         <div class="form-group">
-          <label for="name" class="mt-3 mb-3">Name</label>
-          <input class="form-control" id="name" type="email" v-model="users.name" disabled required>
-        </div>
-        <div class="form-group">
           <label for="email" class="mt-3 mb-3">Email</label>
-          <input class="form-control" id="email" type="email" v-model="users.email" v-if="users.iduser !== ''" required>
+          <input class="form-control" id="email" type="email" v-model="users.email" v-if="users.iduser !== ''" disabled>
         </div>
         <div class="form-group">
           <label for="street" class="mt-3 mb-3">Address</label>
@@ -62,10 +58,9 @@
 </template>
 
 <script>
-  import axios from 'axios'
-  import config from "./../../config/config";
   import {handleError, wordEng} from "../../utils/util"
   import {confirmMessage, infoMessage, successMessage} from "../../utils/handle-message"
+  import {apiUsers, getAxios} from "../../utils/endpoints"
 
   export default {
     name: "profileAdmin",
@@ -85,30 +80,22 @@
     },
     computed: {
       users() {
-        return  this.$store.getters.getProfile
+        return this.$store.getters.getUsers[0]
       }
     },
     created() {
-      this.$store.dispatch('getProfile', JSON.parse(localStorage.getItem('user')).iduser)
+      this.$store.dispatch('getUsers', `?id=${JSON.parse(localStorage.getItem('user')).id}`)
     },
     methods: {
-      successRequest (title) {
+      successRequest(title) {
         successMessage(this.$swal, title)
-        this.$store.dispatch('getProfile')
-        console.clear()
+        this.$store.dispatch('getUsers', `?id=${JSON.parse(localStorage.getItem('user')).id}`)
       },
       editData() {
         confirmMessage(this.$swal, this.wordEng.youWant, '')
           .then(res => {
             if (res) {
-              axios({
-                method: 'PUT',
-                url: `${config.api_url}/api/user/update`,
-                headers: {
-                  Authorization: localStorage.token
-                },
-                data: this.users
-              })
+              getAxios(apiUsers.all, 'PUT', this.users)
                 .then(() => {
                   this.successRequest(this.wordEng.profileUpdated)
                 })
@@ -125,14 +112,7 @@
         confirmMessage(this.$swal, this.wordEng.youWant, '')
           .then(res => {
             if (res) {
-              axios({
-                method: 'PUT',
-                url: `${config.api_url}/api/user/updatePassword`,
-                headers: {
-                  Authorization: localStorage.token
-                },
-                data: this.users
-              })
+              getAxios(apiUsers.password, 'PUT', this.users)
                 .then(() => {
                   this.successRequest(this.wordEng.profileUpdated)
                   this.oldPassword = ''
@@ -148,20 +128,12 @@
         confirmMessage(this.$swal, this.wordEng.youWantDelete)
           .then(res => {
             if (res) {
-              const iduser = JSON.parse(localStorage.getItem('user')).iduser
-              axios({
-                method: 'DELETE',
-                url: `${config.api_url}/api/user/delete`,
-                headers: {
-                  Authorization: localStorage.token
-                },
-                data: {iduser}
-              })
+              getAxios(apiUsers.all, 'DELETE', {id: JSON.parse(localStorage.getItem('user')).id})
                 .then(() => {
                   infoMessage(this.$swal, null, this.wordEng.profileDelete)
                   this.$store.dispatch('logout')
                     .then(() => {
-                      this.$router.push('/')
+                      this.$router.push('/cpanel/login')
                     })
                 })
                 .catch(err => {

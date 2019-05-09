@@ -44,8 +44,12 @@
       notificationCount() {
         if (this.user !== null && this.user !== undefined && this.user.constructor === Object) {
           const cartsByUser = this.$store.getters.getCartsByUser
-          if (cartsByUser !== 'empty' && cartsByUser !== 'error' && cartsByUser !== 'loading') {
-            return cartsByUser.products.length
+          if (cartsByUser !== 'empty' && cartsByUser !== 'error' && cartsByUser !== 'loading' && cartsByUser.products) {
+            if (cartsByUser.products.length) {
+              return cartsByUser.products.length
+            } else {
+              return 0
+            }
           } else {
             return 0
           }

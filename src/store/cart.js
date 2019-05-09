@@ -39,12 +39,13 @@ export default {
         })
     },
     getCartsByUser({commit}, query = '') {
-      commit('SET_CART', 'loading')
       return new Promise((resolve, reject) => {
+        commit('SET_CART', 'loading')
         getAxios(`${apiCarts.all}${query}`, 'GET')
           .then(res => {
             if (res.data.data.length === 0) {
               commit('SET_CART', 'empty')
+              resolve(res.data.data)
             } else {
               commit('SET_CART', res.data.data[0])
               resolve(res.data.data[0])

@@ -8,25 +8,20 @@
         <form @submit.prevent="editData" class="col-md-6 col-sm-12">
           <h3>Information of the profile</h3>
           <div class="form-group">
-            <label for="name" class="mt-3 mb-3">Name of user</label>
-            <input class="form-control" id="name" type="text" v-model="users.name" disabled required>
+            <label for="email" class="mt-3 mb-3">Email</label>
+            <input class="form-control" id="email" type="email" v-model="users.email" disabled>
           </div>
           <div class="form-group">
             <label for="person_name" class="mt-3 mb-3">Name</label>
-            <input class="form-control" id="person_name" type="text" v-model="users.person_name" required>
+            <input class="form-control" id="person_name" type="text" v-model="users.first_name" required>
           </div>
           <div class="form-group">
             <label for="person_last_name" class="mt-3 mb-3">LastName</label>
-            <input class="form-control" id="person_last_name" type="text" v-model="users.person_last_name" required>
-          </div>
-          <div class="form-group">
-            <label for="email" class="mt-3 mb-3">Email</label>
-            <input class="form-control" id="email" type="email" v-model="users.email" v-if="users.iduser !== ''"
-                   required>
+            <input class="form-control" id="person_last_name" type="text" v-model="users.last_name" required>
           </div>
           <div class="form-group">
             <label for="street" class="mt-3 mb-3">Address</label>
-            <input class="form-control" id="street" type="text" v-model="users.street" required>
+            <input class="form-control" id="street" type="text" v-model="users.address" required>
           </div>
           <div class="form-group">
             <label for="phone" class="mt-3 mb-3">Phone</label>
@@ -76,6 +71,7 @@
   import config from "../../config/config";
   import {handleError, wordEng} from "../../utils/util"
   import {confirmMessage, infoMessage, successMessage} from "../../utils/handle-message"
+  import {apiUsers, getAxios} from "../../utils/endpoints"
 
   export default {
     name: "profileUser",
@@ -95,32 +91,25 @@
     },
     computed: {
       users() {
-        return this.$store.getters.getProfile
+        return this.$store.getters.getUsers[0]
       },
       levelUser() {
         return this.$store.getters.getLevelUser
       },
     },
     created() {
-      this.$store.dispatch('getProfile', JSON.parse(localStorage.getItem('user')).iduser)
+      this.$store.dispatch('getUsers', `?id=${JSON.parse(localStorage.getItem('user')).id}`)
     },
     methods: {
       successRequest(title) {
         successMessage(this.$swal, title)
-        this.$store.dispatch('getProfile')
+        this.$store.dispatch('getUsers', `?id=${JSON.parse(localStorage.getItem('user')).id}`)
       },
       editData() {
-        confirmMessage(this.$swal, 'Desea actualizar los datos', '')
+        confirmMessage(this.$swal, this.wordEng.youWant, '')
           .then(res => {
             if (res) {
-              axios({
-                method: 'PUT',
-                url: `${config.api_url}/api/user/update`,
-                headers: {
-                  Authorization: localStorage.token
-                },
-                data: this.users
-              })
+              getAxios(apiUsers.all, 'PUT', this.users)
                 .then(() => {
                   this.successRequest(this.wordEng.profileUpdated)
                 })
@@ -134,17 +123,10 @@
         this.users.password = this.oldPassword
         this.users.newPassword = this.newPassword
         console.log(JSON.stringify(this.users))
-        confirmMessage(this.$swal, 'Desea actualizar los datos', '')
+        confirmMessage(this.$swal, this.wordEng.youWant, '')
           .then(res => {
             if (res) {
-              axios({
-                method: 'PUT',
-                url: `${config.api_url}/api/user/updatePassword`,
-                headers: {
-                  Authorization: localStorage.token
-                },
-                data: this.users
-              })
+              getAxios(apiUsers.password, 'PUT', this.users)
                 .then(() => {
                   this.successRequest(this.wordEng.profileUpdated)
                   this.oldPassword = ''
@@ -160,17 +142,9 @@
         confirmMessage(this.$swal, this.wordEng.profileDelete)
           .then(res => {
             if (res) {
-              const iduser = JSON.parse(localStorage.getItem('user')).iduser
-              axios({
-                method: 'DELETE',
-                url: `${config.api_url}/api/user/delete`,
-                headers: {
-                  Authorization: localStorage.token
-                },
-                data: {iduser}
-              })
+              getAxios(apiUsers.all, 'DELETE', {id: JSON.parse(localStorage.getItem('user')).id})
                 .then(() => {
-                  infoMessage(this.$swal, null, "Cuenta eliminada")
+                  infoMessage(this.$swal, null, this.wordEng.profileDelete)
                   this.$store.dispatch('logout')
                     .then(() => {
                       this.$router.push('/')

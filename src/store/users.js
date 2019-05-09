@@ -63,7 +63,7 @@ export default {
               commit('SET_USER', user)
               resolve(resp)
             } else {
-              resolve("Este usuario no tiene permisos")
+              resolve("This user not have permissions")
             }
           })
           .catch(err => {
