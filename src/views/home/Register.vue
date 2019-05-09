@@ -43,7 +43,7 @@
           </div>
         </div>
         <div class="text-right">
-          <button type="submit" class="btn btn-primary">Join</button>
+          <button type="submit" class="btn btn-primary" :disabled="!!submitForm">Join</button>
         </div>
       </form>
     </div>
@@ -69,26 +69,31 @@
       return {
         user: modelUser,
         wordEng: wordEng,
+        submitForm: false,
       }
     },
     methods: {
       send() {
         this.user.role_id = 2
         console.log(JSON.stringify(this.user))
+        this.submitForm = true
         getAxios(apiUsers.register, 'POST', this.user)
           .then((res) => {
             const cart = modelCart
             cart.user_id = res.data.data.idUser
             getAxios(apiCarts.all, 'POST', cart)
               .then(() => {
+                this.submitForm = false
                 successMessage(this.$swal, null, this.wordEng.created)
                 this.$router.push('login')
               })
               .catch(err => {
+                this.submitForm = false
                 handleError(this.$swal, err)
               })
           })
           .catch(err => {
+            this.submitForm = false
             handleError(this.$swal, err)
           })
       }

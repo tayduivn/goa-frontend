@@ -28,7 +28,7 @@
             <input class="form-control" id="phone" type="text" v-model="users.phone" required>
           </div>
           <div class="text-right">
-            <button type="submit" class="btn-sm btn-primary">{{wordEng.save}}</button>
+            <button type="submit" class="btn-sm btn-primary" :disabled="!!submitForm">{{wordEng.save}}</button>
           </div>
         </form>
         <form @submit.prevent="editPass" class="col-md-6 col-sm-12">
@@ -42,13 +42,13 @@
             <input class="form-control" id="new-password" type="password" v-model="newPassword" required>
           </div>
           <div class="text-right">
-            <button type="submit" class="btn-sm btn-primary">{{wordEng.save}}</button>
+            <button type="submit" class="btn-sm btn-primary" :disabled="!!submitForm">{{wordEng.save}}</button>
           </div>
         </form>
         <hr class="col-md-12 mt-4 mb-4 p-0">
         <form @submit.prevent="editPass" class="col-md-12">
           <div class="text-right">
-            <button type="submit" class="btn-sm btn-danger" @click.prevent="deleteData">
+            <button type="submit" class="btn-sm btn-danger" @click.prevent="deleteData" :disabled="!!submitForm">
               {{wordEng.profileDelete}}
             </button>
           </div>
@@ -67,8 +67,6 @@
 </template>
 
 <script>
-  import axios from 'axios'
-  import config from "../../config/config";
   import {handleError, wordEng} from "../../utils/util"
   import {confirmMessage, infoMessage, successMessage} from "../../utils/handle-message"
   import {apiUsers, getAxios} from "../../utils/endpoints"
@@ -87,6 +85,7 @@
         oldPassword: "",
         newPassword: "",
         wordEng: wordEng,
+        submitForm: false,
       }
     },
     computed: {
@@ -106,20 +105,24 @@
         this.$store.dispatch('getUsers', `?id=${JSON.parse(localStorage.getItem('user')).id}`)
       },
       editData() {
+        this.submitForm = true
         confirmMessage(this.$swal, this.wordEng.youWant, '')
           .then(res => {
             if (res) {
               getAxios(apiUsers.all, 'PUT', this.users)
                 .then(() => {
+                  this.submitForm = false
                   this.successRequest(this.wordEng.profileUpdated)
                 })
                 .catch(err => {
+                  this.submitForm = false
                   handleError(this.$swal, err)
                 })
             }
           })
       },
       editPass() {
+        this.submitForm = true
         this.users.password = this.oldPassword
         this.users.newPassword = this.newPassword
         console.log(JSON.stringify(this.users))
@@ -128,17 +131,20 @@
             if (res) {
               getAxios(apiUsers.password, 'PUT', this.users)
                 .then(() => {
+                  this.submitForm = false
                   this.successRequest(this.wordEng.profileUpdated)
                   this.oldPassword = ''
                   this.newPassword = ''
                 })
                 .catch(err => {
+                  this.submitForm = false
                   handleError(this.$swal, err)
                 })
             }
           })
       },
       deleteData() {
+        this.submitForm = true
         confirmMessage(this.$swal, this.wordEng.profileDelete)
           .then(res => {
             if (res) {
@@ -147,10 +153,12 @@
                   infoMessage(this.$swal, null, this.wordEng.profileDelete)
                   this.$store.dispatch('logout')
                     .then(() => {
+                      this.submitForm = false
                       this.$router.push('/')
                     })
                 })
                 .catch(err => {
+                  this.submitForm = false
                   handleError(this.$swal, err)
                 })
             }

@@ -25,7 +25,7 @@
         </div>
         <hr>
         <div class="text-center mt-4 mb-2">
-          <button type="submit">Log in</button>
+          <button type="submit" :disabled="!!submitForm">Log in</button>
         </div>
       </form>
     </div>
@@ -54,6 +54,7 @@
         },
         isRemember: false,
         wordEng: wordEng,
+        submitForm: false,
       }
     },
     created() {
@@ -66,10 +67,12 @@
     },
     methods: {
       send() {
+        this.submitForm = true
         this.user.type = "Cliente"
         this.$store.dispatch('login', this.user)
           .then((res) => {
             if (typeof res === "string") {
+              this.submitForm = false
               infoMessage(this.$swal, null, res)
             } else {
               if (this.isRemember) {
@@ -82,11 +85,13 @@
                   this.$router.push('home')
                 })
                 .catch(err => {
+                  this.submitForm = false
                   handleError(this.$swal, err)
                 })
             }
           })
           .catch(err => {
+            this.submitForm = false
             handleError(this.$swal, err)
           })
       }

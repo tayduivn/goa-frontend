@@ -42,10 +42,13 @@
                     <button @click.prevent="quantityProduct(true)">+</button>
                   </div>
                 </div>
-                <button class="global-button green" @click.prevent="saveCart" :disabled="product.quantity <= 0">
+                <button class="global-button green" @click.prevent="saveCart"
+                        :disabled="product.quantity <= 0 || !!submitForm">
                   Buy Now
                 </button>
-                <div><small v-if="product.quantity <= 0" class="text-danger">Not products in the store</small></div>
+                <div>
+                  <small v-if="product.quantity <= 0" class="text-danger">Not products in the store</small>
+                </div>
                 <p>{{product.description_one}}</p>
                 <div class="info-preparation">
                   <div>
@@ -160,7 +163,7 @@
               </select>
             </div>
             <div class="text-right">
-              <button type="submit" class="btn-sm btn-primary">Guardar</button>
+              <button type="submit" class="btn-sm btn-primary" :disabled="!!submitForm">Guardar</button>
             </div>
           </form>
         </vue-modaltor>
@@ -198,6 +201,7 @@
     },
     data() {
       return {
+        submitForm: false,
         open: false,
         review: modelReviews,
         wordEng: wordEng,
@@ -249,24 +253,30 @@
     },
     methods: {
       saveData() {
+        this.submitForm = true
         getAxios(apiReviews.all, 'POST', this.review)
           .then(() => {
+            this.submitForm = false
             successMessage(this.$swal, "Creado")
           })
           .catch(err => {
+            this.submitForm = false
             handleError(this.$swal, err)
           })
       },
       saveCart() {
+        this.submitForm = true
         this.cartProducts.quantity = this.quantityValue
         this.cartProducts.product_id = this.product.id
         this.cartProducts.cart_id = localStorage.getItem('cartId')
         console.log(JSON.stringify(this.cartProducts))
         getAxios(apiCartsProducts.all, 'POST', this.cartProducts)
           .then(() => {
+            this.submitForm = false
             successMessage(this.$swal, "Creado")
           })
           .catch(err => {
+            this.submitForm = false
             handleError(this.$swal, err)
           })
       },

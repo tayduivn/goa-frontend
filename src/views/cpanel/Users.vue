@@ -28,7 +28,8 @@
           <td>{{user.email}}</td>
           <td>{{formaDate(user.inserted_at)}}</td>
           <td>
-            <button v-if="checkMyUser(user)" class="btn btn-sm btn-danger" @click.prevent="deleteData(user.user_id)">
+            <button v-if="checkMyUser(user)" class="btn btn-sm btn-danger" @click.prevent="deleteData(user.user_id)"
+                    :disabled="!!submitForm">
               {{wordEng.delete}}
             </button>
           </td>
@@ -74,7 +75,7 @@
                  onchange="this.setCustomValidity(this.validity.patternMismatch ? 'The password not match' : '');">
         </div>
         <div class="text-right">
-          <button type="submit" class="btn-sm btn-primary">{{wordEng.save}}</button>
+          <button type="submit" class="btn-sm btn-primary" :disabled="!!submitForm">{{wordEng.save}}</button>
         </div>
       </form>
     </vue-modaltor>
@@ -100,6 +101,7 @@
     components: {CloseImageSVG},
     data() {
       return {
+        submitForm: false,
         user: modelUser,
         open: false,
         wordEng: wordEng,
@@ -121,23 +123,29 @@
         this.hideModal()
       },
       saveData() {
+        this.submitForm = true
         getAxios(apiUsers.register, 'POST', this.user)
           .then(() => {
+            this.submitForm = false
             this.successRequest("Creado", "Creado")
           })
           .catch(err => {
+            this.submitForm = false
             handleError(this.$swal, err)
           })
       },
       deleteData(id) {
+        this.submitForm = true
         confirmMessage(this.$swal)
           .then(res => {
             if (res) {
               getAxios(apiUsers.all, 'DELETE', {id})
                 .then(() => {
+                  this.submitForm = false
                   this.successRequest("Creado", "Eliminado")
                 })
                 .catch(err => {
+                  this.submitForm = false
                   handleError(this.$swal, err)
                 })
             }

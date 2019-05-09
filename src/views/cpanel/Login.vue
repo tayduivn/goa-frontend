@@ -17,11 +17,13 @@
             </label>
             <div class="d-flex justify-content-between">
               <label class="width-reset"><input type="checkbox" v-model="isRemember"/><span>{{wordEng.remember}}</span></label>
-              <span><router-link to="cpanel/forgot">{{wordEng.forgot}}</router-link></span>
+              <span><router-link to="forgot">{{wordEng.forgot}}</router-link></span>
             </div>
             <hr>
             <div class="btn-sub text-center mt-4 mb-2">
-              <button type="submit" class="pink-btn" @click.prevent="postLogin">{{wordEng.logIn}}</button>
+              <button type="submit" class="pink-btn" @click.prevent="postLogin" :disabled="!!submitForm">
+                {{wordEng.logIn}}
+              </button>
             </div>
           </form>
         </div>
@@ -44,6 +46,7 @@
     },
     data() {
       return {
+        submitForm: false,
         user: modelUserLogin,
         isRemember: false,
         wordEng: wordEng,
@@ -59,10 +62,13 @@
     },
     methods: {
       postLogin() {
+        this.submitForm = true
         this.user.type = "Administrador"
         console.log(JSON.stringify(this.user))
         this.$store.dispatch('login', this.user)
           .then((res) => {
+            console.clear()
+            this.submitForm = false
             if (typeof res === "string") {
               infoMessage(this.$swal, null, res)
             } else {
@@ -72,9 +78,9 @@
               }
               this.$router.push('/cpanel')
             }
-            console.clear()
           })
           .catch(err => {
+            this.submitForm = false
             handleError(this.$swal, err)
           })
       }

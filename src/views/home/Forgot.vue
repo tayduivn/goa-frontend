@@ -19,7 +19,7 @@
         </div>
         <hr>
         <div class="btn-sub text-center mt-4 mb-2">
-          <button type="submit" class="pink-btn">{{wordEng.recover}}</button>
+          <button type="submit" class="pink-btn" :disabled="!!submitForm">{{wordEng.recover}}</button>
         </div>
       </form>
     </div>
@@ -28,9 +28,8 @@
 
 <script>
   import {handleError, wordEng} from "../../utils/util"
-  import config from "../../config/config"
-  import axios from "axios"
   import {successMessage} from "../../utils/handle-message"
+  import {apiUsers, getAxios} from "../../utils/endpoints"
 
   export default {
     name: 'cpanel-forgot',
@@ -44,19 +43,20 @@
       return {
         userEmail: '',
         wordEng: wordEng,
+        submitForm: false,
       }
     },
     methods: {
       send() {
-        axios({
-          method: 'GET',
-          url: `${config.api_url}/api/public/user/forgot/${this.userEmail}`,
-        })
+        this.submitForm = true
+        getAxios(apiUsers.forgot, 'POST', {email: this.userEmail})
           .then(() => {
+            this.submitForm = false
             successMessage(this.$swal, null, this.wordEng.sendMessage)
-            this.$router.push('/cpanel')
+            this.$router.push('/login')
           })
           .catch(err => {
+            this.submitForm = false
             handleError(this.$swal, err)
           })
       }

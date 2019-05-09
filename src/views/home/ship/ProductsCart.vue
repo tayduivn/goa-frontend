@@ -126,7 +126,7 @@
               </div>
             </div>
             <div class="text-right">
-              <button type="submit" class="btn-sm btn-primary">Guardar</button>
+              <button type="submit" class="btn-sm btn-primary" :disabled="!!submitForm">{{wordEng.save}}</button>
             </div>
           </form>
         </vue-modaltor>
@@ -135,8 +135,8 @@
 
       <div v-else-if="carts && carts === 'empty'" class="d-flex justify-content-between mb-3">
         <div class="order-message-empty text-center">
-          <h3>Actualmente no tiene envíos en este estado</h3>
-          <router-link to="products" tag="button">Comience un nuevo envío</router-link>
+          <h3>Actually you don't have products</h3>
+          <router-link to="products" tag="button">Please, add a product</router-link>
         </div>
       </div>
       <div v-else-if="carts && carts === 'error'">
@@ -167,6 +167,7 @@
     },
     data() {
       return {
+        submitForm: false,
         open: false,
         quantityValue: [],
         cart: modelCart,
@@ -240,6 +241,7 @@
           })
       },
       saveTransaction() {
+        this.submitForm = true
         /* TODO: add method of payment */
         this.transaction.processor_trans_id = 1
         this.transaction.code = 1
@@ -252,10 +254,12 @@
         console.log(JSON.stringify(this.transaction))
         getAxios(apiTransactions.all, 'POST', this.transaction)
           .then(() => {
+            this.submitForm = false
             successMessage(this.$swal, 'Transaction success')
             this.$router.push('order-client')
           })
           .catch(err => {
+            this.submitForm = false
             handleError(this.$swal, err)
           })
       },

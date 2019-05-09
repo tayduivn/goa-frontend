@@ -6,7 +6,7 @@
         <label for="state" class="font-weight-bold">{{wordEng.selectState}}</label>
         <select class="form-control width-reset ml-3" name="state" id="state" @change="changeState"
                 v-model="stateOrderSelected">
-          <option v-for="item in statesOrder" :key="item">{ item }}</option>
+          <option v-for="item in statesOrder" :key="item">{{ item }}</option>
         </select>
       </div>
     </div>
@@ -70,7 +70,7 @@
               <option v-if="order.order_status !== 'Cancelado'" value="Cancelado">Cancelar</option>
             </select>
           </div>
-          <button class="btn btn-sm btn-primary" type="submit">Change status</button>
+          <button class="btn btn-sm btn-primary" type="submit" :disabled="!!submitForm">Change status</button>
         </form>
         <hr>
         <div class="mt-4">
@@ -153,6 +153,7 @@
     components: {CloseImageSVG},
     data() {
       return {
+        submitForm: false,
         statesOrder: listState,
         stateOrderSelected: listState[0],
         selectedStatus: '',
@@ -188,11 +189,13 @@
         this.hideModal()
       },
       editStatusOrder() {
+        this.submitForm = true
         this.order.id = this.order.order_id
         this.order.status = this.selectedStatus
         console.log(JSON.stringify(this.order))
         getAxios(apiOrders.all, 'PUT', this.order)
           .then(() => {
+            this.submitForm = false
             if (this.selectedStatus === 'Cancelado') {
               this.successRequest('The order was canceled successfully')
             } else {
@@ -200,6 +203,7 @@
             }
           })
           .catch(err => {
+            this.submitForm = false
             handleError(this.$swal, err)
           })
       },

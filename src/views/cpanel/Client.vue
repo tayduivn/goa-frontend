@@ -56,11 +56,6 @@
           <td>{{user.phone}}</td>
         </tr>
         <tr>
-          <td scope="col">Message</td>
-          <td v-if="user.message === null">Sin mensaje</td>
-          <td v-else>{{user.message}}</td>
-        </tr>
-        <tr>
           <td scope="col">Date of creation</td>
           <td>{{formaDate(user.user_inserted_at)}}</td>
         </tr>

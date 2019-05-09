@@ -32,7 +32,7 @@
             </button>
           </td>
           <td>
-            <button class="btn btn-sm btn-danger" @click.prevent="deleteData(category.id)">
+            <button class="btn btn-sm btn-danger" @click.prevent="deleteData(category.id)" :disabled="!!submitForm">
               {{wordEng.delete}}
             </button>
           </td>
@@ -63,7 +63,7 @@
           <input class="form-control" id="name" type="text" v-model="category.name" required>
         </div>
         <div class="text-right">
-          <button type="submit" class="btn-sm btn-primary">{{wordEng.save}}</button>
+          <button type="submit" class="btn-sm btn-primary" :disabled="!!submitForm">{{wordEng.save}}</button>
         </div>
       </form>
     </vue-modaltor>
@@ -89,6 +89,7 @@
     components: {CloseImageSVG},
     data() {
       return {
+        submitForm: false,
         category: modelCategory,
         formData: null,
         open: false,
@@ -106,6 +107,7 @@
     },
     methods: {
       sendData() {
+        this.submitForm = true
         if (this.category.id === '') {
           this.saveData()
         } else {
@@ -113,6 +115,7 @@
         }
       },
       successRequest(title) {
+        this.submitForm = false
         successMessage(this.$swal, title)
         this.$store.dispatch('getCategories')
         this.hideModal()
@@ -123,6 +126,7 @@
             this.successRequest(this.wordEng.created)
           })
           .catch(err => {
+            this.submitForm = false
             handleError(this.$swal, err)
           })
       },
@@ -132,10 +136,12 @@
             this.successRequest(this.wordEng.edited)
           })
           .catch(err => {
+            this.submitForm = false
             handleError(this.$swal, err)
           })
       },
       deleteData(id) {
+        this.submitForm = true
         confirmMessage(this.$swal)
           .then(res => {
             if (res) {
@@ -144,6 +150,7 @@
                   this.successRequest(this.wordEng.deleted)
                 })
                 .catch(err => {
+                  this.submitForm = false
                   handleError(this.$swal, err)
                 })
             }

@@ -29,7 +29,8 @@
             </button>
           </td>
           <td>
-            <button class="btn btn-sm btn-danger" @click.prevent="deleteData(review.review_id)">
+            <button class="btn btn-sm btn-danger" @click.prevent="deleteData(review.review_id)"
+                    :disabled="!!submitForm">
               {{wordEng.delete}}
             </button>
           </td>
@@ -94,6 +95,7 @@
     },
     data() {
       return {
+        submitForm: false,
         review: modelReviews,
         open: false,
         wordEng: wordEng,
@@ -109,16 +111,19 @@
     },
     methods: {
       deleteData(id) {
+        this.submitForm = true
         confirmMessage(this.$swal)
           .then(res => {
             if (res) {
               getAxios(apiReviews.all, 'DELETE', {id})
                 .then(() => {
+                  this.submitForm = false
                   successMessage(this.$swal, this.wordEng.deleted)
                   this.$store.dispatch('getReviews')
                   this.hideModal()
                 })
                 .catch(err => {
+                  this.submitForm = false
                   handleError(this.$swal, err)
                 })
             }
