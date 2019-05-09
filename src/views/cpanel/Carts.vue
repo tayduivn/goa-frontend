@@ -87,7 +87,7 @@
     name: "Carts",
     components: {CloseImageSVG},
     metaInfo: {
-      title: 'GOA cPanel',
+      title: 'Gardens of America cPanel',
       titleTemplate: (title) => {
         return `${title} | Carts`
       }

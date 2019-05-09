@@ -39,7 +39,7 @@
   export default {
     name: 'cpanelLogin',
     metaInfo: {
-      title: `${this.wordEng.company} cPanel`,
+      title: `Gardens of America cPanel`,
       titleTemplate: '%s | Log in'
     },
     data() {

@@ -133,7 +133,7 @@
   export default {
     name: "home",
     metaInfo: {
-      title: this.wordEng.company,
+      title: 'Gardens of America',
       titleTemplate: (title) => {
         return `${title} | Home`
       }

@@ -191,7 +191,7 @@
     name: 'ProductsDetail',
     components: {SearchComponent, Slick, CloseImageSVG},
     metaInfo: {
-      title: this.wordEng.company,
+      title: 'Gardens of America',
       titleTemplate: (title) => {
         return `${title} | Detail of the product`
       }

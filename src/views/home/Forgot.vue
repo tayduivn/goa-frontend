@@ -35,9 +35,9 @@
   export default {
     name: 'cpanel-forgot',
     metaInfo: {
-      title: this.wordEng.company,
+      title: 'Gardens of America',
       titleTemplate: (title) => {
-        return `${title} | ${wordEng.recoverPass}`
+        return `${title} | Recover`
       }
     },
     data: function () {

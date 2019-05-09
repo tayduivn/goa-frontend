@@ -60,7 +60,7 @@
   export default {
     name: 'register',
     metaInfo: {
-      title: this.wordEng.company,
+      title: 'Gardens of America',
       titleTemplate: (title) => {
         return `${title} | register`
       }

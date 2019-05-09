@@ -81,7 +81,7 @@
   export default {
     name: "categories",
     metaInfo: {
-      title: 'GOA cPanel',
+      title: 'Gardens of America cPanel',
       titleTemplate: (title) => {
         return `${title} | Categories`
       }

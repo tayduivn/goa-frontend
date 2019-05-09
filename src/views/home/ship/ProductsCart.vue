@@ -160,7 +160,7 @@
     name: "ProductCart",
     components: {SearchComponent, Slick, CloseImageSVG},
     metaInfo: {
-      title: this.wordEng.company,
+      title: 'Gardens of America',
       titleTemplate: (title) => {
         return `${title} | Cart`
       }

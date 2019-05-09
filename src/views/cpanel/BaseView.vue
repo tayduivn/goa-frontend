@@ -11,7 +11,7 @@
           <button @click.prevent="dropdownShow" class="dropbtn"></button>
           <div id="myDropdown" class="dropdown-content">
             <router-link to="/cpanel/profile">{{wordEng.profile}}</router-link>
-            <a @click.prevent="logout">{{wordEng.logout}}</a>
+            <a @click.prevent="logout">{{wordEng.logOut}}</a>
           </div>
         </div>
       </div>
@@ -29,7 +29,7 @@
           <router-link to="/cpanel/client">{{wordEng.clients}}</router-link>
         </li>
         <li class="sidenav__list-item">
-          <router-link to="/cpanel/products">{{wordEng.products}}</router-link>
+          <router-link to="/cpanel/p-products">{{wordEng.products}}</router-link>
         </li>
         <li class="sidenav__list-item">
           <router-link to="/cpanel/categories">{{wordEng.categories}}</router-link>
@@ -68,7 +68,7 @@
   export default {
     name: "cPanelBaseView",
     metaInfo: {
-      title: 'GOA cPanel',
+      title: 'Gardens of America cPanel',
       titleTemplate: (title) => {
         return `${title} | Home`
       }

@@ -140,7 +140,7 @@
     name: "order-client",
     components: {CloseImageSVG},
     metaInfo: {
-      title: this.wordEng.company,
+      title: 'Gardens of America',
       titleTemplate: (title) => {
         return `${title} | My orders`
       }

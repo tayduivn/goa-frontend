@@ -70,7 +70,7 @@
   export default {
     name: "profileAdmin",
     metaInfo: {
-      title: `${this.wordEng.company} cPanel`,
+      title: `Gardens of America cPanel`,
       titleTemplate: (title) => {
         return `${title} | My profile`
       }

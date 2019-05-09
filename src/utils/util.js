@@ -47,6 +47,8 @@ const wordEng = {
   profile: 'Profile',
   logOut: 'Logout',
   products: 'Products',
+  clients: 'Clients',
+  reviews: 'Reviews',
   categories: 'Categories',
   orders: 'Orders',
   users: 'Users',

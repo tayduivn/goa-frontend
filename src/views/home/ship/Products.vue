@@ -66,7 +66,7 @@
   export default {
     name: 'Products',
     metaInfo: {
-      title: this.wordEng.company,
+      title: 'Gardens of America',
       titleTemplate: (title) => {
         return `${title} | Products`
       }
