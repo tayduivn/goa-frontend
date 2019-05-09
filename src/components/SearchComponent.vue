@@ -23,7 +23,7 @@
     methods: {
       searchProduct() {
         if (this.nameProduct !== '')
-          this.$parent.searchProduct(this.nameProduct)
+          this.$router.push({name: 'Products', query: {name: this.nameProduct}})
       }
     }
   }

@@ -28,7 +28,7 @@ Authorization: Bearer {{auth_token}}
 
 ###
 
-GET {{host}}/api/public/products?productName=Cacao 10
+GET {{host}}/api/public/products?productName=Cacao 18
 Accept: application/json
 Authorization: Bearer {{auth_token}}
 

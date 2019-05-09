@@ -21,22 +21,24 @@
 
           <div v-else-if="products && products !== 'empty'">
             <div v-for="product in products" :key="product.id" class="product-item text-center">
-              <router-link :to="{name: 'products-detail', query: {id: product.id}}">
-                <img :src="product.images[0].image" :alt="product.name">
-                <h6>{{product.name}}</h6>
-                <p>{{product.regular_price}}</p>
+              <img :src="product.images[0].image" :alt="product.name">
+              <h6>{{product.name}}</h6>
+              <p>{{product.regular_price}}</p>
+              <router-link :to="`products-detail/${product.id}`" tag="button"
+                           class="global-button green pl-4 pr-4">
+                Buy Now
               </router-link>
             </div>
           </div>
 
-          <div v-else-if="products && products === 'empty'" class="card text-center mt-3 mb-3">
+          <div v-else-if="products && products === 'empty'" class="card text-center pt-5 pb-5">
             <h3>No hay datos registrados</h3>
           </div>
-          <div v-else-if="products && products === 'error'" class="card text-center mt-3 mb-3">
+          <div v-else-if="products && products === 'error'" class="card text-center pt-5 pb-5">
             <h3>Error recuperando datos</h3>
           </div>
 
-          <div class="pagination" v-if="pagination !== 'loading' && pagination !== 'error'">
+          <div class="pagination" v-if="pagination !== 'loading' && pagination !== 'error' && pagination.lastPage > 1">
             <h6 v-for="item in pagination.lastPage" :key="item" :class="{selected: (item === pagination.page)}"
                 @click.prevent="getPageProduct(item)">
               {{ item }}
@@ -79,10 +81,11 @@
       },
     },
     created() {
-      this.$store.dispatch('getProducts')
       this.$store.dispatch('getCategories')
-      if (this.$route.params.name !== undefined) {
-        this.$store.dispatch('getProducts', `?productName=${this.$route.params.name}`)
+      if (this.$route.query.name) {
+        this.$store.dispatch('getProducts', `?productName=${this.$route.query.name}`)
+      } else {
+        this.$store.dispatch('getProducts')
       }
     },
     methods: {
@@ -96,7 +99,6 @@
           }
         })
         if (query !== '') query = `?categoryName=${query.substring(0, query.length - 1)}`
-        console.log(query)
         this.$store.dispatch('getProducts', query)
       },
       getPageProduct(page) {
