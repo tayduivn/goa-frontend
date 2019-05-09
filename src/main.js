@@ -5,6 +5,7 @@ import store from './store/store'
 import Meta from 'vue-meta'
 window.$ = window.jQuery = require('jquery')
 import VueSweetalert2 from 'vue-sweetalert2';
+import VueTranslate from 'vue-translate-plugin';
 import VueModalTor from 'vue-modaltor'
 
 import 'bootstrap'
@@ -14,6 +15,13 @@ import 'slick-carousel/slick/slick-theme.css'
 
 import './assets/styles/index.scss'
 
+Vue.use(VueTranslate);
+
+Vue.locales({
+  spanish: {
+    'hello world': 'hola mundo'
+  }
+});
 Vue.config.productionTip = false
 Vue.use(Meta)
 Vue.use(VueSweetalert2);

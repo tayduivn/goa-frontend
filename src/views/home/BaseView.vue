@@ -1,6 +1,6 @@
 <template>
   <div class="base">
-    <div id="mySidenav" class="sidenav">
+    <div id="mySidenav" class="index-sidenav">
       <a href="javascript:void(0)" class="closebtn" @click.prevent="closeNav()">&times;</a>
       <router-link to="">Profile</router-link>
       <router-link to="">History</router-link>

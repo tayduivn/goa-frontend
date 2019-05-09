@@ -1,4 +1,4 @@
-.sidenav {
+.index-sidenav {
   height: 100%;
   width: 0;
   position: fixed;
@@ -11,7 +11,7 @@
   padding-top: 60px;
 }
 
-.sidenav a {
+.index-sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
@@ -20,11 +20,11 @@
   transition: 0.3s;
 }
 
-.sidenav a:hover {
+.index-sidenav a:hover {
   color: #f1f1f1;
 }
 
-.sidenav .closebtn {
+.index-sidenav .closebtn {
   position: absolute;
   top: 0;
   right: 25px;
@@ -33,10 +33,10 @@
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {
+  .index-sidenav {
     padding-top: 15px;
   }
-  .sidenav a {
+  .index-sidenav a {
     font-size: 18px;
   }
 }

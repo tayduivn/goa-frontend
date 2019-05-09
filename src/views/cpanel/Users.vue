@@ -2,22 +2,22 @@
   <div>
 
     <div v-if="users && users === 'loading'">
-      <h3>Cargando datos...</h3>
+      <h3>{{wordEng.loading}}</h3>
     </div>
     <div v-else-if="users && users !== 'empty'">
       <div class="d-flex justify-content-between mb-3">
-        <h3 class="mb-2">Lista de Usuarios del cPanel</h3>
+        <h3 class="mb-2">{{wordEng.listUsers}}</h3>
         <div class="text-right">
-          <button class="btn-sm btn-primary" @click.prevent="openModal(null)">Crear nuevo</button>
+          <button class="btn-sm btn-primary" @click.prevent="openModal(null)">{{wordEng.create}}</button>
         </div>
       </div>
       <table class="table table-striped">
         <thead>
         <tr>
           <th scope="col" width="10px">Nº</th>
-          <th scope="col">Nombre</th>
+          <th scope="col">Name</th>
           <th scope="col">Email</th>
-          <th scope="col">Fecha</th>
+          <th scope="col">Date</th>
           <th scope="col" width="10"></th>
         </tr>
         </thead>
@@ -29,7 +29,7 @@
           <td>{{formaDate(user.inserted_at)}}</td>
           <td>
             <button v-if="checkMyUser(user)" class="btn btn-sm btn-danger" @click.prevent="deleteData(user.user_id)">
-              Eliminar
+              {{wordEng.delete}}
             </button>
           </td>
         </tr>
@@ -38,21 +38,21 @@
     </div>
     <div v-else-if="users && users === 'empty'">
       <div class="d-flex justify-content-between mb-3">
-        <h3>No hay datos registrados</h3>
+        <h3>{{wordEng.noData}}</h3>
         <div class="text-right">
-          <button class="btn-sm btn-primary" @click.prevent="openModal(null)">Crear nuevo</button>
+          <button class="btn-sm btn-primary" @click.prevent="openModal(null)">{{wordEng.create}}</button>
         </div>
       </div>
     </div>
     <div v-else-if="users && users === 'error'">
-      <h3>Error recuperando datos</h3>
+      <h3>{{wordEng.error}}</h3>
     </div>
 
     <vue-modaltor :visible="open" @hide="hideModal">
       <template slot="close-icon">
         <CloseImageSVG/>
       </template>
-      <h3>Información para el usuario</h3>
+      <h3>{{wordEng.infoUser}}</h3>
       <form @submit.prevent="saveData">
         <div class="form-group">
           <label for="email" class="mt-3 mb-3">Email</label>
@@ -60,21 +60,21 @@
                  required>
         </div>
         <div class="form-group">
-          <label for="password1">Contraseña</label>
+          <label for="password1">Password</label>
           <input v-model="user.password" type="password" class="form-control" id="password1"
                  required pattern=".{6,}"
                  onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Mínimo de 6 caracteres' : '');
                    if(this.checkValidity()) form.password_two.pattern = this.value;">
-          <small class="form-text text-muted">Nunca compartas tu contraseña con nadie.</small>
+          <small class="form-text text-muted">{{wordEng.sharePass}}</small>
         </div>
         <div class="form-group">
-          <label for="password_two">Ingrese de nuevo la Contraseña</label>
+          <label for="password_two">{{wordEng.enterPass}}</label>
           <input type="password" class="form-control" id="password_two"
                  required pattern="^\S{6,}$"
-                 onchange="this.setCustomValidity(this.validity.patternMismatch ? 'La contraseña no es igual' : '');">
+                 onchange="this.setCustomValidity(this.validity.patternMismatch ? 'The password not match' : '');">
         </div>
         <div class="text-right">
-          <button type="submit" class="btn-sm btn-primary">Guardar</button>
+          <button type="submit" class="btn-sm btn-primary">{{wordEng.save}}</button>
         </div>
       </form>
     </vue-modaltor>
@@ -84,7 +84,7 @@
 
 <script>
   import CloseImageSVG from "../../components/CloseImageSVG"
-  import {handleError} from "../../utils/util"
+  import {handleError, wordEng} from "../../utils/util"
   import {confirmMessage, successMessage} from "../../utils/handle-message"
   import {modelUser} from "../../services/model/model-user"
   import {apiUsers, getAxios} from "../../utils/endpoints"
@@ -92,16 +92,17 @@
   export default {
     name: "users",
     metaInfo: {
-      title: 'TSL cPanel',
+      title: 'GOA cPanel',
       titleTemplate: (title) => {
-        return `${title} | Usuarios`
+        return `${title} | Users`
       }
     },
     components: {CloseImageSVG},
     data() {
       return {
         user: modelUser,
-        open: false
+        open: false,
+        wordEng: wordEng,
       }
     },
     computed: {

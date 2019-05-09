@@ -2,22 +2,22 @@
   <div>
 
     <div v-if="services && services === 'loading'">
-      <h3>Cargando datos...</h3>
+      <h3>{{wordEng.loading}}</h3>
     </div>
     <div v-else-if="services && services !== 'empty'">
       <div class="d-flex justify-content-between mb-3">
-        <h3 class="mb-2">Lista de Servicios</h3>
+        <h3 class="mb-2">List of services</h3>
         <div class="text-right">
-          <button class="btn-sm btn-primary" @click.prevent="openModal(null)">Crear nuevo</button>
+          <button class="btn-sm btn-primary" @click.prevent="openModal(null)">{{wordEng.create}}</button>
         </div>
       </div>
       <table class="table table-striped">
         <thead>
         <tr>
           <th scope="col" width="10px">Nº</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Categoría</th>
-          <th scope="col">Fecha</th>
+          <th scope="col">Name</th>
+          <th scope="col">Categories</th>
+          <th scope="col">Date</th>
           <th scope="col" width="10"></th>
           <th scope="col" width="10"></th>
         </tr>
@@ -30,12 +30,12 @@
           <td>{{formaDate(service.date_created)}}</td>
           <td>
             <button class="btn btn-sm btn-success" @click.prevent="openModal(service, false)">
-              Editar
+              {{wordEng.edit}}
             </button>
           </td>
           <td>
             <button class="btn btn-sm btn-danger" @click.prevent="deleteData(service.idservice)">
-              Eliminar
+              {{wordEng.delete}}
             </button>
           </td>
         </tr>
@@ -44,14 +44,14 @@
     </div>
     <div v-else-if="services && services === 'empty'">
       <div class="d-flex justify-content-between mb-3">
-        <h3>No hay datos registrados</h3>
+        <h3>{{wordEng.noData}}</h3>
         <div class="text-right">
-          <button class="btn-sm btn-primary" @click.prevent="openModal(null)">Crear nuevo</button>
+          <button class="btn-sm btn-primary" @click.prevent="openModal(null)">{{wordEng.create}}</button>
         </div>
       </div>
     </div>
     <div v-else-if="services && services === 'error'">
-      <h3>Error recuperando datos</h3>
+      <h3>{{wordEng.error}}</h3>
     </div>
 
     <vue-modaltor :visible="open" @hide="hideModal">
@@ -59,20 +59,20 @@
         <CloseImageSVG/>
       </template>
       <form v-if="categories && categories !== 'empty'" @submit.prevent="sendData">
-        <h3>Información para el servicio</h3>
+        <h3>Information of the service</h3>
         <div class="form-group">
-          <label for="name" class="mt-3 mb-3">Nombre</label>
+          <label for="name" class="mt-3 mb-3">Name</label>
           <input class="form-control" id="name" type="text" v-model="service.name" required>
         </div>
         <div class="form-group">
-          <label>Imagen</label>
+          <label>Image</label>
           <input id="image-service" type="file" class="form-control" accept="image/*" @change="subirImagen" required>
-          <p class="m-0 p-0 text-left"><small>Subir una imagen.</small></p>
+          <p class="m-0 p-0 text-left"><small>{{wordEng.upload}}</small></p>
         </div>
         <div class="form-group">
-          <label for="category">Categorías</label>
+          <label for="category">Categories</label>
           <select class="form-control" name="category" id="category" required v-model="service.category_idcategory">
-            <option value="">Seleccionar</option>
+            <option value="">Select</option>
             <option v-for="item in categories" :key="item.idcategory" :value="item.idcategory">
               {{ item.name }}
             </option>
@@ -84,16 +84,16 @@
             <img :src="service.image" :alt="service.name">
           </div>
           <div class="text-right">
-            <button type="submit" class="btn-sm btn-primary">Guardar</button>
+            <button type="submit" class="btn-sm btn-primary">{{wordEng.save}}</button>
           </div>
         </div>
         <div v-else class="text-right">
-          <button type="submit" class="btn-sm btn-primary">Guardar</button>
+          <button type="submit" class="btn-sm btn-primary">{{wordEng.save}}</button>
         </div>
       </form>
       <div v-else class="info-service p-5">
-        <h3>Necesita de al menos una categoría</h3>
-        <router-link to="categories" class="mt-3">Haz click aquí</router-link>
+        <h3>{{wordEng.needAtLeast}}</h3>
+        <router-link to="categories" class="mt-3">{{wordEng.clickHere}}</router-link>
       </div>
     </vue-modaltor>
 
@@ -104,7 +104,7 @@
   import CloseImageSVG from "../../components/CloseImageSVG"
   import axios from 'axios'
   import config from "./../../config/config";
-  import {handleError} from "../../utils/util"
+  import {handleError, wordEng} from "../../utils/util"
   import {confirmMessage, successMessage} from "../../utils/handle-message"
   import {modelReviews} from "../../services/model/model-reviews"
 
@@ -121,7 +121,8 @@
       return {
         service: modelReviews,
         formData: null,
-        open: false
+        open: false,
+        wordEng: wordEng,
       }
     },
     computed: {
@@ -180,7 +181,7 @@
           data: this.formData
         })
           .then(() => {
-            this.successRequest("Creado", "Creado")
+            this.successRequest(this.wordEng.created)
           })
           .catch(err => {
             handleError(this.$swal, err)
@@ -197,7 +198,7 @@
           data: this.formData
         })
           .then(() => {
-            this.successRequest("Creado", "Editado")
+            this.successRequest(this.wordEng.edited)
           })
           .catch(err => {
             handleError(this.$swal, err)
@@ -216,7 +217,7 @@
                 data: {idservice}
               })
                 .then(() => {
-                  this.successRequest("Creado", "Eliminado")
+                  this.successRequest(this.wordEng.deleted)
                 })
                 .catch(err => {
                   handleError(this.$swal, err)

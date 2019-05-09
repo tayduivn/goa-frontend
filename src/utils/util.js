@@ -1,6 +1,5 @@
 import {infoMessage} from "./handle-message"
 import store from "../store/store"
-import config from "../config/config"
 import router from "../router"
 
 const listState = [
@@ -10,15 +9,34 @@ const listState = [
   'Cancelado',
 ]
 
-function updateOrderOptions(data) {
-  return {
-    method: 'PUT',
-    url: `${config.api_url}/api/admin/order/updatestatus`,
-    headers: {
-      Authorization: localStorage.token
-    },
-    data: data
-  }
+const wordEng = {
+  loading: 'Loading...',
+  create: 'Create',
+  show: 'Show',
+  save: 'Save',
+  edit: 'Edit',
+  delete: 'Delete',
+  created: 'Created',
+  edited: 'Edited',
+  deleted: 'Deleted',
+  noData: 'Not data available',
+  error: 'Error recovering data',
+  upload: 'Upload Image.',
+  listUsers: 'List of Users',
+  infoUser: 'Information of the user',
+  sharePass: 'Never share your password with anyone.',
+  enterPass: 'Enter the Password again',
+  needAtLeast: 'You need at least one category',
+  clickHere: 'Click here',
+  youWant: 'You want to update the data?',
+  youWantDelete: 'You want to delete your account?',
+  /* Base */
+  profile: 'Profile',
+  logOut: 'Logout',
+  products: 'Products',
+  categories: 'Categories',
+  orders: 'Orders',
+  users: 'Users',
 }
 
 function handleError(swal, err, message = '') {
@@ -55,4 +73,4 @@ function handleError(swal, err, message = '') {
   }
 }
 
-export {handleError, listState, updateOrderOptions};
+export {handleError, listState, wordEng};

@@ -2,13 +2,13 @@
   <div>
 
     <div v-if="users && users === 'loading'">
-      <h3>Cargando datos...</h3>
+      <h3>{{wordEng.loading}}</h3>
     </div>
     <div v-else-if="users && users !== 'empty'">
-      <h3>Información de perfil</h3>
+      <h3>Information of the profile</h3>
       <form @submit.prevent="editData">
         <div class="form-group">
-          <label for="name" class="mt-3 mb-3">Nombre</label>
+          <label for="name" class="mt-3 mb-3">Name</label>
           <input class="form-control" id="name" type="email" v-model="users.name" disabled required>
         </div>
         <div class="form-group">
@@ -16,15 +16,15 @@
           <input class="form-control" id="email" type="email" v-model="users.email" v-if="users.iduser !== ''" required>
         </div>
         <div class="form-group">
-          <label for="street" class="mt-3 mb-3">Dirección</label>
-          <input class="form-control" id="street" type="text" v-model="users.street" required>
+          <label for="street" class="mt-3 mb-3">Address</label>
+          <input class="form-control" id="street" type="text" v-model="users.address" required>
         </div>
         <div class="form-group">
-          <label for="phone" class="mt-3 mb-3">Teléfono</label>
+          <label for="phone" class="mt-3 mb-3">Phone</label>
           <input class="form-control" id="phone" type="text" v-model="users.phone" required>
         </div>
         <div class="text-right">
-          <button type="submit" class="btn-sm btn-primary">Guardar</button>
+          <button type="submit" class="btn-sm btn-primary">{{wordEng.save}}</button>
         </div>
       </form>
       <hr>
@@ -35,27 +35,27 @@
           <input class="form-control" id="password" type="password" v-model="oldPassword" required>
         </div>
         <div class="form-group">
-          <label for="new-password" class="mt-3 mb-3">Nuevo Password</label>
+          <label for="new-password" class="mt-3 mb-3">New Password</label>
           <input class="form-control" id="new-password" type="password" v-model="newPassword" required>
         </div>
         <div class="text-right">
-          <button type="submit" class="btn-sm btn-primary">Guardar</button>
+          <button type="submit" class="btn-sm btn-primary">{{wordEng.save}}</button>
         </div>
       </form>
       <hr class="mt-4 mb-4">
       <div class="text-right">
         <button type="submit" class="btn-sm btn-danger" @click.prevent="deleteData">
-          Eliminar cuenta
+          Delete account
         </button>
       </div>
     </div>
     <div v-else-if="users && users === 'empty'">
       <div class="d-flex justify-content-between mb-3">
-        <h3>No hay datos registrados</h3>
+        <h3>{{wordEng.noData}}</h3>
       </div>
     </div>
     <div v-else-if="users && users === 'error'">
-      <h3>Error recuperando datos</h3>
+      <h3>{{wordEng.error}}</h3>
     </div>
 
   </div>
@@ -64,22 +64,23 @@
 <script>
   import axios from 'axios'
   import config from "./../../config/config";
-  import {handleError} from "../../utils/util"
+  import {handleError, wordEng} from "../../utils/util"
   import {confirmMessage, infoMessage, successMessage} from "../../utils/handle-message"
 
   export default {
     name: "profileAdmin",
     metaInfo: {
-      title: 'TSL cPanel',
+      title: 'GOA cPanel',
       titleTemplate: (title) => {
-        return `${title} | Mi perfil`
+        return `${title} | My profile`
       }
     },
     data() {
       return {
         passwordModel: "",
         oldPassword: "",
-        newPassword: ""
+        newPassword: "",
+        wordEng: wordEng,
       }
     },
     computed: {
@@ -97,7 +98,7 @@
         console.clear()
       },
       editData() {
-        confirmMessage(this.$swal, 'Desea actualizar los datos', '')
+        confirmMessage(this.$swal, this.wordEng.youWant, '')
           .then(res => {
             if (res) {
               axios({
@@ -109,7 +110,7 @@
                 data: this.users
               })
                 .then(() => {
-                  this.successRequest("Creado", "Perfil Actualizado")
+                  this.successRequest("Perfil Actualizado")
                 })
                 .catch(err => {
                   handleError(this.$swal, err)
@@ -121,7 +122,7 @@
         this.users.password = this.oldPassword
         this.users.newPassword = this.newPassword
         console.log(JSON.stringify(this.users))
-        confirmMessage(this.$swal, 'Desea actualizar los datos', '')
+        confirmMessage(this.$swal, this.wordEng.youWant, '')
           .then(res => {
             if (res) {
               axios({
@@ -133,7 +134,7 @@
                 data: this.users
               })
                 .then(() => {
-                  this.successRequest("Creado", "Perfil Actualizado")
+                  this.successRequest("Perfil Actualizado")
                   this.oldPassword = ''
                   this.newPassword = ''
                 })
@@ -144,7 +145,7 @@
           })
       },
       deleteData() {
-        confirmMessage(this.$swal, 'Desea eliminar su cuenta')
+        confirmMessage(this.$swal, this.wordEng.youWantDelete)
           .then(res => {
             if (res) {
               const iduser = JSON.parse(localStorage.getItem('user')).iduser

@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header id="header-home">
     <div class="header-content">
       <router-link to="/" id="logo"></router-link>
       <nav>

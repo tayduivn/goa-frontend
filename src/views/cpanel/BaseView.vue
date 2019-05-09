@@ -10,8 +10,8 @@
         <div class="dropdown">
           <button @click.prevent="dropdownShow" class="dropbtn"></button>
           <div id="myDropdown" class="dropdown-content">
-            <router-link to="/cpanel/profile">Perfil</router-link>
-            <a @click.prevent="logout">Salir</a>
+            <router-link to="/cpanel/profile">{{wordEng.profile}}</router-link>
+            <a @click.prevent="logout">{{wordEng.logout}}</a>
           </div>
         </div>
       </div>
@@ -26,28 +26,25 @@
           <img src="../../assets/logo.png" alt="logo"> <span class="ml-3"><strong>Garden of America</strong></span>
         </li>
         <li class="sidenav__list-item">
-          <router-link to="/cpanel/client">Clientes</router-link>
+          <router-link to="/cpanel/client">{{wordEng.clients}}</router-link>
         </li>
         <li class="sidenav__list-item">
-          <router-link to="/cpanel/products">Productos</router-link>
+          <router-link to="/cpanel/products">{{wordEng.products}}</router-link>
         </li>
         <li class="sidenav__list-item">
-          <router-link to="/cpanel/categories">Categorías</router-link>
+          <router-link to="/cpanel/categories">{{wordEng.categories}}</router-link>
         </li>
         <li class="sidenav__list-item">
-          <router-link to="/cpanel/reviews">Reviews</router-link>
+          <router-link to="/cpanel/reviews">{{wordEng.reviews}}</router-link>
         </li>
         <li class="sidenav__list-item">
           <router-link to="/cpanel/orders">
-            Ordenes
+            {{wordEng.orders}}
             <span style="display: none" :class="{isActive: (ordersBase > 0)}">{{ordersBase}}</span>
           </router-link>
         </li>
         <li class="sidenav__list-item">
-          <router-link to="/cpanel/carts">Carritos</router-link>
-        </li>
-        <li class="sidenav__list-item">
-          <router-link to="/cpanel/users">Usuarios</router-link>
+          <router-link to="/cpanel/users">{{wordEng.users}}</router-link>
         </li>
       </ul>
     </aside>
@@ -59,13 +56,14 @@
     </main>
 
     <footer class="footer">
-      <div class="footer__copyright">&copy; 2019 TSL</div>
+      <div class="footer__copyright">&copy; 2019 Gardens of America</div>
       <div class="footer__signature"></div>
     </footer>
   </div>
 </template>
 <script>
   import jQuery from "jquery";
+  import {wordEng} from "../../utils/util"
 
   export default {
     name: "cPanelBaseView",
@@ -73,6 +71,11 @@
       title: 'TSL cPanel',
       titleTemplate: (title) => {
         return `${title} | Inicio`
+      }
+    },
+    data() {
+      return {
+        wordEng: wordEng
       }
     },
     mounted() {
