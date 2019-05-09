@@ -183,17 +183,24 @@
   import CloseImageSVG from "../../../components/CloseImageSVG"
   import {modelReviews} from "../../../services/model/model-reviews"
   import {apiCartsProducts, apiReviews, getAxios} from "../../../utils/endpoints"
-  import {handleError} from "../../../utils/util"
+  import {handleError, wordEng} from "../../../utils/util"
   import {infoMessage, successMessage} from "../../../utils/handle-message"
   import {modelCartProducts} from "../../../services/model/model-cart-products"
 
   export default {
     name: 'ProductsDetail',
     components: {SearchComponent, Slick, CloseImageSVG},
+    metaInfo: {
+      title: this.wordEng.company,
+      titleTemplate: (title) => {
+        return `${title} | Detail of the product`
+      }
+    },
     data() {
       return {
         open: false,
         review: modelReviews,
+        wordEng: wordEng,
         cartProducts: modelCartProducts,
         quantityValue: 1,
         slickOptions: {

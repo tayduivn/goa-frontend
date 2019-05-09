@@ -61,12 +61,21 @@
 </template>
 
 <script>
+  import {wordEng} from "../../../utils/util"
+
   export default {
     name: 'Products',
+    metaInfo: {
+      title: this.wordEng.company,
+      titleTemplate: (title) => {
+        return `${title} | Products`
+      }
+    },
     data() {
       return {
         checkList: [],
-        checkCount: 0
+        checkCount: 0,
+        wordEng: wordEng,
       }
     },
     computed: {

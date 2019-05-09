@@ -132,7 +132,7 @@
 
 <script>
   import CloseImageSVG from "../../components/CloseImageSVG"
-  import {handleError, listState} from "../../utils/util"
+  import {handleError, listState, wordEng} from "../../utils/util"
   import {successMessage} from "../../utils/handle-message"
   import {apiOrders, getAxios} from "../../utils/endpoints"
 
@@ -140,13 +140,14 @@
     name: "order-client",
     components: {CloseImageSVG},
     metaInfo: {
-      title: 'TSL',
+      title: this.wordEng.company,
       titleTemplate: (title) => {
-        return `${title} | Mis solicitudes`
+        return `${title} | My orders`
       }
     },
     data() {
       return {
+        wordEng: wordEng,
         listState: listState,
         stateOrder: listState[0],
         open: false,

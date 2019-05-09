@@ -59,12 +59,19 @@
 <script>
   // @ is an alias to /src
 
+  import {wordEng} from "../../utils/util"
+
   export default {
     name: 'politics',
     metaInfo: {
-      title: 'TSL',
+      title: this.wordEng.company,
       titleTemplate: (title) => {
-        return `${title} | Políticas y seguridad`
+        return `${title} | Policies and security`
+      }
+    },
+    data() {
+      return {
+        wordEng: wordEng
       }
     },
   }

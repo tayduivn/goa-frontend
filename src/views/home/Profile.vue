@@ -4,106 +4,57 @@
       <div v-if="users && users === 'loading'">
         <h3>{{wordEng.loading}}</h3>
       </div>
-      <div class="row mb-4" v-if="levelUser === 'Transportista'">
-        <div v-if="transportService && transportService === 'loading'">
-          <h3>{{wordEng.loading}}</h3>
-        </div>
-        <form v-else-if="transportService && transportService !== 'empty'" class="col-md-12">
-          <h3>Información como transportista</h3>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="name_service" class="mt-3 mb-3">Nombre de su servicio</label>
-                <input class="form-control" id="name_service" type="text" v-model="transportService.name_service"
-                       required>
-              </div>
-              <div class="form-group">
-                <label for="size" class="mt-3 mb-3">Descripción del tamaño de envío (Cm x Cm)</label>
-                <input class="form-control" id="size" type="text" v-model="transportService.size" required>
-              </div>
-              <div class="form-group">
-                <label for="distance" class="mt-3 mb-3">Distancia (Km) o área (Localidad a Localidad)</label>
-                <input class="form-control" id="distance" type="text" v-model="transportService.distance" required>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="weight" class="mt-3 mb-3">Peso máximo (Kg)</label>
-                <input class="form-control" id="weight" type="number" v-model="transportService.weight"
-                       required>
-              </div>
-              <div class="form-group">
-                <label for="prom_price" class="mt-3 mb-3">Descripción del precio promedio</label>
-                <input class="form-control" id="prom_price" type="text" v-model="transportService.prom_price" required>
-              </div>
-            </div>
-          </div>
-          <div class="text-right">
-            <button type="submit" class="btn-sm btn-primary" @click.prevent="editTransportService">
-              Guardar
-            </button>
-          </div>
-        </form>
-        <div v-else-if="transportService && transportService === 'empty'">
-          <div class="d-flex justify-content-between mb-3">
-            <h3>{{wordEng.noData}}</h3>
-          </div>
-        </div>
-        <div v-else-if="transportService && transportService === 'error'">
-          <h3>{{wordEng.error}}</h3>
-        </div>
-      </div>
       <div v-if="users !== 'empty'" class="row">
         <form @submit.prevent="editData" class="col-md-6 col-sm-12">
-          <h3>Información de perfil</h3>
+          <h3>Information of the profile</h3>
           <div class="form-group">
-            <label for="name" class="mt-3 mb-3">Nombre de Usuario</label>
+            <label for="name" class="mt-3 mb-3">Name of user</label>
             <input class="form-control" id="name" type="text" v-model="users.name" disabled required>
           </div>
           <div class="form-group">
-            <label for="person_name" class="mt-3 mb-3">Nombre</label>
+            <label for="person_name" class="mt-3 mb-3">Name</label>
             <input class="form-control" id="person_name" type="text" v-model="users.person_name" required>
           </div>
           <div class="form-group">
-            <label for="person_last_name" class="mt-3 mb-3">Apellido</label>
+            <label for="person_last_name" class="mt-3 mb-3">LastName</label>
             <input class="form-control" id="person_last_name" type="text" v-model="users.person_last_name" required>
           </div>
           <div class="form-group">
-            <label for="email" class="mt-3 mb-3">Correo</label>
+            <label for="email" class="mt-3 mb-3">Email</label>
             <input class="form-control" id="email" type="email" v-model="users.email" v-if="users.iduser !== ''"
                    required>
           </div>
           <div class="form-group">
-            <label for="street" class="mt-3 mb-3">Dirección</label>
+            <label for="street" class="mt-3 mb-3">Address</label>
             <input class="form-control" id="street" type="text" v-model="users.street" required>
           </div>
           <div class="form-group">
-            <label for="phone" class="mt-3 mb-3">Teléfono</label>
+            <label for="phone" class="mt-3 mb-3">Phone</label>
             <input class="form-control" id="phone" type="text" v-model="users.phone" required>
           </div>
           <div class="text-right">
-            <button type="submit" class="btn-sm btn-primary">Guardar</button>
+            <button type="submit" class="btn-sm btn-primary">{{wordEng.save}}</button>
           </div>
         </form>
         <form @submit.prevent="editPass" class="col-md-6 col-sm-12">
-          <h3>Actualizar Password</h3>
+          <h3>Update Password</h3>
           <div class="form-group">
             <label for="password" class="mt-3 mb-3">Actual Password</label>
             <input class="form-control" id="password" type="password" v-model="oldPassword" required>
           </div>
           <div class="form-group">
-            <label for="new-password" class="mt-3 mb-3">Nuevo Password</label>
+            <label for="new-password" class="mt-3 mb-3">New Password</label>
             <input class="form-control" id="new-password" type="password" v-model="newPassword" required>
           </div>
           <div class="text-right">
-            <button type="submit" class="btn-sm btn-primary">Guardar</button>
+            <button type="submit" class="btn-sm btn-primary">{{wordEng.save}}</button>
           </div>
         </form>
         <hr class="col-md-12 mt-4 mb-4 p-0">
         <form @submit.prevent="editPass" class="col-md-12">
           <div class="text-right">
             <button type="submit" class="btn-sm btn-danger" @click.prevent="deleteData">
-              Eliminar cuenta
+              {{wordEng.profileDelete}}
             </button>
           </div>
         </form>
@@ -123,15 +74,15 @@
 <script>
   import axios from 'axios'
   import config from "../../config/config";
-  import {handleError} from "../../utils/util"
+  import {handleError, wordEng} from "../../utils/util"
   import {confirmMessage, infoMessage, successMessage} from "../../utils/handle-message"
 
   export default {
     name: "profileUser",
     metaInfo: {
-      title: 'TSL',
+      title: this.wordEng.company,
       titleTemplate: (title) => {
-        return `${title} | Mi perfil`
+        return `${title} | My profile`
       }
     },
     data() {
@@ -139,6 +90,7 @@
         passwordModel: "",
         oldPassword: "",
         newPassword: "",
+        wordEng: wordEng,
       }
     },
     computed: {
@@ -148,43 +100,14 @@
       levelUser() {
         return this.$store.getters.getLevelUser
       },
-      transportService() {
-        if (this.levelUser !== 'Transportista') return
-        return this.$store.getters.getTransportService
-      }
     },
     created() {
       this.$store.dispatch('getProfile', JSON.parse(localStorage.getItem('user')).iduser)
-      if (this.levelUser === 'Transportista') {
-        this.$store.dispatch('getTransportService', JSON.parse(localStorage.getItem('user')).idtransport)
-      }
     },
     methods: {
       successRequest(title) {
         successMessage(this.$swal, title)
         this.$store.dispatch('getProfile')
-        console.clear()
-      },
-      editTransportService() {
-        confirmMessage(this.$swal, 'Desea actualizar los datos', '')
-          .then(res => {
-            if (res) {
-              axios({
-                method: 'PUT',
-                url: `${config.api_url}/api/transportservice/update`,
-                headers: {
-                  Authorization: localStorage.token
-                },
-                data: this.transportService
-              })
-                .then(() => {
-                  this.successRequest("Creado", "Datos actualizados")
-                })
-                .catch(err => {
-                  handleError(this.$swal, err)
-                })
-            }
-          })
       },
       editData() {
         confirmMessage(this.$swal, 'Desea actualizar los datos', '')
@@ -199,7 +122,7 @@
                 data: this.users
               })
                 .then(() => {
-                  this.successRequest("Creado", "Perfil Actualizado")
+                  this.successRequest(this.wordEng.profileUpdated)
                 })
                 .catch(err => {
                   handleError(this.$swal, err)
@@ -223,7 +146,7 @@
                 data: this.users
               })
                 .then(() => {
-                  this.successRequest("Creado", "Password Actualizado")
+                  this.successRequest(this.wordEng.profileUpdated)
                   this.oldPassword = ''
                   this.newPassword = ''
                 })
@@ -234,7 +157,7 @@
           })
       },
       deleteData() {
-        confirmMessage(this.$swal, 'Desea eliminar su cuenta')
+        confirmMessage(this.$swal, this.wordEng.profileDelete)
           .then(res => {
             if (res) {
               const iduser = JSON.parse(localStorage.getItem('user')).iduser

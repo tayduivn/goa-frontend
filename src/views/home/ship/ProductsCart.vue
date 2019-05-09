@@ -150,7 +150,7 @@
   import SearchComponent from "../../../components/SearchComponent"
   import Slick from 'vue-slick';
   import {apiCartsProducts, apiTransactions, getAxios} from "../../../utils/endpoints"
-  import {handleError} from "../../../utils/util"
+  import {handleError, wordEng} from "../../../utils/util"
   import {infoMessage, successMessage} from "../../../utils/handle-message"
   import {modelCart} from "../../../services/model/model-cart"
   import CloseImageSVG from "../../../components/CloseImageSVG"
@@ -159,11 +159,18 @@
   export default {
     name: "ProductCart",
     components: {SearchComponent, Slick, CloseImageSVG},
+    metaInfo: {
+      title: this.wordEng.company,
+      titleTemplate: (title) => {
+        return `${title} | Cart`
+      }
+    },
     data() {
       return {
         open: false,
         quantityValue: [],
         cart: modelCart,
+        wordEng: wordEng,
         transaction: modelTransaction.reset(),
         totalPrice: 0,
         payments: [

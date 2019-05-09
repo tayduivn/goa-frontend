@@ -5,12 +5,19 @@
 </template>
 
 <script>
+  import {wordEng} from "../../utils/util"
+
   export default {
     name: "cPanelHome",
     metaInfo: {
-      title: 'GOA cPanel',
+      title: `${this.wordEng.company} cPanel`,
       titleTemplate: (title) => {
         return `${title} | Home`
+      }
+    },
+    data() {
+      return {
+        wordEng: wordEng
       }
     },
   }

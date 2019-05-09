@@ -128,19 +128,21 @@
 
 <script>
   import Slick from 'vue-slick';
+  import {wordEng} from "../../utils/util"
 
   export default {
     name: "home",
     metaInfo: {
-      title: 'Gardens of America',
+      title: this.wordEng.company,
       titleTemplate: (title) => {
-        return `${title} | Inicio`
+        return `${title} | Home`
       }
     },
     components: {Slick},
     data() {
       return {
         open: false,
+        wordEng: wordEng,
         slickOptions: {
           ref: 'slick-one',
           autoplay: true,

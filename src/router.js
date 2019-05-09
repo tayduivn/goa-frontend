@@ -57,12 +57,6 @@ let router = new Router({
           meta: {requiresAuth: true},
         },
         {
-          path: 'message',
-          name: 'ProductsMessage',
-          component: () => import('./views/home/ship/ProductsMessage'),
-          meta: {requiresAuth: true},
-        },
-        {
           path: 'profile',
           name: 'profileUser',
           component: () => import('./views/home/Profile'),
@@ -73,11 +67,6 @@ let router = new Router({
           name: 'order-client',
           component: () => import('./views/home/OrderClient'),
           meta: {requiresAuth: true}
-        },
-        {
-          path: 'help',
-          name: 'help',
-          component: () => import('./views/home/Help'),
         },
         {
           path: 'politics',

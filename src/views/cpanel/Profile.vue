@@ -70,7 +70,7 @@
   export default {
     name: "profileAdmin",
     metaInfo: {
-      title: 'GOA cPanel',
+      title: `${this.wordEng.company} cPanel`,
       titleTemplate: (title) => {
         return `${title} | My profile`
       }

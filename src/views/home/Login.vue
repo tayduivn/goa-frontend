@@ -35,15 +35,15 @@
 <script>
   // @ is an alias to /src
 
-  import {handleError} from "../../utils/util"
+  import {handleError, wordEng} from "../../utils/util"
   import {infoMessage} from "../../utils/handle-message"
 
   export default {
     name: 'login',
     metaInfo: {
-      title: 'TSL',
+      title: this.wordEng.company,
       titleTemplate: (title) => {
-        return `${title} | Iniciar Sesión`
+        return `${title} | Log in`
       }
     },
     data: function () {
@@ -52,7 +52,8 @@
           email: '',
           password: ''
         },
-        isRemember: false
+        isRemember: false,
+        wordEng: wordEng,
       }
     },
     created() {

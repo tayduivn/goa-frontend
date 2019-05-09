@@ -111,9 +111,9 @@
   export default {
     name: "Transactions",
     metaInfo: {
-      title: 'TSL cPanel',
+      title: `${this.wordEng.company} cPanel`,
       titleTemplate: (title) => {
-        return `${title} | Servicios`
+        return `${title} | Transactions`
       }
     },
     components: {CloseImageSVG},

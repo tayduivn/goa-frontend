@@ -6,7 +6,7 @@
           <form>
             <div class="login-head d-flex justify-content-center align-items-center">
               <h2>cPanel</h2>
-              <img src="./../../assets/logo.png" alt="tsl logo">
+              <img src="./../../assets/logo.png" alt="goa logo">
             </div>
             <hr class="mb-3">
             <label class="mt-3">
@@ -39,7 +39,7 @@
   export default {
     name: 'cpanelLogin',
     metaInfo: {
-      title: 'GOA cPanel',
+      title: `${this.wordEng.company} cPanel`,
       titleTemplate: '%s | Log in'
     },
     data() {

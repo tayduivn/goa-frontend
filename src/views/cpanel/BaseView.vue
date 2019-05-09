@@ -68,9 +68,9 @@
   export default {
     name: "cPanelBaseView",
     metaInfo: {
-      title: 'TSL cPanel',
+      title: 'GOA cPanel',
       titleTemplate: (title) => {
-        return `${title} | Inicio`
+        return `${title} | Home`
       }
     },
     data() {

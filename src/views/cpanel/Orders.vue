@@ -145,7 +145,7 @@
   export default {
     name: "Orders",
     metaInfo: {
-      title: 'GOA cPanel',
+      title: `${this.wordEng.company} cPanel`,
       titleTemplate: (title) => {
         return `${title} | Orders`
       }

@@ -41,6 +41,8 @@ const wordEng = {
   recoverPass: 'Recover password',
   recover: 'Recover',
   sendMessage: 'Message sent to the mail entered',
+  notAccount: 'Do not have an account?',
+  company: 'Gardens of America',
   /* Base */
   profile: 'Profile',
   logOut: 'Logout',

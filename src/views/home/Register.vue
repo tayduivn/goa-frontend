@@ -52,7 +52,7 @@
 
 <script>
   import {successMessage} from "../../utils/handle-message"
-  import {handleError} from "../../utils/util"
+  import {handleError, wordEng} from "../../utils/util"
   import {modelUser} from "../../services/model/model-user"
   import {apiCarts, apiUsers, getAxios} from "../../utils/endpoints"
   import {modelCart} from "../../services/model/model-cart"
@@ -60,14 +60,15 @@
   export default {
     name: 'register',
     metaInfo: {
-      title: 'GOA',
+      title: this.wordEng.company,
       titleTemplate: (title) => {
         return `${title} | register`
       }
     },
     data: function () {
       return {
-        user: modelUser
+        user: modelUser,
+        wordEng: wordEng,
       }
     },
     methods: {
@@ -80,7 +81,7 @@
             cart.user_id = res.data.data.idUser
             getAxios(apiCarts.all, 'POST', cart)
               .then(() => {
-                successMessage(this.$swal, null, "Registrado")
+                successMessage(this.$swal, null, this.wordEng.created)
                 this.$router.push('login')
               })
               .catch(err => {

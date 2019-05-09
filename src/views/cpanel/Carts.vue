@@ -6,14 +6,14 @@
     </div>
     <div v-else-if="carts && carts !== 'empty'">
       <div class="d-flex justify-content-between mb-3">
-        <h3 class="mb-2">Lista de Carritos</h3>
+        <h3 class="mb-2">List of carts</h3>
       </div>
       <table class="table table-striped">
         <thead>
         <tr>
           <th scope="col" width="10px">Nº</th>
-          <th scope="col">Usuario</th>
-          <th scope="col">Fecha</th>
+          <th scope="col">User</th>
+          <th scope="col">Date</th>
           <th scope="col" width="10"></th>
           <th scope="col" width="10"></th>
         </tr>
@@ -25,7 +25,7 @@
           <td>{{formaDate(cart.inserted_at)}}</td>
           <td>
             <button class="btn btn-sm btn-primary" @click.prevent="openModal(cart)">
-              Mostrar
+              {{wordEng.show}}
             </button>
           </td>
         </tr>
@@ -45,7 +45,7 @@
       <template slot="close-icon">
         <CloseImageSVG/>
       </template>
-      <h3>Información del carrito</h3>
+      <h3>Information of cart</h3>
       <div v-if="cart && cart === 'loading'">
         <h3>{{wordEng.loading}}</h3>
       </div>
@@ -53,9 +53,9 @@
         <tbody>
         <tr>
           <th scope="col" width="10px">Nº</th>
-          <th scope="col">Producto</th>
-          <th scope="col">Precio</th>
-          <th scope="col">Cantidad a Comprar</th>
+          <th scope="col">Product</th>
+          <th scope="col">Price</th>
+          <th scope="col">Quantity to shop</th>
           <th scope="col">Total</th>
         </tr>
         <tr v-for="(item, index) of cart" :key="item.item_id">
@@ -87,9 +87,9 @@
     name: "Carts",
     components: {CloseImageSVG},
     metaInfo: {
-      title: 'TSL cPanel',
+      title: 'GOA cPanel',
       titleTemplate: (title) => {
-        return `${title} | Imágenes del Home`
+        return `${title} | Carts`
       }
     },
     data() {
