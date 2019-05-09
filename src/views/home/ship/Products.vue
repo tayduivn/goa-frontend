@@ -21,14 +21,10 @@
 
           <div v-else-if="products && products !== 'empty'">
             <div v-for="product in products" :key="product.id" class="product-item text-center">
-              <router-link :to="`products-detail/${product.id}`">
+              <router-link :to="{name: 'products-detail', query: {id: product.id}}">
                 <img :src="product.images[0].image" :alt="product.name">
                 <h6>{{product.name}}</h6>
                 <p>{{product.regular_price}}</p>
-                <router-link :to="`products-detail/${product.id}`" tag="button"
-                             class="global-button green pl-4 pr-4">
-                  Buy Now
-                </router-link>
               </router-link>
             </div>
           </div>
@@ -85,6 +81,9 @@
     created() {
       this.$store.dispatch('getProducts')
       this.$store.dispatch('getCategories')
+      if (this.$route.params.name !== undefined) {
+        this.$store.dispatch('getProducts', `?productName=${this.$route.params.name}`)
+      }
     },
     methods: {
       getProductsCheck() {
@@ -101,8 +100,10 @@
         this.$store.dispatch('getProducts', query)
       },
       getPageProduct(page) {
-        if (this.pagination.page !== page) {
+        if (this.pagination.page !== page && this.$route.params.name !== undefined) {
           this.$store.dispatch('getProducts', `?limit=12&page=${page}`)
+        } else {
+          this.$store.dispatch('getProducts', `?productName=${this.$route.params.name}&limit=12&page=${page}`)
         }
       },
     },

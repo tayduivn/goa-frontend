@@ -45,6 +45,12 @@ let router = new Router({
           meta: {requiresAuth: true}
         },
         {
+          path: 'products/:name',
+          name: 'ProductsName',
+          component: () => import('./views/home/ship/Products'),
+          meta: {requiresAuth: true}
+        },
+        {
           path: 'products-detail/:id',
           name: 'ProductsDetail',
           component: () => import('./views/home/ship/ProductsDetail'),

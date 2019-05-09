@@ -42,7 +42,10 @@
                     <button @click.prevent="quantityProduct(true)">+</button>
                   </div>
                 </div>
-                <button class="global-button green" @click.prevent="saveCart">Buy Now</button>
+                <button class="global-button green" @click.prevent="saveCart" :disabled="product.quantity <= 0">
+                  Buy Now
+                </button>
+                <div><small v-if="product.quantity <= 0" class="text-danger">Not products in the store</small></div>
                 <p>{{product.description_one}}</p>
                 <div class="info-preparation">
                   <div>
@@ -238,8 +241,6 @@
       this.$store.dispatch('getProductsCategories', `?id=${this.$route.params.id}&category=true&limit=15&order=RAND`)
     },
     methods: {
-      searchProduct() {
-      },
       saveData() {
         getAxios(apiReviews.all, 'POST', this.review)
           .then(() => {

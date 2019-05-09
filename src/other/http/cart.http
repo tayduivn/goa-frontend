@@ -49,9 +49,8 @@ Content-Type: application/json
 Authorization: Bearer {{auth_token}}
 
 {
-  "id": "3",
-  "object_idobject": "2",
-  "order_idorder": "5"
+  "id": "2",
+  "status": "checkout"
 }
 
 ###

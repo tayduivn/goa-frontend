@@ -20,9 +20,9 @@
         <span class="number-products">{{notificationCount}}</span>
         <img src="../assets/img/Header/icon_cart.png" alt="cart">
       </router-link>
-      <router-link to="/profile" id="menu-profile">
+      <span onclick="openNav()">
         <img src="../assets/img/Header/icon_menu.png" alt="menu profile">
-      </router-link>
+      </span>
     </div>
   </header>
 </template>
@@ -83,7 +83,6 @@
           return false;
         });
       });
-
     },
     created() {
       if (this.user !== null && this.user !== undefined && this.user.constructor === Object) {
@@ -91,6 +90,9 @@
       }
     },
     methods: {
+      openNav() {
+        this.$parent.openNav()
+      },
       validateUser() {
         if (this.user !== null && this.user !== undefined && this.user.constructor === Object) {
           const type = this.user.type === 'Transportista' ? 'Cliente' : this.user.type

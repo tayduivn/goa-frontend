@@ -40,13 +40,14 @@
 
     .selected {
       background-color: $green-three;
+      padding: 5px 10px;
       color: white;
       cursor: default;
     }
 
     h6 {
       cursor: pointer;
-      padding: 5px 10px;
+      padding: 5px 0px;
       margin: 0 0.5%;
       font-weight: bold;
     }
@@ -57,7 +58,7 @@
       display: flex;
 
       span {
-        margin: 0 2%;
+        margin: 0 20%;
       }
 
       img {
