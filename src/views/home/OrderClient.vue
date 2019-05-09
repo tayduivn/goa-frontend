@@ -8,7 +8,7 @@
         </button>
       </div>
       <div v-if="orders && orders === 'loading'">
-        <h3>Cargando datos...</h3>
+        <h3>{{wordEng.loading}}</h3>
       </div>
       <div v-else-if="orders && orders !== 'empty' && orders !== 'loading'">
         <div class="d-flex justify-order-between mb-3">
@@ -45,7 +45,7 @@
         </div>
       </div>
       <div v-else-if="orders && orders === 'error'">
-        <h3>Error recuperando datos</h3>
+        <h3>{{wordEng.error}}</h3>
       </div>
     </div>
 
@@ -123,7 +123,7 @@
       </div>
 
       <div v-else-if="order && order === 'error'">
-        <h3>Error recuperando datos</h3>
+        <h3>{{wordEng.error}}</h3>
       </div>
     </vue-modaltor>
 

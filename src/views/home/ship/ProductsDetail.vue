@@ -3,7 +3,7 @@
     <SearchComponent/>
     <div class="product-detail-box">
       <div v-if="product && product === 'loading'">
-        <h3>Cargando datos...</h3>
+        <h3>{{wordEng.loading}}</h3>
       </div>
 
       <div v-else-if="product && product !== 'empty'">
@@ -168,10 +168,10 @@
       </div>
 
       <div v-else-if="product && product === 'empty'" class="d-flex justify-content-between mb-3">
-        <h3>No hay datos registrados</h3>
+        <h3>{{wordEng.noData}}</h3>
       </div>
       <div v-else-if="product && product === 'error'">
-        <h3>Error recuperando datos</h3>
+        <h3>{{wordEng.error}}</h3>
       </div>
     </div>
   </div>

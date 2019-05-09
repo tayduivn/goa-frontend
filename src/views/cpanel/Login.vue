@@ -16,12 +16,12 @@
               <input type="password" placeholder="Password" v-model="user.password"/>
             </label>
             <div class="d-flex justify-content-between">
-              <label class="width-reset"><input type="checkbox" v-model="isRemember"/><span>Recordarme</span></label>
-              <span><router-link to="cpanel/forgot">¿Olvidó su contraseña?</router-link></span>
+              <label class="width-reset"><input type="checkbox" v-model="isRemember"/><span>{{wordEng.remember}}</span></label>
+              <span><router-link to="cpanel/forgot">{{wordEng.forgot}}</router-link></span>
             </div>
             <hr>
             <div class="btn-sub text-center mt-4 mb-2">
-              <button type="submit" class="pink-btn" @click.prevent="postLogin">Iniciar sesión</button>
+              <button type="submit" class="pink-btn" @click.prevent="postLogin">{{wordEng.logIn}}</button>
             </div>
           </form>
         </div>
@@ -33,19 +33,20 @@
 
 <script>
   import {modelUserLogin} from "../../services/model/model-user"
-  import {handleError} from "../../utils/util"
+  import {handleError, wordEng} from "../../utils/util"
   import {infoMessage} from "../../utils/handle-message"
 
   export default {
     name: 'cpanelLogin',
     metaInfo: {
-      title: 'TSL cPanel',
-      titleTemplate: '%s | Iniciar Sesión'
+      title: 'GOA cPanel',
+      titleTemplate: '%s | Log in'
     },
     data() {
       return {
         user: modelUserLogin,
-        isRemember: false
+        isRemember: false,
+        wordEng: wordEng,
       }
     },
     created() {

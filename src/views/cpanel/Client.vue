@@ -2,16 +2,16 @@
   <div>
 
     <div v-if="users && users === 'loading'">
-      <h3>Cargando datos...</h3>
+      <h3>{{wordEng.loading}}</h3>
     </div>
     <div v-else-if="users && users !== 'empty'">
-      <h3 class="mb-2">Lista de clientes</h3>
+      <h3 class="mb-2">List of clients</h3>
       <table class="table table-striped">
         <thead>
         <tr>
           <th scope="col" width="10px">Nº</th>
-          <th scope="col">Correo</th>
-          <th scope="col">Fecha</th>
+          <th scope="col">Email</th>
+          <th scope="col">Date</th>
           <th scope="col"></th>
         </tr>
         </thead>
@@ -22,7 +22,7 @@
           <td>{{formaDate(user.user_inserted_at)}}</td>
           <td width="50px">
             <button class="btn btn-sm btn-primary" @click="openModal(user)">
-              Mostrar
+              {{wordEng.show}}
             </button>
           </td>
         </tr>
@@ -30,10 +30,10 @@
       </table>
     </div>
     <div v-else-if="users && users === 'empty'">
-      <h3>No hay datos registrados</h3>
+      <h3>{{wordEng.noData}}</h3>
     </div>
     <div v-else-if="users && users === 'error'">
-      <h3>Error recuperando datos</h3>
+      <h3>{{wordEng.error}}</h3>
     </div>
 
     <vue-modaltor :visible="open" @hide="hideModal">
@@ -44,24 +44,24 @@
       <table class="table table-custom mt-3">
         <tbody>
         <tr>
-          <td scope="col" width="160px">Correo</td>
+          <td scope="col" width="160px">Email</td>
           <td>{{user.email}}</td>
         </tr>
         <tr>
-          <td scope="col">Dirección</td>
+          <td scope="col">Address</td>
           <td>{{user.address}}</td>
         </tr>
         <tr>
-          <td scope="col">Teléfono</td>
+          <td scope="col">Phone</td>
           <td>{{user.phone}}</td>
         </tr>
         <tr>
-          <td scope="col">Mensaje</td>
+          <td scope="col">Message</td>
           <td v-if="user.message === null">Sin mensaje</td>
           <td v-else>{{user.message}}</td>
         </tr>
         <tr>
-          <td scope="col">Fecha de creación</td>
+          <td scope="col">Date of creation</td>
           <td>{{formaDate(user.user_inserted_at)}}</td>
         </tr>
         </tbody>
@@ -75,13 +75,14 @@
   import {modelUser} from "../../services/model/model-user"
   import CloseImageSVG from "../../components/CloseImageSVG"
   import store from './../../store/store'
+  import {wordEng} from "../../utils/util"
 
   export default {
     name: "Client",
     metaInfo: {
-      title: 'TSL cPanel',
+      title: 'GOA cPanel',
       titleTemplate: (title) => {
-        return `${title} | Clientes`
+        return `${title} | Clients`
       }
     },
     components: {CloseImageSVG},
@@ -89,6 +90,7 @@
       return {
         user: modelUser,
         open: false,
+        wordEng: wordEng,
       }
     },
     computed: {

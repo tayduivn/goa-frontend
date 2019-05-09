@@ -2,21 +2,21 @@
   <div>
 
     <div v-if="categories && categories === 'loading'">
-      <h3>Cargando datos...</h3>
+      <h3>{{wordEng.loading}}</h3>
     </div>
     <div v-else-if="categories && categories !== 'empty'">
       <div class="d-flex justify-content-between mb-3">
-        <h3 class="mb-2">Lista de Categorías</h3>
+        <h3 class="mb-2">List of Categories</h3>
         <div class="text-right">
-          <button class="btn-sm btn-primary" @click.prevent="openModal(null)">Crear nuevo</button>
+          <button class="btn-sm btn-primary" @click.prevent="openModal(null)">{{wordEng.save}}</button>
         </div>
       </div>
       <table class="table table-striped">
         <thead>
         <tr>
           <th scope="col" width="10px">Nº</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Fecha</th>
+          <th scope="col">Name</th>
+          <th scope="col">Date</th>
           <th scope="col" width="10"></th>
           <th scope="col" width="10"></th>
         </tr>
@@ -28,12 +28,12 @@
           <td>{{formaDate(category.inserted_at)}}</td>
           <td>
             <button class="btn btn-sm btn-success" @click.prevent="openModal(category)">
-              Editar
+              {{wordEng.edit}}
             </button>
           </td>
           <td>
             <button class="btn btn-sm btn-danger" @click.prevent="deleteData(category.id)">
-              Eliminar
+              {{wordEng.delete}}
             </button>
           </td>
         </tr>
@@ -42,28 +42,28 @@
     </div>
     <div v-else-if="categories && categories === 'empty'">
       <div class="d-flex justify-content-between mb-3">
-        <h3>No hay datos registrados</h3>
+        <h3>{{wordEng.noData}}</h3>
         <div class="text-right">
-          <button class="btn-sm btn-primary" @click.prevent="openModal(null)">Crear nuevo</button>
+          <button class="btn-sm btn-primary" @click.prevent="openModal(null)">{{wordEng.save}}</button>
         </div>
       </div>
     </div>
     <div v-else-if="categories && categories === 'error'">
-      <h3>Error recuperando datos</h3>
+      <h3>{{wordEng.error}}</h3>
     </div>
 
     <vue-modaltor :visible="open" @hide="hideModal">
       <template slot="close-icon">
         <CloseImageSVG/>
       </template>
-      <h3>Información para la categoría</h3>
+      <h3>Information of the category</h3>
       <form @submit.prevent="sendData">
         <div class="form-group">
-          <label for="name" class="mt-3 mb-3">Nombre</label>
+          <label for="name" class="mt-3 mb-3">Name</label>
           <input class="form-control" id="name" type="text" v-model="category.name" required>
         </div>
         <div class="text-right">
-          <button type="submit" class="btn-sm btn-primary">Guardar</button>
+          <button type="submit" class="btn-sm btn-primary">{{wordEng.save}}</button>
         </div>
       </form>
     </vue-modaltor>
@@ -73,7 +73,7 @@
 
 <script>
   import CloseImageSVG from "../../components/CloseImageSVG"
-  import {handleError} from "../../utils/util"
+  import {handleError, wordEng} from "../../utils/util"
   import {confirmMessage, successMessage} from "../../utils/handle-message"
   import {modelCategory} from "../../services/model/model-categories"
   import {apiCategories, getAxios} from "../../utils/endpoints"
@@ -81,9 +81,9 @@
   export default {
     name: "categories",
     metaInfo: {
-      title: 'TSL cPanel',
+      title: 'GOA cPanel',
       titleTemplate: (title) => {
-        return `${title} | Categorías`
+        return `${title} | Categories`
       }
     },
     components: {CloseImageSVG},
@@ -91,7 +91,8 @@
       return {
         category: modelCategory,
         formData: null,
-        open: false
+        open: false,
+        wordEng: wordEng,
       }
     },
     computed: {
@@ -119,7 +120,7 @@
       saveData() {
         getAxios(apiCategories.all, 'POST', this.category)
           .then(() => {
-            this.successRequest("Creado")
+            this.successRequest(this.wordEng.created)
           })
           .catch(err => {
             handleError(this.$swal, err)
@@ -128,7 +129,7 @@
       editData() {
         getAxios(apiCategories.all, 'PUT', this.category)
           .then(() => {
-            this.successRequest("Editado")
+            this.successRequest(this.wordEng.edited)
           })
           .catch(err => {
             handleError(this.$swal, err)
@@ -140,7 +141,7 @@
             if (res) {
               getAxios(apiCategories.all, 'DELETE', {id})
                 .then(() => {
-                  this.successRequest("Eliminado")
+                  this.successRequest(this.wordEng.deleted)
                 })
                 .catch(err => {
                   handleError(this.$swal, err)

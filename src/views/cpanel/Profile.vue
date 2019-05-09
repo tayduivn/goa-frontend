@@ -110,7 +110,7 @@
                 data: this.users
               })
                 .then(() => {
-                  this.successRequest("Perfil Actualizado")
+                  this.successRequest(this.wordEng.profileUpdated)
                 })
                 .catch(err => {
                   handleError(this.$swal, err)
@@ -134,7 +134,7 @@
                 data: this.users
               })
                 .then(() => {
-                  this.successRequest("Perfil Actualizado")
+                  this.successRequest(this.wordEng.profileUpdated)
                   this.oldPassword = ''
                   this.newPassword = ''
                 })
@@ -158,7 +158,7 @@
                 data: {iduser}
               })
                 .then(() => {
-                  infoMessage(this.$swal, null, "Cuenta eliminada")
+                  infoMessage(this.$swal, null, this.wordEng.profileDelete)
                   this.$store.dispatch('logout')
                     .then(() => {
                       this.$router.push('/')

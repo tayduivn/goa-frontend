@@ -3,7 +3,7 @@
     <SearchComponent/>
     <div class="cart-box">
       <div v-if="carts && carts === 'loading'">
-        <h3>Cargando datos...</h3>
+        <h3>{{wordEng.loading}}</h3>
       </div>
 
       <div v-else-if="carts && carts !== 'empty'">
@@ -140,7 +140,7 @@
         </div>
       </div>
       <div v-else-if="carts && carts === 'error'">
-        <h3>Error recuperando datos</h3>
+        <h3>{{wordEng.error}}</h3>
       </div>
     </div>
   </div>

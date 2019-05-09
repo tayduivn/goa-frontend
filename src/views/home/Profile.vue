@@ -2,11 +2,11 @@
   <div class="profile">
     <div class="profile-content">
       <div v-if="users && users === 'loading'">
-        <h3>Cargando datos...</h3>
+        <h3>{{wordEng.loading}}</h3>
       </div>
       <div class="row mb-4" v-if="levelUser === 'Transportista'">
         <div v-if="transportService && transportService === 'loading'">
-          <h3>Cargando datos...</h3>
+          <h3>{{wordEng.loading}}</h3>
         </div>
         <form v-else-if="transportService && transportService !== 'empty'" class="col-md-12">
           <h3>Información como transportista</h3>
@@ -46,11 +46,11 @@
         </form>
         <div v-else-if="transportService && transportService === 'empty'">
           <div class="d-flex justify-content-between mb-3">
-            <h3>No hay datos registrados</h3>
+            <h3>{{wordEng.noData}}</h3>
           </div>
         </div>
         <div v-else-if="transportService && transportService === 'error'">
-          <h3>Error recuperando datos</h3>
+          <h3>{{wordEng.error}}</h3>
         </div>
       </div>
       <div v-if="users !== 'empty'" class="row">
@@ -110,11 +110,11 @@
       </div>
       <div v-else-if="users && users === 'empty'">
         <div class="d-flex justify-content-between mb-3">
-          <h3>No hay datos registrados</h3>
+          <h3>{{wordEng.noData}}</h3>
         </div>
       </div>
       <div v-else-if="users && users === 'error'">
-        <h3>Error recuperando datos</h3>
+        <h3>{{wordEng.error}}</h3>
       </div>
     </div>
   </div>

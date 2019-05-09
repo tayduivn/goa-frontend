@@ -2,21 +2,21 @@
   <div class="forgot">
     <div class="forgot-content mt-5 mb-5 card p-4">
       <form @submit.prevent="send()">
-        <h2 class="text-center">Recuperar contraseña</h2>
+        <h2 class="text-center">{{wordEng.recoverPass}}</h2>
         <hr>
         <div class="form-group">
-          <label for="name">Correo</label>
+          <label for="name">Email</label>
           <input v-model="userEmail" type="text" class="form-control" id="name" required>
-          <small id="emailHelp" class="form-text text-muted">Nosotros no compartiremos tu correo con nadie.</small>
+          <small id="emailHelp" class="form-text text-muted">We will not share your mail with anyone.</small>
         </div>
         <div class="d-flex justify-content-between mt-3 mb-3">
-          <h6>¿Ya tienes una cuenta?
-            <router-link to="/cpanel">LOGIN</router-link>
+          <h6>{{wordEng.alreadyAccount}}
+            <router-link to="/cpanel">{{wordEng.logIn}}</router-link>
           </h6>
         </div>
         <hr>
         <div class="btn-sub text-center mt-4 mb-2">
-          <button type="submit" class="pink-btn">Recuperar</button>
+          <button type="submit" class="pink-btn">{{wordEng.recover}}</button>
         </div>
       </form>
     </div>
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-  import {handleError} from "../../utils/util"
+  import {handleError, wordEng} from "../../utils/util"
   import config from "../../config/config"
   import axios from "axios"
   import {successMessage} from "../../utils/handle-message"
@@ -32,14 +32,15 @@
   export default {
     name: 'cpanel-forgot',
     metaInfo: {
-      title: 'TSL cPanel',
+      title: 'GOA cPanel',
       titleTemplate: (title) => {
-        return `${title} | Recuperar clave`
+        return `${title} | ${wordEng.recoverPass}`
       }
     },
     data: function () {
       return {
-        userEmail: ''
+        userEmail: '',
+        wordEng: wordEng,
       }
     },
     methods: {
@@ -49,7 +50,7 @@
           url: `${config.api_url}/api/public/user/forgot/${this.userEmail}`,
         })
           .then(() => {
-            successMessage(this.$swal, null, "Mensaje enviado al correo ingresado")
+            successMessage(this.$swal, null, this.wordEng.sendMessage)
             this.$router.push('/cpanel')
           })
           .catch(err => {

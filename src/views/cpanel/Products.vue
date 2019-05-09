@@ -2,20 +2,20 @@
   <div>
 
     <div v-if="products && products === 'loading'">
-      <h3>Cargando datos...</h3>
+      <h3>{{wordEng.loading}}</h3>
     </div>
     <div v-else-if="products && products !== 'empty'">
       <div class="d-flex justify-content-between mb-3">
-        <h3 class="mb-2">Lista de Productos</h3>
+        <h3 class="mb-2">List of products</h3>
         <div class="text-right">
-          <button class="btn-sm btn-primary" @click.prevent="openModal(null, 'products')">Crear nuevo</button>
+          <button class="btn-sm btn-primary" @click.prevent="openModal(null, 'products')">{{wordEng.save}}</button>
         </div>
       </div>
       <table class="table table-striped">
         <thead>
         <tr>
           <th scope="col" width="10px">Nº</th>
-          <th scope="col">Nombre</th>
+          <th scope="col">Name</th>
           <th scope="col" width="10"></th>
           <th scope="col" width="10"></th>
           <th scope="col" width="10"></th>
@@ -46,14 +46,14 @@
     </div>
     <div v-else-if="products && products === 'empty'">
       <div class="d-flex justify-content-between mb-3">
-        <h3>No hay datos registrados</h3>
+        <h3>{{wordEng.noData}}</h3>
         <div class="text-right">
-          <button class="btn-sm btn-primary" @click.prevent="openModal(null, 'products')">Crear nuevo</button>
+          <button class="btn-sm btn-primary" @click.prevent="openModal(null, 'products')">{{wordEng.save}}</button>
         </div>
       </div>
     </div>
     <div v-else-if="products && products === 'error'">
-      <h3>Error recuperando datos</h3>
+      <h3>{{wordEng.error}}</h3>
     </div>
 
     <vue-modaltor :visible="open" @hide="hideModal">
@@ -61,7 +61,7 @@
         <CloseImageSVG/>
       </template>
       <div v-if="modalType === 'products'">
-        <h3>Información de los productos | Fecha creación {{product.inserted_at}}</h3>
+        <h3>Information of the products | Date creation {{product.inserted_at}}</h3>
         <form @submit.prevent="sendData">
           <div class="row">
             <div class="form-group col-md-4 col-12">
@@ -70,45 +70,45 @@
                      :disabled="product.id !== ''">
             </div>
             <div class="form-group col-md-8 col-12">
-              <label for="name" class="mt-3 mb-3">Nombre</label>
+              <label for="name" class="mt-3 mb-3">Name</label>
               <input class="form-control" id="name" type="text" v-model="product.name" required>
             </div>
           </div>
           <div class="form-group">
-            <label for="description_short" class="mt-3 mb-3">Descripción corta</label>
+            <label for="description_short" class="mt-3 mb-3">Description short</label>
             <input class="form-control" id="description_short" type="text" v-model="product.description_short" required>
           </div>
           <div class="form-group">
-            <label for="description_one" class="mt-3 mb-3">Descripción uno</label>
+            <label for="description_one" class="mt-3 mb-3">Description long one</label>
             <input class="form-control" id="description_one" type="text" v-model="product.description_one" required>
           </div>
           <div class="form-group">
-            <label for="description_two" class="mt-3 mb-3">Descripción dos</label>
+            <label for="description_two" class="mt-3 mb-3">Description long two</label>
             <input class="form-control" id="description_two" type="text" v-model="product.description_two" required>
           </div>
           <div class="form-group">
-            <label for="preparation" class="mt-3 mb-3">Preparación</label>
+            <label for="preparation" class="mt-3 mb-3">Preparation</label>
             <input class="form-control" id="preparation" type="text" v-model="product.preparation" required>
           </div>
           <div class="row">
             <div class="form-group col-md-6 col-12">
-              <label for="regular_price" class="mt-3 mb-3">Precio</label>
+              <label for="regular_price" class="mt-3 mb-3">Price</label>
               <input class="form-control" id="regular_price" type="text" v-model="product.regular_price" required>
             </div>
             <div class="form-group col-md-6 col-12">
-              <label for="quantity" class="mt-3 mb-3">Cantidad</label>
+              <label for="quantity" class="mt-3 mb-3">Quantity</label>
               <input class="form-control" id="quantity" type="text" v-model="product.quantity" required>
             </div>
           </div>
           <div class="text-right">
-            <button type="submit" class="btn-sm btn-primary">Guardar</button>
+            <button type="submit" class="btn-sm btn-primary">{{wordEng.save}}</button>
           </div>
         </form>
       </div>
       <div v-else-if="modalType === 'categories'">
         <h4>{{product.name}} - Categorías</h4>
         <div v-if="product.id === ''">
-          <p>Primero necesitas crear el producto antes de asignar una categoría</p>
+          <p>First you need to create the product before assigning a category</p>
         </div>
         <form v-else class="mb-3 mt-3">
           <label v-for="category in categories" :key="category.id" :for="category.id">
@@ -121,13 +121,13 @@
       <div v-else-if="modalType === 'images'">
         <h4>{{product.name}}</h4>
         <hr>
-        <h4>Agregar imagen</h4>
+        <h4>{{wordEng.addImage}}</h4>
         <form @submit.prevent="saveDataImage">
           <div class="form-group">
             <label>Imagen</label>
             <input id="image-product" type="file" class="form-control" accept="image/*" @change="subirImagen" required>
             <p class="m-0 p-0 text-left">
-              <small>Subir una imagen.</small>
+              <small>{{wordEng.upload}}</small>
             </p>
           </div>
           <div class="text-right">
@@ -136,7 +136,7 @@
         </form>
         <hr>
         <div>
-          <h4>Editar imágenes</h4>
+          <h4>Edit images</h4>
           <form v-for="image in product.images" :key="image.id_image">
             <hr>
             <div class="row">
@@ -145,20 +145,20 @@
               </div>
               <div class="image-content col-md-8 col-12">
                 <div class="form-group">
-                  <label>Imagen</label>
+                  <label>Image</label>
                   <input type="file" class="form-control" accept="image/*" @change="subirImagen" required>
                   <p class="m-0 p-0 text-left">
-                    <small>Subir una imagen.</small>
+                    <small>{{wordEng.upload}}</small>
                   </p>
                 </div>
                 <div class="text-right" v-if="image.id_image !== 0">
                   <button :disabled="!!submitForm" type="submit" class="btn-sm btn-primary"
                           @click.prevent="editDataImage(image.id_image)">
-                    Guardar
+                    {{wordEng.save}}
                   </button>
                   <button :disabled="!!submitForm" type="submit" class="btn-sm btn-danger ml-3"
                           @click.prevent="deleteDataImage(image.id_image)">
-                    Eliminar
+                    {{wordEng.delete}}}
                   </button>
                 </div>
               </div>
@@ -173,7 +173,7 @@
 
 <script>
   import CloseImageSVG from "../../components/CloseImageSVG"
-  import {handleError} from "../../utils/util"
+  import {handleError, wordEng} from "../../utils/util"
   import {confirmMessage, successMessage} from "../../utils/handle-message"
   import {modelProduct} from "../../services/model/model-product"
   import {apiImages, apiProducts, apiProductsCategories, getAxios} from "../../utils/endpoints"
@@ -181,9 +181,9 @@
   export default {
     name: "cPanelProducts",
     metaInfo: {
-      title: 'TSL cPanel',
+      title: 'GOA cPanel',
       titleTemplate: (title) => {
-        return `${title} | Categorías`
+        return `${title} | Products`
       }
     },
     components: {CloseImageSVG},
@@ -193,7 +193,8 @@
         product: modelProduct,
         submitForm: false,
         formData: null,
-        open: false
+        open: false,
+        wordEng: wordEng,
       }
     },
     computed: {
@@ -249,7 +250,7 @@
       saveData() {
         getAxios(apiProducts.all, 'POST', this.product)
           .then(() => {
-            this.successRequest("Creado")
+            this.successRequest(this.wordEng.created)
           })
           .catch(err => {
             handleError(this.$swal, err)
@@ -258,7 +259,7 @@
       editData() {
         getAxios(apiProducts.all, 'PUT', this.product)
           .then(() => {
-            this.successRequest("Editado")
+            this.successRequest(this.wordEng.edited)
           })
           .catch(err => {
             handleError(this.$swal, err)
@@ -270,7 +271,7 @@
             if (res) {
               getAxios(apiProducts.all, 'DELETE', {id})
                 .then(() => {
-                  this.successRequest("Eliminado")
+                  this.successRequest(this.wordEng.deleted)
                 })
                 .catch(err => {
                   handleError(this.$swal, err)
@@ -299,7 +300,7 @@
         getAxios(apiImages.register, 'POST', this.formData)
           .then(() => {
             this.submitForm = false
-            successMessage(this.$swal, 'Creado')
+            successMessage(this.$swal, this.wordEng.created)
             this.$store.dispatch('getProducts')
               .then(() => {
                 this.product = this.products.find(value => value.id === this.product.id)
@@ -318,7 +319,7 @@
         getAxios(apiImages.update, 'POST', this.formData)
           .then(() => {
             this.submitForm = false
-            successMessage(this.$swal, 'Editado')
+            successMessage(this.$swal, this.wordEng.edited)
             this.$store.dispatch('getProducts')
               .then(() => {
                 this.product = this.products.find(value => value.id === this.product.id)
@@ -340,7 +341,7 @@
               getAxios(apiImages.all, 'DELETE', {id})
                 .then(() => {
                   this.submitForm = false
-                  successMessage(this.$swal, 'Eliminado')
+                  successMessage(this.$swal, this.wordEng.deleted)
                   this.$store.dispatch('getProducts')
                     .then(() => {
                       this.product = this.products.find(value => value.id === this.product.id)

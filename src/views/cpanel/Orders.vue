@@ -3,29 +3,27 @@
 
     <div class="d-flex justify-content-between">
       <div class="form-group">
-        <label for="state" class="font-weight-bold">Selecciona un estado</label>
+        <label for="state" class="font-weight-bold">{{wordEng.selectState}}</label>
         <select class="form-control width-reset ml-3" name="state" id="state" @change="changeState"
                 v-model="stateOrderSelected">
-          <option v-for="item in statesOrder" :key="item">
-            {{ item }}
-          </option>
+          <option v-for="item in statesOrder" :key="item">{ item }}</option>
         </select>
       </div>
     </div>
     <hr>
     <div v-if="orders && orders === 'loading'">
-      <h3>Cargando datos...</h3>
+      <h3>{{wordEng.loading}}</h3>
     </div>
     <div v-else-if="orders && orders !== 'empty'">
       <div class="d-flex justify-content-between mb-3">
-        <h3 class="mb-2">Lista de ordenes </h3>
+        <h3 class="mb-2">Lis of orders</h3>
       </div>
       <table class="table table-striped">
         <thead>
         <tr>
           <th scope="col" width="10px">Nº</th>
-          <th scope="col">Usuario</th>
-          <th scope="col">Fecha</th>
+          <th scope="col">User</th>
+          <th scope="col">Date</th>
           <th scope="col"></th>
         </tr>
         </thead>
@@ -36,7 +34,7 @@
           <td>{{formaDate(order.order_inserted_at)}}</td>
           <td>
             <button class="btn btn-sm btn-primary" @click.prevent="openModal(order)">
-              Mostrar
+              {{wordEng.show}}
             </button>
           </td>
         </tr>
@@ -44,10 +42,10 @@
       </table>
     </div>
     <div v-else-if="orders && orders === 'empty'">
-      <h3>No hay datos registrados</h3>
+      <h3>{{wordEng.noData}}</h3>
     </div>
     <div v-else-if="orders && orders === 'error'">
-      <h3>Error recuperando datos</h3>
+      <h3>{{wordEng.error}}</h3>
     </div>
 
     <vue-modaltor :visible="open" @hide="hideModal">
@@ -55,7 +53,7 @@
         <CloseImageSVG/>
       </template>
       <div v-if="order && order === 'loading'">
-        <h3>Loading...</h3>
+        <h3>{{wordEng.loading}}</h3>
       </div>
       <div v-else-if="order && order !== 'empty' && order.products && order.products.length">
         <div class="d-flex justify-content-between align-items-center mt-5">
@@ -64,7 +62,7 @@
         <hr>
         <form class="d-flex align-items-center mt-3" @submit.prevent="editStatusOrder">
           <div class="form-group mb-0">
-            <label for="status">Select status</label>
+            <label for="status">{{wordEng.selectState}}</label>
             <select class="form-control width-reset ml-3 mr-3" name="status" id="status" required
                     v-model="selectedStatus">
               <option v-if="order.order_status !== 'Pendiente'" value="Pendiente">Pendiente</option>
@@ -127,11 +125,11 @@
       </div>
 
       <div v-else-if="order && order === 'empty'">
-        <h3>No data</h3>
+        <h3>{{wordEng.noData}}</h3>
       </div>
 
       <div v-else-if="order && order === 'error'">
-        <h3>Error recuperando datos</h3>
+        <h3>{{wordEng.error}}</h3>
       </div>
     </vue-modaltor>
 
@@ -140,16 +138,16 @@
 
 <script>
   import CloseImageSVG from "../../components/CloseImageSVG"
-  import {handleError, listState} from "../../utils/util"
+  import {handleError, listState, wordEng} from "../../utils/util"
   import {successMessage} from "../../utils/handle-message"
   import {apiOrders, getAxios} from "../../utils/endpoints"
 
   export default {
     name: "Orders",
     metaInfo: {
-      title: 'TSL cPanel',
+      title: 'GOA cPanel',
       titleTemplate: (title) => {
-        return `${title} | Ordenes`
+        return `${title} | Orders`
       }
     },
     components: {CloseImageSVG},
@@ -159,6 +157,7 @@
         stateOrderSelected: listState[0],
         selectedStatus: '',
         open: false,
+        wordEng: wordEng,
       }
     },
     computed: {

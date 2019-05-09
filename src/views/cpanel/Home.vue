@@ -1,6 +1,6 @@
 <template>
   <div id="cpanel-home" class="d-flex align-items-center justify-content-center">
-    <h2>Bienvenido al cPanel de TSL</h2>
+    <h2>Welcome to the control panel of Gardens of America </h2>
   </div>
 </template>
 
@@ -8,9 +8,9 @@
   export default {
     name: "cPanelHome",
     metaInfo: {
-      title: 'TSL cPanel',
+      title: 'GOA cPanel',
       titleTemplate: (title) => {
-        return `${title} | Inicio`
+        return `${title} | Home`
       }
     },
   }

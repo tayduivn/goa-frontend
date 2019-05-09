@@ -16,7 +16,7 @@
 
         <div class="products-all">
           <div v-if="products && products === 'loading'" class="card text-center mt-3 mb-3">
-            <h3>Cargando datos...</h3>
+            <h3>{{wordEng.loading}}</h3>
           </div>
 
           <div v-else-if="products && products !== 'empty'">
@@ -32,10 +32,10 @@
           </div>
 
           <div v-else-if="products && products === 'empty'" class="card text-center pt-5 pb-5">
-            <h3>No hay datos registrados</h3>
+            <h3>{{wordEng.noData}}</h3>
           </div>
           <div v-else-if="products && products === 'error'" class="card text-center pt-5 pb-5">
-            <h3>Error recuperando datos</h3>
+            <h3>{{wordEng.error}}</h3>
           </div>
 
           <div class="pagination" v-if="pagination !== 'loading' && pagination !== 'error' && pagination.lastPage > 1">

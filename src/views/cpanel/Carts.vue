@@ -2,7 +2,7 @@
   <div>
 
     <div v-if="carts && carts === 'loading'">
-      <h3>Cargando datos...</h3>
+      <h3>{{wordEng.loading}}</h3>
     </div>
     <div v-else-if="carts && carts !== 'empty'">
       <div class="d-flex justify-content-between mb-3">
@@ -34,11 +34,11 @@
     </div>
     <div v-else-if="carts && carts === 'empty'">
       <div class="d-flex justify-content-between mb-3">
-        <h3>No hay datos registrados</h3>
+        <h3>{{wordEng.noData}}</h3>
       </div>
     </div>
     <div v-else-if="carts && carts === 'error'">
-      <h3>Error recuperando datos</h3>
+      <h3>{{wordEng.error}}</h3>
     </div>
 
     <vue-modaltor :visible="open" @hide="hideModal">
@@ -47,7 +47,7 @@
       </template>
       <h3>Información del carrito</h3>
       <div v-if="cart && cart === 'loading'">
-        <h3>Cargando datos...</h3>
+        <h3>{{wordEng.loading}}</h3>
       </div>
       <table v-else-if="cart && cart !== 'empty'" class="table table-custom mt-3 mb-4 text-center">
         <tbody>
@@ -69,11 +69,11 @@
       </table>
       <div v-else-if="cart && cart === 'empty'">
         <div class="d-flex justify-content-between mb-3">
-          <h3>No hay datos registrados</h3>
+          <h3>{{wordEng.noData}}</h3>
         </div>
       </div>
       <div v-else-if="cart && cart === 'error'">
-        <h3>Error recuperando datos</h3>
+        <h3>{{wordEng.error}}</h3>
       </div>
     </vue-modaltor>
 
