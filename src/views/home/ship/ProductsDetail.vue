@@ -13,7 +13,7 @@
             <div class="product-detail-content">
 
               <div class="product-images">
-                <img :src="product.images[0].image" :alt="product.name">
+                <!--<img :src="product.images[0].image" :alt="product.name">-->
                 <slick
                     ref="slick"
                     :options="slickOptions">
@@ -31,7 +31,7 @@
                   <img src="../../../assets/img/product-description/star_icon.png" alt="start product">
                   <img src="../../../assets/img/product-description/star_icon.png" alt="start product">
                   <img src="../../../assets/img/product-description/star_icon.png" alt="start product">
-                  <h6>{{product.reviews.length}} Reviews</h6>
+                  <h6>{{getCountReviews}} Reviews</h6>
                 </div>
                 <p>{{product.regular_price}}</p>
                 <div class="info-quantity">
@@ -71,16 +71,16 @@
               </div>
               <div class="separator"></div>
             </div>
+
             <div id="description" class="product-description-content tabcontent">
               <div class="description-info">
                 {{product.description_two}}
               </div>
               <div class="description-image">
-                <img :src="product.images[0].image" :alt="product.name">
               </div>
             </div>
 
-            <div id="review" class="product-review-content tabcontent">
+            <div v-if="product.reviews" id="review" class="product-review-content tabcontent">
               <div class="review-head">
                 <h3>Customer Reviews</h3>
                 <button @click.prevent="openModal" class="global-button transparent">write a review</button>
@@ -95,7 +95,10 @@
                 <span>{{review.message}}</span>
               </div>
             </div>
-
+            <div v-else-if="product.reviews" id="not-reviews"
+                 class="product-review-content tabcontent">
+              <h5>Not reviews</h5>
+            </div>
           </div>
         </div>
 
@@ -222,6 +225,9 @@
       productsCategories() {
         return this.$store.getters.getProductsCategories
       },
+      getCountReviews() {
+        return this.product.reviews ? 0 : 0
+      }
     },
     created() {
       this.$store.dispatch('getProduct', `?id=${this.$route.params.id}`)

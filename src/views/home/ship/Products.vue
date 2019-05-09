@@ -40,11 +40,13 @@
             <h3>Error recuperando datos</h3>
           </div>
 
-          <div class="pagination">
-            <h6 v-for="item in items" :key="item" :class="{selected: (item === 1)}" @click.prevent="getPageProduct">
+          <div class="pagination" v-if="pagination !== 'loading' && pagination !== 'error'">
+            <h6 v-for="item in pagination.lastPage" :key="item" :class="{selected: (item === pagination.page)}"
+                @click.prevent="getPageProduct(item)">
               {{ item }}
             </h6>
-            <div class="next" @click.prevent="getPageProduct">
+            <div v-if="pagination.page < pagination.lastPage" class="next"
+                 @click.prevent="getPageProduct(pagination.page + 1)">
               <span>next</span>
               <img src="../../../assets/img/Store/Arrow_icon_down.png" alt="image next">
             </div>
@@ -65,7 +67,6 @@
     name: 'Products',
     data() {
       return {
-        items: [1, 2, 3],
         checkList: [],
         checkCount: 0
       }
@@ -73,6 +74,9 @@
     computed: {
       products() {
         return this.$store.getters.getProducts
+      },
+      pagination() {
+        return this.$store.getters.getProductsPagination
       },
       categories() {
         return this.$store.getters.getCategories
@@ -96,18 +100,10 @@
         console.log(query)
         this.$store.dispatch('getProducts', query)
       },
-      getPageProduct() {
-        this.checkCount = 0
-        let query = ''
-        this.categories.forEach((category, index) => {
-          if (this.checkList[index]) {
-            this.checkCount++
-            query = `${query}${category.name},`
-          }
-        })
-        if (query !== '') query = `?categoryName=${query.substring(0, query.length - 1)}`
-        console.log(query)
-        this.$store.dispatch('getProducts', query)
+      getPageProduct(page) {
+        if (this.pagination.page !== page) {
+          this.$store.dispatch('getProducts', `?limit=12&page=${page}`)
+        }
       },
     },
   }

@@ -10,6 +10,7 @@ export default {
     productsFavorites: [],
     productsCategories: [],
     product: {},
+    productsPagination: {},
   },
   mutations: {
     SET_PRODUCTS(state, products) {
@@ -29,6 +30,9 @@ export default {
     },
     SET_PRODUCTS_CATEGORIES(state, productsCategories) {
       state.productsCategories = productsCategories
+    },
+    SET_PRODUCTS_PAGINATION(state, productsPagination) {
+      state.productsPagination = productsPagination
     },
   },
   getters: {
@@ -50,22 +54,28 @@ export default {
     getProduct: (state) => {
       return state.product
     },
+    getProductsPagination: (state) => {
+      return state.productsPagination
+    },
   },
   actions: {
     getProducts({commit}, query = '') {
       return new Promise((resolve) => {
         commit('SET_PRODUCTS', 'loading')
+        commit('SET_PRODUCTS_PAGINATION', 'loading')
         getAxios(`${apiProducts.allPublic}${query}`, 'GET')
           .then(res => {
             if (res.data.data.length === 0) {
               commit('SET_PRODUCTS', 'empty')
             } else {
               commit('SET_PRODUCTS', res.data.data)
+              commit('SET_PRODUCTS_PAGINATION', res.data.pagination)
               resolve()
             }
           })
           .catch(err => {
             commit('SET_PRODUCTS', 'error')
+            commit('SET_PRODUCTS_PAGINATION', 'error')
             handleError(swal, err)
           })
       })

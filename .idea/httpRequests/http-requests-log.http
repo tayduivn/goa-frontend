@@ -1,3 +1,155 @@
+GET http://goa-backend/api/public/products?id=22
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-05-09T040838.200.json
+
+###
+
+GET http://goa-backend/api/public/products?id=22
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-05-09T040201.200.json
+
+###
+
+GET http://goa-backend/api/public/products?id=22
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-05-09T035524.200.json
+
+###
+
+GET http://goa-backend/api/public/products?id=22
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-05-09T035207.200.json
+
+###
+
+GET http://goa-backend/api/public/products?categoryName=Alimentos
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-05-09T033217.200.json
+
+###
+
+GET http://goa-backend/api/public/?categoryName=Alimentos
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-05-09T033209.405.json
+
+###
+
+GET http://goa-backend/api/public/products?limit=5&page=4
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-05-09T032943.200.json
+
+###
+
+GET http://goa-backend/api/public/products?limit=5&page=4
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-05-09T032840.200.json
+
+###
+
+GET http://goa-backend/api/public/products?limit=5&page=4
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-05-09T032440.200.json
+
+###
+
+GET http://goa-backend/api/public/products
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-05-09T032412.200.json
+
+###
+
+GET http://goa-backend/api/public/products?limit=5&page=4
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-05-09T031837.200.json
+
+###
+
+GET http://goa-backend/api/public/products?limit=5&page=4
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-05-08T063625.200.json
+
+###
+
+GET http://goa-backend/api/public/products?limit=5&page=4
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-05-08T063608.200.json
+
+###
+
+GET http://goa-backend/api/public/products?limit=5&page=4
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-05-08T063556.200.json
+
+###
+
+GET http://goa-backend/api/public/products?limit=5&page=4
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-05-08T063534.200.json
+
+###
+
+GET http://goa-backend/api/public/products?limit=5&page=4
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-05-08T063521.200.json
+
+###
+
+GET http://goa-backend/api/public/products?limit=5&page=4
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-05-08T063449.200.json
+
+###
+
+GET http://goa-backend/api/public/products?limit=5&page=4
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-05-08T063353.200.json
+
+###
+
+GET http://goa-backend/api/public/products?limit=5&page=4
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-05-08T062356.200.json
+
+###
+
 GET http://goa-backend/api/public/products?limit=5&page=4
 Accept: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
@@ -464,158 +616,6 @@ Accept: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
 
 <> 2019-05-08T075258.200.json
-
-###
-
-GET http://goa-backend/api/public/products?categoryName=Alimentos
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-08T075204.200.json
-
-###
-
-GET http://goa-backend/api/public/products?categoryName=Alimentos
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-08T075157.200.json
-
-###
-
-GET http://goa-backend/api/public/products?categoryName=Alimentos
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-08T075111.200.json
-
-###
-
-GET http://goa-backend/api/public/products?categoryName=Alimentos
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-08T075041.200.json
-
-###
-
-GET http://goa-backend/api/public/products?categoryName=Alimentos
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-08T075022.200.json
-
-###
-
-GET http://goa-backend/api/public/products?categoryName=Alimentos
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-08T074945.200.json
-
-###
-
-GET http://goa-backend/api/public/products?categoryName=Alimentos
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-08T074909.200.json
-
-###
-
-GET http://goa-backend/api/public/products?categoryName=Alimentos
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-08T074854.200.json
-
-###
-
-GET http://goa-backend/api/public/products?categoryName=Alimentos
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-08T074844.200.json
-
-###
-
-GET http://goa-backend/api/public/products?categoryName=Alimentos
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-08T074811.200.json
-
-###
-
-GET http://goa-backend/api/public/products?categoryName=Alimentos
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-08T074726.200.json
-
-###
-
-GET http://goa-backend/api/public/products?categoryName=Alimentos
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-08T074622.200.json
-
-###
-
-GET http://goa-backend/api/public/products?categoryName=Alimentos
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-08T063426.200.json
-
-###
-
-GET http://goa-backend/api/public/products?categoryName=Alimentos
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-08T063156.200.json
-
-###
-
-GET http://goa-backend/api/public/products?categoryName=Alimentos
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-08T063144.200.json
-
-###
-
-GET http://goa-backend/api/public/products?categoryName=Alimentos
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-08T063027.200.json
-
-###
-
-GET http://goa-backend/api/public/products?categoryName=Alimentos
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-08T062649.200.json
-
-###
-
-GET http://goa-backend/api/public/products?categoryName=Alimentos
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-08T062628.200.json
-
-###
-
-GET http://goa-backend/api/public/products?categoryName=Alimentos
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-08T062559.200.json
 
 ###
 
