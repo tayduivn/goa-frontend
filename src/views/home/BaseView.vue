@@ -1,7 +1,7 @@
 <template>
   <div class="base">
     <div id="mySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="javascript:void(0)" class="closebtn" @click.prevent="closeNav()">&times;</a>
       <a href="#">About</a>
       <a href="#">Services</a>
       <a href="#">Clients</a>
@@ -30,13 +30,9 @@
     methods: {
       openNav() {
         document.getElementById("mySidenav").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
-        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
       },
       closeNav() {
         document.getElementById("mySidenav").style.width = "0";
-        document.getElementById("main").style.marginLeft = "0";
-        document.body.style.backgroundColor = "white";
       },
     },
   }

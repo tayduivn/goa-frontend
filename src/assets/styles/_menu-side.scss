@@ -2,9 +2,9 @@
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 1;
+  z-index: 10000;
   top: 0;
-  left: 0;
+  right: 0;
   background-color: #111;
   overflow-x: hidden;
   transition: 0.5s;
@@ -30,11 +30,6 @@
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
-}
-
-#main {
-  transition: margin-left .5s;
-  padding: 16px;
 }
 
 @media screen and (max-height: 450px) {

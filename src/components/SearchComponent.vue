@@ -3,7 +3,8 @@
     <div class="search-content">
       <form @submit.prevent="searchProduct">
         <label for="search-product">Search the Store</label>
-        <input type="search" id="search-product">
+        <input type="search" id="search-product" v-model="nameProduct">
+        <button type="submit" class="btn btn-sm">Buscar</button>
       </form>
     </div>
   </div>
@@ -11,9 +12,14 @@
 <script>
   export default {
     name: 'SearchComponent',
+    data() {
+      return {
+        nameProduct: ''
+      }
+    },
     methods: {
       searchProduct() {
-        this.$parent.searchProduct()
+        this.$parent.searchProduct(this.nameProduct)
       }
     }
   }
