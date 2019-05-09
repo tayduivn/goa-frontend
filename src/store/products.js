@@ -136,6 +136,7 @@ export default {
           }
         })
         .catch(err => {
+          console.log('err')
           commit('SET_PRODUCTS_CATEGORIES', 'error')
           handleError(swal, err)
         })

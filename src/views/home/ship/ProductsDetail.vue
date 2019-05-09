@@ -13,7 +13,7 @@
             <div class="product-detail-content">
 
               <div class="product-images">
-                <!--<img :src="product.images[0].image" :alt="product.name">-->
+                <img v-if="product.images" :src="product.images[0].image" :alt="product.name">
                 <slick
                     ref="slick"
                     :options="slickOptions">
@@ -80,24 +80,25 @@
               </div>
             </div>
 
-            <div v-if="product.reviews" id="review" class="product-review-content tabcontent">
-              <div class="review-head">
-                <h3>Customer Reviews</h3>
-                <button @click.prevent="openModal" class="global-button transparent">write a review</button>
-              </div>
-              <div v-for="review in product.reviews" :key="review.id" class="review-info">
-                <h6>{{product.first_name}} {{product.last_name}}</h6>
-                <div>
-                  <img src="../../../assets/img/product-description/star_icon.png" alt="start product"
-                       v-for="index in parseInt(review.stars)" :key="index">
+            <div id="review" class="product-review-content tabcontent">
+              <div v-if="product.reviews">
+                <div class="review-head">
+                  <h3>Customer Reviews</h3>
+                  <button @click.prevent="openModal" class="global-button transparent">write a review</button>
                 </div>
-                <h6>{{review.title}}</h6>
-                <span>{{review.message}}</span>
+                <div v-for="review in product.reviews" :key="review.id" class="review-info">
+                  <h6>{{product.first_name}} {{product.last_name}}</h6>
+                  <div>
+                    <img src="../../../assets/img/product-description/star_icon.png" alt="start product"
+                         v-for="index in parseInt(review.stars)" :key="index">
+                  </div>
+                  <h6>{{review.title}}</h6>
+                  <span>{{review.message}}</span>
+                </div>
               </div>
-            </div>
-            <div v-else-if="product.reviews" id="not-reviews"
-                 class="product-review-content tabcontent">
-              <h5>Not reviews</h5>
+              <div v-else class="text-center">
+                <h5>Not reviews</h5>
+              </div>
             </div>
           </div>
         </div>
@@ -109,12 +110,12 @@
 
         <div class="products-box">
           <h2>Related Products</h2>
-          <div class="content-slick" v-if="productsCategories&& productsCategories.length
-        && productsCategories!== 'empty' && productsCategories!== 'loading'">
+          <div class="content-slick" v-if="productsCategories && productsCategories.length
+           && productsCategories !== 'empty' && productsCategories!== 'loading' && productsCategories!== 'error'">
             <slick ref="slick" :options="slickOptions">
               <div v-for="item in productsCategories" :key="item.id" class="slick-product-content">
                 <router-link :to="`products-detail/${item.id}`">
-                  <img :src="item.images[0].image" :alt="item.name">
+                  <img v-if="item.images" :src="item.images[0].image" :alt="item.name">
                   <p>{{item.name}}</p>
                   <p>{{item.regular_price}}</p>
                   <router-link :to="`products-detail/${item.id}`" tag="button"
@@ -124,6 +125,9 @@
                 </router-link>
               </div>
             </slick>
+          </div>
+          <div v-else class="text-center">
+            <h5>Not Related Products</h5>
           </div>
         </div>
 
