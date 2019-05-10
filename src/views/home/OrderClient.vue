@@ -40,8 +40,8 @@
       </div>
       <div v-else-if="orders && orders === 'empty'">
         <div class="order-message-empty text-center">
-          <h3>Actualmente no tiene envíos en este estado</h3>
-          <router-link to="products" tag="button">Comience un nuevo envío</router-link>
+          <h3>You currently have no products with this status</h3>
+          <router-link to="products" tag="button">Register a new product</router-link>
         </div>
       </div>
       <div v-else-if="orders && orders === 'error'">

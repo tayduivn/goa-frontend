@@ -88,4 +88,20 @@ function handleError(swal, err, message = '') {
   }
 }
 
-export {handleError, listState, wordEng};
+function getTokenLevelUser() {
+  let token = store.getters.getToken
+  let level = store.getters.getLevelUser
+  if (!token || token === '') {
+    if (localStorage.token !== '') {
+      if (localStorage.getItem('user') !== undefined || localStorage.getItem('user') === null) {
+        store.commit('SET_USER', localStorage.getItem('user'))
+        store.commit('AUTH_SUCCESS', localStorage.token)
+        token = store.getters.getToken
+        level = store.getters.getLevelUser
+      }
+    }
+  }
+  return {token, level}
+}
+
+export {handleError, listState, wordEng, getTokenLevelUser};

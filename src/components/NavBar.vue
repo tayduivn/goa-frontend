@@ -18,7 +18,7 @@
       </nav>
       <div class="cart-profile">
         <router-link to="/cart" id="cart">
-          <span class="number-products">{{notificationCount}}</span>
+          <span v-if="notificationCount > 0" class="number-products">{{notificationCount}}</span>
           <img src="../assets/img/Header/icon_cart.png" alt="cart">
         </router-link>
         <a @click.prevent="openNav()"><img src="../assets/img/Header/icon_menu.png" alt="menu profile"></a>

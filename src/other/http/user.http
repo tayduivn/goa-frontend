@@ -2,8 +2,8 @@ POST {{host}}/api/public/users/login
 Content-Type: application/json
 
 {
-  "email": "Ivans20@gmail.com",
-  "password": "123456"
+  "email": "Ivans10@gmail.com",
+  "password": "654321"
 }
 
 > {% client.global.set("auth_token", response.body.data.token); %}

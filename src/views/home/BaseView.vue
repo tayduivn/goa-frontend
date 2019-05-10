@@ -1,10 +1,15 @@
 <template>
   <div class="base">
-    <div id="mySidenav" class="index-sidenav">
+    <div v-if="isClient" class="index-sidenav mySidenav">
       <a href="javascript:void(0)" class="closebtn" @click.prevent="closeNav()">&times;</a>
-      <router-link to="profile">Profile</router-link>
-      <router-link to="order-client">History</router-link>
+      <router-link to="profile" @click.prevent="closeNav()">Profile</router-link>
+      <router-link to="order-client" @click.prevent="closeNav()">History</router-link>
       <button tag="a" @click.prevent="logout">Logout</button>
+    </div>
+    <div v-else id="mySidenav" class="index-sidenav">
+      <a href="javascript:void(0)" class="closebtn" @click.prevent="closeNav()">&times;</a>
+      <router-link to="login" @click.prevent="closeNav()">Login</router-link>
+      <router-link to="register" @click.prevent="closeNav()">Register</router-link>
     </div>
     <div id="main">
       <NavBarC/>
@@ -19,12 +24,24 @@
 <script>
   import NavBarC from '../../components/NavBar.vue'
   import FooterC from '../../components/Footer.vue'
+  import {getTokenLevelUser} from "../../utils/util"
 
   export default {
     name: 'BaseView',
     components: {
       NavBarC,
       FooterC
+    },
+    data() {
+      return {
+        isClient: false
+      }
+    },
+    created() {
+      let {token, level} = getTokenLevelUser()
+      if (token && level === 'Cliente') {
+        this.isClient = true
+      }
     },
     methods: {
       openNav() {
@@ -36,6 +53,7 @@
       logout() {
         this.$store.dispatch('logout')
           .then(() => {
+            this.closeNav()
             this.$router.push('/home')
           })
       }

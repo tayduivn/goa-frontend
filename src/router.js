@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import store from './store/store'
+import {getTokenLevelUser} from "./utils/util"
 
 Vue.use(Router)
 
@@ -18,7 +18,6 @@ let router = new Router({
           path: 'home',
           name: 'home',
           component: () => import('./views/home/Home'),
-          meta: {requiresPublicClient: true}
         },
         {
           path: 'forgot',
@@ -90,7 +89,6 @@ let router = new Router({
     {
       path: '/cpanel',
       name: 'cPanelBaseView',
-      redirect: '/cpanel/pHome',
       component: () => import('./views/cpanel/BaseView'),
       meta: {requiresAuthAdmin: true},
       children: [
@@ -160,22 +158,10 @@ let router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  let token = store.getters.getToken
-  let level = store.getters.getLevelUser
-  if (!token || token === '') {
-    if (localStorage.token !== '') {
-      if (localStorage.getItem('user') !== undefined || localStorage.getItem('user') === null) {
-        store.commit('SET_USER', localStorage.getItem('user'))
-        store.commit('AUTH_SUCCESS', localStorage.token)
-        token = store.getters.getToken
-        level = store.getters.getLevelUser
-      }
-    }
-  }
+  let {token, level} = getTokenLevelUser()
   next()
-  /*
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    if ((token && level === 'Cliente') || (token && level === 'Transportista')) {
+    if (token && level === 'Cliente') {
       next()
     } else {
       next({
@@ -185,16 +171,10 @@ router.beforeEach((to, from, next) => {
     }
   } else if (to.matched.some(record => record.meta.isNoUserLog)) {
     console.log(level)
-    if ((token && level === 'Cliente') || (token && level === 'Transportista')) {
+    if (token && level === 'Cliente') {
       next('/')
     } else if (token && level === 'Administrador') {
-      next('/cpanel/admin')
-    } else {
-      next()
-    }
-  } else if (to.matched.some(record => record.meta.requiresPublicClient)) {
-    if (level === 'Transportista') {
-      next('/order-client')
+      next('/cpanel/login')
     } else {
       next()
     }
@@ -203,14 +183,14 @@ router.beforeEach((to, from, next) => {
       next()
     } else {
       next({
-        path: '/cpanel',
+        path: '/cpanel/login',
         params: {nextUrl: to.fullPath}
       })
     }
   } else if (to.matched.some(record => record.meta.isNoUserLogAdmin)) {
     if (token && level === 'Administrador') {
       next({
-        path: '/cpanel/admin',
+        path: '/cpanel/login',
         params: {nextUrl: to.fullPath}
       })
     } else {
@@ -218,7 +198,7 @@ router.beforeEach((to, from, next) => {
     }
   } else {
     next()
-  }*/
+  }
 })
 
 export default router

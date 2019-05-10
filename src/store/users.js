@@ -23,7 +23,7 @@ export default {
     SET_USER(state, user) {
       state.user = user
       if (user !== null)
-        state.levelUser = JSON.parse(user).type
+        state.levelUser = JSON.parse(user).name
     },
     SET_USERS(state, users) {
       state.users = users

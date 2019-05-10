@@ -9,9 +9,9 @@
       <div v-else-if="carts && carts !== 'empty'">
         <h2>Shopping Cart</h2>
 
-        <div class="cart-content">
+        <div class="cart-content" v-if="quantityValue.length > 0" >
           <div class="cart-products">
-            <div v-if="quantityValue.length > 0" class="cart-table">
+            <div class="cart-table">
               <table class="table table-custom mt-3 mb-4 text-center">
                 <tbody>
                 <tr>
@@ -58,6 +58,12 @@
               <router-link to="/products" tag="button" class="global-button transparent">Continue Shopping</router-link>
               <button class="global-button green" @click.prevent="openModal">Checkout</button>
             </div>
+          </div>
+        </div>
+        <div v-else>
+          <div class="order-message-empty text-center">
+            <h3>Currently you do not have added products</h3>
+            <router-link to="products" tag="button">Register a new product</router-link>
           </div>
         </div>
 
@@ -222,7 +228,8 @@
               }
             })
             this.getTotalPrice()
-            this.$store.dispatch('getProductsCategories', `?id=${res.products[0].id}&category=true&limit=15&order=RAND`)
+            if (res.products.length)
+              this.$store.dispatch('getProductsCategories', `?id=${res.products[0].id}&category=true&limit=15&order=RAND`)
           })
           .catch(err => {
             handleError(this.$swal, err)

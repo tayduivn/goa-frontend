@@ -135,7 +135,7 @@
       logout() {
         this.$store.dispatch('logout')
           .then(() => {
-            this.$router.push('/cpanel')
+            this.$router.push('/cpanel/login')
           })
       }
     }
