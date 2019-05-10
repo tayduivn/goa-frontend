@@ -6,6 +6,7 @@ export default {
   state: {
     carts: [],
     cart: [],
+    cartStatus: [],
   },
   mutations: {
     SET_CARTS(state, carts) {
@@ -14,6 +15,9 @@ export default {
     SET_CART(state, cart) {
       state.cart = cart
     },
+    SET_CART_STATUS(state, cartStatus) {
+      state.cartStatus = cartStatus
+    },
   },
   getters: {
     getCarts: (state) => {
@@ -21,6 +25,9 @@ export default {
     },
     getCartsByUser: (state) => {
       return state.cart
+    },
+    getCartStatus: (state) => {
+      return state.cartStatus
     },
   },
   actions: {
@@ -37,6 +44,26 @@ export default {
           commit('SET_CARTS', 'empty')
           handleError(swal, err)
         })
+    },
+    getCartStatus({commit}, query = '') {
+      return new Promise((resolve, reject) => {
+        commit('SET_CART_STATUS', 'loading')
+        getAxios(`${apiCarts.all}${query}`, 'GET')
+          .then(res => {
+            if (res.data.data.length === 0) {
+              commit('SET_CART_STATUS', 'empty')
+              resolve(res.data.data)
+            } else {
+              commit('SET_CART_STATUS', res.data.data[0])
+              resolve(res.data.data[0])
+            }
+          })
+          .catch(err => {
+            commit('SET_CART_STATUS', 'empty')
+            handleError(swal, err)
+            reject(err)
+          })
+      })
     },
     getCartsByUser({commit}, query = '') {
       return new Promise((resolve, reject) => {

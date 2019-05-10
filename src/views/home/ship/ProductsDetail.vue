@@ -257,7 +257,7 @@
         getAxios(apiReviews.all, 'POST', this.review)
           .then(() => {
             this.submitForm = false
-            successMessage(this.$swal, "Creado")
+            successMessage(this.$swal, this.wordEng.created)
           })
           .catch(err => {
             this.submitForm = false
@@ -273,7 +273,9 @@
         getAxios(apiCartsProducts.all, 'POST', this.cartProducts)
           .then(() => {
             this.submitForm = false
-            successMessage(this.$swal, "Creado")
+            const id = JSON.parse(localStorage.getItem('user')).id
+            this.$store.dispatch('getCartStatus', `?userId=${id}&status=current`)
+            successMessage(this.$swal, this.wordEng.created)
           })
           .catch(err => {
             this.submitForm = false
