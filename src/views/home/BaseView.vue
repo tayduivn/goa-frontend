@@ -49,4 +49,28 @@
       padding-top: 111px;
     }
   }
+
+  @media screen and (min-width: 1360px) {
+
+  }
+
+  @media screen and (min-width: 1920px) {
+
+  }
+
+  @media screen and (max-width: 1024px) {
+
+  }
+
+  @media screen and (max-width: 700px) {
+    .base {
+      main {
+        padding-top: 61px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+
+  }
 </style>

@@ -1,3 +1,26 @@
+POST http://goa-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "code": 1,
+  "processor": "American Express",
+  "processor_trans_id": 1,
+  "cc_num": "23",
+  "cc_type": "123",
+  "start_date": "2019-05-01",
+  "end_date": "2019-05-15",
+  "cart_id": "1",
+  "user_id": "2",
+  "total": 2700,
+  "subtotal": 2700
+}
+
+<> 2019-05-09T042101.201.json
+
+###
+
 PUT http://goa-backend/api/users/password
 Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
@@ -504,14 +527,6 @@ Accept: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
 
 <> 2019-05-08T115946.200.json
-
-###
-
-GET http://goa-backend/api/public/products
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-08T115911.200.json
 
 ###
 

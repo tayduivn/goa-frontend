@@ -33,52 +33,19 @@ header nav a.router-link-active {
 
 header #cart {
   position: relative;
+  margin-right: 20px;
 }
 
 header span.number-products {
   background-color: darkred;
   border-radius: 50%;
-  font-size: .7rem;
+  font-size: .6rem;
   color: white;
   margin-right: 2%;
   padding: 2px 5px;
   position: absolute;
   top: 15px;
   left: -15px;
-}
-
-@media screen and (min-width: 1920px) {
-
-}
-
-@media screen and (min-width: 1360px) {
-
-}
-
-@media screen and (max-width: 1024px) {
-  header .header-content {
-    max-width: 1024px;
-  }
-}
-
-@media screen and (max-width: 700px) {
-  header nav a {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-    display: block;
-    padding: 10px;
-  }
-
-  header nav a:last-child {
-    border-bottom: none;
-  }
-
-  header .header-content {
-    display: block;
-    overflow: hidden;
-  }
-}
-
-@media screen and (max-width: 400px) {
 }
 
 /* Menu */
@@ -90,8 +57,7 @@ header span.number-products {
   position: relative;
   top: -15px;
   height: 80px; /* your logo here! */
-  max-width: 280px;
-  width: calc(100% - 50px);
+  width: 80px;
 }
 
 nav {
@@ -177,4 +143,61 @@ nav a {
   .navitem:hover {
     background-color: #333;
   }
+}
+
+@media screen and (min-width: 1920px) {
+
+}
+
+@media screen and (min-width: 1360px) {
+
+}
+
+@media screen and (max-width: 1024px) {
+  header .header-content {
+    max-width: 1024px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  header nav a {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    display: block;
+    padding: 10px;
+  }
+
+  header nav a:last-child {
+    border-bottom: none;
+  }
+
+  header .header-content {
+    display: block;
+    overflow: hidden;
+  }
+
+  #header-home {
+    padding-top: 10px;
+  }
+
+  #logo {
+    height: 40px;
+    top: 0;
+    width: 50px;
+  }
+
+  #smartbutton {
+    margin-left: 15px;
+  }
+
+  .cart-profile {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0;
+  }
+
+  header #cart {
+  }
+}
+
+@media screen and (max-width: 400px) {
 }

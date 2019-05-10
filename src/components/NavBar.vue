@@ -16,11 +16,13 @@
           Representations
         </a>
       </nav>
-      <router-link to="/cart" id="cart">
-        <span class="number-products">{{notificationCount}}</span>
-        <img src="../assets/img/Header/icon_cart.png" alt="cart">
-      </router-link>
-      <a @click.prevent="openNav()"><img src="../assets/img/Header/icon_menu.png" alt="menu profile"></a>
+      <div class="cart-profile">
+        <router-link to="/cart" id="cart">
+          <span class="number-products">{{notificationCount}}</span>
+          <img src="../assets/img/Header/icon_cart.png" alt="cart">
+        </router-link>
+        <a @click.prevent="openNav()"><img src="../assets/img/Header/icon_menu.png" alt="menu profile"></a>
+      </div>
     </div>
   </header>
 </template>
