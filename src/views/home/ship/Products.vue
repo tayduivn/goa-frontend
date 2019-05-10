@@ -10,7 +10,7 @@
           <h4>Filters <span v-if="checkCount > 0">{{checkCount}}</span></h4>
           <label v-for="(category, index) in categories" :key="category.id" class="filter-category" :for="category.id">
             <input type="checkbox" :id="category.id" v-model="checkList[index]" @change="getProductsCheck()">
-            {{category.name }}
+            <span>{{category.name }}</span>
           </label>
         </div>
 

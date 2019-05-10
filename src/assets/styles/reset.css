@@ -202,3 +202,25 @@ button[disabled=disabled], button:disabled {
   color: black;
   font-size: 24px;
 }
+
+@media screen and (min-width: 1360px) {
+
+}
+
+@media screen and (min-width: 1920px) {
+
+}
+
+@media screen and (max-width: 1024px) {
+
+}
+
+@media screen and (max-width: 700px) {
+  .products-box h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+
+}

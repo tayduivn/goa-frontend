@@ -85,4 +85,30 @@
       }
     }
   }
+
+  @media screen and (min-width: 1360px) {
+
+  }
+
+  @media screen and (min-width: 1920px) {
+
+  }
+
+  @media screen and (max-width: 1024px) {
+
+  }
+
+  @media screen and (max-width: 700px) {
+    .search-product .search-content form {
+      flex-direction: column;
+    }
+
+    .search-product label {
+      margin-bottom: 2%;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+
+  }
 </style>

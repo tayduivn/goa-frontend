@@ -57,7 +57,8 @@ header span.number-products {
   position: relative;
   top: -15px;
   height: 80px; /* your logo here! */
-  width: 80px;
+  max-width: 280px;
+  width: calc(100% - 50px);
 }
 
 nav {
@@ -182,7 +183,6 @@ nav a {
   #logo {
     height: 40px;
     top: 0;
-    width: 50px;
   }
 
   #smartbutton {
@@ -195,7 +195,8 @@ nav a {
     margin: 10px 0;
   }
 
-  header #cart {
+  .cart-profile img {
+    width: 25px;
   }
 }
 

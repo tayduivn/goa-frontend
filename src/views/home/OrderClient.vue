@@ -210,7 +210,7 @@
 
 <style scoped lang="scss">
   .order {
-    padding: 20px 50px 50px;
+    padding: 10px;
 
     .order-order {
       max-width: 1024px;
