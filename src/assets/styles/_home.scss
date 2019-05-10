@@ -198,3 +198,86 @@
     }
   }
 }
+
+@media screen and (min-width: 1360px) {
+
+}
+
+@media screen and (min-width: 1920px) {
+
+}
+
+@media screen and (max-width: 1024px) {
+  .home .home-sub-head .sub-head-box .sub-head-content {
+    padding: 60px 8px 40px 8px;
+  }
+
+  .home .home-sub-head .sub-head-box .sub-head-content .sub-head-products {
+    padding: 0 5px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .home .home-sub-head .sub-head-box .sub-head-content {
+    padding: 40px 8px 20px 8px;
+    width: 100%;
+  }
+
+  .home .home-about .about-content .about-info {
+    padding: 20px 20px 40px 20px;
+    width: 100%;
+  }
+
+  .home .home-about .about-content .about-image {
+    display: none;
+  }
+
+  .home .home-representations .representations-box {
+    padding: 40px 20px;
+  }
+
+  .home .home-representations .representations-box .representations-content {
+    width: 100%;
+  }
+
+  .home .home-representations .representations-box .representations-content .representations-info {
+    padding: 0 10px;
+  }
+
+  .home .home-representations .representations-box .representations-content .representations-info h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .sub-head-products-content {
+    display: flex;
+    flex-direction: column;
+
+    div {
+      margin: 1% 0;
+    }
+  }
+
+  .products-box {
+    padding: 20px;
+  }
+
+  .home .home-mission .mission-box {
+    padding: 40px 20px;
+  }
+
+  .home .home-mission .mission-box .mission-content {
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-left: 30%;
+    padding: 10px;
+  }
+
+  .home .home-representations .representations-box .representations-content .representations-info {
+    width: 100%;
+  }
+
+  .home .home-representations .representations-box .representations-content .representations-image {
+    display: none;
+  }
+}

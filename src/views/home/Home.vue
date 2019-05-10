@@ -4,10 +4,12 @@
       <div class="sub-head-box">
         <div class="sub-head-content" v-if="productsLimit&& productsLimit.length
                                       && productsLimit !== 'empty' && productsLimit !== 'loading'">
-          <div class="sub-head-products" v-for="item in productsLimit" :key="item.id">
-            <router-link :to="`products-detail/${item.id}`">
-              <img :src="item.images[0].image" :alt="item.name">
-            </router-link>
+          <div class="sub-head-products-content">
+            <div class="sub-head-products" v-for="item in productsLimit" :key="item.id">
+              <router-link :to="`products-detail/${item.id}`">
+                <img :src="item.images[0].image" :alt="item.name">
+              </router-link>
+            </div>
           </div>
           <p>Ready to use in the preparation of our delicious</p>
           <button class="global-button green">buy now</button>
@@ -157,7 +159,25 @@
                 arrows: false,
                 dots: true,
               }
-            }
+            },
+            {
+              breakpoint: 700,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                arrows: false,
+                dots: true,
+              }
+            },
+            {
+              breakpoint: 400,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                arrows: false,
+                dots: true,
+              }
+            },
           ]
         },
         slickOptionsTwo: {
@@ -173,7 +193,25 @@
                 arrows: false,
                 dots: true,
               }
-            }
+            },
+            {
+              breakpoint: 700,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                arrows: false,
+                dots: true,
+              }
+            },
+            {
+              breakpoint: 400,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                arrows: false,
+                dots: true,
+              }
+            },
           ]
         },
       }
