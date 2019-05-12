@@ -70,7 +70,7 @@
         <div class="products-box">
           <h2>You might also like</h2>
           <div class="content-slick" v-if="productsCategories&& productsCategories.length
-            && productsCategories!== 'empty' && productsCategories!== 'loading'">
+            && productsCategories!== 'empty' && productsCategories!== 'loading' && productsCategories!== 'error'">
             <slick ref="slick" :options="slickOptions">
               <div v-for="item in productsCategories" :key="item.id" class="slick-product-content">
                 <router-link :to="`products-detail/${item.id}`">
@@ -263,7 +263,16 @@
           .then(() => {
             this.submitForm = false
             successMessage(this.$swal, 'Transaction success')
-            this.$router.push('order-client')
+            const id = JSON.parse(localStorage.getItem('user')).id
+            this.$store.dispatch('getCartStatus', `?userId=${id}&status=current`)
+              .then((res) => {
+                localStorage.setItem('cartId', res.cart_id)
+                this.$router.push('order-client')
+              })
+              .catch(err => {
+                this.submitForm = false
+                handleError(this.$swal, err)
+              })
           })
           .catch(err => {
             this.submitForm = false
@@ -279,12 +288,10 @@
       },
       quantityProduct(isPlus, index) {
         if (isPlus && this.carts.products[index].quantity <= parseInt(this.quantityValue[index].quantity)) {
-          console.log('ok 1')
           infoMessage(this.$swal, null, 'This is the max in the store')
           return
         }
         if (!isPlus && parseInt(this.quantityValue[index].quantity) <= 1) {
-          console.log('ok 2')
           infoMessage(this.$swal, null, '1 is the minimum')
           return
         }

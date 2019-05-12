@@ -14,7 +14,14 @@
     <noscript>
       <strong>We're sorry but frontend-transport doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=AR38yPxvRviddRxRoCTCM3uzMxvFvyiKpbeK9365-DQsWqsyxRYMqmuH8pHX5Ci2BaGmZD_M7hlNKecl">
+    </script>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <div id="paypal-button-container"></div>
+    <script>
+      paypal.Buttons().render('#paypal-button-container');
+    </script>
   </body>
 </html>
