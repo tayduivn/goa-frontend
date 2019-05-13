@@ -1,9 +1,9 @@
 'use strict'
 
-const apiUrl = 'http://goa-backend'
+/*const apiUrl = 'http://goa-backend'*/
 const socketUrl = 'http://127.0.0.1:3120'
 /*const socketUrl = 'ws://127.0.0.1:3120'*/
-/*const apiUrl = 'https://tsl-backend.herokuapp.com'*/
+const apiUrl = 'https://goa-backend.herokuapp.com'
 const config = {
   socket_url: socketUrl,
   api_url: apiUrl,

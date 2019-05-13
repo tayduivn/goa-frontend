@@ -3,18 +3,10 @@
     <div class="header-content">
       <router-link to="/" id="logo"></router-link>
       <nav>
-        <a class="scrollLink" href="https://theroom.com.ve/#index-dev-web" onclick="menuResponsive()">
-          About us
-        </a>
-        <router-link class="scrollLink" to="products">
-          Store
-        </router-link>
-        <a class="scrollLink" href="https://theroom.com.ve/#index-edit-video" onclick="menuResponsive()">
-          Our Mission
-        </a>
-        <a class="scrollLink" href="https://theroom.com.ve/#index-edit-video" onclick="menuResponsive()">
-          Representations
-        </a>
+        <router-link class="scrollLink" to="/#home-about">About us</router-link>
+        <router-link class="scrollLink" to="products">Store</router-link>
+        <router-link class="scrollLink" to="/#home-our-mission">Our Mission</router-link>
+        <router-link class="scrollLink" to="/#home-representations">Representations</router-link>
       </nav>
       <div class="cart-profile">
         <router-link to="/cart" id="cart">
@@ -82,7 +74,7 @@
           const linkHref = jQuery(this).attr("href")
           const idElement = linkHref.substr(linkHref.indexOf("#"))
           jQuery('html, body').animate({
-            scrollTop: jQuery(idElement).offset().top
+            scrollTop: jQuery(idElement).offset().top - 100
           }, 1000);
           return false;
         });

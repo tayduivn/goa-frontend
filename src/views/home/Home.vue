@@ -52,7 +52,7 @@
         </div>
       </div>
     </section>
-    <section class="home-about">
+    <section class="home-about" id="home-about">
       <div class="about-content">
         <div class="about-info">
           <h2 class="sub-title">About us</h2>
@@ -97,7 +97,7 @@
         </div>
       </div>
     </section>
-    <section class="home-mission">
+    <section class="home-mission" id="home-our-mission">
       <div class="mission-box">
         <div class="mission-content">
           <h2 class="sub-title">Our Mission</h2>
@@ -106,7 +106,7 @@
         </div>
       </div>
     </section>
-    <section class="home-representations">
+    <section class="home-representations" id="home-representations">
       <div class="representations-box">
         <div class="representations-content">
           <div class="representations-info">
