@@ -54,7 +54,7 @@ footer {
     .social-box {
       margin: 0 auto;
       padding: 40px 0 10px;
-      width: 80%;
+      @include div-adjust(1360px);
 
       .social-payment-content {
         display: flex;
@@ -110,6 +110,7 @@ footer {
 @media screen and (max-width: 700px) {
   footer .foot-social .social-box {
     padding-top: 0;
+    @include div-adjust(1360px);
     width: 90%;
   }
 

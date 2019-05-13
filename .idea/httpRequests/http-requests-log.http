@@ -1,3 +1,267 @@
+PUT https://goa-backend.herokuapp.com/api/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+{
+  "id": "2",
+  "sku": "13213",
+  "name": "Cacao 20",
+  "description_short": "Description short",
+  "description_one": "Description long 1",
+  "description_two": "Description long 2",
+  "preparation": "Preparation",
+  "nutrition": "Preparation",
+  "quantity": 2,
+  "user_id": "1",
+  "regular_price": "100"
+}
+
+<> 2019-05-13T112232.201.json
+
+###
+
+PUT https://goa-backend.herokuapp.com/api/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+{
+  "id": "2",
+  "sku": "13213",
+  "name": "Cacao 10",
+  "description_short": "Description short",
+  "description_one": "Description long 1",
+  "description_two": "Description long 2",
+  "preparation": "Preparation",
+  "nutrition": "Preparation",
+  "quantity": 2,
+  "user_id": "1",
+  "regular_price": "100"
+}
+
+<> 2019-05-13T112146.500.html
+
+###
+
+PUT https://goa-backend.herokuapp.com/api/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+{
+  "id": "2",
+  "sku": "13213",
+  "name": "Cacao 10",
+  "description_short": "Description short",
+  "description_one": "Description long 1",
+  "description_two": "Description long 2",
+  "preparation": "Preparation",
+  "nutrition": "Preparation",
+  "quantity": 2,
+  "user_id": "1",
+  "regular_price": "100"
+}
+
+<> 2019-05-13T112036.500.html
+
+###
+
+PUT https://goa-backend.herokuapp.com/api/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+{
+  "id": "2",
+  "sku": "13213",
+  "name": "Cacao 10",
+  "description_short": "Description short",
+  "description_one": "Description long 1",
+  "description_two": "Description long 2",
+  "preparation": "Preparation",
+  "nutrition": "Preparation",
+  "quantity": 2,
+  "user_id": "1",
+  "regular_price": "100"
+}
+
+<> 2019-05-13T111934.500.html
+
+###
+
+POST https://goa-backend.herokuapp.com/api/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+{
+  "id": "",
+  "sku": "13213",
+  "name": "Cacao 10",
+  "description_short": "Description short",
+  "description_one": "Description long 1",
+  "description_two": "Description long 2",
+  "preparation": "Preparation",
+  "nutrition": "Preparation",
+  "quantity": 2,
+  "user_id": "1",
+  "regular_price": "100"
+}
+
+<> 2019-05-13T111657.201.json
+
+###
+
+POST https://goa-backend.herokuapp.com/api/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+{
+  "id": "",
+  "sku": "13213",
+  "name": "Cacao 20",
+  "description_short": "Description short",
+  "description_one": "Description long 1",
+  "description_two": "Description long 2",
+  "preparation": "Preparation",
+  "nutrition": "Preparation",
+  "quantity": 2,
+  "user_id": "1",
+  "regular_price": "100"
+}
+
+<> 2019-05-13T111647.400.json
+
+###
+
+POST http://goa-backend/api/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+{
+  "id": "",
+  "sku": "13213",
+  "name": "Cacao 20",
+  "description_short": "Description short",
+  "description_one": "Description long 1",
+  "description_two": "Description long 2",
+  "preparation": "Preparation",
+  "nutrition": "Preparation",
+  "quantity": 2,
+  "user_id": "1",
+  "regular_price": "100"
+}
+
+<> 2019-05-13T111556.201.json
+
+###
+
+POST https://goa-backend.herokuapp.com/api/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+{
+  "id": "",
+  "sku": "13213",
+  "name": "Cacao 20",
+  "description_short": "Description short",
+  "description_one": "Description long 1",
+  "description_two": "Description long 2",
+  "preparation": "Preparation",
+  "nutrition": "Preparation",
+  "quantity": 2,
+  "user_id": "1",
+  "regular_price": "100"
+}
+
+<> 2019-05-13T111228.500.html
+
+###
+
+POST https://goa-backend.herokuapp.com/api/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+{
+  "id": "",
+  "sku": "13213",
+  "name": "Cacao 20",
+  "description_short": "Description short",
+  "description_one": "Description long 1",
+  "description_two": "Description long 2",
+  "preparation": "Preparation",
+  "quantity": 2,
+  "user_id": "1",
+  "regular_price": "100"
+}
+
+<> 2019-05-13T111207.500.html
+
+###
+
+POST https://goa-backend.herokuapp.com/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "Ivans10@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-13T111202.200.json
+
+###
+
+POST https://goa-backend.herokuapp.com/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "Ivans10@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-13T055437.200.json
+
+###
+
+POST https://goa-backend.herokuapp.com/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "Ivans10@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-13T044651.500.html
+
+###
+
+POST https://goa-backend.herokuapp.com/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "Ivans10@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-13T042643.500.html
+
+###
+
+POST https://goa-backend.herokuapp.com/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "Ivans10@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-13T042553.500.html
+
+###
+
+GET https://goa-backend.herokuapp.com/api/public/endpoints
+Accept: application/json
+
+<> 2019-05-13T042548.200.json
+
+###
+
 GET http://goa-backend/api/carts?userId=2&status=current
 Accept: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
@@ -419,126 +683,6 @@ Accept: application/json
 Authorization: Bearer
 
 <> 2019-05-09T033209.405.json
-
-###
-
-GET http://goa-backend/api/public/products?limit=5&page=4
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-05-09T032943.200.json
-
-###
-
-GET http://goa-backend/api/public/products?limit=5&page=4
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-05-09T032840.200.json
-
-###
-
-GET http://goa-backend/api/public/products?limit=5&page=4
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-05-09T032440.200.json
-
-###
-
-GET http://goa-backend/api/public/products
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-05-09T032412.200.json
-
-###
-
-GET http://goa-backend/api/public/products?limit=5&page=4
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-05-09T031837.200.json
-
-###
-
-GET http://goa-backend/api/public/products?limit=5&page=4
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-05-08T063625.200.json
-
-###
-
-GET http://goa-backend/api/public/products?limit=5&page=4
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-05-08T063608.200.json
-
-###
-
-GET http://goa-backend/api/public/products?limit=5&page=4
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-05-08T063556.200.json
-
-###
-
-GET http://goa-backend/api/public/products?limit=5&page=4
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-05-08T063534.200.json
-
-###
-
-GET http://goa-backend/api/public/products?limit=5&page=4
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-05-08T063521.200.json
-
-###
-
-GET http://goa-backend/api/public/products?limit=5&page=4
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-05-08T063449.200.json
-
-###
-
-GET http://goa-backend/api/public/products?limit=5&page=4
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-05-08T063353.200.json
-
-###
-
-GET http://goa-backend/api/public/products?limit=5&page=4
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-05-08T062356.200.json
-
-###
-
-GET http://goa-backend/api/public/products?limit=5&page=4
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-08T120331.200.json
-
-###
-
-GET http://goa-backend/api/public/products?limit=5
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-08T120314.200.json
 
 ###
 

@@ -8,7 +8,7 @@
       <div class="d-flex justify-content-between mb-3">
         <h3 class="mb-2">List of Categories</h3>
         <div class="text-right">
-          <button class="btn-sm btn-primary" @click.prevent="openModal(null)">{{wordEng.save}}</button>
+          <button class="btn-sm btn-primary" @click.prevent="openModal(null)">{{wordEng.create}}</button>
         </div>
       </div>
       <table class="table table-striped">

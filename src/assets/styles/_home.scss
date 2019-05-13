@@ -2,7 +2,8 @@
   color: $color-font;
 
   .global-separator {
-    top: -18px
+    top: -18px;
+    @include div-adjust(1360px);
   }
 
   .home-sub-head {
@@ -38,13 +39,13 @@
   }
 
   .home-info {
-    border-top: 5px solid #00EE9D;
     width: 100%;
 
     .info-box {
       @include div-adjust(1360px);
       background-color: #00CCC3;
       color: white;
+      border-top: 5px solid #00EE9D;
 
       p:first-child {
         padding: 20px 0 5px;
@@ -148,6 +149,7 @@
       background-size: cover;
       color: white;
       padding: 80px 40px;
+      @include div-adjust(1360px);
 
       .mission-content {
         margin-left: 30%;
@@ -168,6 +170,7 @@
     .representations-box {
       @include div-adjust(1360px);
       background: url("../img/index/Hojas_Back_Secc_Represetation.jpg") no-repeat;
+      background-position-y: bottom;
       background-size: contain;
       padding: 60px 40px 40px;
 

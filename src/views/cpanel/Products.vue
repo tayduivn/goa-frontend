@@ -8,7 +8,7 @@
       <div class="d-flex justify-content-between mb-3">
         <h3 class="mb-2">List of products</h3>
         <div class="text-right">
-          <button class="btn-sm btn-primary" @click.prevent="openModal(null, 'products')">{{wordEng.save}}</button>
+          <button class="btn-sm btn-primary" @click.prevent="openModal(null, 'products')">{{wordEng.create}}</button>
         </div>
       </div>
       <table class="table table-striped">
@@ -27,13 +27,13 @@
           <th scope="col">{{++index}}</th>
           <td>{{product.name}}</td>
           <td>
-            <button class="btn btn-sm btn-primary" @click.prevent="openModal(product, 'categories')">Categorías</button>
+            <button class="btn btn-sm btn-primary" @click.prevent="openModal(product, 'categories')">Categories</button>
           </td>
           <td>
-            <button class="btn btn-sm btn-primary" @click.prevent="openModal(product, 'images')">Imágenes</button>
+            <button class="btn btn-sm btn-primary" @click.prevent="openModal(product, 'images')">Image</button>
           </td>
           <td>
-            <button class="btn btn-sm btn-primary" @click.prevent="openModal(product, 'products')">Editar</button>
+            <button class="btn btn-sm btn-primary" @click.prevent="openModal(product, 'products')">Edit</button>
           </td>
           <td>
             <button class="btn btn-sm btn-danger" @click.prevent="deleteData(product.id)">
@@ -101,7 +101,7 @@
             </div>
           </div>
           <div class="text-right">
-            <button type="submit" class="btn-sm btn-primary">{{wordEng.save}}</button>
+            <button type="submit" :disabled="!!submitForm" class="btn-sm btn-primary">{{wordEng.save}}</button>
           </div>
         </form>
       </div>
@@ -131,7 +131,7 @@
             </p>
           </div>
           <div class="text-right">
-            <button :disabled="!!submitForm" type="submit" class="btn-sm btn-primary">Guardar</button>
+            <button :disabled="!!submitForm" type="submit" class="btn-sm btn-primary">{{wordEng.save}}</button>
           </div>
         </form>
         <hr>
@@ -143,7 +143,7 @@
               <div class="image-content col-md-4 col-12">
                 <img :src="image.image" :alt="image.id_image">
               </div>
-              <div class="image-content col-md-8 col-12">
+              <div class="image-content col-md-8 col-12" v-if="image.id_image !== 0">
                 <div class="form-group">
                   <label>Image</label>
                   <input type="file" class="form-control" accept="image/*" @change="subirImagen" required>
@@ -151,7 +151,7 @@
                     <small>{{wordEng.upload}}</small>
                   </p>
                 </div>
-                <div class="text-right" v-if="image.id_image !== 0">
+                <div class="text-right">
                   <button :disabled="!!submitForm" type="submit" class="btn-sm btn-primary"
                           @click.prevent="editDataImage(image.id_image)">
                     {{wordEng.save}}
@@ -161,6 +161,9 @@
                     {{wordEng.delete}}}
                   </button>
                 </div>
+              </div>
+              <div class="image-content col-md-8 col-12" v-else>
+                <h6>This image is by default. Upload new image</h6>
               </div>
             </div>
           </form>
@@ -236,6 +239,7 @@
         }
       },
       sendData() {
+        this.submitForm = true
         if (this.product.id === '') {
           this.saveData()
         } else {
@@ -250,18 +254,22 @@
       saveData() {
         getAxios(apiProducts.all, 'POST', this.product)
           .then(() => {
+            this.submitForm = false
             this.successRequest(this.wordEng.created)
           })
           .catch(err => {
+            this.submitForm = false
             handleError(this.$swal, err)
           })
       },
       editData() {
         getAxios(apiProducts.all, 'PUT', this.product)
           .then(() => {
+            this.submitForm = false
             this.successRequest(this.wordEng.edited)
           })
           .catch(err => {
+            this.submitForm = false
             handleError(this.$swal, err)
           })
       },
