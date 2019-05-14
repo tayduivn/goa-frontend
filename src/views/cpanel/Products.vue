@@ -37,7 +37,7 @@
           </td>
           <td>
             <button class="btn btn-sm btn-danger" @click.prevent="deleteData(product.id)">
-              Eliminar
+              Delete
             </button>
           </td>
         </tr>
@@ -143,7 +143,7 @@
               <div class="image-content col-md-4 col-12">
                 <img :src="image.image" :alt="image.id_image">
               </div>
-              <div class="image-content col-md-8 col-12" v-if="image.id_image !== 0">
+              <div class="image-content col-md-8 col-12" v-if="image.id_image !== '0'">
                 <div class="form-group">
                   <label>Image</label>
                   <input type="file" class="form-control" accept="image/*" @change="subirImagen" required>
@@ -158,7 +158,7 @@
                   </button>
                   <button :disabled="!!submitForm" type="submit" class="btn-sm btn-danger ml-3"
                           @click.prevent="deleteDataImage(image.id_image)">
-                    {{wordEng.delete}}}
+                    {{wordEng.delete}}
                   </button>
                 </div>
               </div>
@@ -254,10 +254,12 @@
       saveData() {
         getAxios(apiProducts.all, 'POST', this.product)
           .then(() => {
+            console.log('ok')
             this.submitForm = false
             this.successRequest(this.wordEng.created)
           })
           .catch(err => {
+            console.log('ok2')
             this.submitForm = false
             handleError(this.$swal, err)
           })
@@ -309,8 +311,10 @@
           .then(() => {
             this.submitForm = false
             successMessage(this.$swal, this.wordEng.created)
+            console.log('ok')
             this.$store.dispatch('getProducts')
               .then(() => {
+                console.log('ok2')
                 this.product = this.products.find(value => value.id === this.product.id)
               })
               .catch(err => {

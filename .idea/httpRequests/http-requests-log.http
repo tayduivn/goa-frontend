@@ -1,3 +1,107 @@
+GET http://goa-backend/api/public/products
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+<> 2019-05-14T063535.200.json
+
+###
+
+GET http://goa-backend/api/public/products
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+<> 2019-05-14T063444.200.json
+
+###
+
+GET http://goa-backend/api/public/products
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+<> 2019-05-14T063349.200.json
+
+###
+
+GET https://backend.gardensofamerica.com/api/public/products
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+<> 2019-05-14T063326.200.json
+
+###
+
+POST https://backend.gardensofamerica.com/api/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
+
+{
+  "id": "",
+  "sku": "13213",
+  "name": "Cacao 12",
+  "description_short": "Description short",
+  "description_one": "Description long 1",
+  "description_two": "Description long 2",
+  "preparation": "Preparation",
+  "nutrition": "Preparation",
+  "quantity": 2,
+  "user_id": "1",
+  "regular_price": "100"
+}
+
+<> 2019-05-14T060152.401.json
+
+###
+
+POST https://backend.gardensofamerica.com/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "Ivans10@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-14T060147.200.json
+
+###
+
+POST https://backend.gardensofamerica.com/api/products
+Content-Type: application/json
+Authorization: Bearer
+
+{
+  "id": "",
+  "sku": "13213",
+  "name": "Cacao 12",
+  "description_short": "Description short",
+  "description_one": "Description long 1",
+  "description_two": "Description long 2",
+  "preparation": "Preparation",
+  "nutrition": "Preparation",
+  "quantity": 2,
+  "user_id": "1",
+  "regular_price": "100"
+}
+
+<> 2019-05-14T060136.401.json
+
+###
+
+GET https://backend.gardensofamerica.com/api/public/products
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-05-14T060127.200.json
+
+###
+
+GET https://backend.gardensofamerica.com/api/public/products
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-05-13T051232.200.json
+
+###
+
 PUT https://goa-backend.herokuapp.com/api/products
 Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
@@ -611,78 +715,6 @@ Accept: application/json
 Authorization: Bearer
 
 <> 2019-05-09T042306.400.json
-
-###
-
-GET http://goa-backend/api/public/products?id=22&category=true&limit=15&order=RAND
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-05-09T042246.500.json
-
-###
-
-GET http://goa-backend/api/public/products?id=22&category=true&limit=15&order=RAND
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-05-09T042138.500.json
-
-###
-
-GET http://goa-backend/api/public/products?id=22
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-05-09T041140.200.json
-
-###
-
-GET http://goa-backend/api/public/products?id=22
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-05-09T040838.200.json
-
-###
-
-GET http://goa-backend/api/public/products?id=22
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-05-09T040201.200.json
-
-###
-
-GET http://goa-backend/api/public/products?id=22
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-05-09T035524.200.json
-
-###
-
-GET http://goa-backend/api/public/products?id=22
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-05-09T035207.200.json
-
-###
-
-GET http://goa-backend/api/public/products?categoryName=Alimentos
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-05-09T033217.200.json
-
-###
-
-GET http://goa-backend/api/public/?categoryName=Alimentos
-Accept: application/json
-Authorization: Bearer
-
-<> 2019-05-09T033209.405.json
 
 ###
 
