@@ -41,7 +41,7 @@ const apiProductsCategories = {
 
 const apiImages = {
   all: `${config.api_url}/api/images`,
-  register: `${config.api_url}/api/images/register`,
+  register: `${config.api_url}/api/images/reg`,
   update: `${config.api_url}/api/images/update`,
   allPublic: `${config.api_url}/api/public/images`,
 }

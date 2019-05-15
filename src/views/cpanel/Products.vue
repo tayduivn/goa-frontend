@@ -311,10 +311,8 @@
           .then(() => {
             this.submitForm = false
             successMessage(this.$swal, this.wordEng.created)
-            console.log('ok')
             this.$store.dispatch('getProducts')
               .then(() => {
-                console.log('ok2')
                 this.product = this.products.find(value => value.id === this.product.id)
               })
               .catch(err => {

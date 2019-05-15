@@ -1,4 +1,4 @@
-GET {{host}}/api/public/categories
+GET {{host}}/api/categories
 Accept: application/json
 Authorization: Bearer {{auth_token}}
 ###

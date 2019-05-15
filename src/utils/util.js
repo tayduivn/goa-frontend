@@ -68,7 +68,6 @@ function handleError(swal, err, message = '') {
         validateMessage()
         break
       case 401:
-        console.log('ok3')
         store.dispatch('logout').then(() => router.push('/'))
         break
       case 404:
