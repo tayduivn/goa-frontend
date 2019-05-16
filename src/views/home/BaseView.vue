@@ -1,15 +1,15 @@
 <template>
   <div class="base">
-    <div v-if="isClient" class="index-sidenav mySidenav">
+    <div v-if="getToken && levelUser && levelUser === 'Cliente'" class="index-sidenav mySidenav">
       <a href="javascript:void(0)" class="closebtn" @click.prevent="closeNav()">&times;</a>
-      <router-link to="profile" @click.prevent="closeNav()">Profile</router-link>
-      <router-link to="order-client" @click.prevent="closeNav()">History</router-link>
+      <a href="javascript:void(0)" @click.prevent="closeNav('profile')">Profile</a>
+      <a href="javascript:void(0)" @click.prevent="closeNav('order-client')">History</a>
       <button tag="a" @click.prevent="logout">Logout</button>
     </div>
-    <div v-else id="mySidenav" class="index-sidenav">
+    <div v-else class="index-sidenav mySidenav">
       <a href="javascript:void(0)" class="closebtn" @click.prevent="closeNav()">&times;</a>
-      <router-link to="login" @click.prevent="closeNav()">Login</router-link>
-      <router-link to="register" @click.prevent="closeNav()">Register</router-link>
+      <a href="javascript:void(0)" @click.prevent="closeNav('login')">Login</a>
+      <a href="javascript:void(0)" @click.prevent="closeNav('register')">Register</a>
     </div>
     <div id="main">
       <NavBarC/>
@@ -32,23 +32,21 @@
       NavBarC,
       FooterC
     },
-    data() {
-      return {
-        isClient: false
-      }
-    },
-    created() {
-      let {token, level} = getTokenLevelUser()
-      if (token && level === 'Cliente') {
-        this.isClient = true
-      }
+    computed: {
+      levelUser() {
+        return this.$store.getters.getLevelUser;
+      },
+      getToken() {
+        return this.$store.getters.getToken;
+      },
     },
     methods: {
       openNav() {
-        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementsByClassName("mySidenav")[0].style.width = "250px";
       },
-      closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
+      closeNav(location = '') {
+        if (location !== '') this.$router.push(location)
+        document.getElementsByClassName("mySidenav")[0].style.width = "0";
       },
       logout() {
         this.$store.dispatch('logout')

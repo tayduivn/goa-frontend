@@ -13,7 +13,9 @@ export default {
   getters: {
     getUsers: state => state.users,
     getUser: state => state.user,
-    getLevelUser: state => state.levelUser,
+    getLevelUser: state => {
+      return state.levelUser
+    },
     getToken: state => !!state.token
   },
   mutations: {

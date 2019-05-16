@@ -1,3 +1,27 @@
+POST https://goa-backend.herokuapp.com/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "admin@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-15T092340.200.json
+
+###
+
+POST https://goa-backend.herokuapp.com/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "admin@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-15T092134.500.html
+
+###
+
 POST https://backend.gardensofamerica.com/api/images/reg
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
@@ -619,26 +643,6 @@ Accept: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
 
 <> 2019-05-14T090640.200.json
-
-###
-
-POST http://goa-backend/api/public/users/login
-Content-Type: application/json
-
-{
-  "email": "Ivans10@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-05-14T090635.200.json
-
-###
-
-GET http://goa-backend/api/public/categories
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Iml2YW5zMTBAZ21haWwuY29tIn0.y_2hR76pMORPKIrkQ5BIHkmbqw6D2FJFhNDPHA6JxGU
-
-<> 2019-05-14T090555.200.json
 
 ###
 
