@@ -138,6 +138,11 @@ let router = new Router({
           component: () => import('./views/cpanel/Categories')
         },
         {
+          path: 'emails',
+          name: 'emails',
+          component: () => import('./views/cpanel/SingUpEmail')
+        },
+        {
           path: 'reviews',
           name: 'Reviews',
           component: () => import('./views/cpanel/Reviews')

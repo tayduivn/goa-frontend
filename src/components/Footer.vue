@@ -1,15 +1,14 @@
 <template>
   <footer>
     <div class="foot-email">
-      <div class="email-box">
-        <!-- TODO: send email -->
+      <form class="email-box" @submit.prevent="sendSuscribe">
         <p>Sign up for our newsletter and be the first to know about our new products.</p>
         <div class="email-info">
           <p>Keep in touch</p>
-          <input id="email" type="email" placeholder="your email address">
-          <button class="global-button transparent">submit</button>
+          <input id="email" type="email" placeholder="your email address" v-model="user.email">
+          <button type="submit" class="global-button transparent">submit</button>
         </div>
-      </div>
+      </form>
     </div>
     <div class="foot-social">
       <div class="social-box">
@@ -46,7 +45,29 @@
 </template>
 
 <script>
+  import {apiEmails, getAxios} from "../utils/endpoints"
+  import {successMessage} from "../utils/handle-message"
+  import {handleError} from "../utils/util"
+
   export default {
-    name: 'Footer'
+    name: 'Footer',
+    data() {
+      return {
+        user: {
+          email: ''
+        }
+      }
+    },
+    methods: {
+      sendSuscribe() {
+        getAxios(apiEmails.allPublic, 'POST', this.user)
+          .then(() => {
+            successMessage(this.$swal)
+          })
+          .catch(err => {
+            handleError(this.$swal, err)
+          })
+      }
+    },
   }
 </script>

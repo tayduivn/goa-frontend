@@ -1,0 +1,45 @@
+GET {{host}}/api/emails
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+###
+
+GET {{host}}/api/emails?id=1
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+###
+
+POST {{host}}/api/public/emails
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "email": "pedro@gmail.com"
+}
+
+###
+
+PUT {{host}}/api/admin/emails/update
+Content-Type: application/x-www-form-urlencoded
+Authorization: Bearer {{auth_token}}
+
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+Content-Type: text/plain
+
+Category test
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="fuki.jpeg"
+Content-Type: image/jpeg
+
+< ./../image/fuki.jpeg
+--WebAppBoundary--
+###
+
+DELETE {{host}}/api/admin/emails/delete
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": "1"
+}
+###

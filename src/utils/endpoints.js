@@ -35,6 +35,11 @@ const apiCategories = {
   allPublic: `${config.api_url}/api/public/categories`,
 }
 
+const apiEmails = {
+  all: `${config.api_url}/api/emails`,
+  allPublic: `${config.api_url}/api/public/emails`,
+}
+
 const apiProductsCategories = {
   all: `${config.api_url}/api/categories/products`,
 }
@@ -83,5 +88,6 @@ export {
   apiCartsProducts,
   apiOrders,
   apiProducts,
+  apiEmails,
   apiProductsCategories
 };

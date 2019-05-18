@@ -91,7 +91,6 @@
       return {
         submitForm: false,
         category: modelCategory,
-        formData: null,
         open: false,
         wordEng: wordEng,
       }
@@ -103,7 +102,6 @@
     },
     created() {
       this.$store.dispatch('getCategories')
-      this.formData = new FormData()
     },
     methods: {
       sendData() {

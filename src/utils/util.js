@@ -52,6 +52,7 @@ const wordEng = {
   categories: 'Categories',
   orders: 'Orders',
   users: 'Users',
+  emails: 'Emails Suscribe',
 }
 
 function handleError(swal, err, message = '') {

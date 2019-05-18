@@ -1,3 +1,323 @@
+POST http://goa-backend/api/public/emails
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "email": "pedro@gmail.com"
+}
+
+<> 2019-05-18T055712.409.json
+
+###
+
+POST http://goa-backend/api/public/emails
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "email": "pedro@gmail.com"
+}
+
+<> 2019-05-18T055640.201.json
+
+###
+
+POST http://goa-backend/api/public/emails
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "email": "pedro@gmail.com"
+}
+
+<> 2019-05-18T054244.201.json
+
+###
+
+POST http://goa-backend/api/public/emails
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "email": "pedro@gmail.com"
+}
+
+<> 2019-05-18T054158.500.html
+
+###
+
+GET http://goa-backend/api/emails
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+<> 2019-05-18T054153.200.json
+
+###
+
+POST http://goa-backend/api/emails
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "email": "pedro@gmail.com"
+}
+
+<> 2019-05-18T054134.405.json
+
+###
+
+POST http://goa-backend/api/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "sku": "13213",
+  "name": "Cacao",
+  "description_short": "Description short",
+  "description_one": "Description long 1",
+  "description_two": "Description long 2",
+  "preparation": "Preparation",
+  "nutrition": "Preparation",
+  "quantity": 2,
+  "user_id": "1",
+  "regular_price": "100"
+}
+
+<> 2019-05-18T050805.500.html
+
+###
+
+POST http://goa-backend/api/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "sku": "13213",
+  "name": "Cacao",
+  "description_short": "Description short",
+  "description_one": "Description long 1",
+  "description_two": "Description long 2",
+  "preparation": "Preparation",
+  "nutrition": "Preparation",
+  "quantity": 2,
+  "user_id": "1",
+  "regular_price": "100"
+}
+
+<> 2019-05-18T050732.500.html
+
+###
+
+POST http://goa-backend/api/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "sku": "13213",
+  "name": "Cacao",
+  "description_short": "Description short",
+  "description_one": "Description long 1",
+  "description_two": "Description long 2",
+  "preparation": "Preparation",
+  "nutrition": "Preparation",
+  "quantity": 2,
+  "user_id": "1",
+  "regular_price": "100"
+}
+
+<> 2019-05-18T050555.500.html
+
+###
+
+POST http://goa-backend/api/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "sku": "13213",
+  "name": "Cacao",
+  "description_short": "Description short",
+  "description_one": "Description long 1",
+  "description_two": "Description long 2",
+  "preparation": "Preparation",
+  "nutrition": "Preparation",
+  "quantity": 2,
+  "user_id": "1",
+  "regular_price": "100"
+}
+
+<> 2019-05-18T050541.500.html
+
+###
+
+POST http://goa-backend/api/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "sku": "13213",
+  "name": "Cacao",
+  "description_short": "Description short",
+  "description_one": "Description long 1",
+  "description_two": "Description long 2",
+  "preparation": "Preparation",
+  "nutrition": "Preparation",
+  "quantity": 2,
+  "user_id": "1",
+  "regular_price": "100"
+}
+
+<> 2019-05-18T050516.500.html
+
+###
+
+POST http://goa-backend/api/products
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "sku": "13213",
+  "name": "Cacao",
+  "description_short": "Description short",
+  "description_one": "Description long 1",
+  "description_two": "Description long 2",
+  "preparation": "Preparation",
+  "nutrition": "Preparation",
+  "quantity": 2,
+  "user_id": "1",
+  "regular_price": "100"
+}
+
+<> 2019-05-18T050452.500.html
+
+###
+
+POST http://goa-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "code": 1,
+  "processor": "Credit card",
+  "processor_trans_id": 1,
+  "cc_num": "",
+  "cc_type": "",
+  "start_date": "",
+  "end_date": "",
+  "token_stripe": {
+    "id": "tok_1EbVtnAALSaIwJgkXBcChbxy",
+    "object": "token",
+    "card": {
+      "id": "card_1EbVtnAALSaIwJgkwt2WZYhz",
+      "object": "card",
+      "address_city": null,
+      "address_country": null,
+      "address_line1": null,
+      "address_line1_check": null,
+      "address_line2": null,
+      "address_state": null,
+      "address_zip": null,
+      "address_zip_check": null,
+      "brand": "Visa",
+      "country": "US",
+      "cvc_check": "pass",
+      "dynamic_last4": null,
+      "exp_month": 12,
+      "exp_year": 2054,
+      "funding": "credit",
+      "last4": "4242",
+      "metadata": {},
+      "name": "ivans21@gmail.com",
+      "tokenization_method": null
+    },
+    "client_ip": "181.35.53.206",
+    "created": 1558198843,
+    "email": "ivans21@gmail.com",
+    "livemode": false,
+    "type": "card",
+    "used": false
+  },
+  "type_payment": {
+    "id": "paypal_id",
+    "name": "Paypal"
+  },
+  "cart_id": "1",
+  "user_id": "2",
+  "total": 2500,
+  "subtotal": 2500
+}
+
+<> 2019-05-18T045923.500.html
+
+###
+
+POST http://goa-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
+
+{
+  "id": "",
+  "code": 1,
+  "processor": "Credit card",
+  "processor_trans_id": 1,
+  "cc_num": "",
+  "cc_type": "",
+  "start_date": "",
+  "end_date": "",
+  "token_stripe": {
+    "id": "tok_1EbVtnAALSaIwJgkXBcChbxy",
+    "object": "token",
+    "card": {
+      "id": "card_1EbVtnAALSaIwJgkwt2WZYhz",
+      "object": "card",
+      "address_city": null,
+      "address_country": null,
+      "address_line1": null,
+      "address_line1_check": null,
+      "address_line2": null,
+      "address_state": null,
+      "address_zip": null,
+      "address_zip_check": null,
+      "brand": "Visa",
+      "country": "US",
+      "cvc_check": "pass",
+      "dynamic_last4": null,
+      "exp_month": 12,
+      "exp_year": 2054,
+      "funding": "credit",
+      "last4": "4242",
+      "metadata": {},
+      "name": "ivans21@gmail.com",
+      "tokenization_method": null
+    },
+    "client_ip": "181.35.53.206",
+    "created": 1558198843,
+    "email": "ivans21@gmail.com",
+    "livemode": false,
+    "type": "card",
+    "used": false
+  },
+  "type_payment": {
+    "id": "paypal_id",
+    "name": "Paypal"
+  },
+  "cart_id": "1",
+  "user_id": "2",
+  "total": 2500,
+  "subtotal": 2500
+}
+
+<> 2019-05-18T045835.500.html
+
+###
+
 GET http://goa-backend/api/transactions?payment=paypal
 Accept: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
@@ -983,130 +1303,6 @@ Accept: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
 
 <> 2019-05-14T092333.200.json
-
-###
-
-POST https://backend.gardensofamerica.com/api/public/users/login
-Content-Type: application/json
-
-{
-  "email": "Ivans20@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-05-14T092326.200.json
-
-###
-
-GET https://backend.gardensofamerica.com/api/categories
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-14T092316.200.json
-
-###
-
-GET https://backend.gardensofamerica.com/api/public/categories
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-14T092311.405.json
-
-###
-
-GET https://backend.gardensofamerica.com/api/public/categories
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-14T092242.200.json
-
-###
-
-GET https://backend.gardensofamerica.com/api/public/categories
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-14T092234.200.json
-
-###
-
-GET https://backend.gardensofamerica.com/api/public/categories
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-14T092204.200.json
-
-###
-
-GET https://backend.gardensofamerica.com/api/public/categories
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-14T092033.200.json
-
-###
-
-GET http://goa-backend/api/public/categories
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-14T092022.200.json
-
-###
-
-GET https://backend.gardensofamerica.com/api/public/categories
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-14T092005.200.json
-
-###
-
-POST https://backend.gardensofamerica.com/api/public/users/login
-Content-Type: application/json
-
-{
-  "email": "Ivans20@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-05-14T092001.200.json
-
-###
-
-POST http://goa-backend/api/public/users/login
-Content-Type: application/json
-
-{
-  "email": "Ivans20@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-05-14T091954.200.json
-
-###
-
-GET http://goa-backend/api/public/categories
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-14T091926.200.json
-
-###
-
-GET http://goa-backend/api/public/categories
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-14T091918.405.json
-
-###
-
-GET https://backend.gardensofamerica.com/api/public/categories
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-14T091904.200.json
 
 ###
 

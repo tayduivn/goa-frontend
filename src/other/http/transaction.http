@@ -64,7 +64,7 @@ Authorization: Bearer {{auth_token}}
   },
   "type_payment": {
     "id": "paypal_id",
-    "name": "Credit card"
+    "name": "Paypal"
   },
   "cart_id": "1",
   "user_id": "2",

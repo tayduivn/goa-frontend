@@ -38,6 +38,9 @@
           <router-link to="/cpanel/reviews">{{wordEng.reviews}}</router-link>
         </li>
         <li class="sidenav__list-item">
+          <router-link to="/cpanel/emails">{{wordEng.emails}}</router-link>
+        </li>
+        <li class="sidenav__list-item">
           <router-link to="/cpanel/orders">
             {{wordEng.orders}}
             <span style="display: none" :class="{isActive: (ordersBase > 0)}">{{ordersBase}}</span>

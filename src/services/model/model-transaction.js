@@ -8,6 +8,7 @@ const modelTransaction = {
   start_date: "",
   end_date: "",
   token_stripe: "",
+  payload_paypal: "",
   type_payment: {},
   reset: function () {
     this.id = ""
@@ -19,6 +20,7 @@ const modelTransaction = {
     this.start_date = ""
     this.end_date = ""
     this.token_stripe = ""
+    this.payload_paypal = ""
     this.type_payment = {}
     return modelTransaction
   }

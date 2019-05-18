@@ -269,7 +269,7 @@
         getAxios(`${apiTransactions.all}?payment=Paypal`)
           .then(res => {
             if (res.data.data.paypal_client !== '') {
-              const paypal = require('paypal-checkout');
+              /*TODO: const paypal = require('paypal-checkout');*/
               const client = require('braintree-web/client');
               const paypalCheckout = require('braintree-web/paypal-checkout');
 
