@@ -7,6 +7,8 @@ const modelTransaction = {
   cc_type: "",
   start_date: "",
   end_date: "",
+  token_stripe: "",
+  type_payment: {},
   reset: function () {
     this.id = ""
     this.code = ""
@@ -16,6 +18,8 @@ const modelTransaction = {
     this.cc_type = ""
     this.start_date = ""
     this.end_date = ""
+    this.token_stripe = ""
+    this.type_payment = {}
     return modelTransaction
   }
 }

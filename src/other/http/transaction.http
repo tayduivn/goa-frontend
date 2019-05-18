@@ -1,10 +1,16 @@
-GET {{host}}/api/public/transaction/getID/1
+GET {{host}}/api/public/transactions
 Accept: application/json
 Authorization: Bearer {{auth_token}}
 
 ###
 
-GET {{host}}/api/public/transaction/getAll
+GET {{host}}/api/public/transactions
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+GET {{host}}/api/transactions?payment=paypal
 Accept: application/json
 Authorization: Bearer {{auth_token}}
 
@@ -17,16 +23,53 @@ Authorization: Bearer {{auth_token}}
 {
   "id": "",
   "code": 1,
-  "processor": "American Express",
+  "processor": "Credit card",
   "processor_trans_id": 1,
-  "cc_num": "23",
-  "cc_type": "123",
-  "start_date": "2019-05-01",
-  "end_date": "2019-05-15",
+  "cc_num": "",
+  "cc_type": "",
+  "start_date": "",
+  "end_date": "",
+  "token_stripe": {
+    "id": "tok_1EbVtnAALSaIwJgkXBcChbxy",
+    "object": "token",
+    "card": {
+      "id": "card_1EbVtnAALSaIwJgkwt2WZYhz",
+      "object": "card",
+      "address_city": null,
+      "address_country": null,
+      "address_line1": null,
+      "address_line1_check": null,
+      "address_line2": null,
+      "address_state": null,
+      "address_zip": null,
+      "address_zip_check": null,
+      "brand": "Visa",
+      "country": "US",
+      "cvc_check": "pass",
+      "dynamic_last4": null,
+      "exp_month": 12,
+      "exp_year": 2054,
+      "funding": "credit",
+      "last4": "4242",
+      "metadata": {},
+      "name": "ivans21@gmail.com",
+      "tokenization_method": null
+    },
+    "client_ip": "181.35.53.206",
+    "created": 1558198843,
+    "email": "ivans21@gmail.com",
+    "livemode": false,
+    "type": "card",
+    "used": false
+  },
+  "type_payment": {
+    "id": "paypal_id",
+    "name": "Credit card"
+  },
   "cart_id": "1",
   "user_id": "2",
-  "total": 2700,
-  "subtotal": 2700
+  "total": 2500,
+  "subtotal": 2500
 }
 
 ###

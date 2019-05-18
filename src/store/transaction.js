@@ -31,9 +31,6 @@ export default {
           commit('SET_TRANSACTION', 'empty')
           handleError(swal, err)
         })
-        .catch(function (error) {
-          console.log(error);
-        });
     },
   }
 }

@@ -24,7 +24,6 @@
 <script>
   import NavBarC from '../../components/NavBar.vue'
   import FooterC from '../../components/Footer.vue'
-  import {getTokenLevelUser} from "../../utils/util"
 
   export default {
     name: 'BaseView',

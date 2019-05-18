@@ -9,7 +9,7 @@
       <div v-else-if="carts && carts !== 'empty'">
         <h2>Shopping Cart</h2>
 
-        <div class="cart-content" v-if="quantityValue.length > 0" >
+        <div class="cart-content" v-if="quantityValue.length > 0">
           <div class="cart-products">
             <div class="cart-table">
               <table class="table table-custom mt-3 mb-4 text-center">
@@ -93,48 +93,74 @@
           </template>
           <h3>Method of Payment</h3>
           <hr>
-          <form @submit.prevent="saveTransaction">
-            <div class="form-group">
-              <label for="payments">Select your method of payment</label>
-              <select class="form-control width-reset ml-2" name="payments" id="payments" required
-                      v-model="transaction.processor">
-                <option v-for="item in payments" :key="item.id" :value="item.name">
-                  {{ item.name }}
-                </option>
-              </select>
+          <div class="form-group">
+            <label for="payments">Select your method of payment</label>
+            <select class="form-control width-reset ml-2" name="payments" id="payments" required
+                    v-model="transaction.processor">
+              <option v-for="item in payments" :key="item.id" :value="item.name">
+                {{ item.name }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group" v-if="transaction.processor === 'Selection'">
+            <label for="title" class="mt-3 mb-3">Processor</label>
+            <input class="form-control" id="title" type="text" required disabled>
+          </div>
+          <div class="form-group" v-else>
+            <label for="title-two" class="mt-3 mb-3">Processor</label>
+            <input class="form-control" id="title-two" type="text" v-model="transaction.processor" required disabled>
+          </div>
+          <div v-if="transaction.processor === 'Credit card'">
+            <vue-stripe-checkout
+                ref="checkoutRef"
+                :image="product.image"
+                :name="product.name"
+                :description="product.description"
+                :currency="product.currency"
+                :amount="product.amount"
+                :allow-remember-me="false"
+                @done="done"
+                @opened="opened"
+                @closed="closed"
+                @canceled="canceled"
+            ></vue-stripe-checkout>
+            <div class="d-flex justify-content-center">
+              <button @click="checkout" class="stripe">Start checkout</button>
             </div>
-            <div class="form-group" v-if="transaction.processor === 'Selection'">
-              <label for="title" class="mt-3 mb-3">Processor</label>
-              <input class="form-control" id="title" type="text" required disabled>
-            </div>
-            <div class="form-group" v-else>
-              <label for="title-two" class="mt-3 mb-3">Processor</label>
-              <input class="form-control" id="title-two" type="text" v-model="transaction.processor" required disabled>
-            </div>
-            <div class="row">
-              <div class="form-group col-md-6">
-                <label for="cc_num" class="mt-3 mb-3">cc_num</label>
-                <input class="form-control" id="cc_num" type="number" v-model="transaction.cc_num" required>
+          </div>
+          <div v-else-if="transaction.processor === 'Paypal'">
+            <div id="paypal-button"></div>
+          </div>
+          <div v-else>
+            <form>
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="cc_num" class="mt-3 mb-3">cc_num</label>
+                  <input class="form-control" id="cc_num" type="number" v-model="transaction.cc_num" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="cc_type" class="mt-3 mb-3">cc_type</label>
+                  <input class="form-control" id="cc_type" type="number" v-model="transaction.cc_type" required>
+                </div>
               </div>
-              <div class="form-group col-md-6">
-                <label for="cc_type" class="mt-3 mb-3">cc_type</label>
-                <input class="form-control" id="cc_type" type="number" v-model="transaction.cc_type" required>
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="start_date" class="mt-3 mb-3">Start Date</label>
+                  <input class="form-control" id="start_date" type="date" v-model="transaction.start_date" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="end_date" class="mt-3 mb-3">End Date</label>
+                  <input class="form-control" id="end_date" type="date" v-model="transaction.end_date" required>
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="form-group col-md-6">
-                <label for="start_date" class="mt-3 mb-3">Start Date</label>
-                <input class="form-control" id="start_date" type="date" v-model="transaction.start_date" required>
+              <div class="text-right">
+                <button type="submit" class="btn-sm btn-primary" :disabled="!!submitForm"
+                        @click.prevent="saveTransaction">
+                  {{wordEng.save}}
+                </button>
               </div>
-              <div class="form-group col-md-6">
-                <label for="end_date" class="mt-3 mb-3">End Date</label>
-                <input class="form-control" id="end_date" type="date" v-model="transaction.end_date" required>
-              </div>
-            </div>
-            <div class="text-right">
-              <button type="submit" class="btn-sm btn-primary" :disabled="!!submitForm">{{wordEng.save}}</button>
-            </div>
-          </form>
+            </form>
+          </div>
         </vue-modaltor>
 
       </div>
@@ -173,6 +199,13 @@
     },
     data() {
       return {
+        product: {
+          image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADUAAAA1CAYAAADh5qNwAAABgmlDQ1BzUkdCIElFQzYxOTY2LTIuMQAAKJF1kc8rRFEUxz8GjRghFhYWL4bV0Bg1sbEY+VVYjKcMNjNv5s2omfF6byTZKltFiY1fC/4CtspaKSIlGxtrYoOe88zUTDLndu753O+953TvueBS01rGqvJDJpszw6MhZTYyp7ifqaKJeuroiGqWMTk9olLWPu6ocOJNt1Or/Ll/rS6esDSoqBEe1AwzJzwmPLGSMxzeFm7RUtG48Kmwz5QLCt86eizPLw4n8/zlsKmGh8DVKKwkSzhWwlrKzAjLy/Fm0sta4T7OSzyJ7My0xHbxNizCjBJCYZxhhgjSy4DMQboJ0CMryuT7f/OnWJJcTWaDVUwWSZIih0/UZamekKiLnpCRZtXp/9++WnpfIF/dE4LqJ9t+6wT3Fnxv2vbnoW1/H0HlI1xki/lLB9D/LvpmUfPuQ8M6nF0WtdgOnG9A64MRNaO/UqW4S9fh9QTqI9B8DbXz+Z4V9jm+B3VNvuoKdvegS843LPwAPUpn03lDyOIAAAAJcEhZcwAACxMAAAsTAQCanBgAAAj/SURBVGiBxZptbFtXGcd/9/o9fomd2InbNE3TJW1Hu4q2M5tRW6N1UzWtb6CNsQ8TIBUktA0JAYVO6tqxiaoafChbvwCCSgMkBoNVa2EFseG1w6Iee9GgG33Z2qTNqxM7jh3b8RsffNPmXr/ce51s/CV/8LnnnPv87znnOf/nOUdgERGMhk3AFum3VPHzAjFgSPE7A5yJBEL5xbJDWGgHwWjYCWwH9gD3Ae4muokDp4ATwOlIIDS9EJuaJhWMhtuAx4FHAOtCjFAgCxwDfhgJhCab6UA3qWA0bAMeA/bT3KhoRQI4DDwbCYQyehrqIhWMhvcAzwLL9LRbIAaBb0YCoZe0NtBEKhgNi8AB4FBzdslhEkTWOpzc6WrjVrsDl9HEL4auciYx0ajZQeCpSCBUVuvfqFYhGA3bgePA/VqNbgSnwcjerh52eZdgEUUAEoU86WJRremTwLpgNPyVSCA006ii2OhhMBpeSsXlLgohh8HId3r6eKCj6wYhgKlCnsuZtJYuHgDOSnbVRV1S0gidBDZoM1kdu3x+trV1VJVHkwmmCpq3qQ3Ay8FouKVehZqkpDV0nEUk5DGa2Or2Vr1wOJflxbEhvd1tBI4Ho+GaPqHeSB1gkabcHPpbHCy32mRlsfwsRwcvczXbcInUwwNU7KxCFSnJbR9q5i2NsMbuwG00AZAqFng1Ps6By+/zemOPp4YnJXtlkA2ftLFe4GPYh7a429nkdHM9l+F8epqBbIbpYmExuh4EVkUCoexcgdKlP8YCCVlFkXUOF7fZXcyUipyeGCNRyBOZmuSfyTj5UgnVjUYfuqnY/cxcwY2RkrTcZZqUPk6Dka0eL3t8flba7JgFkTLwp9gIR65erElkdYuDz/uW8OZ0grOJCbKlUjOvhoqkumVOK84fqcdpgpAoCNzudLN3aQ/rHK6q55tcbvpaHFycScnKDYLAN5b18hmXhx1eP+eScY4PD/DvVJImqLmpaNHvguQopPDhEb09mQSB3V4/T99ya01CAGZBxG4wVJVv8/jY6Kx8Q1EQuLO1jSN9a7nX68ckNBU8PBqMhh1w0/ttR2f4YBAE7u/o4lvL+3AYqtXWVCHP+fQ0fxgfrhqlVqOJh5d0Y1QY32o08b2efh7sXNYMMavE48b0262ntQDc09bB3q6eKsPihTznpuL8PRHjX8kEqRoebrfPT6+1tiAwCgJf61rBTKnIS2NDeqfibuBFQQrBx9Cxnvpsdp7pX0en2SIrvzCT4udDV3kjMVHXw3WaLRxdtb5qI1YiUciz/9J53k1NaTULKhF0p0gln6CZkEUUeci/rIrQu6kpnv7ov5xtQAjgoc5lLLPcnOmFcplTsRH+Njkuq+c2mvjq0u',
+          name: 'Shut up and take my money!',
+          description: 'Cats are the best dog!',
+          /*currency: 'us',*/
+          amount: 99999
+        },
         submitForm: false,
         open: false,
         quantityValue: [],
@@ -182,10 +215,8 @@
         totalPrice: 0,
         payments: [
           {id: 1, name: 'Amazon'},
-          {id: 2, name: 'American Express'},
-          {id: 3, name: 'Mastercard'},
-          {id: 4, name: 'Paypal'},
-          {id: 5, name: 'Visa'}
+          {id: 2, name: 'Credit card'},
+          {id: 3, name: 'Paypal'},
         ],
         slickOptions: {
           autoplay: true,
@@ -214,8 +245,78 @@
     },
     created() {
       this.getCartProduct()
+      this.getPaypal()
     },
     methods: {
+      async checkout() {
+        await this.$refs.checkoutRef.open();
+      },
+      done({token}) {
+        /*console.log(token)*/
+        this.transaction.token_stripe = token
+        this.saveTransaction()
+      },
+      opened() {
+        // do stuff
+      },
+      closed() {
+        // do stuff
+      },
+      canceled() {
+        // do stuff
+      },
+      getPaypal() {
+        getAxios(`${apiTransactions.all}?payment=Paypal`)
+          .then(res => {
+            if (res.data.data.paypal_client !== '') {
+              const paypal = require('paypal-checkout');
+              const client = require('braintree-web/client');
+              const paypalCheckout = require('braintree-web/paypal-checkout');
+
+              paypal.Button.render({
+                braintree: {
+                  client: client,
+                  paypalCheckout: paypalCheckout
+                },
+                client: {
+                  production: res.data.data.paypal_client,
+                  sandbox: res.data.data.paypal_client
+                },
+                env: 'sandbox', // Or 'sandbox'
+                commit: true, // This will add the transaction amount to the PayPal button
+
+                payment: (data, actions) => actions.braintree.create({
+                  flow: 'checkout', // Required
+                  amount: 10.00, // Required
+                  currency: 'USD', // Required
+                  enableShippingAddress: true,
+                  shippingAddressEditable: false,
+                  shippingAddressOverride: {
+                    recipientName: 'Scruff McGruff',
+                    line1: '1234 Main St.',
+                    line2: 'Unit 1',
+                    city: 'Chicago',
+                    countryCode: 'US',
+                    postalCode: '60652',
+                    state: 'IL',
+                    phone: '123.456.7890'
+                  }
+                }),
+
+                onAuthorize: function (payload) {
+                  console.log(payload)
+                  this.transaction.payload_paypal = payload
+                  /*this.saveTransaction()*/
+                },
+              }, '#paypal-button');
+            } else {
+              infoMessage(this.$swal, null, 'Error recover paypal info')
+            }
+          })
+          .catch(err => {
+            handleError(this.$swal, err)
+          })
+      },
       getCartProduct() {
         const id = JSON.parse(localStorage.getItem('user')).id
         this.$store.dispatch('getCartStatus', `?userId=${id}&status=current`)
@@ -250,13 +351,15 @@
       saveTransaction() {
         this.submitForm = true
         /* TODO: add method of payment */
-        this.transaction.processor_trans_id = 1
         this.transaction.code = 1
+        this.transaction.processor_trans_id = 1
 
         this.transaction.cart_id = this.carts.cart_id
         this.transaction.user_id = this.carts.user_id
         this.transaction.total = this.totalPrice
         this.transaction.subtotal = this.totalPrice
+        this.transaction.type_payment.id = 'paypal_id'
+        this.transaction.type_payment.name = this.transaction.processor
 
         console.log(JSON.stringify(this.transaction))
         getAxios(apiTransactions.all, 'POST', this.transaction)
@@ -321,5 +424,38 @@
     small {
       color: red;
     }
+  }
+
+  .stripe-card {
+    width: 300px;
+    border: 1px solid grey;
+  }
+
+  .stripe-card.complete {
+    border-color: green;
+  }
+
+  button.stripe {
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    background: #32325d;
+    white-space: nowrap;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 14px;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    -webkit-transition: all 150ms ease;
+    transition: all 150ms ease;
+    float: left;
+    margin-left: 12px;
+    margin-top: 28px;
   }
 </style>
