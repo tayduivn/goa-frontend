@@ -26,8 +26,13 @@
               <input v-model="user.state" type="text" name="address" class="form-control" id="state" required>
             </div>
             <div class="form-group">
-              <label for="country">Country</label>
-              <input v-model="user.country" type="text" name="address" class="form-control" id="country" required>
+              <label id="countries">Country</label>
+              <autocomplete
+                  :source="countries"
+                  name="countries"
+                  @selected="addDistributionGroup"
+                  input-class="form-control">
+              </autocomplete>
             </div>
             <div class="form-group">
               <label for="postal_code">Postal Code</label>
@@ -73,6 +78,8 @@
   import {modelUser} from "../../services/model/model-user"
   import {apiCarts, apiUsers, getAxios} from "../../utils/endpoints"
   import {modelCart} from "../../services/model/model-cart"
+  import Autocomplete from 'vuejs-auto-complete'
+  import {countries} from "../../assets/countries"
 
   export default {
     name: 'register',
@@ -82,18 +89,27 @@
         return `${title} | register`
       }
     },
+    components: {Autocomplete},
     data: function () {
       return {
-        user: modelUser,
+        countries: countries,
+        user: modelUser.reset(),
         wordEng: wordEng,
         submitForm: false,
       }
     },
+    mounted() {
+      document.querySelectorAll('[placeholder="Search"]')[0].required = true;
+    },
     methods: {
+      addDistributionGroup(info) {
+        this.user.country = info.selectedObject.name
+        this.user.country_code = info.selectedObject.code
+      },
       send() {
         this.user.role_id = 2
-        console.log(JSON.stringify(this.user))
         this.submitForm = true
+        console.log(JSON.stringify(this.user))
         getAxios(apiUsers.register, 'POST', this.user)
           .then((res) => {
             const cart = modelCart

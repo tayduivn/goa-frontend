@@ -35,33 +35,21 @@ Authorization: Bearer {{auth_token}}
 POST {{host}}/api/public/users/register
 Content-Type: application/json
 
-[
-  {
-    "cart_product_id": "22",
-    "cart_quantity": "1",
-    "inserted_at": "2019-05-08 11:54:58",
-    "updated_at": "2019-05-08 11:54:58",
-    "cart_id": "2",
-    "product_id": "21",
-    "id": "21",
-    "sku": "13213",
-    "name": "Cacao 19",
-    "description_short": "Hola",
-    "description_one": "Hola 1",
-    "description_two": "Hola 2",
-    "preparation": "100",
-    "regular_price": "100",
-    "quantity": "2",
-    "active": "1",
-    "user_id": "1",
-    "images": [
-      {
-        "id_image": 0,
-        "image": "http://goa-backend/src/uploads/no-image.png"
-      }
-    ]
-  }
-]
+{
+  "id": "",
+  "email": "pedro@gmail.com",
+  "first_name": "Pedro",
+  "last_name": "Rodriguez",
+  "password": "12345678",
+  "address": "Calle Santa Rita",
+  "phone": "4164318061",
+  "city": "Maracay",
+  "state": "Aragua",
+  "country": "Venezuela",
+  "country_code": "",
+  "postal_code": "2120",
+  "role_id": 2
+}
 
 ###
 

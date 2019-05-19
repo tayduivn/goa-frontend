@@ -279,7 +279,7 @@
                     city: user.city,
                     countryCode: user.country_code,
                     postalCode: user.postal_code,
-                    state: 'IL',
+                    state: user.state,
                     phone: user.phone
                   }
                 }),
