@@ -10,7 +10,7 @@ Authorization: Bearer {{auth_token}}
 
 ###
 
-GET {{host}}/api/transactions?payment=paypal
+GET {{host}}/api/transactions?payment=Paypal
 Accept: application/json
 Authorization: Bearer {{auth_token}}
 
@@ -66,6 +66,50 @@ Authorization: Bearer {{auth_token}}
     "id": "paypal_id",
     "name": "Paypal"
   },
+  "cart_id": "1",
+  "user_id": "2",
+  "total": 2500,
+  "subtotal": 2500
+}
+
+###
+
+POST {{host}}/api/transactions
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": "",
+  "code": 1,
+  "processor": "Paypal",
+  "processor_trans_id": 1,
+  "cc_num": "",
+  "cc_type": "",
+  "start_date": "",
+  "end_date": "",
+  "token_stripe": "",
+  "payload_paypal": {
+    "nonce": "bd14a4f9-f18a-065a-5ede-0b2d1fcf83fe",
+    "orderID": "EC-1RW27909E9072634C",
+    "payer_info": {
+      "email": "desarrollo2.theroom@gmail.com",
+      "first_name": "ivans",
+      "middle_name": "ivans",
+      "last_name": "del pino",
+      "payer_id": "KL5AZDV36NUFG",
+      "country_code": "US",
+      "shipping_address": {
+        "recipient_name": "Scruff McGruff",
+        "line1": "1234 Main St.",
+        "line2": "Unit 1",
+        "city": "Chicago",
+        "state": "IL",
+        "postal_code": "60652",
+        "country_code": "US"
+      }
+    }
+  },
+  "type_payment": {},
   "cart_id": "1",
   "user_id": "2",
   "total": 2500,

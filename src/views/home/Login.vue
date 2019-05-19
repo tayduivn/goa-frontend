@@ -80,10 +80,8 @@
                 localStorage.setItem("password", this.user.password)
               }
               const id = res.data.data.user.id
-              console.log(id)
               this.$store.dispatch('getCartStatus', `?userId=${id}&status=current`)
                 .then((res) => {
-                  console.log(JSON.stringify(res))
                   localStorage.setItem('cartId', res.cart_id)
                   this.$router.push('home')
                 })

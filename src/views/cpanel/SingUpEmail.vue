@@ -26,7 +26,7 @@
       </table>
     </div>
     <div v-else-if="emails && emails === 'empty'">
-      <h3>{{wordEng.error}}</h3>
+      <h3>{{wordEng.noData}}</h3>
     </div>
     <div v-else-if="emails && emails === 'error'">
       <h3>{{wordEng.error}}</h3>

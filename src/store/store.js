@@ -9,6 +9,7 @@ import products from './products'
 import cart from './cart'
 import transaction from './transaction'
 import emails from './emails'
+import payments from './payments'
 
 Vue.use(Vuex)
 
@@ -21,6 +22,7 @@ export default new Vuex.Store({
     transaction,
     orders,
     emails,
+    payments,
     products,
     service
   }

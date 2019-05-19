@@ -159,10 +159,10 @@
       return {
         product: {
           image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADUAAAA1CAYAAADh5qNwAAABgmlDQ1BzUkdCIElFQzYxOTY2LTIuMQAAKJF1kc8rRFEUxz8GjRghFhYWL4bV0Bg1sbEY+VVYjKcMNjNv5s2omfF6byTZKltFiY1fC/4CtspaKSIlGxtrYoOe88zUTDLndu753O+953TvueBS01rGqvJDJpszw6MhZTYyp7ifqaKJeuroiGqWMTk9olLWPu6ocOJNt1Or/Ll/rS6esDSoqBEe1AwzJzwmPLGSMxzeFm7RUtG48Kmwz5QLCt86eizPLw4n8/zlsKmGh8DVKKwkSzhWwlrKzAjLy/Fm0sta4T7OSzyJ7My0xHbxNizCjBJCYZxhhgjSy4DMQboJ0CMryuT7f/OnWJJcTWaDVUwWSZIih0/UZamekKiLnpCRZtXp/9++WnpfIF/dE4LqJ9t+6wT3Fnxv2vbnoW1/H0HlI1xki/lLB9D/LvpmUfPuQ8M6nF0WtdgOnG9A64MRNaO/UqW4S9fh9QTqI9B8DbXz+Z4V9jm+B3VNvuoKdvegS843LPwAPUpn03lDyOIAAAAJcEhZcwAACxMAAAsTAQCanBgAAAj/SURBVGiBxZptbFtXGcd/9/o9fomd2InbNE3TJW1Hu4q2M5tRW6N1UzWtb6CNsQ8TIBUktA0JAYVO6tqxiaoafChbvwCCSgMkBoNVa2EFseG1w6Iee9GgG33Z2qTNqxM7jh3b8RsffNPmXr/ce51s/CV/8LnnnPv87znnOf/nOUdgERGMhk3AFum3VPHzAjFgSPE7A5yJBEL5xbJDWGgHwWjYCWwH9gD3Ae4muokDp4ATwOlIIDS9EJuaJhWMhtuAx4FHAOtCjFAgCxwDfhgJhCab6UA3qWA0bAMeA/bT3KhoRQI4DDwbCYQyehrqIhWMhvcAzwLL9LRbIAaBb0YCoZe0NtBEKhgNi8AB4FBzdslhEkTWOpzc6WrjVrsDl9HEL4auciYx0ajZQeCpSCBUVuvfqFYhGA3bgePA/VqNbgSnwcjerh52eZdgEUUAEoU86WJRremTwLpgNPyVSCA006ii2OhhMBpeSsXlLgohh8HId3r6eKCj6wYhgKlCnsuZtJYuHgDOSnbVRV1S0gidBDZoM1kdu3x+trV1VJVHkwmmCpq3qQ3Ay8FouKVehZqkpDV0nEUk5DGa2Or2Vr1wOJflxbEhvd1tBI4Ho+GaPqHeSB1gkabcHPpbHCy32mRlsfwsRwcvczXbcInUwwNU7KxCFSnJbR9q5i2NsMbuwG00AZAqFng1Ps6By+/zemOPp4YnJXtlkA2ftLFe4GPYh7a429nkdHM9l+F8epqBbIbpYmExuh4EVkUCoexcgdKlP8YCCVlFkXUOF7fZXcyUipyeGCNRyBOZmuSfyTj5UgnVjUYfuqnY/cxcwY2RkrTcZZqUPk6Dka0eL3t8flba7JgFkTLwp9gIR65erElkdYuDz/uW8OZ0grOJCbKlUjOvhoqkumVOK84fqcdpgpAoCNzudLN3aQ/rHK6q55tcbvpaHFycScnKDYLAN5b18hmXhx1eP+eScY4PD/DvVJImqLmpaNHvguQopPDhEb09mQSB3V4/T99ya01CAGZBxG4wVJVv8/jY6Kx8Q1EQuLO1jSN9a7nX68ckNBU8PBqMhh1w0/ttR2f4YBAE7u/o4lvL+3AYqtXWVCHP+fQ0fxgfrhqlVqOJh5d0Y1QY32o08b2efh7sXNYMMavE48b0262ntQDc09bB3q6eKsPihTznpuL8PRHjX8kEqRoebrfPT6+1tiAwCgJf61rBTKnIS2NDeqfibuBFQQrBx9Cxnvpsdp7pX0en2SIrvzCT4udDV3kjMVHXw3WaLRxdtb5qI1YiUciz/9J53k1NaTULKhF0p0gln6CZkEUUeci/rIrQu6kpnv7ov5xtQAjgoc5lLLPcnOmFcplTsRH+Njkuq+c2mvjq0u',
-          name: 'Shut up and take my money!',
-          description: 'Cats are the best dog!',
-          /*currency: 'us',*/
-          amount: 99999
+          name: 'Gardens of America',
+          description: 'Credit card information',
+          /*TODO: currency: 'us',*/
+          amount: 0
         },
         submitForm: false,
         open: false,
@@ -232,6 +232,9 @@
               const client = require('braintree-web/client');
               const paypalCheckout = require('braintree-web/paypal-checkout');
 
+              const self = this
+
+              const user = JSON.parse(localStorage.getItem('user'))
               paypal.Button.render({
                 braintree: {
                   client: client,
@@ -246,27 +249,29 @@
 
                 payment: (data, actions) => actions.braintree.create({
                   flow: 'checkout', // Required
-                  amount: 10.00, // Required
+                  amount: self.totalPrice, // Required
                   currency: 'USD', // Required
                   enableShippingAddress: true,
                   shippingAddressEditable: false,
                   shippingAddressOverride: {
-                    recipientName: 'Scruff McGruff',
-                    line1: '1234 Main St.',
-                    line2: 'Unit 1',
-                    city: 'Chicago',
-                    countryCode: 'US',
-                    postalCode: '60652',
-                    state: 'IL',
-                    phone: '123.456.7890'
+                    line1: user.address,
+                    city: user.city,
+                    countryCode: user.country_code,
+                    postalCode: user.postal_code,
+                    phone: user.phone
                   }
                 }),
 
-                onAuthorize: function (payload) {
-                  console.log(payload)
-                  this.transaction.processor = 'Paypal'
-                  this.transaction.payload_paypal = payload
-                  /*this.saveTransaction()*/
+                onAuthorize: function (payload, actions) {
+                  actions.payment.get().then(function(data) {
+                    self.transaction.processor = 'Paypal'
+                    self.transaction.payload_paypal = {
+                      nonce: payload.nonce,
+                      orderID: payload.orderID,
+                      payer_info: data.payer.payer_info
+                    }
+                    /*self.saveTransaction()*/
+                  })
                 },
               }, '#paypal-button');
             } else {
@@ -289,6 +294,7 @@
               }
             })
             this.getTotalPrice()
+            this.product.amount = this.getTotalPrice()
             if (res.products.length)
               this.$store.dispatch('getProductsCategories', `?id=${res.products[0].id}&category=true&limit=15&order=RAND`)
           })
@@ -317,8 +323,6 @@
         this.transaction.user_id = this.carts.user_id
         this.transaction.total = this.totalPrice
         this.transaction.subtotal = this.totalPrice
-        this.transaction.type_payment.id = 'paypal_id'
-        this.transaction.type_payment.name = this.transaction.processor
 
         console.log(JSON.stringify(this.transaction))
         getAxios(apiTransactions.all, 'POST', this.transaction)
@@ -450,5 +454,37 @@
     letter-spacing: 0.025em;
     -webkit-transition: all 150ms ease;
     transition: all 150ms ease;
+  }
+
+  @media screen and (min-width: 1360px) {
+
+  }
+
+  @media screen and (min-width: 1920px) {
+
+  }
+
+  @media screen and (max-width: 1024px) {
+
+  }
+
+  @media screen and (max-width: 700px) {
+    .cart .cart-box .cart-content {
+      flex-direction: column;
+
+      .cart-products, .cart-summary {
+        width: 100%;
+      }
+
+      .cart-summary {
+        margin-top: 5%;
+      }
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    table tbody tr th:first-child, table tbody tr td:first-child {
+      display: none;
+    }
   }
 </style>

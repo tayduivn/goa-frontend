@@ -1,3 +1,465 @@
+GET http://goa-backend/api/transactions?payment=Paypal
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+
+<> 2019-05-19T075154.200.json
+
+###
+
+GET http://goa-backend/api/transactions?payment=Paypal
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+
+<> 2019-05-19T074959.200.json
+
+###
+
+GET http://goa-backend/api/transactions?payment=Paypal
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+
+<> 2019-05-19T074910.200.json
+
+###
+
+GET http://goa-backend/api/transactions?payment=paypal
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+
+<> 2019-05-19T074850.200.json
+
+###
+
+GET http://goa-backend/api/transactions?payment=paypal
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+
+<> 2019-05-19T074831.200.json
+
+###
+
+GET http://goa-backend/api/transactions?payment=paypal
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+
+<> 2019-05-19T074738.200.json
+
+###
+
+GET http://goa-backend/api/transactions?payment=paypal
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+
+<> 2019-05-19T074715.200.json
+
+###
+
+GET http://goa-backend/api/transactions?payment=paypal
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+
+<> 2019-05-19T073421.200.json
+
+###
+
+POST http://goa-backend/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "admin@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-19T063857.200.json
+
+###
+
+POST http://goa-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+
+{
+  "id": "",
+  "code": 1,
+  "processor": "Paypal",
+  "processor_trans_id": 1,
+  "cc_num": "",
+  "cc_type": "",
+  "start_date": "",
+  "end_date": "",
+  "token_stripe": "",
+  "payload_paypal": {
+    "nonce": "bd14a4f9-f18a-065a-5ede-0b2d1fcf83fe",
+    "orderID": "EC-1RW27909E9072634C",
+    "payer_info": {
+      "email": "desarrollo2.theroom@gmail.com",
+      "first_name": "ivans",
+      "middle_name": "ivans",
+      "last_name": "del pino",
+      "payer_id": "KL5AZDV36NUFG",
+      "country_code": "US",
+      "shipping_address": {
+        "recipient_name": "Scruff McGruff",
+        "line1": "1234 Main St.",
+        "line2": "Unit 1",
+        "city": "Chicago",
+        "state": "IL",
+        "postal_code": "60652",
+        "country_code": "US"
+      }
+    }
+  },
+  "type_payment": {},
+  "cart_id": "1",
+  "user_id": "2",
+  "total": 2500,
+  "subtotal": 2500
+}
+
+<> 2019-05-19T063513.400.json
+
+###
+
+POST http://goa-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+
+{
+  "id": "",
+  "code": 1,
+  "processor": "Paypal",
+  "processor_trans_id": 1,
+  "cc_num": "",
+  "cc_type": "",
+  "start_date": "",
+  "end_date": "",
+  "token_stripe": "",
+  "payload_paypal": {
+    "nonce": "03565571-2906-0e36-72bd-2251025785f4",
+    "orderID": "EC-2T515698M9135732L",
+    "payer_info": {
+      "email": "desarrollo2.theroom@gmail.com",
+      "first_name": "ivans",
+      "middle_name": "ivans",
+      "last_name": "del pino",
+      "payer_id": "KL5AZDV36NUFG",
+      "country_code": "US",
+      "shipping_address": {
+        "recipient_name": "Scruff McGruff",
+        "line1": "1234 Main St.",
+        "line2": "Unit 1",
+        "city": "Chicago",
+        "state": "IL",
+        "postal_code": "60652",
+        "country_code": "US"
+      }
+    }
+  },
+  "type_payment": {},
+  "cart_id": "1",
+  "user_id": "2",
+  "total": 2500,
+  "subtotal": 2500
+}
+
+<> 2019-05-19T062953.400.json
+
+###
+
+POST http://goa-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+
+{
+  "id": "",
+  "code": 1,
+  "processor": "Paypal",
+  "processor_trans_id": 1,
+  "cc_num": "",
+  "cc_type": "",
+  "start_date": "",
+  "end_date": "",
+  "token_stripe": "",
+  "payload_paypal": {
+    "nonce": "03565571-2906-0e36-72bd-2251025785f4",
+    "orderID": "EC-2T515698M9135732L",
+    "payer_info": {
+      "email": "desarrollo2.theroom@gmail.com",
+      "first_name": "ivans",
+      "middle_name": "ivans",
+      "last_name": "del pino",
+      "payer_id": "KL5AZDV36NUFG",
+      "country_code": "US",
+      "shipping_address": {
+        "recipient_name": "Scruff McGruff",
+        "line1": "1234 Main St.",
+        "line2": "Unit 1",
+        "city": "Chicago",
+        "state": "IL",
+        "postal_code": "60652",
+        "country_code": "US"
+      }
+    }
+  },
+  "type_payment": {},
+  "cart_id": "1",
+  "user_id": "2",
+  "total": 2500,
+  "subtotal": 2500
+}
+
+<> 2019-05-19T062908.400.json
+
+###
+
+POST http://goa-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+
+{
+  "id": "",
+  "code": 1,
+  "processor": "Paypal",
+  "processor_trans_id": 1,
+  "cc_num": "",
+  "cc_type": "",
+  "start_date": "",
+  "end_date": "",
+  "token_stripe": "",
+  "payload_paypal": {
+    "nonce": "03565571-2906-0e36-72bd-2251025785f4",
+    "orderID": "EC-2T515698M9135732L",
+    "payer_info": {
+      "email": "desarrollo2.theroom@gmail.com",
+      "first_name": "ivans",
+      "middle_name": "ivans",
+      "last_name": "del pino",
+      "payer_id": "KL5AZDV36NUFG",
+      "country_code": "US",
+      "shipping_address": {
+        "recipient_name": "Scruff McGruff",
+        "line1": "1234 Main St.",
+        "line2": "Unit 1",
+        "city": "Chicago",
+        "state": "IL",
+        "postal_code": "60652",
+        "country_code": "US"
+      }
+    }
+  },
+  "type_payment": {},
+  "cart_id": "1",
+  "user_id": "2",
+  "total": 2500,
+  "subtotal": 2500
+}
+
+<> 2019-05-19T062659.400.json
+
+###
+
+POST http://goa-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+
+{
+  "id": "",
+  "code": 1,
+  "processor": "Paypal",
+  "processor_trans_id": 1,
+  "cc_num": "",
+  "cc_type": "",
+  "start_date": "",
+  "end_date": "",
+  "token_stripe": "",
+  "payload_paypal": {
+    "nonce": "72e34496-8c63-085f-5554-28b9b017ce84",
+    "orderID": "EC-9WK79828VM482204E"
+  },
+  "type_payment": {},
+  "cart_id": "1",
+  "user_id": "2",
+  "total": 2500,
+  "subtotal": 2500
+}
+
+<> 2019-05-19T050841.409.json
+
+###
+
+POST http://goa-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+
+{
+  "id": "",
+  "code": 1,
+  "processor": "Paypal",
+  "processor_trans_id": 1,
+  "cc_num": "",
+  "cc_type": "",
+  "start_date": "",
+  "end_date": "",
+  "token_stripe": "",
+  "payload_paypal": {
+    "nonce": "72e34496-8c63-085f-5554-28b9b017ce84",
+    "orderID": "EC-9WK79828VM482204E"
+  },
+  "type_payment": {},
+  "cart_id": "1",
+  "user_id": "2",
+  "total": 2500,
+  "subtotal": 2500
+}
+
+<> 2019-05-19T050803.409.json
+
+###
+
+POST http://goa-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+
+{
+  "id": "",
+  "code": 1,
+  "processor": "Paypal",
+  "processor_trans_id": 1,
+  "cc_num": "",
+  "cc_type": "",
+  "start_date": "",
+  "end_date": "",
+  "token_stripe": "",
+  "payload_paypal": {
+    "nonce": "72e34496-8c63-085f-5554-28b9b017ce84",
+    "orderID": "EC-9WK79828VM482204E"
+  },
+  "type_payment": {},
+  "cart_id": "1",
+  "user_id": "2",
+  "total": 2500,
+  "subtotal": 2500
+}
+
+<> 2019-05-19T050523.409.json
+
+###
+
+POST http://goa-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+
+{
+  "id": "",
+  "code": 1,
+  "processor": "Paypal",
+  "processor_trans_id": 1,
+  "cc_num": "",
+  "cc_type": "",
+  "start_date": "",
+  "end_date": "",
+  "token_stripe": "",
+  "payload_paypal": {
+    "nonce": "72e34496-8c63-085f-5554-28b9b017ce84",
+    "orderID": "EC-9WK79828VM482204E"
+  },
+  "type_payment": {},
+  "cart_id": "1",
+  "user_id": "2",
+  "total": 2500,
+  "subtotal": 2500
+}
+
+<> 2019-05-19T050456.409.json
+
+###
+
+POST http://goa-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+
+{
+  "id": "",
+  "code": 1,
+  "processor": "Paypal",
+  "processor_trans_id": 1,
+  "cc_num": "",
+  "cc_type": "",
+  "start_date": "",
+  "end_date": "",
+  "token_stripe": "",
+  "payload_paypal": {
+    "nonce": "72e34496-8c63-085f-5554-28b9b017ce84",
+    "orderID": "EC-9WK79828VM482204E"
+  },
+  "type_payment": {},
+  "cart_id": "1",
+  "user_id": "2",
+  "total": 2500,
+  "subtotal": 2500
+}
+
+<> 2019-05-19T050426.409.json
+
+###
+
+POST http://goa-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+
+{
+  "id": "",
+  "code": 1,
+  "processor": "Paypal",
+  "processor_trans_id": 1,
+  "cc_num": "",
+  "cc_type": "",
+  "start_date": "",
+  "end_date": "",
+  "token_stripe": "",
+  "payload_paypal": {
+    "nonce": "72e34496-8c63-085f-5554-28b9b017ce84",
+    "orderID": "EC-9WK79828VM482204E"
+  },
+  "type_payment": {},
+  "cart_id": "1",
+  "user_id": "2",
+  "total": 2500,
+  "subtotal": 2500
+}
+
+<> 2019-05-19T050237.409.json
+
+###
+
+GET http://goa-backend/api/transactions?payment=paypal
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
+
+<> 2019-05-19T033029.200.json
+
+###
+
+POST http://goa-backend/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "admin@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-19T033021.200.json
+
+###
+
+GET http://goa-backend/api/transactions?payment=paypal
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-05-19T033011.401.json
+
+###
+
 POST http://goa-backend/api/public/emails
 Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
@@ -899,410 +1361,6 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpb
 }
 
 <> 2019-05-18T010213.400.json
-
-###
-
-POST http://goa-backend/api/public/users/login
-Content-Type: application/json
-
-{
-  "email": "ivans20@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-05-18T010205.200.json
-
-###
-
-POST http://goa-backend/api/public/users/login
-Content-Type: application/json
-
-{
-  "email": "admin@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-05-18T010158.400.json
-
-###
-
-POST https://goa-backend.herokuapp.com/api/public/users/login
-Content-Type: application/json
-
-{
-  "email": "admin@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-05-18T010146.200.json
-
-###
-
-POST https://goa-backend.herokuapp.com/api/public/users/login
-Content-Type: application/json
-
-{
-  "email": "admin@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-05-15T092340.200.json
-
-###
-
-POST https://goa-backend.herokuapp.com/api/public/users/login
-Content-Type: application/json
-
-{
-  "email": "admin@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-05-15T092134.500.html
-
-###
-
-POST https://backend.gardensofamerica.com/api/images/reg
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
---WebAppBoundary
-Content-Disposition: form-data; name="product_id"
-Content-Type: text/plain
-
-1
---WebAppBoundary
-Content-Disposition: form-data; name="image"; filename="fuki.jpeg"
-Content-Type: image/jpeg
-
-< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
---WebAppBoundary--
-
-<> 2019-05-14T100952.201.json
-
-###
-
-POST https://backend.gardensofamerica.com/api/images/register/image
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
---WebAppBoundary
-Content-Disposition: form-data; name="product_id"
-Content-Type: text/plain
-
-1
---WebAppBoundary
-Content-Disposition: form-data; name="image"; filename="fuki.jpeg"
-Content-Type: image/jpeg
-
-< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
---WebAppBoundary--
-
-<> 2019-05-14T100759.409.html
-
-###
-
-POST https://backend.gardensofamerica.com/api/images/ivans
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
---WebAppBoundary
-Content-Disposition: form-data; name="product_id"
-Content-Type: text/plain
-
-1
---WebAppBoundary
-Content-Disposition: form-data; name="image"; filename="fuki.jpeg"
-Content-Type: image/jpeg
-
-< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
---WebAppBoundary--
-
-<> 2019-05-14T095901.201.json
-
-###
-
-POST https://backend.gardensofamerica.com/api/images/register
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
---WebAppBoundary
-Content-Disposition: form-data; name="product_id"
-Content-Type: text/plain
-
-1
---WebAppBoundary
-Content-Disposition: form-data; name="image"; filename="fuki.jpeg"
-Content-Type: image/jpeg
-
-< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
---WebAppBoundary--
-
-<> 2019-05-14T095612.409.html
-
-###
-
-POST https://backend.gardensofamerica.com/api/images/register
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
---WebAppBoundary
-Content-Disposition: form-data; name="product_id"
-Content-Type: text/plain
-
-1
---WebAppBoundary
-Content-Disposition: form-data; name="image"; filename="fuki.jpeg"
-Content-Type: image/jpeg
-
-< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
---WebAppBoundary--
-
-<> 2019-05-14T095148.409.html
-
-###
-
-POST https://backend.gardensofamerica.com/api/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-{
-  "id": "",
-  "sku": "13213",
-  "name": "Cacao 12",
-  "description_short": "Description short",
-  "description_one": "Description long 1",
-  "description_two": "Description long 2",
-  "preparation": "Preparation",
-  "nutrition": "Preparation",
-  "quantity": 2,
-  "user_id": "1",
-  "regular_price": "100"
-}
-
-<> 2019-05-14T095115.400.json
-
-###
-
-POST https://backend.gardensofamerica.com/api/images/register
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
---WebAppBoundary
-Content-Disposition: form-data; name="product_id"
-Content-Type: text/plain
-
-1
---WebAppBoundary
-Content-Disposition: form-data; name="image"; filename="fuki.jpeg"
-Content-Type: image/jpeg
-
-< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
---WebAppBoundary--
-
-<> 2019-05-14T095025.409.html
-
-###
-
-POST https://backend.gardensofamerica.com/api/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-{
-  "id": "",
-  "sku": "13213",
-  "name": "Cacao 12",
-  "description_short": "Description short",
-  "description_one": "Description long 1",
-  "description_two": "Description long 2",
-  "preparation": "Preparation",
-  "nutrition": "Preparation",
-  "quantity": 2,
-  "user_id": "1",
-  "regular_price": "100"
-}
-
-<> 2019-05-14T094935.400.json
-
-###
-
-POST https://backend.gardensofamerica.com/api/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-{
-  "id": "",
-  "sku": "13213",
-  "name": "Cacao 12",
-  "description_short": "Description short",
-  "description_one": "Description long 1",
-  "description_two": "Description long 2",
-  "preparation": "Preparation",
-  "nutrition": "Preparation",
-  "quantity": 2,
-  "user_id": "1",
-  "regular_price": "100"
-}
-
-<> 2019-05-14T094856.500.html
-
-###
-
-POST https://backend.gardensofamerica.com/api/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-{
-  "id": "",
-  "sku": "13213",
-  "name": "Cacao 12",
-  "description_short": "Description short",
-  "description_one": "Description long 1",
-  "description_two": "Description long 2",
-  "preparation": "Preparation",
-  "nutrition": "Preparation",
-  "quantity": 2,
-  "user_id": "1",
-  "regular_price": "100"
-}
-
-<> 2019-05-14T094612.500.html
-
-###
-
-POST https://backend.gardensofamerica.com/api/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-{
-  "id": "",
-  "sku": "13213",
-  "name": "Cacao 12",
-  "description_short": "Description short",
-  "description_one": "Description long 1",
-  "description_two": "Description long 2",
-  "preparation": "Preparation",
-  "nutrition": "Preparation",
-  "quantity": 2,
-  "user_id": "1",
-  "regular_price": "100"
-}
-
-<> 2019-05-14T094245.400.json
-
-###
-
-POST https://backend.gardensofamerica.com/api/images/register
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
---WebAppBoundary
-Content-Disposition: form-data; name="product_id"
-Content-Type: text/plain
-
-1
---WebAppBoundary
-Content-Disposition: form-data; name="image"; filename="fuki.jpeg"
-Content-Type: image/jpeg
-
-< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
---WebAppBoundary--
-
-<> 2019-05-14T094033.409.html
-
-###
-
-POST https://backend.gardensofamerica.com/api/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-{
-  "id": "",
-  "sku": "13213",
-  "name": "Cacao 12",
-  "description_short": "Description short",
-  "description_one": "Description long 1",
-  "description_two": "Description long 2",
-  "preparation": "Preparation",
-  "nutrition": "Preparation",
-  "quantity": 2,
-  "user_id": "1",
-  "regular_price": "100"
-}
-
-<> 2019-05-14T093932.400.json
-
-###
-
-POST https://backend.gardensofamerica.com/api/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-{
-  "id": "",
-  "sku": "13213",
-  "name": "Cacao 12",
-  "description_short": "Description short",
-  "description_one": "Description long 1",
-  "description_two": "Description long 2",
-  "preparation": "Preparation",
-  "nutrition": "Preparation",
-  "quantity": 2,
-  "user_id": "1",
-  "regular_price": "100"
-}
-
-<> 2019-05-14T093922.201.json
-
-###
-
-POST https://backend.gardensofamerica.com/api/images/register
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
---WebAppBoundary
-Content-Disposition: form-data; name="product_id"
-Content-Type: text/plain
-
-1
---WebAppBoundary
-Content-Disposition: form-data; name="image"; filename="fuki.jpeg"
-Content-Type: image/jpeg
-
-< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
---WebAppBoundary--
-
-<> 2019-05-14T093104.409.html
-
-###
-
-POST https://backend.gardensofamerica.com/api/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-{
-  "id": "",
-  "sku": "13213",
-  "name": "Cacao 12",
-  "description_short": "Description short",
-  "description_one": "Description long 1",
-  "description_two": "Description long 2",
-  "preparation": "Preparation",
-  "nutrition": "Preparation",
-  "quantity": 2,
-  "user_id": "1",
-  "regular_price": "100"
-}
-
-<> 2019-05-14T092345.201.json
-
-###
-
-GET https://backend.gardensofamerica.com/api/categories
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Iml2YW5zMjBAZ21haWwuY29tIn0.600PkXPAeVMKkvGw2Tf5KGTDVOSNQJPuHQki3a8ciCU
-
-<> 2019-05-14T092333.200.json
 
 ###
 

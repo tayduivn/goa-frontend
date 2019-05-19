@@ -1,0 +1,45 @@
+GET {{host}}/api/payments
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+###
+
+GET {{host}}/api/public/payments?id=1
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+###
+
+POST {{host}}/api/payments
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "name": "testing"
+}
+
+###
+
+PUT {{host}}/api/admin/payments/update
+Content-Type: application/x-www-form-urlencoded
+Authorization: Bearer {{auth_token}}
+
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+Content-Type: text/plain
+
+Category test
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="fuki.jpeg"
+Content-Type: image/jpeg
+
+< ./../image/fuki.jpeg
+--WebAppBoundary--
+###
+
+DELETE {{host}}/api/admin/payments/delete
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": "1"
+}
+###

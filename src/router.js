@@ -143,6 +143,11 @@ let router = new Router({
           component: () => import('./views/cpanel/SingUpEmail')
         },
         {
+          path: 'payments',
+          name: 'payments',
+          component: () => import('./views/cpanel/Payments')
+        },
+        {
           path: 'reviews',
           name: 'Reviews',
           component: () => import('./views/cpanel/Reviews')
