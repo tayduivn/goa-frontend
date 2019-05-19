@@ -1,6 +1,6 @@
 <template>
   <div id="cpanel-home" class="d-flex align-items-center justify-content-center text-center">
-    <h2>Welcome to the cPanel of Gardens of America </h2>
+    <h2>Welcome to cPanel of Gardens of America </h2>
   </div>
 </template>
 

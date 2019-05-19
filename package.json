@@ -9,6 +9,7 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "@tinymce/tinymce-vue": "^2.0.0",
     "@vue/cli-plugin-babel": "^3.4.0",
     "@vue/cli-plugin-eslint": "^3.4.0",
     "@vue/cli-service": "^3.4.0",

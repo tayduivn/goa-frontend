@@ -88,14 +88,26 @@
           </div>
           <div class="form-group">
             <label for="preparation" class="mt-3 mb-3">Preparation</label>
-            <input class="form-control" id="preparation" type="text" v-model="product.preparation" required>
+            <editor api-key="jacqarp06rcghdz48vaz7eury006fqlaleut2zpx6mvc7ces" v-model="product.preparation"
+                    id="preparation" :init="{mode: 'textareas'}">
+            </editor>
+          </div>
+          <div class="form-group">
+            <label class="mt-3 mb-3">Nutrition</label>
+            <input type="file" class="form-control" accept="image/*" @change="subirImagenNutrition" required>
+            <p class="m-0 p-0 text-left">
+              <small>{{wordEng.upload}}</small>
+            </p>
           </div>
           <div class="row">
-            <div class="form-group col-md-6 col-12">
+            <div class="form-group col-md-3 col-6">
               <label for="regular_price" class="mt-3 mb-3">Price</label>
               <input class="form-control" id="regular_price" type="text" v-model="product.regular_price" required>
+              <p class="m-0 p-0 text-left">
+                <small></small>
+              </p>
             </div>
-            <div class="form-group col-md-6 col-12">
+            <div class="form-group col-md-3 col-6">
               <label for="quantity" class="mt-3 mb-3">Quantity</label>
               <input class="form-control" id="quantity" type="text" v-model="product.quantity" required>
             </div>
@@ -180,6 +192,7 @@
   import {confirmMessage, successMessage} from "../../utils/handle-message"
   import {modelProduct} from "../../services/model/model-product"
   import {apiImages, apiProducts, apiProductsCategories, getAxios} from "../../utils/endpoints"
+  import Editor from '@tinymce/tinymce-vue';
 
   export default {
     name: "cPanelProducts",
@@ -189,11 +202,11 @@
         return `${title} | Products`
       }
     },
-    components: {CloseImageSVG},
+    components: {CloseImageSVG, 'editor': Editor},
     data() {
       return {
         modalType: 'products',
-        product: modelProduct,
+        product: modelProduct.reset(),
         submitForm: false,
         formData: null,
         open: false,
@@ -238,13 +251,45 @@
             })
         }
       },
+      subirImagenNutrition(event) {
+        let files = event.target.files
+        this.formData.delete('nutrition')
+        if (files.length) {
+          for (let image of files) {
+            this.formData.append('nutrition', image, image.name)
+          }
+        }
+      },
       sendData() {
         this.submitForm = true
+        this.formDataSendProduct()
         if (this.product.id === '') {
           this.saveData()
         } else {
           this.editData()
         }
+      },
+      formDataSendProduct() {
+        this.formData.delete('id')
+        this.formData.append('id', this.product.id)
+        this.formData.delete('sku')
+        this.formData.append('sku', this.product.sku)
+        this.formData.delete('name')
+        this.formData.append('name', this.product.name)
+        this.formData.delete('description_short')
+        this.formData.append('description_short', this.product.description_short)
+        this.formData.delete('description_one')
+        this.formData.append('description_one', this.product.description_one)
+        this.formData.delete('description_two')
+        this.formData.append('description_two', this.product.description_two)
+        this.formData.delete('preparation')
+        this.formData.append('preparation', this.product.preparation)
+        this.formData.delete('regular_price')
+        this.formData.append('regular_price', Number(this.product.regular_price).toFixed(2))
+        this.formData.delete('quantity')
+        this.formData.append('quantity', this.product.quantity)
+        this.formData.delete('user_id')
+        this.formData.append('user_id', JSON.parse(localStorage.getItem('user')).id)
       },
       successRequest(title) {
         successMessage(this.$swal, title)
@@ -252,7 +297,7 @@
         this.hideModal()
       },
       saveData() {
-        getAxios(apiProducts.all, 'POST', this.product)
+        getAxios(apiProducts.all, 'POST', this.formData)
           .then(() => {
             console.log('ok')
             this.submitForm = false
@@ -265,7 +310,7 @@
           })
       },
       editData() {
-        getAxios(apiProducts.all, 'PUT', this.product)
+        getAxios(apiProducts.all, 'PUT', this.formData)
           .then(() => {
             this.submitForm = false
             this.successRequest(this.wordEng.edited)

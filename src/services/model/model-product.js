@@ -6,8 +6,8 @@ const modelProduct = {
   description_one: "",
   description_two: "",
   preparation: "",
+  regular_price: "",
   quantity: "",
-  nutrition: "",
   user_id: "",
   reset: function () {
     this.id = ""
@@ -19,7 +19,6 @@ const modelProduct = {
     this.preparation = ""
     this.regular_price = ""
     this.quantity = ""
-    this.nutrition = ""
     this.user_id = ""
     return modelProduct
   }

@@ -89,6 +89,7 @@ let router = new Router({
     {
       path: '/cpanel',
       name: 'cPanelBaseView',
+      redirect: 'cpanel/pHome',
       component: () => import('./views/cpanel/BaseView'),
       meta: {requiresAuthAdmin: true},
       children: [
