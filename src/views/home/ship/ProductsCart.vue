@@ -103,7 +103,7 @@
                   :name="product.name"
                   :description="product.description"
                   :currency="product.currency"
-                  :amount="product.amount"
+                  :amount="getTotalPriceCheckout"
                   :allow-remember-me="false"
                   @done="done"
                   @opened="opened"
@@ -203,6 +203,11 @@
       productsCategories() {
         return this.$store.getters.getProductsCategories
       },
+      getTotalPriceCheckout() {
+        const number = parseInt(this.totalPrice.toString().replace(".", ""))
+        console.log(number)
+        return number
+      }
     },
     created() {
       this.getCartProduct()
@@ -269,7 +274,7 @@
 
                 payment: (data, actions) => actions.braintree.create({
                   flow: 'checkout', // Required
-                  amount: self.totalPrice, // Required
+                  amount: self.getTotalPriceCheckout, // Required
                   currency: 'USD', // Required
                   enableShippingAddress: true,
                   shippingAddressEditable: false,
@@ -350,9 +355,9 @@
       getTotalPrice() {
         let totalPrice = 0
         this.carts.products.forEach((value, index) => {
-          totalPrice = (parseInt(value.regular_price) * parseInt(this.quantityValue[index].quantity)) + totalPrice
+          totalPrice = (Number(value.regular_price).toFixed(2) * Number(this.quantityValue[index].quantity).toFixed(2)) + totalPrice
         })
-        this.totalPrice = totalPrice
+        this.totalPrice = Number(totalPrice).toFixed(2)
       },
       quantityProduct(isPlus, index) {
         if (isPlus && this.carts.products[index].quantity <= parseInt(this.quantityValue[index].quantity)) {
