@@ -34,7 +34,6 @@
 </template>
 
 <script>
-  import CloseImageSVG from "../../components/CloseImageSVG"
   import {handleError, wordEng} from "../../utils/util"
   import {successMessage} from "../../utils/handle-message"
   import {apiPayments, getAxios} from "../../utils/endpoints"
@@ -48,7 +47,6 @@
         return `${title} | Payments`
       }
     },
-    components: {CloseImageSVG},
     data() {
       return {
         submitForm: false,

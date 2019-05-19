@@ -6,7 +6,8 @@
 
     <div class="products-box">
       <div class="products-content">
-        <div class="product-filter">
+        <div v-if="categories && categories !== 'empty' && categories !== 'loading' && categories !== 'error'"
+             class="product-filter">
           <h4>Filters <span v-if="checkCount > 0">{{checkCount}}</span></h4>
           <label v-for="(category, index) in categories" :key="category.id" class="filter-category" :for="category.id">
             <input type="checkbox" :id="category.id" v-model="checkList[index]" @change="getProductsCheck()">
