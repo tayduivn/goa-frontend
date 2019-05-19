@@ -310,7 +310,7 @@
           })
       },
       editData() {
-        getAxios(apiProducts.all, 'PUT', this.formData)
+        getAxios(apiProducts.allUpdate, 'POST', this.formData)
           .then(() => {
             this.submitForm = false
             this.successRequest(this.wordEng.edited)

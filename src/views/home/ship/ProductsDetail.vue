@@ -55,7 +55,7 @@
                     <img src="./../../../assets/img/product-description/icon_licuadora.png" alt="ico licuadora">
                     <p>Preparation</p>
                   </div>
-                  <p>{{product.preparation}}</p>
+                  <p v-html="product.preparation"></p>
                 </div>
               </div>
             </div>
@@ -83,6 +83,7 @@
                 {{product.description_two}}
               </div>
               <div class="description-image">
+                <img :src="product.nutrition" :alt="product.name">
               </div>
             </div>
 

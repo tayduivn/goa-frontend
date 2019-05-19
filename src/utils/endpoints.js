@@ -67,6 +67,7 @@ const apiTransactions = {
 
 const apiProducts = {
   all: `${config.api_url}/api/products`,
+  allUpdate: `${config.api_url}/api/products/update`,
   allPublic: `${config.api_url}/api/public/products`,
 }
 

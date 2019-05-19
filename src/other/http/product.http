@@ -106,23 +106,77 @@ Content-Type: image/jpeg
 
 ###
 
-PUT {{host}}/api/products
-Content-Type: application/json
+POST {{host}}/api/products/update
+Content-Type: multipart/form-data; boundary=WebAppBoundary
 Authorization: Bearer {{auth_token}}
 
-{
-  "id": "2",
-  "sku": "13213",
-  "name": "Cacao 20",
-  "description_short": "Description short",
-  "description_one": "Description long 1",
-  "description_two": "Description long 2",
-  "preparation": "Preparation",
-  "nutrition": "Preparation",
-  "quantity": 2,
-  "user_id": "1",
-  "regular_price": "100"
-}
+--WebAppBoundary
+Content-Disposition: form-data; name="id"
+Content-Type: text/plain
+
+21
+
+--WebAppBoundary
+Content-Disposition: form-data; name="sku"
+Content-Type: text/plain
+
+26
+
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+Content-Type: text/plain
+
+Cacao 22
+
+--WebAppBoundary
+Content-Disposition: form-data; name="description_short"
+Content-Type: text/plain
+
+Short
+
+--WebAppBoundary
+Content-Disposition: form-data; name="description_one"
+Content-Type: text/plain
+
+One
+
+--WebAppBoundary
+Content-Disposition: form-data; name="description_two"
+Content-Type: text/plain
+
+Two
+
+--WebAppBoundary
+Content-Disposition: form-data; name="preparation"
+Content-Type: text/plain
+
+1. Started 2. Finished
+
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+Content-Type: text/plain
+
+30
+
+--WebAppBoundary
+Content-Disposition: form-data; name="user_id"
+Content-Type: text/plain
+
+1
+
+--WebAppBoundary
+Content-Disposition: form-data; name="regular_price"
+Content-Type: text/plain
+
+12.036
+--WebAppBoundary
+Content-Disposition: form-data; name="nutrition"; filename="fuki.jpeg"
+Content-Type: image/jpeg
+
+< ./../image/fuki.jpeg
+--WebAppBoundary--
+
+###
 
 ###
 
