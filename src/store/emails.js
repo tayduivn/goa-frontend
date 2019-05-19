@@ -1,6 +1,6 @@
 import {handleError} from "../utils/util"
 import swal from 'vue-sweetalert2';
-import {apiCategories, apiEmails, getAxios} from "../utils/endpoints"
+import {apiEmails, getAxios} from "../utils/endpoints"
 
 export default {
   state: {

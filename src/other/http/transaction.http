@@ -99,7 +99,11 @@ Content-Type: application/json
 Authorization: Bearer {{auth_token}}
 
 {
-  "id": "1"
+  "paymentToken": "EC-1SS63624VS356304E",
+  "orderID": "EC-1SS63624VS356304E",
+  "payerID": "C5DBVRV6AYCQ8",
+  "paymentID": "PAY-9HM85195VA555131HLTQRHDY",
+  "intent": "authorize"
 }
 
 ###

@@ -91,75 +91,33 @@
           <template slot="close-icon">
             <CloseImageSVG/>
           </template>
-          <h3>Method of Payment</h3>
+          <h3>Choose your payment method</h3>
           <hr>
-          <div class="form-group">
-            <label for="payments">Select your method of payment</label>
-            <select class="form-control width-reset ml-2" name="payments" id="payments" required
-                    v-model="transaction.processor">
-              <option v-for="item in payments" :key="item.id" :value="item.name">
-                {{ item.name }}
-              </option>
-            </select>
-          </div>
-          <div class="form-group" v-if="transaction.processor === 'Selection'">
-            <label for="title" class="mt-3 mb-3">Processor</label>
-            <input class="form-control" id="title" type="text" required disabled>
-          </div>
-          <div class="form-group" v-else>
-            <label for="title-two" class="mt-3 mb-3">Processor</label>
-            <input class="form-control" id="title-two" type="text" v-model="transaction.processor" required disabled>
-          </div>
-          <div v-if="transaction.processor === 'Credit card'">
-            <vue-stripe-checkout
-                ref="checkoutRef"
-                :image="product.image"
-                :name="product.name"
-                :description="product.description"
-                :currency="product.currency"
-                :amount="product.amount"
-                :allow-remember-me="false"
-                @done="done"
-                @opened="opened"
-                @closed="closed"
-                @canceled="canceled"
-            ></vue-stripe-checkout>
-            <div class="d-flex justify-content-center">
-              <button @click="checkout" class="stripe">Start checkout</button>
+          <div class="payment-box">
+            <div class="payment-separator"></div>
+            <div class="payment-card">
+              <h4>Credit cart</h4>
+              <vue-stripe-checkout
+                  ref="checkoutRef"
+                  :image="product.image"
+                  :name="product.name"
+                  :description="product.description"
+                  :currency="product.currency"
+                  :amount="product.amount"
+                  :allow-remember-me="false"
+                  @done="done"
+                  @opened="opened"
+                  @closed="closed"
+                  @canceled="canceled"
+              ></vue-stripe-checkout>
+              <div class="d-flex justify-content-center">
+                <button @click="checkout" class="stripe">Start checkout</button>
+              </div>
             </div>
-          </div>
-          <div v-else-if="transaction.processor === 'Paypal'">
-            <div id="paypal-button"></div>
-          </div>
-          <div v-else>
-            <form>
-              <div class="row">
-                <div class="form-group col-md-6">
-                  <label for="cc_num" class="mt-3 mb-3">cc_num</label>
-                  <input class="form-control" id="cc_num" type="number" v-model="transaction.cc_num" required>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="cc_type" class="mt-3 mb-3">cc_type</label>
-                  <input class="form-control" id="cc_type" type="number" v-model="transaction.cc_type" required>
-                </div>
-              </div>
-              <div class="row">
-                <div class="form-group col-md-6">
-                  <label for="start_date" class="mt-3 mb-3">Start Date</label>
-                  <input class="form-control" id="start_date" type="date" v-model="transaction.start_date" required>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="end_date" class="mt-3 mb-3">End Date</label>
-                  <input class="form-control" id="end_date" type="date" v-model="transaction.end_date" required>
-                </div>
-              </div>
-              <div class="text-right">
-                <button type="submit" class="btn-sm btn-primary" :disabled="!!submitForm"
-                        @click.prevent="saveTransaction">
-                  {{wordEng.save}}
-                </button>
-              </div>
-            </form>
+            <div class="payment-paypal">
+              <h4>Paypal</h4>
+              <div id="paypal-button"></div>
+            </div>
           </div>
         </vue-modaltor>
 
@@ -249,6 +207,7 @@
     },
     methods: {
       async checkout() {
+        this.transaction.processor = 'Credit card'
         await this.$refs.checkoutRef.open();
       },
       done({token}) {
@@ -266,10 +225,10 @@
         // do stuff
       },
       getPaypal() {
-        getAxios(`${apiTransactions.all}?payment=Paypal`)
+        getAxios(`${apiTransactions.all}?payment=Paypal`, 'GET')
           .then(res => {
             if (res.data.data.paypal_client !== '') {
-              /*TODO: const paypal = require('paypal-checkout');*/
+              const paypal = require('paypal-checkout');
               const client = require('braintree-web/client');
               const paypalCheckout = require('braintree-web/paypal-checkout');
 
@@ -305,6 +264,7 @@
 
                 onAuthorize: function (payload) {
                   console.log(payload)
+                  this.transaction.processor = 'Paypal'
                   this.transaction.payload_paypal = payload
                   /*this.saveTransaction()*/
                 },
@@ -350,7 +310,6 @@
       },
       saveTransaction() {
         this.submitForm = true
-        /* TODO: add method of payment */
         this.transaction.code = 1
         this.transaction.processor_trans_id = 1
 
@@ -435,6 +394,43 @@
     border-color: green;
   }
 
+  .payment-box {
+    display: flex;
+    position: relative;
+    padding: 40px 0;
+
+    .payment-separator {
+      background-color: rgba(0,0,0,.1);
+      height: 75%;
+      position: absolute;
+      left: 50%;
+      width: 1px;
+    }
+
+    .payment-paypal, .payment-card {
+      align-self: center;
+      display: inline-block;
+      width: 50%;
+    }
+
+    .payment-paypal #paypal-button {
+      display: table;
+      margin: 0 auto;
+    }
+
+    .payment-paypal:before {
+      content: '';
+      background-color: #515151;
+      height: 100%;
+      width: 1px;
+    }
+
+    h4 {
+      margin-bottom: 15%;
+      text-align: center;
+    }
+  }
+
   button.stripe {
     border: none;
     border-radius: 4px;
@@ -454,8 +450,5 @@
     letter-spacing: 0.025em;
     -webkit-transition: all 150ms ease;
     transition: all 150ms ease;
-    float: left;
-    margin-left: 12px;
-    margin-top: 28px;
   }
 </style>
