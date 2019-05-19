@@ -24,6 +24,23 @@
             <input class="form-control" id="street" type="text" v-model="users.address" required>
           </div>
           <div class="form-group">
+            <label for="city">City</label>
+            <input v-model="user.city" type="text" name="address" class="form-control" id="city" required>
+          </div>
+          <div class="form-group">
+            <label for="state">State</label>
+            <input v-model="user.state" type="text" name="address" class="form-control" id="state" required>
+          </div>
+          <div class="form-group">
+            <label for="country">Country</label>
+            <input v-model="user.country" type="text" name="address" class="form-control" id="country" required>
+          </div>
+          <div class="form-group">
+            <label for="postal_code">Postal Code</label>
+            <input v-model="user.postal_code" type="text" name="address" class="form-control" id="postal_code"
+                   required>
+          </div>
+          <div class="form-group">
             <label for="phone" class="mt-3 mb-3">Phone</label>
             <input class="form-control" id="phone" type="text" v-model="users.phone" required>
           </div>

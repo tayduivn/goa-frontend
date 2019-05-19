@@ -89,14 +89,6 @@
       openNav() {
         this.$parent.openNav()
       },
-      validateUser() {
-        if (this.user !== null && this.user !== undefined && this.user.constructor === Object) {
-          const type = this.user.type === 'Transportista' ? 'Cliente' : this.user.type
-          return this.user && this.user.iduser !== '' && type === 'Cliente'
-        } else {
-          return false
-        }
-      },
       logout() {
         this.$store.dispatch('logout')
           .then(() => {

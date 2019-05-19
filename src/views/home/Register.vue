@@ -14,12 +14,29 @@
               <input v-model="user.last_name" type="text" class="form-control" id="last_name" required>
             </div>
             <div class="form-group">
-              <label for="phone">Number of phone</label>
-              <input v-model="user.phone" type="tel" name="phone" class="form-control" id="phone" required>
-            </div>
-            <div class="form-group">
               <label for="direction">Address</label>
               <input v-model="user.address" type="text" name="address" class="form-control" id="direction" required>
+            </div>
+            <div class="form-group">
+              <label for="city">City</label>
+              <input v-model="user.city" type="text" name="address" class="form-control" id="city" required>
+            </div>
+            <div class="form-group">
+              <label for="state">State</label>
+              <input v-model="user.state" type="text" name="address" class="form-control" id="state" required>
+            </div>
+            <div class="form-group">
+              <label for="country">Country</label>
+              <input v-model="user.country" type="text" name="address" class="form-control" id="country" required>
+            </div>
+            <div class="form-group">
+              <label for="postal_code">Postal Code</label>
+              <input v-model="user.postal_code" type="text" name="address" class="form-control" id="postal_code"
+                     required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input v-model="user.phone" type="tel" name="phone" class="form-control" id="phone" required>
             </div>
           </div>
           <div class="col-md-6">
