@@ -161,7 +161,7 @@
     data() {
       return {
         product: {
-          image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADUAAAA1CAYAAADh5qNwAAABgmlDQ1BzUkdCIElFQzYxOTY2LTIuMQAAKJF1kc8rRFEUxz8GjRghFhYWL4bV0Bg1sbEY+VVYjKcMNjNv5s2omfF6byTZKltFiY1fC/4CtspaKSIlGxtrYoOe88zUTDLndu753O+953TvueBS01rGqvJDJpszw6MhZTYyp7ifqaKJeuroiGqWMTk9olLWPu6ocOJNt1Or/Ll/rS6esDSoqBEe1AwzJzwmPLGSMxzeFm7RUtG48Kmwz5QLCt86eizPLw4n8/zlsKmGh8DVKKwkSzhWwlrKzAjLy/Fm0sta4T7OSzyJ7My0xHbxNizCjBJCYZxhhgjSy4DMQboJ0CMryuT7f/OnWJJcTWaDVUwWSZIih0/UZamekKiLnpCRZtXp/9++WnpfIF/dE4LqJ9t+6wT3Fnxv2vbnoW1/H0HlI1xki/lLB9D/LvpmUfPuQ8M6nF0WtdgOnG9A64MRNaO/UqW4S9fh9QTqI9B8DbXz+Z4V9jm+B3VNvuoKdvegS843LPwAPUpn03lDyOIAAAAJcEhZcwAACxMAAAsTAQCanBgAAAj/SURBVGiBxZptbFtXGcd/9/o9fomd2InbNE3TJW1Hu4q2M5tRW6N1UzWtb6CNsQ8TIBUktA0JAYVO6tqxiaoafChbvwCCSgMkBoNVa2EFseG1w6Iee9GgG33Z2qTNqxM7jh3b8RsffNPmXr/ce51s/CV/8LnnnPv87znnOf/nOUdgERGMhk3AFum3VPHzAjFgSPE7A5yJBEL5xbJDWGgHwWjYCWwH9gD3Ae4muokDp4ATwOlIIDS9EJuaJhWMhtuAx4FHAOtCjFAgCxwDfhgJhCab6UA3qWA0bAMeA/bT3KhoRQI4DDwbCYQyehrqIhWMhvcAzwLL9LRbIAaBb0YCoZe0NtBEKhgNi8AB4FBzdslhEkTWOpzc6WrjVrsDl9HEL4auciYx0ajZQeCpSCBUVuvfqFYhGA3bgePA/VqNbgSnwcjerh52eZdgEUUAEoU86WJRremTwLpgNPyVSCA006ii2OhhMBpeSsXlLgohh8HId3r6eKCj6wYhgKlCnsuZtJYuHgDOSnbVRV1S0gidBDZoM1kdu3x+trV1VJVHkwmmCpq3qQ3Ay8FouKVehZqkpDV0nEUk5DGa2Or2Vr1wOJflxbEhvd1tBI4Ho+GaPqHeSB1gkabcHPpbHCy32mRlsfwsRwcvczXbcInUwwNU7KxCFSnJbR9q5i2NsMbuwG00AZAqFng1Ps6By+/zemOPp4YnJXtlkA2ftLFe4GPYh7a429nkdHM9l+F8epqBbIbpYmExuh4EVkUCoexcgdKlP8YCCVlFkXUOF7fZXcyUipyeGCNRyBOZmuSfyTj5UgnVjUYfuqnY/cxcwY2RkrTcZZqUPk6Dka0eL3t8flba7JgFkTLwp9gIR65erElkdYuDz/uW8OZ0grOJCbKlUjOvhoqkumVOK84fqcdpgpAoCNzudLN3aQ/rHK6q55tcbvpaHFycScnKDYLAN5b18hmXhx1eP+eScY4PD/DvVJImqLmpaNHvguQopPDhEb09mQSB3V4/T99ya01CAGZBxG4wVJVv8/jY6Kx8Q1EQuLO1jSN9a7nX68ckNBU8PBqMhh1w0/ttR2f4YBAE7u/o4lvL+3AYqtXWVCHP+fQ0fxgfrhqlVqOJh5d0Y1QY32o08b2efh7sXNYMMavE48b0262ntQDc09bB3q6eKsPihTznpuL8PRHjX8kEqRoebrfPT6+1tiAwCgJf61rBTKnIS2NDeqfibuBFQQrBx9Cxnvpsdp7pX0en2SIrvzCT4udDV3kjMVHXw3WaLRxdtb5qI1YiUciz/9J53k1NaTULKhF0p0gln6CZkEUUeci/rIrQu6kpnv7ov5xtQAjgoc5lLLPcnOmFcplTsRH+Njkuq+c2mvjq0u',
+          image: 'http://gardensofamerica.com/logo.png',
           name: 'Gardens of America',
           description: 'Credit card information',
           currency: 'USD',
@@ -204,9 +204,7 @@
         return this.$store.getters.getProductsCategories
       },
       getTotalPriceCheckout() {
-        const number = parseInt(this.totalPrice.toString().replace(".", ""))
-        console.log(number)
-        return number
+        return parseInt(this.totalPrice.toString().replace(".", ""))
       }
     },
     created() {
@@ -262,7 +260,24 @@
               const self = this
 
               const user = JSON.parse(localStorage.getItem('user'))
-              /*const amount = this.totalPrice.split('.').join("");*/
+              const shippingAddressOverride = {
+                recipientName: 'Scruff McGruff',
+                line1: '1234 Main St.',
+                line2: 'Unit 1',
+                city: 'Chicago',
+                postalCode: '60652',
+                countryCode: 'US',
+                state: 'IL',
+                phone: '123.456.7890'
+              }
+              const shippingAddress = {
+                line1: user.address,
+                city: user.city,
+                countryCode: user.country_code,
+                postalCode: user.postal_code,
+                phone: user.phone,
+                state: '',
+              }
               paypal.Button.render({
                 braintree: {client, paypalCheckout},
                 client: {
@@ -274,19 +289,8 @@
 
                 payment: (data, actions) => actions.braintree.create({
                   flow: 'checkout', // Required
-                  amount: self.getTotalPriceCheckout, // Required
+                  amount: self.totalPrice, // Required
                   currency: 'USD', // Required
-                  enableShippingAddress: true,
-                  shippingAddressEditable: false,
-                  shippingAddressOverride: {
-                    line1: user.address,
-                    line2: '',
-                    city: user.city,
-                    countryCode: user.country_code,
-                    postalCode: user.postal_code,
-                    state: user.state,
-                    phone: user.phone
-                  }
                 }),
 
                 onAuthorize: function (payload, actions) {
@@ -323,7 +327,6 @@
       },
       saveTransaction() {
         this.submitForm = true
-        this.transaction.code = 1
         this.transaction.processor_trans_id = 1
 
         this.transaction.cart_id = this.carts.cart_id

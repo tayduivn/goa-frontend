@@ -24,16 +24,16 @@ Authorization: Bearer {{auth_token}}
   "id": "",
   "code": "",
   "processor": "Credit card",
-  "processor_trans_id": "",
+  "processor_trans_id": 1,
   "cc_num": "",
   "cc_type": "",
   "start_date": "",
   "end_date": "",
   "token_stripe": {
-    "id": "tok_1Ebnh0AALSaIwJgk9UT60GkT",
+    "id": "tok_1EcB5hAALSaIwJgkHw6rSOgz",
     "object": "token",
     "card": {
-      "id": "card_1EbngzAALSaIwJgkKHcuE3iZ",
+      "id": "card_1EcB5hAALSaIwJgkgLmZJhrv",
       "object": "card",
       "address_city": null,
       "address_country": null,
@@ -52,22 +52,22 @@ Authorization: Bearer {{auth_token}}
       "funding": "credit",
       "last4": "4242",
       "metadata": {},
-      "name": "ivans202@gmail.com",
+      "name": "ivans21@gmail.com",
       "tokenization_method": null
     },
-    "client_ip": "190.76.249.59",
-    "created": 1558267242,
-    "email": "ivans202@gmail.com",
+    "client_ip": "190.76.249.218",
+    "created": 1558357185,
+    "email": "ivans21@gmail.com",
     "livemode": false,
     "type": "card",
     "used": false
   },
   "payload_paypal": "",
   "type_payment": {},
-  "cart_id": "1",
+  "cart_id": "3",
   "user_id": "2",
-  "total": 2500,
-  "subtotal": 2500
+  "total": "41.00",
+  "subtotal": "41.00"
 }
 
 ###
