@@ -1,3 +1,241 @@
+POST http://goa-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
+
+{
+  "id": "",
+  "code": "",
+  "processor": "Credit card",
+  "processor_trans_id": 1,
+  "cc_num": "",
+  "cc_type": "",
+  "start_date": "",
+  "end_date": "",
+  "token_stripe": {
+    "id": "tok_1EcB5hAALSaIwJgkHw6rSOgz",
+    "object": "token",
+    "card": {
+      "id": "card_1EcB5hAALSaIwJgkgLmZJhrv",
+      "object": "card",
+      "address_city": null,
+      "address_country": null,
+      "address_line1": null,
+      "address_line1_check": null,
+      "address_line2": null,
+      "address_state": null,
+      "address_zip": null,
+      "address_zip_check": null,
+      "brand": "Visa",
+      "country": "US",
+      "cvc_check": "pass",
+      "dynamic_last4": null,
+      "exp_month": 12,
+      "exp_year": 2032,
+      "funding": "credit",
+      "last4": "4242",
+      "metadata": {},
+      "name": "ivans21@gmail.com",
+      "tokenization_method": null
+    },
+    "client_ip": "190.76.249.218",
+    "created": 1558357185,
+    "email": "ivans21@gmail.com",
+    "livemode": false,
+    "type": "card",
+    "used": false
+  },
+  "payload_paypal": "",
+  "type_payment": {},
+  "cart_id": "3",
+  "user_id": "2",
+  "total": "41.00",
+  "subtotal": "41.00"
+}
+
+<> 2019-05-20T090007.500.html
+
+###
+
+POST http://goa-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
+
+{
+  "id": "",
+  "code": "",
+  "processor": "Credit card",
+  "processor_trans_id": 1,
+  "cc_num": "",
+  "cc_type": "",
+  "start_date": "",
+  "end_date": "",
+  "token_stripe": {
+    "id": "tok_1EcB2UAALSaIwJgkUhV4IpGa",
+    "object": "token",
+    "card": {
+      "id": "card_1EcB2UAALSaIwJgkq7jGhseR",
+      "object": "card",
+      "address_city": null,
+      "address_country": null,
+      "address_line1": null,
+      "address_line1_check": null,
+      "address_line2": null,
+      "address_state": null,
+      "address_zip": null,
+      "address_zip_check": null,
+      "brand": "Visa",
+      "country": "US",
+      "cvc_check": "pass",
+      "dynamic_last4": null,
+      "exp_month": 12,
+      "exp_year": 2032,
+      "funding": "credit",
+      "last4": "4242",
+      "metadata": {},
+      "name": "ivans8@gmail.com",
+      "tokenization_method": null
+    },
+    "client_ip": "190.76.249.218",
+    "created": 1558356986,
+    "email": "ivans8@gmail.com",
+    "livemode": false,
+    "type": "card",
+    "used": false
+  },
+  "payload_paypal": "",
+  "type_payment": {},
+  "cart_id": "3",
+  "user_id": "2",
+  "total": "41.00",
+  "subtotal": "41.00"
+}
+
+<> 2019-05-20T085643.500.html
+
+###
+
+POST http://goa-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
+
+{
+  "id": "",
+  "code": "",
+  "processor": "Credit card",
+  "processor_trans_id": 1,
+  "cc_num": "",
+  "cc_type": "",
+  "start_date": "",
+  "end_date": "",
+  "token_stripe": {
+    "id": "tok_1EcAw5AALSaIwJgkeHwyiRa4",
+    "object": "token",
+    "card": {
+      "id": "card_1EcAw5AALSaIwJgktP8LaQi6",
+      "object": "card",
+      "address_city": null,
+      "address_country": null,
+      "address_line1": null,
+      "address_line1_check": null,
+      "address_line2": null,
+      "address_state": null,
+      "address_zip": null,
+      "address_zip_check": null,
+      "brand": "Visa",
+      "country": "US",
+      "cvc_check": "pass",
+      "dynamic_last4": null,
+      "exp_month": 12,
+      "exp_year": 2032,
+      "funding": "credit",
+      "last4": "4242",
+      "metadata": {},
+      "name": "ivans21@gmail.com",
+      "tokenization_method": null
+    },
+    "client_ip": "190.76.249.218",
+    "created": 1558356589,
+    "email": "ivans21@gmail.com",
+    "livemode": false,
+    "type": "card",
+    "used": false
+  },
+  "payload_paypal": "",
+  "type_payment": {},
+  "cart_id": "3",
+  "user_id": "2",
+  "total": "41.00",
+  "subtotal": "41.00"
+}
+
+<> 2019-05-20T085429.500.html
+
+###
+
+POST http://goa-backend/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "goa@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-20T085420.200.json
+
+###
+
+GET http://goa-backend/api/transactions?payment=Paypal
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
+
+<> 2019-05-20T052916.200.json
+
+###
+
+GET http://goa-backend/api/transactions?payment=Paypal
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
+
+<> 2019-05-20T052719.500.json
+
+###
+
+GET http://goa-backend/api/transactions?payment=Paypal
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
+
+<> 2019-05-20T052639.200.json
+
+###
+
+GET http://goa-backend/api/transactions?payment=Paypal
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
+
+<> 2019-05-20T052337.500.json
+
+###
+
+POST http://goa-backend/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "goa@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-20T052333.200.json
+
+###
+
+GET http://goa-backend/api/transactions?payment=Paypal
+Accept: application/json
+Authorization: Bearer
+
+<> 2019-05-20T052325.401.json
+
+###
+
 POST http://goa-backend/api/products/update
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
@@ -1563,128 +1801,6 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpb
 }
 
 <> 2019-05-19T075717.500.html
-
-###
-
-GET http://goa-backend/api/transactions?payment=Paypal
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-05-19T075154.200.json
-
-###
-
-GET http://goa-backend/api/transactions?payment=Paypal
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-05-19T074959.200.json
-
-###
-
-GET http://goa-backend/api/transactions?payment=Paypal
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-05-19T074910.200.json
-
-###
-
-GET http://goa-backend/api/transactions?payment=paypal
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-05-19T074850.200.json
-
-###
-
-GET http://goa-backend/api/transactions?payment=paypal
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-05-19T074831.200.json
-
-###
-
-GET http://goa-backend/api/transactions?payment=paypal
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-05-19T074738.200.json
-
-###
-
-GET http://goa-backend/api/transactions?payment=paypal
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-05-19T074715.200.json
-
-###
-
-GET http://goa-backend/api/transactions?payment=paypal
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-<> 2019-05-19T073421.200.json
-
-###
-
-POST http://goa-backend/api/public/users/login
-Content-Type: application/json
-
-{
-  "email": "admin@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-05-19T063857.200.json
-
-###
-
-POST http://goa-backend/api/transactions
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-{
-  "id": "",
-  "code": 1,
-  "processor": "Paypal",
-  "processor_trans_id": 1,
-  "cc_num": "",
-  "cc_type": "",
-  "start_date": "",
-  "end_date": "",
-  "token_stripe": "",
-  "payload_paypal": {
-    "nonce": "bd14a4f9-f18a-065a-5ede-0b2d1fcf83fe",
-    "orderID": "EC-1RW27909E9072634C",
-    "payer_info": {
-      "email": "desarrollo2.theroom@gmail.com",
-      "first_name": "ivans",
-      "middle_name": "ivans",
-      "last_name": "del pino",
-      "payer_id": "KL5AZDV36NUFG",
-      "country_code": "US",
-      "shipping_address": {
-        "recipient_name": "Scruff McGruff",
-        "line1": "1234 Main St.",
-        "line2": "Unit 1",
-        "city": "Chicago",
-        "state": "IL",
-        "postal_code": "60652",
-        "country_code": "US"
-      }
-    }
-  },
-  "type_payment": {},
-  "cart_id": "1",
-  "user_id": "2",
-  "total": 2500,
-  "subtotal": 2500
-}
-
-<> 2019-05-19T063513.400.json
 
 ###
 
