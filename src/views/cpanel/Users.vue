@@ -15,7 +15,6 @@
         <thead>
         <tr>
           <th scope="col" width="10px">Nº</th>
-          <th scope="col">Name</th>
           <th scope="col">Email</th>
           <th scope="col">Date</th>
           <th scope="col" width="10"></th>
@@ -24,7 +23,6 @@
         <tbody>
         <tr v-for="(user, index) of users" :key="user.iduser">
           <th scope="col">{{++index}}</th>
-          <td>{{user.name}}</td>
           <td>{{user.email}}</td>
           <td>{{formaDate(user.inserted_at)}}</td>
           <td>
@@ -102,7 +100,7 @@
     data() {
       return {
         submitForm: false,
-        user: modelUser,
+        user: modelUser.reset(),
         open: false,
         wordEng: wordEng,
       }
@@ -124,10 +122,11 @@
       },
       saveData() {
         this.submitForm = true
+        this.user.role_id = 1
         getAxios(apiUsers.register, 'POST', this.user)
           .then(() => {
             this.submitForm = false
-            this.successRequest("Creado", "Creado")
+            this.successRequest(this.wordEng.created)
           })
           .catch(err => {
             this.submitForm = false
@@ -142,12 +141,14 @@
               getAxios(apiUsers.all, 'DELETE', {id})
                 .then(() => {
                   this.submitForm = false
-                  this.successRequest("Creado", "Eliminado")
+                  this.successRequest(this.wordEng.deleted)
                 })
                 .catch(err => {
                   this.submitForm = false
                   handleError(this.$swal, err)
                 })
+            } else {
+              this.submitForm = false
             }
           })
       },

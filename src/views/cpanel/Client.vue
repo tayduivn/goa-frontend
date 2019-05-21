@@ -52,6 +52,26 @@
           <td>{{user.address}}</td>
         </tr>
         <tr>
+          <td scope="col">City</td>
+          <td>{{user.city}}</td>
+        </tr>
+        <tr>
+          <td scope="col">State</td>
+          <td>{{user.state}}</td>
+        </tr>
+        <tr>
+          <td scope="col">Country</td>
+          <td>{{user.country}}</td>
+        </tr>
+        <tr>
+          <td scope="col">Country Code</td>
+          <td>{{user.country_code}}</td>
+        </tr>
+        <tr>
+          <td scope="col">Postal code</td>
+          <td>{{user.postal_code}}</td>
+        </tr>
+        <tr>
           <td scope="col">Phone</td>
           <td>{{user.phone}}</td>
         </tr>
@@ -94,7 +114,7 @@
       }
     },
     created() {
-      store.dispatch('getUsers', '?type=Cliente')
+      store.dispatch('getUsers', '?type=Client')
     },
     methods: {
       openModal(user) {

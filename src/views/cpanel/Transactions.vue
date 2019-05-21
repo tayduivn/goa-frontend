@@ -222,6 +222,8 @@
                 .catch(err => {
                   handleError(this.$swal, err)
                 })
+            } else {
+              this.submitForm = false
             }
           })
       },

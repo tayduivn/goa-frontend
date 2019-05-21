@@ -3,10 +3,10 @@ import store from "../store/store"
 import router from "../router"
 
 const listState = [
-  'Pendiente',
-  'Enviando',
-  'Completado',
-  'Cancelado',
+  'Pending',
+  'Sending',
+  'Completed',
+  'Cancelled',
 ]
 
 const wordEng = {
@@ -54,6 +54,7 @@ const wordEng = {
   users: 'Users',
   emails: 'Emails Suscribe',
   payments: 'Payments',
+  guide: 'Guide',
 }
 
 function handleError(swal, err, message = '') {

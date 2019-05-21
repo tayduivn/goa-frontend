@@ -10,7 +10,7 @@ Authorization: Bearer {{auth_token}}
 
 ###
 
-POST {{host}}/api/images/register
+POST {{host}}/api/images/reg
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 Authorization: Bearer {{auth_token}}
 
@@ -18,7 +18,7 @@ Authorization: Bearer {{auth_token}}
 Content-Disposition: form-data; name="product_id"
 Content-Type: text/plain
 
-26
+1
 --WebAppBoundary
 Content-Disposition: form-data; name="image"; filename="fuki.jpeg"
 Content-Type: image/jpeg

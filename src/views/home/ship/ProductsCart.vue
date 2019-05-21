@@ -211,6 +211,12 @@
       this.getCartProduct()
       this.getPaypal()
     },
+    reInit() {
+      // Helpful if you have to deal with v-for to update dynamic lists
+      this.$nextTick(() => {
+        this.$refs.slick.reSlick();
+      });
+    },
     methods: {
       getCartProduct() {
         const id = JSON.parse(localStorage.getItem('user')).id
@@ -260,24 +266,6 @@
               const self = this
 
               const user = JSON.parse(localStorage.getItem('user'))
-              const shippingAddressOverride = {
-                recipientName: 'Scruff McGruff',
-                line1: '1234 Main St.',
-                line2: 'Unit 1',
-                city: 'Chicago',
-                postalCode: '60652',
-                countryCode: 'US',
-                state: 'IL',
-                phone: '123.456.7890'
-              }
-              const shippingAddress = {
-                line1: user.address,
-                city: user.city,
-                countryCode: user.country_code,
-                postalCode: user.postal_code,
-                phone: user.phone,
-                state: '',
-              }
               paypal.Button.render({
                 braintree: {client, paypalCheckout},
                 client: {

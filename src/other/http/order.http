@@ -13,7 +13,7 @@ Accept: application/json
 Authorization: Bearer {{auth_token}}
 
 ###
-GET {{host}}/api/orders?status=pendiente
+GET {{host}}/api/orders?status=Pending
 Accept: application/json
 Authorization: Bearer {{auth_token}}
 

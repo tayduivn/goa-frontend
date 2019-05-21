@@ -151,6 +151,8 @@
                   this.submitForm = false
                   handleError(this.$swal, err)
                 })
+            } else {
+              this.submitForm = false
             }
           })
       },

@@ -12,15 +12,15 @@
       </div>
       <div v-else-if="orders && orders !== 'empty' && orders !== 'loading'">
         <div class="d-flex justify-order-between mb-3">
-          <h5 class="mb-2">Listado de ordenes</h5>
+          <h5 class="mb-2">List of orders</h5>
         </div>
 
         <table class="table table-striped">
           <thead>
           <tr>
             <th scope="col" width="10px">Nº</th>
-            <th scope="col">Usuario</th>
-            <th scope="col">Fecha</th>
+            <th scope="col">User</th>
+            <th scope="col">Date</th>
             <th scope="col"></th>
           </tr>
           </thead>
@@ -60,7 +60,7 @@
       <div v-else-if="order && order !== 'empty' && order.products && order.products.length">
         <div class="d-flex justify-content-between align-items-center mt-5">
           <h3>Detail of the order Nº {{order.order_id}} - {{order.order_status}}</h3>
-          <button v-if="order.order_status === 'Enviando' || order.order_status === 'Pendiente'"
+          <button v-if="order.order_status === 'Enviando' || order.order_status === 'Pending'"
                   class="btn btn-sm btn-primary"
                   @click.prevent="editStatusOrder">
             Change status to complete

@@ -12,10 +12,6 @@
           <input class="form-control" id="email" type="email" v-model="users.email" v-if="users.iduser !== ''" disabled>
         </div>
         <div class="form-group">
-          <label for="street" class="mt-3 mb-3">Address</label>
-          <input class="form-control" id="street" type="text" v-model="users.address" required>
-        </div>
-        <div class="form-group">
           <label for="phone" class="mt-3 mb-3">Phone</label>
           <input class="form-control" id="phone" type="text" v-model="users.phone" required>
         </div>
@@ -106,6 +102,8 @@
                   this.submitForm = false
                   handleError(this.$swal, err)
                 })
+            } else {
+              this.submitForm = false
             }
           })
       },
@@ -128,6 +126,8 @@
                   this.submitForm = false
                   handleError(this.$swal, err)
                 })
+            } else {
+              this.submitForm = false
             }
           })
       },
@@ -146,6 +146,8 @@
                 .catch(err => {
                   handleError(this.$swal, err)
                 })
+            } else {
+              this.submitForm = false
             }
           })
       },

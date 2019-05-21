@@ -1,3 +1,813 @@
+POST http://goa-backend/api/categories
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
+
+{
+  "name": "testing"
+}
+
+<> 2019-05-21T070448.201.json
+
+###
+
+POST http://goa-backend/api/public/users/register
+Content-Type: application/json
+
+{
+  "id": "",
+  "email": "pedro@gmail.com",
+  "password": "12345678",
+  "role_id": 1
+}
+
+<> 2019-05-21T053711.200.json
+
+###
+
+POST http://goa-backend/api/products
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
+
+--WebAppBoundary
+Content-Disposition: form-data; name="sku"
+Content-Type: text/plain
+
+26
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+Content-Type: text/plain
+
+Cacao 22
+--WebAppBoundary
+Content-Disposition: form-data; name="description_short"
+Content-Type: text/plain
+
+Short
+--WebAppBoundary
+Content-Disposition: form-data; name="description_one"
+Content-Type: text/plain
+
+One
+--WebAppBoundary
+Content-Disposition: form-data; name="description_two"
+Content-Type: text/plain
+
+Two
+--WebAppBoundary
+Content-Disposition: form-data; name="preparation"
+Content-Type: text/plain
+
+1. Started 2. Finished
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+Content-Type: text/plain
+
+30
+--WebAppBoundary
+Content-Disposition: form-data; name="user_id"
+Content-Type: text/plain
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="regular_price"
+Content-Type: text/plain
+
+12.036
+--WebAppBoundary
+Content-Disposition: form-data; name="nutrition"; filename="fuki.jpeg"
+Content-Type: image/jpeg
+
+< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
+--WebAppBoundary--
+
+<> 2019-05-21T052753.201.json
+
+###
+
+POST http://goa-backend/api/products
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
+
+--WebAppBoundary
+Content-Disposition: form-data; name="sku"
+Content-Type: text/plain
+
+26
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+Content-Type: text/plain
+
+Cacao 21
+--WebAppBoundary
+Content-Disposition: form-data; name="description_short"
+Content-Type: text/plain
+
+Short
+--WebAppBoundary
+Content-Disposition: form-data; name="description_one"
+Content-Type: text/plain
+
+One
+--WebAppBoundary
+Content-Disposition: form-data; name="description_two"
+Content-Type: text/plain
+
+Two
+--WebAppBoundary
+Content-Disposition: form-data; name="preparation"
+Content-Type: text/plain
+
+1. Started 2. Finished
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+Content-Type: text/plain
+
+30
+--WebAppBoundary
+Content-Disposition: form-data; name="user_id"
+Content-Type: text/plain
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="regular_price"
+Content-Type: text/plain
+
+12.036
+--WebAppBoundary
+Content-Disposition: form-data; name="nutrition"; filename="fuki.jpeg"
+Content-Type: image/jpeg
+
+< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
+--WebAppBoundary--
+
+<> 2019-05-21T052749.201.json
+
+###
+
+POST http://{{host}}/api/products
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
+
+--WebAppBoundary
+Content-Disposition: form-data; name="sku"
+Content-Type: text/plain
+
+26
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+Content-Type: text/plain
+
+Cacao 21
+--WebAppBoundary
+Content-Disposition: form-data; name="description_short"
+Content-Type: text/plain
+
+Short
+--WebAppBoundary
+Content-Disposition: form-data; name="description_one"
+Content-Type: text/plain
+
+One
+--WebAppBoundary
+Content-Disposition: form-data; name="description_two"
+Content-Type: text/plain
+
+Two
+--WebAppBoundary
+Content-Disposition: form-data; name="preparation"
+Content-Type: text/plain
+
+1. Started 2. Finished
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+Content-Type: text/plain
+
+30
+--WebAppBoundary
+Content-Disposition: form-data; name="user_id"
+Content-Type: text/plain
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="regular_price"
+Content-Type: text/plain
+
+12.036
+--WebAppBoundary
+Content-Disposition: form-data; name="nutrition"; filename="fuki.jpeg"
+Content-Type: image/jpeg
+
+< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
+--WebAppBoundary--
+
+###
+
+POST http://goa-backend/api/products
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
+
+--WebAppBoundary
+Content-Disposition: form-data; name="sku"
+Content-Type: text/plain
+
+26
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+Content-Type: text/plain
+
+Cacao 20
+--WebAppBoundary
+Content-Disposition: form-data; name="description_short"
+Content-Type: text/plain
+
+Short
+--WebAppBoundary
+Content-Disposition: form-data; name="description_one"
+Content-Type: text/plain
+
+One
+--WebAppBoundary
+Content-Disposition: form-data; name="description_two"
+Content-Type: text/plain
+
+Two
+--WebAppBoundary
+Content-Disposition: form-data; name="preparation"
+Content-Type: text/plain
+
+1. Started 2. Finished
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+Content-Type: text/plain
+
+30
+--WebAppBoundary
+Content-Disposition: form-data; name="user_id"
+Content-Type: text/plain
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="regular_price"
+Content-Type: text/plain
+
+12.036
+--WebAppBoundary
+Content-Disposition: form-data; name="nutrition"; filename="fuki.jpeg"
+Content-Type: image/jpeg
+
+< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
+--WebAppBoundary--
+
+<> 2019-05-21T052744.201.json
+
+###
+
+POST http://goa-backend/api/products
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
+
+--WebAppBoundary
+Content-Disposition: form-data; name="sku"
+Content-Type: text/plain
+
+26
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+Content-Type: text/plain
+
+Cacao 19
+--WebAppBoundary
+Content-Disposition: form-data; name="description_short"
+Content-Type: text/plain
+
+Short
+--WebAppBoundary
+Content-Disposition: form-data; name="description_one"
+Content-Type: text/plain
+
+One
+--WebAppBoundary
+Content-Disposition: form-data; name="description_two"
+Content-Type: text/plain
+
+Two
+--WebAppBoundary
+Content-Disposition: form-data; name="preparation"
+Content-Type: text/plain
+
+1. Started 2. Finished
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+Content-Type: text/plain
+
+30
+--WebAppBoundary
+Content-Disposition: form-data; name="user_id"
+Content-Type: text/plain
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="regular_price"
+Content-Type: text/plain
+
+12.036
+--WebAppBoundary
+Content-Disposition: form-data; name="nutrition"; filename="fuki.jpeg"
+Content-Type: image/jpeg
+
+< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
+--WebAppBoundary--
+
+<> 2019-05-21T052738.201.json
+
+###
+
+POST http://goa-backend/api/products
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
+
+--WebAppBoundary
+Content-Disposition: form-data; name="sku"
+Content-Type: text/plain
+
+26
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+Content-Type: text/plain
+
+Cacao 18
+--WebAppBoundary
+Content-Disposition: form-data; name="description_short"
+Content-Type: text/plain
+
+Short
+--WebAppBoundary
+Content-Disposition: form-data; name="description_one"
+Content-Type: text/plain
+
+One
+--WebAppBoundary
+Content-Disposition: form-data; name="description_two"
+Content-Type: text/plain
+
+Two
+--WebAppBoundary
+Content-Disposition: form-data; name="preparation"
+Content-Type: text/plain
+
+1. Started 2. Finished
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+Content-Type: text/plain
+
+30
+--WebAppBoundary
+Content-Disposition: form-data; name="user_id"
+Content-Type: text/plain
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="regular_price"
+Content-Type: text/plain
+
+12,036
+--WebAppBoundary
+Content-Disposition: form-data; name="nutrition"; filename="fuki.jpeg"
+Content-Type: image/jpeg
+
+< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
+--WebAppBoundary--
+
+<> 2019-05-21T052705.201.json
+
+###
+
+POST http://goa-backend/api/products/update
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
+
+--WebAppBoundary
+Content-Disposition: form-data; name="id"
+Content-Type: text/plain
+
+21
+--WebAppBoundary
+Content-Disposition: form-data; name="sku"
+Content-Type: text/plain
+
+26
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+Content-Type: text/plain
+
+Cacao 22
+--WebAppBoundary
+Content-Disposition: form-data; name="description_short"
+Content-Type: text/plain
+
+Short
+--WebAppBoundary
+Content-Disposition: form-data; name="description_one"
+Content-Type: text/plain
+
+One
+--WebAppBoundary
+Content-Disposition: form-data; name="description_two"
+Content-Type: text/plain
+
+Two
+--WebAppBoundary
+Content-Disposition: form-data; name="preparation"
+Content-Type: text/plain
+
+1. Started 2. Finished
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+Content-Type: text/plain
+
+30
+--WebAppBoundary
+Content-Disposition: form-data; name="user_id"
+Content-Type: text/plain
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="regular_price"
+Content-Type: text/plain
+
+12.036
+--WebAppBoundary
+Content-Disposition: form-data; name="nutrition"; filename="fuki.jpeg"
+Content-Type: image/jpeg
+
+< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
+--WebAppBoundary--
+
+<> 2019-05-21T052657.201.json
+
+###
+
+POST http://goa-backend/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "goa@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-21T052654.200.json
+
+###
+
+POST http://goa-backend/api/products/update
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer
+
+--WebAppBoundary
+Content-Disposition: form-data; name="id"
+Content-Type: text/plain
+
+21
+--WebAppBoundary
+Content-Disposition: form-data; name="sku"
+Content-Type: text/plain
+
+26
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+Content-Type: text/plain
+
+Cacao 22
+--WebAppBoundary
+Content-Disposition: form-data; name="description_short"
+Content-Type: text/plain
+
+Short
+--WebAppBoundary
+Content-Disposition: form-data; name="description_one"
+Content-Type: text/plain
+
+One
+--WebAppBoundary
+Content-Disposition: form-data; name="description_two"
+Content-Type: text/plain
+
+Two
+--WebAppBoundary
+Content-Disposition: form-data; name="preparation"
+Content-Type: text/plain
+
+1. Started 2. Finished
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+Content-Type: text/plain
+
+30
+--WebAppBoundary
+Content-Disposition: form-data; name="user_id"
+Content-Type: text/plain
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="regular_price"
+Content-Type: text/plain
+
+12.036
+--WebAppBoundary
+Content-Disposition: form-data; name="nutrition"; filename="fuki.jpeg"
+Content-Type: image/jpeg
+
+< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
+--WebAppBoundary--
+
+<> 2019-05-21T052648.401.json
+
+###
+
+POST http://goa-backend/api/images/reg
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
+
+--WebAppBoundary
+Content-Disposition: form-data; name="product_id"
+Content-Type: text/plain
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="fuki.jpeg"
+Content-Type: image/jpeg
+
+< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
+--WebAppBoundary--
+
+<> 2019-05-20T105252.201.json
+
+###
+
+POST http://goa-backend/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "goa@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-20T105250.200.json
+
+###
+
+POST http://goa-backend/api/images/reg
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
+
+--WebAppBoundary
+Content-Disposition: form-data; name="product_id"
+Content-Type: text/plain
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="fuki.jpeg"
+Content-Type: image/jpeg
+
+< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
+--WebAppBoundary--
+
+<> 2019-05-20T105225.201.json
+
+###
+
+POST http://goa-backend/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "goa@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-20T105220.200.json
+
+###
+
+POST https://goa-backend.herokuapp.com/api/images/reg
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
+
+--WebAppBoundary
+Content-Disposition: form-data; name="product_id"
+Content-Type: text/plain
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="fuki.jpeg"
+Content-Type: image/jpeg
+
+< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
+--WebAppBoundary--
+
+<> 2019-05-20T105149.201.json
+
+###
+
+POST https://goa-backend.herokuapp.com/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "goa@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-20T105139.200.json
+
+###
+
+POST https://goa-backend.herokuapp.com/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "goa@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-20T104702.200.json
+
+###
+
+POST https://goa-backend.herokuapp.com/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "goa@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-20T101441.301.html
+
+###
+
+POST https://goa-backend.herokuapp.com/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "goa@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-20T101211.200.json
+
+###
+
+POST https://goa-backend.herokuapp.com/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "goa@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-20T100943.500.html
+
+###
+
+POST https://goa-backend.herokuapp.com/api/images/reg
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
+
+--WebAppBoundary
+Content-Disposition: form-data; name="product_id"
+Content-Type: text/plain
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="fuki.jpeg"
+Content-Type: image/jpeg
+
+< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
+--WebAppBoundary--
+
+<> 2019-05-20T100223.201.json
+
+###
+
+POST https://goa-backend.herokuapp.com/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "goa@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-20T100158.200.json
+
+###
+
+POST https://goa-backend.herokuapp.com/api/images/reg
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
+
+--WebAppBoundary
+Content-Disposition: form-data; name="product_id"
+Content-Type: text/plain
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="fuki.jpeg"
+Content-Type: image/jpeg
+
+< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
+--WebAppBoundary--
+
+<> 2019-05-20T095731.503.html
+
+###
+
+POST https://goa-backend.herokuapp.com/api/images/reg
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
+
+--WebAppBoundary
+Content-Disposition: form-data; name="product_id"
+Content-Type: text/plain
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="fuki.jpeg"
+Content-Type: image/jpeg
+
+< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
+--WebAppBoundary--
+
+<> 2019-05-20T095432.503.html
+
+###
+
+POST https://goa-backend.herokuapp.com/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "goa@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-20T095406.200.json
+
+###
+
+POST http://goa-backend/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "goa@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-20T095401.200.json
+
+###
+
+POST http://goa-backend/api/images/reg
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
+
+--WebAppBoundary
+Content-Disposition: form-data; name="product_id"
+Content-Type: text/plain
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="fuki.jpeg"
+Content-Type: image/jpeg
+
+< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
+--WebAppBoundary--
+
+<> 2019-05-20T095310.201.json
+
+###
+
+POST http://goa-backend/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "goa@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-20T095302.200.json
+
+###
+
+POST https://goa-backend.herokuapp.com/api/public/users/login
+Content-Type: application/json
+
+{
+  "email": "goa@gmail.com",
+  "password": "123456"
+}
+
+<> 2019-05-20T095036.200.json
+
+###
+
 POST http://goa-backend/api/transactions
 Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
@@ -868,939 +1678,6 @@ Content-Type: image/jpeg
 --WebAppBoundary--
 
 <> 2019-05-19T053720.201.json
-
-###
-
-POST http://goa-backend/api/products
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
-
---WebAppBoundary
-Content-Disposition: form-data; name="sku"
-Content-Type: text/plain
-
-26
---WebAppBoundary
-Content-Disposition: form-data; name="name"
-Content-Type: text/plain
-
-Cacao 16
---WebAppBoundary
-Content-Disposition: form-data; name="description_short"
-Content-Type: text/plain
-
-Short
---WebAppBoundary
-Content-Disposition: form-data; name="description_one"
-Content-Type: text/plain
-
-One
---WebAppBoundary
-Content-Disposition: form-data; name="description_two"
-Content-Type: text/plain
-
-Two
---WebAppBoundary
-Content-Disposition: form-data; name="preparation"
-Content-Type: text/plain
-
-1. Started 2. Finished
---WebAppBoundary
-Content-Disposition: form-data; name="quantity"
-Content-Type: text/plain
-
-30
---WebAppBoundary
-Content-Disposition: form-data; name="user_id"
-Content-Type: text/plain
-
-1
---WebAppBoundary
-Content-Disposition: form-data; name="regular_price"
-Content-Type: text/plain
-
-8.99
---WebAppBoundary
-Content-Disposition: form-data; name="nutrition"; filename="fuki.jpeg"
-Content-Type: image/jpeg
-
-< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
---WebAppBoundary--
-
-<> 2019-05-19T053305.201.json
-
-###
-
-POST http://goa-backend/api/products
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
-
---WebAppBoundary
-Content-Disposition: form-data; name="sku"
-Content-Type: text/plain
-
-26
---WebAppBoundary
-Content-Disposition: form-data; name="name"
-Content-Type: text/plain
-
-Cacao 16
---WebAppBoundary
-Content-Disposition: form-data; name="description_short"
-Content-Type: text/plain
-
-Short
---WebAppBoundary
-Content-Disposition: form-data; name="description_one"
-Content-Type: text/plain
-
-One
---WebAppBoundary
-Content-Disposition: form-data; name="description_two"
-Content-Type: text/plain
-
-Two
---WebAppBoundary
-Content-Disposition: form-data; name="preparation"
-Content-Type: text/plain
-
-1. Started 2. Finished
---WebAppBoundary
-Content-Disposition: form-data; name="quantity"
-Content-Type: text/plain
-
-30
---WebAppBoundary
-Content-Disposition: form-data; name="user_id"
-Content-Type: text/plain
-
-1
---WebAppBoundary
-Content-Disposition: form-data; name="regular_price"
-Content-Type: text/plain
-
-8.99
---WebAppBoundary
-Content-Disposition: form-data; name="nutrition"; filename="fuki.jpeg"
-Content-Type: image/jpeg
-
-< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
---WebAppBoundary--
-
-<> 2019-05-19T053225.500.html
-
-###
-
-POST http://goa-backend/api/products
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
-
---WebAppBoundary
-Content-Disposition: form-data; name="sku"
-Content-Type: text/plain
-
-26
---WebAppBoundary
-Content-Disposition: form-data; name="name"
-Content-Type: text/plain
-
-Cacao 15
---WebAppBoundary
-Content-Disposition: form-data; name="description_short"
-Content-Type: text/plain
-
-Short
---WebAppBoundary
-Content-Disposition: form-data; name="description_one"
-Content-Type: text/plain
-
-One
---WebAppBoundary
-Content-Disposition: form-data; name="description_two"
-Content-Type: text/plain
-
-Two
---WebAppBoundary
-Content-Disposition: form-data; name="preparation"
-Content-Type: text/plain
-
-1. Started 2. Finished
---WebAppBoundary
-Content-Disposition: form-data; name="quantity"
-Content-Type: text/plain
-
-30
---WebAppBoundary
-Content-Disposition: form-data; name="user_id"
-Content-Type: text/plain
-
-1
---WebAppBoundary
-Content-Disposition: form-data; name="regular_price"
-Content-Type: text/plain
-
-8.99
---WebAppBoundary
-Content-Disposition: form-data; name="nutrition"; filename="fuki.jpeg"
-Content-Type: image/jpeg
-
-< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
---WebAppBoundary--
-
-<> 2019-05-19T051231.201.json
-
-###
-
-POST http://goa-backend/api/products
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
-
---WebAppBoundary
-Content-Disposition: form-data; name="sku"
-Content-Type: text/plain
-
-26
---WebAppBoundary
-Content-Disposition: form-data; name="name"
-Content-Type: text/plain
-
-Cacao 13
---WebAppBoundary
-Content-Disposition: form-data; name="description_short"
-Content-Type: text/plain
-
-Short
---WebAppBoundary
-Content-Disposition: form-data; name="description_one"
-Content-Type: text/plain
-
-One
---WebAppBoundary
-Content-Disposition: form-data; name="description_two"
-Content-Type: text/plain
-
-Two
---WebAppBoundary
-Content-Disposition: form-data; name="preparation"
-Content-Type: text/plain
-
-1. Started 2. Finished
---WebAppBoundary
-Content-Disposition: form-data; name="quantity"
-Content-Type: text/plain
-
-30
---WebAppBoundary
-Content-Disposition: form-data; name="user_id"
-Content-Type: text/plain
-
-1
---WebAppBoundary
-Content-Disposition: form-data; name="regular_price"
-Content-Type: text/plain
-
-8.99
---WebAppBoundary
-Content-Disposition: form-data; name="nutrition"; filename="fuki.jpeg"
-Content-Type: image/jpeg
-
-< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
---WebAppBoundary--
-
-<> 2019-05-19T051220.400.json
-
-###
-
-POST http://goa-backend/api/products
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
-
---WebAppBoundary
-Content-Disposition: form-data; name="sku"
-Content-Type: text/plain
-
-26
---WebAppBoundary
-Content-Disposition: form-data; name="name"
-Content-Type: text/plain
-
-Cacao 13
---WebAppBoundary
-Content-Disposition: form-data; name="description_short"
-Content-Type: text/plain
-
-Short
---WebAppBoundary
-Content-Disposition: form-data; name="description_one"
-Content-Type: text/plain
-
-One
---WebAppBoundary
-Content-Disposition: form-data; name="description_two"
-Content-Type: text/plain
-
-Two
---WebAppBoundary
-Content-Disposition: form-data; name="preparation"
-Content-Type: text/plain
-
-1. Started 2. Finished
---WebAppBoundary
-Content-Disposition: form-data; name="quantity"
-Content-Type: text/plain
-
-30
---WebAppBoundary
-Content-Disposition: form-data; name="user_id"
-Content-Type: text/plain
-
-1
---WebAppBoundary
-Content-Disposition: form-data; name="regular_price"
-Content-Type: text/plain
-
-8.99
---WebAppBoundary
-Content-Disposition: form-data; name="nutrition"; filename="fuki.jpeg"
-Content-Type: image/jpeg
-
-< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
---WebAppBoundary--
-
-<> 2019-05-19T051158.400.json
-
-###
-
-POST http://goa-backend/api/products
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
-
---WebAppBoundary
-Content-Disposition: form-data; name="sku"
-Content-Type: text/plain
-
-26
---WebAppBoundary
-Content-Disposition: form-data; name="name"
-Content-Type: text/plain
-
-Cacao 13
---WebAppBoundary
-Content-Disposition: form-data; name="description_short"
-Content-Type: text/plain
-
-Short
---WebAppBoundary
-Content-Disposition: form-data; name="description_one"
-Content-Type: text/plain
-
-One
---WebAppBoundary
-Content-Disposition: form-data; name="description_two"
-Content-Type: text/plain
-
-Two
---WebAppBoundary
-Content-Disposition: form-data; name="preparation"
-Content-Type: text/plain
-
-1. Started 2. Finished
---WebAppBoundary
-Content-Disposition: form-data; name="quantity"
-Content-Type: text/plain
-
-30
---WebAppBoundary
-Content-Disposition: form-data; name="user_id"
-Content-Type: text/plain
-
-1
---WebAppBoundary
-Content-Disposition: form-data; name="regular_price"
-Content-Type: text/plain
-
-8.99
---WebAppBoundary
-Content-Disposition: form-data; name="nutrition"; filename="fuki.jpeg"
-Content-Type: image/jpeg
-
-< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
---WebAppBoundary--
-
-<> 2019-05-19T051047.201.json
-
-###
-
-POST http://goa-backend/api/products
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
-
---WebAppBoundary
-Content-Disposition: form-data; name="sku"
-Content-Type: text/plain
-
-26
---WebAppBoundary
-Content-Disposition: form-data; name="name"
-Content-Type: text/plain
-
-Cacao 13
---WebAppBoundary
-Content-Disposition: form-data; name="description_short"
-Content-Type: text/plain
-
-Short
---WebAppBoundary
-Content-Disposition: form-data; name="description_one"
-Content-Type: text/plain
-
-One
---WebAppBoundary
-Content-Disposition: form-data; name="description_two"
-Content-Type: text/plain
-
-Two
---WebAppBoundary
-Content-Disposition: form-data; name="preparation"
-Content-Type: text/plain
-
-1. Started 2. Finished
---WebAppBoundary
-Content-Disposition: form-data; name="quantity"
-Content-Type: text/plain
-
-30
---WebAppBoundary
-Content-Disposition: form-data; name="user_id"
-Content-Type: text/plain
-
-1
---WebAppBoundary
-Content-Disposition: form-data; name="regular_price"
-Content-Type: text/plain
-
-8.99
---WebAppBoundary
-Content-Disposition: form-data; name="nutrition"; filename="fuki.jpeg"
-Content-Type: image/jpeg
-
-< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
---WebAppBoundary--
-
-<> 2019-05-19T050819.400.json
-
-###
-
-POST http://goa-backend/api/public/users/login
-Content-Type: application/json
-
-{
-  "email": "goa@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-05-19T043742.200.json
-
-###
-
-POST http://goa-backend/api/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
-
-{
-  "id": "",
-  "sku": "13213",
-  "name": "Cacao 10",
-  "description_short": "Description short",
-  "description_one": "Description long 1",
-  "description_two": "Description long 2",
-  "preparation": "Preparation",
-  "nutrition": "Preparation",
-  "quantity": 2,
-  "user_id": "1",
-  "regular_price": 100.005
-}
-
-<> 2019-05-19T041847.400.json
-
-###
-
-POST http://goa-backend/api/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
-
-{
-  "id": "",
-  "sku": "13213",
-  "name": "Cacao 10",
-  "description_short": "Description short",
-  "description_one": "Description long 1",
-  "description_two": "Description long 2",
-  "preparation": "Preparation",
-  "nutrition": "Preparation",
-  "quantity": 2,
-  "user_id": "1",
-  "regular_price": 100.004
-}
-
-<> 2019-05-19T041835.400.json
-
-###
-
-POST http://goa-backend/api/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
-
-{
-  "id": "",
-  "sku": "13213",
-  "name": "Cacao 10",
-  "description_short": "Description short",
-  "description_one": "Description long 1",
-  "description_two": "Description long 2",
-  "preparation": "Preparation",
-  "nutrition": "Preparation",
-  "quantity": 2,
-  "user_id": "1",
-  "regular_price": 100
-}
-
-<> 2019-05-19T041823.201.json
-
-###
-
-POST http://goa-backend/api/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
-
-{
-  "id": "",
-  "sku": "13213",
-  "name": "Cacao 9",
-  "description_short": "Description short",
-  "description_one": "Description long 1",
-  "description_two": "Description long 2",
-  "preparation": "Preparation",
-  "nutrition": "Preparation",
-  "quantity": 2,
-  "user_id": "1",
-  "regular_price": 100.01
-}
-
-<> 2019-05-19T041815.201.json
-
-###
-
-POST http://goa-backend/api/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
-
-{
-  "id": "",
-  "sku": "13213",
-  "name": "Cacao 8",
-  "description_short": "Description short",
-  "description_one": "Description long 1",
-  "description_two": "Description long 2",
-  "preparation": "Preparation",
-  "nutrition": "Preparation",
-  "quantity": 2,
-  "user_id": "1",
-  "regular_price": 100.01
-}
-
-<> 2019-05-19T041711.201.json
-
-###
-
-POST http://goa-backend/api/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
-
-{
-  "id": "",
-  "sku": "13213",
-  "name": "Cacao 7",
-  "description_short": "Description short",
-  "description_one": "Description long 1",
-  "description_two": "Description long 2",
-  "preparation": "Preparation",
-  "nutrition": "Preparation",
-  "quantity": 2,
-  "user_id": "1",
-  "regular_price": 100
-}
-
-<> 2019-05-19T041630.201.json
-
-###
-
-POST http://goa-backend/api/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
-
-{
-  "id": "",
-  "sku": "13213",
-  "name": "Cacao 6",
-  "description_short": "Description short",
-  "description_one": "Description long 1",
-  "description_two": "Description long 2",
-  "preparation": "Preparation",
-  "nutrition": "Preparation",
-  "quantity": 2,
-  "user_id": "1",
-  "regular_price": 100
-}
-
-<> 2019-05-19T041606.201.json
-
-###
-
-POST http://goa-backend/api/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
-
-{
-  "id": "",
-  "sku": "13213",
-  "name": "Cacao 5",
-  "description_short": "Description short",
-  "description_one": "Description long 1",
-  "description_two": "Description long 2",
-  "preparation": "Preparation",
-  "nutrition": "Preparation",
-  "quantity": 2,
-  "user_id": "1",
-  "regular_price": 100.01
-}
-
-<> 2019-05-19T041452.201.json
-
-###
-
-POST http://goa-backend/api/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
-
-{
-  "id": "",
-  "sku": "13213",
-  "name": "Cacao 4",
-  "description_short": "Description short",
-  "description_one": "Description long 1",
-  "description_two": "Description long 2",
-  "preparation": "Preparation",
-  "nutrition": "Preparation",
-  "quantity": 2,
-  "user_id": "1",
-  "regular_price": 100.00
-}
-
-<> 2019-05-19T041237.201.json
-
-###
-
-POST http://goa-backend/api/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
-
-{
-  "id": "",
-  "sku": "13213",
-  "name": "Cacao 3",
-  "description_short": "Description short",
-  "description_one": "Description long 1",
-  "description_two": "Description long 2",
-  "preparation": "Preparation",
-  "nutrition": "Preparation",
-  "quantity": 2,
-  "user_id": "1",
-  "regular_price": 100.00
-}
-
-<> 2019-05-19T041217.201.json
-
-###
-
-POST http://goa-backend/api/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
-
-{
-  "id": "",
-  "sku": "13213",
-  "name": "Cacao 2",
-  "description_short": "Description short",
-  "description_one": "Description long 1",
-  "description_two": "Description long 2",
-  "preparation": "Preparation",
-  "nutrition": "Preparation",
-  "quantity": 2,
-  "user_id": "1",
-  "regular_price": 100.00
-}
-
-<> 2019-05-19T041127.201.json
-
-###
-
-POST http://goa-backend/api/products
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
-
-{
-  "id": "",
-  "sku": "13213",
-  "name": "Cacao",
-  "description_short": "Description short",
-  "description_one": "Description long 1",
-  "description_two": "Description long 2",
-  "preparation": "Preparation",
-  "nutrition": "Preparation",
-  "quantity": 2,
-  "user_id": "1",
-  "regular_price": "100"
-}
-
-<> 2019-05-19T041109.400.json
-
-###
-
-POST http://goa-backend/api/public/users/login
-Content-Type: application/json
-
-{
-  "email": "goa@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-05-19T041104.200.json
-
-###
-
-POST http://goa-backend/api/public/users/register
-Content-Type: application/json
-
-{
-  "id": "",
-  "email": "pedro@gmail.com",
-  "first_name": "Pedro",
-  "last_name": "Rodriguez",
-  "password": "12345678",
-  "address": "Calle Santa Rita",
-  "phone": "4164318061",
-  "city": "Maracay",
-  "state": "Aragua",
-  "country": "Venezuela",
-  "country_code": "",
-  "postal_code": "2120",
-  "role_id": 2
-}
-
-<> 2019-05-19T111628.200.json
-
-###
-
-POST http://goa-backend/api/public/users/register
-Content-Type: application/json
-
-{
-  "id": "",
-  "email": "pedro@gmail.com",
-  "first_name": "Pedro",
-  "last_name": "Rodriguez",
-  "password": "12345678",
-  "address": "Calle Santa Rita",
-  "phone": "4164318061",
-  "city": "Maracay",
-  "state": "Aragua",
-  "country": "Venezuela",
-  "country_code": "",
-  "postal_code": "2120",
-  "role_id": 2
-}
-
-<> 2019-05-19T111127.200.json
-
-###
-
-POST http://goa-backend/api/public/users/register
-Content-Type: application/json
-
-{
-  "id": "",
-  "email": "pedro@gmail.com",
-  "first_name": "Pedro",
-  "last_name": "Rodriguez",
-  "password": "12345678",
-  "address": "Calle Santa Rita",
-  "phone": "4164318061",
-  "city": "Maracay",
-  "state": "Aragua",
-  "country": "Venezuela",
-  "country_code": "",
-  "postal_code": "2120",
-  "role_id": 2
-}
-
-<> 2019-05-19T111000.500.html
-
-###
-
-GET http://goa-backend/api/transactions?payment=Paypal
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
-
-<> 2019-05-19T110253.500.json
-
-###
-
-GET http://goa-backend/api/transactions?payment=Paypal
-Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
-
-<> 2019-05-19T101708.500.json
-
-###
-
-POST http://goa-backend/api/public/users/login
-Content-Type: application/json
-
-{
-  "email": "goa@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-05-19T093748.200.json
-
-###
-
-POST http://goa-backend/api/public/users/login
-Content-Type: application/json
-
-{
-  "email": "goa@gmail.com",
-  "password": "123456"
-}
-
-<> 2019-05-19T093515.400.json
-
-###
-
-POST http://goa-backend/api/transactions
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-{
-  "id": "",
-  "code": "",
-  "processor": "Credit card",
-  "processor_trans_id": "",
-  "cc_num": "",
-  "cc_type": "",
-  "start_date": "",
-  "end_date": "",
-  "token_stripe": {
-    "id": "tok_1Ebnh0AALSaIwJgk9UT60GkT",
-    "object": "token",
-    "card": {
-      "id": "card_1EbngzAALSaIwJgkKHcuE3iZ",
-      "object": "card",
-      "address_city": null,
-      "address_country": null,
-      "address_line1": null,
-      "address_line1_check": null,
-      "address_line2": null,
-      "address_state": null,
-      "address_zip": null,
-      "address_zip_check": null,
-      "brand": "Visa",
-      "country": "US",
-      "cvc_check": "pass",
-      "dynamic_last4": null,
-      "exp_month": 12,
-      "exp_year": 2032,
-      "funding": "credit",
-      "last4": "4242",
-      "metadata": {},
-      "name": "ivans202@gmail.com",
-      "tokenization_method": null
-    },
-    "client_ip": "190.76.249.59",
-    "created": 1558267242,
-    "email": "ivans202@gmail.com",
-    "livemode": false,
-    "type": "card",
-    "used": false
-  },
-  "payload_paypal": "",
-  "type_payment": {},
-  "cart_id": "1",
-  "user_id": "2",
-  "total": 2500,
-  "subtotal": 2500
-}
-
-<> 2019-05-19T080122.500.html
-
-###
-
-POST http://goa-backend/api/transactions
-Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.ZttCf7_V4oaxwPzoprUYokqxYEt0S3VmOKMFliRryPw
-
-{
-  "id": "",
-  "code": 1,
-  "processor": "Credit card",
-  "processor_trans_id": 1,
-  "cc_num": "",
-  "cc_type": "",
-  "start_date": "",
-  "end_date": "",
-  "token_stripe": {
-    "id": "tok_1EbncQAALSaIwJgkErDOa9mM",
-    "object": "token",
-    "card": {
-      "id": "card_1EbncQAALSaIwJgkRI2qAIze",
-      "object": "card",
-      "address_city": null,
-      "address_country": null,
-      "address_line1": null,
-      "address_line1_check": null,
-      "address_line2": null,
-      "address_state": null,
-      "address_zip": null,
-      "address_zip_check": null,
-      "brand": "Visa",
-      "country": "US",
-      "cvc_check": "pass",
-      "dynamic_last4": null,
-      "exp_month": 12,
-      "exp_year": 2032,
-      "funding": "credit",
-      "last4": "4242",
-      "metadata": {},
-      "name": "ivans202@gmail.com",
-      "tokenization_method": null
-    },
-    "client_ip": "190.76.249.59",
-    "created": 1558266958,
-    "email": "ivans202@gmail.com",
-    "livemode": false,
-    "type": "card",
-    "used": false
-  },
-  "payload_paypal": "",
-  "type_payment": {},
-  "cart_id": "1",
-  "user_id": "2",
-  "total": 2500,
-  "subtotal": 2500
-}
-
-<> 2019-05-19T075717.500.html
 
 ###
 

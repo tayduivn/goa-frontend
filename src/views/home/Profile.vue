@@ -135,6 +135,8 @@
                   this.submitForm = false
                   handleError(this.$swal, err)
                 })
+            } else {
+              this.submitForm = false
             }
           })
       },
@@ -157,6 +159,8 @@
                   this.submitForm = false
                   handleError(this.$swal, err)
                 })
+            } else {
+              this.submitForm = false
             }
           })
       },
@@ -178,6 +182,8 @@
                   this.submitForm = false
                   handleError(this.$swal, err)
                 })
+            } else {
+              this.submitForm = false
             }
           })
       },

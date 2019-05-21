@@ -216,16 +216,10 @@
         },
       }
     },
-    beforeUpdate() {
-      if (this.$refs.slick) {
-        this.$refs.slick.destroy();
-      }
-    },
-    updated() {
-      this.$nextTick(function () {
-        if (this.$refs.slick) {
-          this.$refs.slick.create(this.slickOptions);
-        }
+    reInit() {
+      // Helpful if you have to deal with v-for to update dynamic lists
+      this.$nextTick(() => {
+        this.$refs.slick.reSlick();
       });
     },
     computed: {

@@ -54,7 +54,7 @@ Content-Type: text/plain
 Content-Disposition: form-data; name="name"
 Content-Type: text/plain
 
-Cacao 18
+Cacao 22
 
 --WebAppBoundary
 Content-Disposition: form-data; name="description_short"
@@ -96,7 +96,7 @@ Content-Type: text/plain
 Content-Disposition: form-data; name="regular_price"
 Content-Type: text/plain
 
-12,036
+12.036
 --WebAppBoundary
 Content-Disposition: form-data; name="nutrition"; filename="fuki.jpeg"
 Content-Type: image/jpeg

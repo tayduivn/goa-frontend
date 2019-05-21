@@ -154,9 +154,9 @@ let router = new Router({
           component: () => import('./views/cpanel/Reviews')
         },
         {
-          path: 'carts',
-          name: 'Carts',
-          component: () => import('./views/cpanel/Carts')
+          path: 'guide',
+          name: 'Guide',
+          component: () => import('./views/cpanel/Guide')
         },
       ]
     },

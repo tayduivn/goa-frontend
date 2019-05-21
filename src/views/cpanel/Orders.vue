@@ -16,7 +16,7 @@
     </div>
     <div v-else-if="orders && orders !== 'empty'">
       <div class="d-flex justify-content-between mb-3">
-        <h3 class="mb-2">Lis of orders</h3>
+        <h3 class="mb-2">List of orders</h3>
       </div>
       <table class="table table-striped">
         <thead>
@@ -65,9 +65,9 @@
             <label for="status">{{wordEng.selectState}}</label>
             <select class="form-control width-reset ml-3 mr-3" name="status" id="status" required
                     v-model="selectedStatus">
-              <option v-if="order.order_status !== 'Pendiente'" value="Pendiente">Pendiente</option>
-              <option v-if="order.order_status !== 'Enviando'" value="Enviando">Enviando</option>
-              <option v-if="order.order_status !== 'Cancelado'" value="Cancelado">Cancelar</option>
+              <option v-if="order.order_status !== 'Pending'" value="Pending">Pending</option>
+              <option v-if="order.order_status !== 'Sending'" value="Sending">Sending</option>
+              <option v-if="order.order_status !== 'Cancelled'" value="Cancelled">Cancel</option>
             </select>
           </div>
           <button class="btn btn-sm btn-primary" type="submit" :disabled="!!submitForm">Change status</button>

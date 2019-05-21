@@ -1,9 +1,9 @@
 const modelCategory = {
   id: "",
-  image: "",
+  name: "",
   reset: function () {
     this.id = ""
-    this.image = ""
+    this.name = ""
     return modelCategory
   }
 }

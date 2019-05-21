@@ -30,7 +30,7 @@
             <button class="btn btn-sm btn-primary" @click.prevent="openModal(product, 'categories')">Categories</button>
           </td>
           <td>
-            <button class="btn btn-sm btn-primary" @click.prevent="openModal(product, 'images')">Image</button>
+            <button class="btn btn-sm btn-primary" @click.prevent="openModal(product, 'images')">Images</button>
           </td>
           <td>
             <button class="btn btn-sm btn-primary" @click.prevent="openModal(product, 'products')">Edit</button>
@@ -60,19 +60,14 @@
       <template slot="close-icon">
         <CloseImageSVG/>
       </template>
+      <!-- Products -->
       <div v-if="modalType === 'products'">
-        <h3>Information of the products | Date creation {{product.inserted_at}}</h3>
+        <h3>Information of the products</h3>
+        <small v-if="product.id">Date of creation {{product.inserted_at}}</small>
         <form @submit.prevent="sendData">
-          <div class="row">
-            <div class="form-group col-md-4 col-12">
-              <label for="sku" class="mt-3 mb-3">SKU</label>
-              <input class="form-control" id="sku" type="text" v-model="product.sku" required
-                     :disabled="product.id !== ''">
-            </div>
-            <div class="form-group col-md-8 col-12">
-              <label for="name" class="mt-3 mb-3">Name</label>
-              <input class="form-control" id="name" type="text" v-model="product.name" required>
-            </div>
+          <div class="form-group">
+            <label for="name" class="mt-3 mb-3">Name</label>
+            <input class="form-control" id="name" type="text" v-model="product.name" required>
           </div>
           <div class="form-group">
             <label for="description_short" class="mt-3 mb-3">Description short</label>
@@ -80,11 +75,15 @@
           </div>
           <div class="form-group">
             <label for="description_one" class="mt-3 mb-3">Description long one</label>
-            <input class="form-control" id="description_one" type="text" v-model="product.description_one" required>
+            <textarea class="form-control" id="description_one" type="text" v-model="product.description_one" rows="4"
+                      required>
+            </textarea>
           </div>
           <div class="form-group">
             <label for="description_two" class="mt-3 mb-3">Description long two</label>
-            <input class="form-control" id="description_two" type="text" v-model="product.description_two" required>
+            <textarea class="form-control" id="description_two" type="text" v-model="product.description_two" rows="4"
+                      required>
+            </textarea>
           </div>
           <div class="form-group">
             <label for="preparation" class="mt-3 mb-3">Preparation</label>
@@ -104,7 +103,7 @@
               <label for="regular_price" class="mt-3 mb-3">Price</label>
               <input class="form-control" id="regular_price" type="text" v-model="product.regular_price" required>
               <p class="m-0 p-0 text-left">
-                <small></small>
+                <small>Decimal point to cents</small>
               </p>
             </div>
             <div class="form-group col-md-3 col-6">
@@ -117,19 +116,25 @@
           </div>
         </form>
       </div>
+      <!-- Categories -->
       <div v-else-if="modalType === 'categories'">
         <h4>{{product.name}} - Categorías</h4>
+        <hr>
         <div v-if="product.id === ''">
           <p>First you need to create the product before assigning a category</p>
         </div>
-        <form v-else class="mb-3 mt-3">
-          <label v-for="category in categories" :key="category.id" :for="category.id">
-            {{category.name}}
-            <input :id="category.id" class="ml-2 mr-4" type="checkbox" :checked="checkCategory(category, product)"
+        <form v-else class="mt-3">
+          <label class="category-text" v-for="category in categories" :key="category.id" :for="category.id">
+            <input :id="category.id" class="ml-4 mr-2" type="checkbox" :checked="checkCategory(category, product)"
                    @change="sendCategory($event, product.id, category.id)">
+            <span>{{category.name}}</span>
           </label>
+          <div class="text-right saved-text">
+            <span :class="{transaction: isActiveText}">Saved</span>
+          </div>
         </form>
       </div>
+      <!-- Images -->
       <div v-else-if="modalType === 'images'">
         <h4>{{product.name}}</h4>
         <hr>
@@ -205,6 +210,7 @@
     components: {CloseImageSVG, 'editor': Editor},
     data() {
       return {
+        isActiveText: false,
         modalType: 'products',
         product: modelProduct.reset(),
         submitForm: false,
@@ -232,11 +238,14 @@
         return product.categories.find(value => value.id === category.id) !== undefined
       },
       sendCategory(event, product_id, category_id) {
-        console.log(JSON.stringify({product_id, category_id}))
         if (event.target.checked) {
           getAxios(apiProductsCategories.all, 'POST', {product_id, category_id})
             .then(() => {
-              console.log('Category send')
+              /*this.isActiveText = true
+              setTimeout(() => {
+                return this.isActiveText = false
+              }, 1500);*/
+              console.log('Category created')
             })
             .catch(err => {
               handleError(this.$swal, err)
@@ -244,6 +253,11 @@
         } else {
           getAxios(apiProductsCategories.all, 'DELETE', {product_id, category_id})
             .then(() => {
+              /*this.isActiveText = true
+              setTimeout(() => {
+                event.target.checked = checkedValue
+                return this.isActiveText = false
+              }, 1500);*/
               console.log('Category deleted')
             })
             .catch(err => {
@@ -331,6 +345,8 @@
                 .catch(err => {
                   handleError(this.$swal, err)
                 })
+            } else {
+              this.submitForm = false
             }
           })
       },
@@ -409,6 +425,8 @@
                   this.submitForm = false
                   handleError(this.$swal, err)
                 })
+            } else {
+              this.submitForm = false
             }
           })
       },
@@ -438,7 +456,7 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .image-content {
     height: 200px;
     overflow: hidden;
@@ -447,5 +465,47 @@
 
   .image-content img {
     width: 100%;
+  }
+
+  .category-text:first-child input[type="checkbox"] {
+    margin-left: 0 !important;
+  }
+
+  input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin-right: 5px;
+    margin-bottom: -2px;
+    cursor: pointer;
+
+    /* Styling checkbox */
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border: 1px solid #898989;
+    border-radius: 2px;
+  }
+
+  input[type="checkbox"]:checked {
+    background-color: #00CCC3;
+    border: none;
+  }
+
+  .saved-text {
+    span {
+      color: #00EE9D;
+      font-weight: bold;
+      opacity: 0;
+      transition: 1s;
+    }
+
+    span.transaction {
+      opacity: 1;
+    }
+
+    span.no-transaction {
+      opacity: 0;
+    }
   }
 </style>

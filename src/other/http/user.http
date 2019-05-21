@@ -62,7 +62,7 @@ Authorization: Bearer {{auth_token}}
   "password": "13456",
   "street": "Valencia",
   "phone": "04125456465",
-  "type": "Administrador"
+  "role_id": 2
 }
 
 ###
