@@ -1,73 +1,44 @@
 <template>
   <div>
-    <h1 class="text-center">Guide Gardens of America</h1>
-    <hr>
-
-
+    <h1 class="text-center mb-3">Guide Gardens of America</h1>
     <table class="table table-striped">
       <thead>
       <tr>
         <th scope="col" width="10px">Nº</th>
-        <th scope="col">Name</th>
-        <th scope="col">Date</th>
-        <th scope="col" width="10"></th>
+        <th scope="col">Title</th>
         <th scope="col" width="10"></th>
       </tr>
       </thead>
       <tbody>
-      <tr v-for="(category, index) of categories" :key="category.id">
+      <tr v-for="(guide, index) of guides" :key="guide.image">
         <th scope="col">{{++index}}</th>
-        <td>{{category.name}}</td>
-        <td>{{formaDate(category.inserted_at)}}</td>
+        <td>{{guide.title}}</td>
         <td>
-          <button class="btn btn-sm btn-success" @click.prevent="openModal(category)">
-            {{wordEng.edit}}
-          </button>
-        </td>
-        <td>
-          <button class="btn btn-sm btn-danger" @click.prevent="deleteData(category.id)" :disabled="!!submitForm">
-            {{wordEng.delete}}
+          <button class="btn btn-sm btn-primary" @click.prevent="openModal(guide)">
+            {{wordEng.show}}
           </button>
         </td>
       </tr>
       </tbody>
     </table>
 
-    <h2 class="text-center mb-3">Title</h2>
-    <img src="../../assets/img/Guide/error404.jpg" alt="help 1" class="img-fluid">
-    <div class="p-3">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam aut beatae cum excepturi facilis hic ipsum
-        minima molestias mollitia nihil, omnis quas rerum sunt suscipit ullam veniam voluptatibus voluptatum.</p>
-    </div>
-    <hr>
-
-    <h2 class="text-center mb-3">Title</h2>
-    <img src="../../assets/img/Guide/error404.jpg" alt="help 1" class="img-fluid">
-    <div class="p-3">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam aut beatae cum excepturi facilis hic ipsum
-        minima molestias mollitia nihil, omnis quas rerum sunt suscipit ullam veniam voluptatibus voluptatum.</p>
-    </div>
-
     <vue-modaltor :visible="open" @hide="hideModal">
       <template slot="close-icon">
         <CloseImageSVG/>
       </template>
-      <h3>Information of the category</h3>
-      <form @submit.prevent="sendData">
-        <div class="form-group">
-          <label for="name" class="mt-3 mb-3">Name</label>
-          <input class="form-control" id="name" type="text" v-model="category.name" required>
-        </div>
-        <div class="text-right">
-          <button type="submit" class="btn-sm btn-primary" :disabled="!!submitForm">{{wordEng.save}}</button>
-        </div>
-      </form>
+      <h2 class="text-center mb-3">{{guide.title}}</h2>
+      <img :src="guide.image" alt="help 1" class="img-fluid">
+      <div class="p-3">
+        <p v-html="guide.content"></p>
+      </div>
     </vue-modaltor>
 
   </div>
 </template>
 
 <script>
+  import CloseImageSVG from "../../components/CloseImageSVG"
+  import {wordEng} from "../../utils/util"
 
   export default {
     name: "Guide",
@@ -77,13 +48,106 @@
         return `${title} | Guide`
       }
     },
+    components: {CloseImageSVG},
     data() {
       return {
+        open: false,
+        wordEng: wordEng,
         guide: {},
         guides: [
           {
+            title: 'Home',
+            image: require('../../assets/img/Guide/01-home.jpg'),
+            content: 'Information of clients'
+          },
+          {
+            title: 'Profile cPanel',
+            image: require('../../assets/img/Guide/02.Profile.jpg'),
+            content: 'Information of clients'
+          },
+          {
             title: 'Clients',
-            image: require('../../assets/img/Guide/error404.jpg'),
+            image: require('../../assets/img/Guide/03.Client.jpg'),
+            content: 'Information of clients'
+          },
+          {
+            title: 'Information of Client',
+            image: require('../../assets/img/Guide/04.Client-show.jpg'),
+            content: 'Information of clients'
+          },
+          {
+            title: 'Products',
+            image: require('../../assets/img/Guide/05.Products.jpg'),
+            content: 'Information of clients'
+          },
+          {
+            title: 'Information of Product',
+            image: require('../../assets/img/Guide/06.Detail Products.jpg'),
+            content: 'Information of clients'
+          },
+          {
+            title: 'Categories of Product',
+            image: require('../../assets/img/Guide/07.Categories.jpg'),
+            content: 'Information of clients'
+          },
+          {
+            title: 'Images of Product - Part 1',
+            image: require('../../assets/img/Guide/08.Images.jpg'),
+            content: 'Information of clients'
+          },
+          {
+            title: 'Images of Product - Part 2',
+            image: require('../../assets/img/Guide/09.Images.jpg'),
+            content: 'Information of clients'
+          },
+          {
+            title: 'Categories',
+            image: require('../../assets/img/Guide/10.Categories.jpg'),
+            content: 'Information of clients'
+          },
+          {
+            title: 'Detail of Category',
+            image: require('../../assets/img/Guide/11.Category.jpg'),
+            content: 'Information of clients'
+          },
+          {
+            title: 'Reviews',
+            image: require('../../assets/img/Guide/12.Reviews.jpg'),
+            content: 'Information of clients'
+          },
+          {
+            title: 'Detail of Review',
+            image: require('../../assets/img/Guide/13.Reviews.jpg'),
+            content: 'Information of clients'
+          },
+          {
+            title: 'Orders',
+            image: require('../../assets/img/Guide/14.Orders.jpg'),
+            content: 'Information of clients'
+          },
+          {
+            title: 'Detail of Order',
+            image: require('../../assets/img/Guide/15.Order.jpg'),
+            content: 'Information of clients'
+          },
+          {
+            title: 'Users',
+            image: require('../../assets/img/Guide/16.Users.jpg'),
+            content: 'Information of clients'
+          },
+          {
+            title: 'Detail of User',
+            image: require('../../assets/img/Guide/17.User.jpg'),
+            content: 'Information of clients'
+          },
+          {
+            title: 'Newsletter emails',
+            image: require('../../assets/img/Guide/18.Emails.jpg'),
+            content: 'Information of clients'
+          },
+          {
+            title: 'Payments',
+            image: require('../../assets/img/Guide/19.Payments.jpg'),
             content: 'Information of clients'
           },
         ]
@@ -92,7 +156,7 @@
     methods: {
       openModal(guide) {
         this.open = true
-
+        this.guide = guide
       },
       hideModal() {
         this.open = false
@@ -112,5 +176,9 @@
 
   img {
     width: 100%;
+  }
+
+  .modal-vue .modal-vue-show {
+    width: 90%;
   }
 </style>

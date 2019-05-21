@@ -226,7 +226,6 @@
       }
     },
     reInit() {
-      // Helpful if you have to deal with v-for to update dynamic lists
       this.$nextTick(() => {
         this.$refs.slick.reSlick();
       });
