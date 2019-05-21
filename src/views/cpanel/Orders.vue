@@ -78,7 +78,7 @@
           <table class="table table-custom mt-3 mb-4">
             <tbody>
             <tr>
-              <td scope="col" width="250px">Name of user</td>
+              <td scope="col" width="250px">Email</td>
               <td>{{order.email}}</td>
             </tr>
             <tr>
@@ -88,6 +88,26 @@
             <tr>
               <td scope="col">Address</td>
               <td>{{order.address}}</td>
+            </tr>
+            <tr>
+              <td scope="col">City</td>
+              <td>{{order.city}}</td>
+            </tr>
+            <tr>
+              <td scope="col">State</td>
+              <td>{{order.state}}</td>
+            </tr>
+            <tr>
+              <td scope="col">Country</td>
+              <td>{{order.country}}</td>
+            </tr>
+            <tr>
+              <td scope="col">Country Code</td>
+              <td>{{order.country_code}}</td>
+            </tr>
+            <tr>
+              <td scope="col">Postal code</td>
+              <td>{{order.postal_code}}</td>
             </tr>
             <tr>
               <td scope="col">Phone</td>
@@ -110,14 +130,14 @@
               <td>{{item.name}}</td>
               <td>{{item.regular_price}}</td>
               <td>{{item.cart_quantity}}</td>
-              <td>{{item.cart_quantity * item.regular_price}}</td>
+              <td>{{getTotal(item.cart_quantity, item.regular_price)}}</td>
             </tr>
             <tr>
               <th scope="col" width="10px"></th>
               <th scope="col"></th>
               <th scope="col"></th>
               <th scope="col"></th>
-              <th scope="col">{{getTotalPrice}}</th>
+              <th scope="col">{{order.total}}</th>
             </tr>
             </tbody>
           </table>
@@ -170,16 +190,19 @@
       },
       getTotalPrice() {
         let totalPrice = 0
-        this.order.products.forEach((value) => {
-          totalPrice = (parseInt(value.regular_price) * parseInt(value.cart_quantity)) + totalPrice
+        this.order.products.forEach((value, index) => {
+          totalPrice = (Number(value.regular_price).toFixed(2) * Number(value.cart_quantity).toFixed(2)) + totalPrice
         })
-        return totalPrice
+        return Number(totalPrice).toFixed(2)
       },
     },
     created() {
       this.$store.dispatch('getOrders', this.stateOrderSelected)
     },
     methods: {
+      getTotal(quantity, price) {
+        return Number(quantity * Number(price).toFixed(2)).toFixed(2)
+      },
       changeState() {
         this.$store.dispatch('getOrders', this.stateOrderSelected)
       },
@@ -209,7 +232,6 @@
       },
       openModal(order) {
         this.open = true
-        console.log(this.stateOrderSelected)
         this.$store.dispatch('getCartUserOrder', `?userId=${order.user_id}&cartId=${order.cart_id}&status=${this.stateOrderSelected}`)
       },
       hideModal() {

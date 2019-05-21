@@ -30,10 +30,10 @@ Authorization: Bearer {{auth_token}}
   "start_date": "",
   "end_date": "",
   "token_stripe": {
-    "id": "tok_1EcB5hAALSaIwJgkHw6rSOgz",
+    "id": "tok_1EcZ5qAALSaIwJgkHk86xksX",
     "object": "token",
     "card": {
-      "id": "card_1EcB5hAALSaIwJgkgLmZJhrv",
+      "id": "card_1EcZ5qAALSaIwJgko5B6eOwX",
       "object": "card",
       "address_city": null,
       "address_country": null,
@@ -55,8 +55,8 @@ Authorization: Bearer {{auth_token}}
       "name": "ivans21@gmail.com",
       "tokenization_method": null
     },
-    "client_ip": "190.76.249.218",
-    "created": 1558357185,
+    "client_ip": "186.185.135.95",
+    "created": 1558449450,
     "email": "ivans21@gmail.com",
     "livemode": false,
     "type": "card",
@@ -64,10 +64,10 @@ Authorization: Bearer {{auth_token}}
   },
   "payload_paypal": "",
   "type_payment": {},
-  "cart_id": "3",
+  "cart_id": "2",
   "user_id": "2",
-  "total": "41.00",
-  "subtotal": "41.00"
+  "total": "250.25",
+  "subtotal": "250.25"
 }
 
 ###

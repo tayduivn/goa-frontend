@@ -72,7 +72,7 @@
           <table class="table table-custom mt-3 mb-4">
             <tbody>
             <tr>
-              <td scope="col" width="250px">Name of user</td>
+              <td scope="col" width="250px">Email</td>
               <td>{{order.email}}</td>
             </tr>
             <tr>
@@ -82,6 +82,26 @@
             <tr>
               <td scope="col">Address</td>
               <td>{{order.address}}</td>
+            </tr>
+            <tr>
+              <td scope="col">City</td>
+              <td>{{order.city}}</td>
+            </tr>
+            <tr>
+              <td scope="col">State</td>
+              <td>{{order.state}}</td>
+            </tr>
+            <tr>
+              <td scope="col">Country</td>
+              <td>{{order.country}}</td>
+            </tr>
+            <tr>
+              <td scope="col">Country Code</td>
+              <td>{{order.country_code}}</td>
+            </tr>
+            <tr>
+              <td scope="col">Postal code</td>
+              <td>{{order.postal_code}}</td>
             </tr>
             <tr>
               <td scope="col">Phone</td>
@@ -111,7 +131,7 @@
               <th scope="col"></th>
               <th scope="col"></th>
               <th scope="col"></th>
-              <th scope="col">{{getTotalPrice}}</th>
+              <th scope="col">{{order.total}}</th>
             </tr>
             </tbody>
           </table>

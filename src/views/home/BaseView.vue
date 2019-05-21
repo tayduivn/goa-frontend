@@ -1,6 +1,6 @@
 <template>
   <div class="base">
-    <div v-if="getToken && levelUser && levelUser === 'Cliente'" class="index-sidenav mySidenav">
+    <div v-if="getToken && levelUser && levelUser === 'Client'" class="index-sidenav mySidenav">
       <a href="javascript:void(0)" class="closebtn" @click.prevent="closeNav()">&times;</a>
       <a href="javascript:void(0)" @click.prevent="closeNav('profile')">Profile</a>
       <a href="javascript:void(0)" @click.prevent="closeNav('order-client')">History</a>

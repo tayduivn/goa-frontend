@@ -171,7 +171,7 @@ let router = new Router({
 router.beforeEach((to, from, next) => {
   let {token, level} = getTokenLevelUser()
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (token && level === 'Cliente') {
+    if (token && level === 'Client') {
       next()
     } else {
       next({
@@ -180,13 +180,13 @@ router.beforeEach((to, from, next) => {
       })
     }
   } else if (to.matched.some(record => record.meta.isNoUserLog)) {
-    if (token && level === 'Cliente') {
+    if (token && level === 'Client') {
       next('/')
     } else {
       next()
     }
   } else if (to.matched.some(record => record.meta.requiresAuthAdmin)) {
-    if (token && level === 'Administrador') {
+    if (token && level === 'Admin') {
       next()
     } else {
       next({
@@ -195,7 +195,7 @@ router.beforeEach((to, from, next) => {
       })
     }
   } else if (to.matched.some(record => record.meta.isNoUserLogAdmin)) {
-    if (token && level === 'Administrador') {
+    if (token && level === 'Admin') {
       next({
         path: '/cpanel/pHome',
         params: {nextUrl: to.fullPath}

@@ -244,6 +244,12 @@
       },
       done({token}) {
         this.transaction.token_stripe = token
+        /*this.transaction.processor_trans_id = 1
+        this.transaction.cart_id = this.carts.cart_id
+        this.transaction.user_id = this.carts.user_id
+        this.transaction.total = this.totalPrice
+        this.transaction.subtotal = this.totalPrice
+        console.log(JSON.stringify(this.transaction))*/
         this.saveTransaction()
       },
       opened() {
@@ -322,7 +328,6 @@
         this.transaction.total = this.totalPrice
         this.transaction.subtotal = this.totalPrice
 
-        console.log(JSON.stringify(this.transaction))
         getAxios(apiTransactions.all, 'POST', this.transaction)
           .then(() => {
             this.submitForm = false

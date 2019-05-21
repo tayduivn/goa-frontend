@@ -112,12 +112,12 @@
     },
     created() {
       this.user.role_id = 1
-      this.$store.dispatch('getUsers', '?type=Administrador')
+      this.$store.dispatch('getUsers', '?type=Admin')
     },
     methods: {
       successRequest(title) {
         successMessage(this.$swal, title)
-        this.$store.dispatch('getUsers', '?type=Administrador')
+        this.$store.dispatch('getUsers', '?type=Admin')
         this.hideModal()
       },
       saveData() {

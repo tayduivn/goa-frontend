@@ -84,7 +84,7 @@ Authorization: Bearer {{auth_token}}
   "inserted_at": "2019-05-07 11:57:09",
   "updated_at": "2019-05-07 11:57:09",
   "id": "1",
-  "name": "Administrador",
+  "name": "Admin",
   "newPassword": "123456"
 }
 

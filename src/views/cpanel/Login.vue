@@ -63,7 +63,7 @@
     methods: {
       postLogin() {
         this.submitForm = true
-        this.user.type = "Administrador"
+        this.user.type = "Admin"
         console.log(JSON.stringify(this.user))
         this.$store.dispatch('login', this.user)
           .then((res) => {

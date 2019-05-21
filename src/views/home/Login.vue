@@ -68,7 +68,7 @@
     methods: {
       send() {
         this.submitForm = true
-        this.user.type = "Cliente"
+        this.user.type = "Client"
         this.$store.dispatch('login', this.user)
           .then((res) => {
             if (typeof res === "string") {

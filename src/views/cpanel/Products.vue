@@ -124,9 +124,10 @@
           <p>First you need to create the product before assigning a category</p>
         </div>
         <form v-else class="mt-3">
-          <label class="category-text" v-for="category in categories" :key="category.id" :for="category.id">
-            <input :id="category.id" class="ml-4 mr-2" type="checkbox" :checked="checkCategory(category, product)"
-                   @change="sendCategory($event, product.id, category.id)">
+          <label class="category-text" v-for="(category, index) in categories" :key="category.id" :for="category.id">
+            <input :id="category.id" class="ml-4 mr-2" type="checkbox"
+                   :checked="checkCategory(index, category, product)"
+                   @change="sendCategory($event, product.id, category.id, index)">
             <span>{{category.name}}</span>
           </label>
           <div class="text-right saved-text">
@@ -217,6 +218,8 @@
         formData: null,
         open: false,
         wordEng: wordEng,
+        categoryType: [],
+        categoryStart: false,
       }
     },
     computed: {
@@ -233,19 +236,35 @@
       this.formData = new FormData()
     },
     methods: {
-      checkCategory(category, product) {
-        if (product.categories === undefined) return
-        return product.categories.find(value => value.id === category.id) !== undefined
+      checkCategory(index, category, product) {
+        if (this.categoryStart) {
+          return this.categoryType[index]
+        }
+        /* Product without categories */
+        if (product.categories === undefined) {
+          product.categories = []
+          this.categoryStart = true
+          return
+        }
+        /* Product with categories and finish v for Vue */
+        if (index === (product.categories.length - 1)) {
+          this.categoryStart = true
+        }
+        this.categoryType[index] = product.categories.find(value => value.id === category.id) !== undefined
+        return this.categoryType[index]
       },
-      sendCategory(event, product_id, category_id) {
+      setActiveValue() {
+        this.isActiveText = true
+        setTimeout(() => {
+          this.isActiveText = false
+        }, 1000);
+      },
+      sendCategory(event, product_id, category_id, index) {
         if (event.target.checked) {
           getAxios(apiProductsCategories.all, 'POST', {product_id, category_id})
             .then(() => {
-              /*this.isActiveText = true
-              setTimeout(() => {
-                return this.isActiveText = false
-              }, 1500);*/
-              console.log('Category created')
+              this.categoryType[index] = true
+              this.setActiveValue()
             })
             .catch(err => {
               handleError(this.$swal, err)
@@ -253,12 +272,8 @@
         } else {
           getAxios(apiProductsCategories.all, 'DELETE', {product_id, category_id})
             .then(() => {
-              /*this.isActiveText = true
-              setTimeout(() => {
-                event.target.checked = checkedValue
-                return this.isActiveText = false
-              }, 1500);*/
-              console.log('Category deleted')
+              this.categoryType[index] = false
+              this.setActiveValue()
             })
             .catch(err => {
               handleError(this.$swal, err)
@@ -439,7 +454,6 @@
         this.product.user_id = JSON.parse(localStorage.getItem('user')).id
       },
       hideModal() {
-        this.open = false
         this.product = modelProduct.reset()
         if (this.modalType === 'images') {
           const file = document.getElementById("image-product");
@@ -447,7 +461,9 @@
         }
         if (this.modalType === 'categories') {
           this.$store.dispatch('getProducts')
+          this.categoryStart = false
         }
+        this.open = false
       },
       formaDate(today) {
         return new Date(today).toLocaleDateString("es-ES")

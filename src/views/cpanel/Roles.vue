@@ -102,7 +102,7 @@
       }
     },
     created() {
-      this.$store.dispatch('getUsers', '?type=Administrador')
+      this.$store.dispatch('getUsers', '?type=Admin')
     },
     methods: {
       successRequest(title) {
@@ -156,7 +156,7 @@
           this.user = user
           this.user.password = ""
         }
-        this.user.type = "Administrador"
+        this.user.type = "Admin"
       },
       hideModal() {
         this.open = false
