@@ -519,9 +519,5 @@
     span.transaction {
       opacity: 1;
     }
-
-    span.no-transaction {
-      opacity: 0;
-    }
   }
 </style>

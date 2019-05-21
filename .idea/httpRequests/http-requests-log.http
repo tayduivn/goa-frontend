@@ -6,6 +6,88 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpb
   "name": "testing"
 }
 
+<> 2019-05-21T105439.201.json
+
+###
+
+POST http://goa-backend/api/categories
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
+
+{
+  "name": "testing"
+}
+
+<> 2019-05-21T105206.201.json
+
+###
+
+POST http://goa-backend/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
+
+{
+  "id": "",
+  "code": "",
+  "processor": "Credit card",
+  "processor_trans_id": 1,
+  "cc_num": "",
+  "cc_type": "",
+  "start_date": "",
+  "end_date": "",
+  "token_stripe": {
+    "id": "tok_1EcZ5qAALSaIwJgkHk86xksX",
+    "object": "token",
+    "card": {
+      "id": "card_1EcZ5qAALSaIwJgko5B6eOwX",
+      "object": "card",
+      "address_city": null,
+      "address_country": null,
+      "address_line1": null,
+      "address_line1_check": null,
+      "address_line2": null,
+      "address_state": null,
+      "address_zip": null,
+      "address_zip_check": null,
+      "brand": "Visa",
+      "country": "US",
+      "cvc_check": "pass",
+      "dynamic_last4": null,
+      "exp_month": 12,
+      "exp_year": 2032,
+      "funding": "credit",
+      "last4": "4242",
+      "metadata": {},
+      "name": "ivans21@gmail.com",
+      "tokenization_method": null
+    },
+    "client_ip": "186.185.135.95",
+    "created": 1558449450,
+    "email": "ivans21@gmail.com",
+    "livemode": false,
+    "type": "card",
+    "used": false
+  },
+  "payload_paypal": "",
+  "type_payment": {},
+  "cart_id": "2",
+  "user_id": "2",
+  "total": "250.25",
+  "subtotal": "250.25"
+}
+
+<> 2019-05-21T103745.500.html
+
+###
+
+POST http://goa-backend/api/categories
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
+
+{
+  "name": "testing"
+}
+
 <> 2019-05-21T070448.201.json
 
 ###
@@ -1498,186 +1580,6 @@ Content-Type: image/jpeg
 --WebAppBoundary--
 
 <> 2019-05-19T055343.201.json
-
-###
-
-POST http://goa-backend/api/products
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
-
---WebAppBoundary
-Content-Disposition: form-data; name="sku"
-Content-Type: text/plain
-
-26
---WebAppBoundary
-Content-Disposition: form-data; name="name"
-Content-Type: text/plain
-
-Cacao 18
---WebAppBoundary
-Content-Disposition: form-data; name="description_short"
-Content-Type: text/plain
-
-Short
---WebAppBoundary
-Content-Disposition: form-data; name="description_one"
-Content-Type: text/plain
-
-One
---WebAppBoundary
-Content-Disposition: form-data; name="description_two"
-Content-Type: text/plain
-
-Two
---WebAppBoundary
-Content-Disposition: form-data; name="preparation"
-Content-Type: text/plain
-
-1. Started 2. Finished
---WebAppBoundary
-Content-Disposition: form-data; name="quantity"
-Content-Type: text/plain
-
-30
---WebAppBoundary
-Content-Disposition: form-data; name="user_id"
-Content-Type: text/plain
-
-1
---WebAppBoundary
-Content-Disposition: form-data; name="regular_price"
-Content-Type: text/plain
-
-12,036
---WebAppBoundary
-Content-Disposition: form-data; name="nutrition"; filename="fuki.jpeg"
-Content-Type: image/jpeg
-
-< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
---WebAppBoundary--
-
-<> 2019-05-19T053829.201.json
-
-###
-
-POST http://goa-backend/api/products
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
-
---WebAppBoundary
-Content-Disposition: form-data; name="sku"
-Content-Type: text/plain
-
-26
---WebAppBoundary
-Content-Disposition: form-data; name="name"
-Content-Type: text/plain
-
-Cacao 18
---WebAppBoundary
-Content-Disposition: form-data; name="description_short"
-Content-Type: text/plain
-
-Short
---WebAppBoundary
-Content-Disposition: form-data; name="description_one"
-Content-Type: text/plain
-
-One
---WebAppBoundary
-Content-Disposition: form-data; name="description_two"
-Content-Type: text/plain
-
-Two
---WebAppBoundary
-Content-Disposition: form-data; name="preparation"
-Content-Type: text/plain
-
-1. Started 2. Finished
---WebAppBoundary
-Content-Disposition: form-data; name="quantity"
-Content-Type: text/plain
-
-30
---WebAppBoundary
-Content-Disposition: form-data; name="user_id"
-Content-Type: text/plain
-
-1
---WebAppBoundary
-Content-Disposition: form-data; name="regular_price"
-Content-Type: text/plain
-
-12,036
---WebAppBoundary
-Content-Disposition: form-data; name="nutrition"; filename="fuki.jpeg"
-Content-Type: image/jpeg
-
-< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
---WebAppBoundary--
-
-<> 2019-05-19T053807.500.html
-
-###
-
-POST http://goa-backend/api/products
-Content-Type: multipart/form-data; boundary=WebAppBoundary
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImdvYUBnbWFpbC5jb20ifQ.PUkZIRy36_4hV4Pvf0a8m8vmMuAxHzQTvXqYPPwQMfE
-
---WebAppBoundary
-Content-Disposition: form-data; name="sku"
-Content-Type: text/plain
-
-26
---WebAppBoundary
-Content-Disposition: form-data; name="name"
-Content-Type: text/plain
-
-Cacao 17
---WebAppBoundary
-Content-Disposition: form-data; name="description_short"
-Content-Type: text/plain
-
-Short
---WebAppBoundary
-Content-Disposition: form-data; name="description_one"
-Content-Type: text/plain
-
-One
---WebAppBoundary
-Content-Disposition: form-data; name="description_two"
-Content-Type: text/plain
-
-Two
---WebAppBoundary
-Content-Disposition: form-data; name="preparation"
-Content-Type: text/plain
-
-1. Started 2. Finished
---WebAppBoundary
-Content-Disposition: form-data; name="quantity"
-Content-Type: text/plain
-
-30
---WebAppBoundary
-Content-Disposition: form-data; name="user_id"
-Content-Type: text/plain
-
-1
---WebAppBoundary
-Content-Disposition: form-data; name="regular_price"
-Content-Type: text/plain
-
-10.036
---WebAppBoundary
-Content-Disposition: form-data; name="nutrition"; filename="fuki.jpeg"
-Content-Type: image/jpeg
-
-< C:\xampp\htdocs\goa-frontend\src\other\image\fuki.jpeg
---WebAppBoundary--
-
-<> 2019-05-19T053720.201.json
 
 ###
 

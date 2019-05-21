@@ -205,9 +205,13 @@
       },
       getTotalPriceCheckout() {
         return parseInt(this.totalPrice.toString().replace(".", ""))
-      }
+      },
+      payments() {
+        return this.$store.getters.this.$store.getters.getProductsCategories
+      },
     },
     created() {
+      this.$store.dispatch('getPayments')
       this.getCartProduct()
       this.getPaypal()
     },
@@ -262,6 +266,7 @@
         // do stuff
       },
       getPaypal() {
+        let env = this.payments.production_paypal ? 'sandbox' : 'production'
         getAxios(`${apiTransactions.all}?payment=Paypal`, 'GET')
           .then(res => {
             if (res.data.data.paypal_client !== '') {
@@ -278,7 +283,7 @@
                   production: res.data.data.paypal_client,
                   sandbox: res.data.data.paypal_client
                 },
-                env: 'sandbox', // Or 'sandbox'
+                env: env, // Or 'sandbox'
                 commit: true, // This will add the transaction amount to the PayPal button
 
                 payment: (data, actions) => actions.braintree.create({
