@@ -54,7 +54,7 @@ Content-Type: text/plain
 Content-Disposition: form-data; name="name"
 Content-Type: text/plain
 
-Cacao 22
+Cacao Maranello 22
 
 --WebAppBoundary
 Content-Disposition: form-data; name="description_short"
