@@ -190,7 +190,7 @@
       },
       getTotalPrice() {
         let totalPrice = 0
-        this.order.products.forEach((value, index) => {
+        this.order.products.forEach((value) => {
           totalPrice = (Number(value.regular_price).toFixed(2) * Number(value.cart_quantity).toFixed(2)) + totalPrice
         })
         return Number(totalPrice).toFixed(2)

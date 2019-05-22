@@ -174,11 +174,6 @@
         wordEng: wordEng,
         transaction: modelTransaction.reset(),
         totalPrice: 0,
-        payments: [
-          {id: 1, name: 'Amazon'},
-          {id: 2, name: 'Credit card'},
-          {id: 3, name: 'Paypal'},
-        ],
         slickOptions: {
           autoplay: true,
           arrows: true,
@@ -206,7 +201,7 @@
       getTotalPriceCheckout() {
         return parseInt(this.totalPrice.toString().replace(".", ""))
       },
-      payments() {
+      paymentsData() {
         return this.$store.getters.this.$store.getters.getProductsCategories
       },
     },
@@ -266,7 +261,7 @@
         // do stuff
       },
       getPaypal() {
-        let env = this.payments.production_paypal ? 'sandbox' : 'production'
+        let env = this.paymentsData.production_paypal ? 'sandbox' : 'production'
         getAxios(`${apiTransactions.all}?payment=Paypal`, 'GET')
           .then(res => {
             if (res.data.data.paypal_client !== '') {
@@ -276,7 +271,6 @@
 
               const self = this
 
-              const user = JSON.parse(localStorage.getItem('user'))
               paypal.Button.render({
                 braintree: {client, paypalCheckout},
                 client: {
