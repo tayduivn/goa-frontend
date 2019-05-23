@@ -11,7 +11,7 @@
         </div>
         <div class="d-flex justify-content-between mt-3 mb-3">
           <h6>{{wordEng.alreadyAccount}}
-            <router-link to="/cpanel">{{wordEng.logIn}}</router-link>
+            <router-link to="/cpanel-goa">{{wordEng.logIn}}</router-link>
           </h6>
         </div>
         <hr>
@@ -50,7 +50,7 @@
           .then(() => {
             this.submitForm = false
             successMessage(this.$swal, null, this.wordEng.sendMessage)
-            this.$router.push('/cpanel/login')
+            this.$router.push('/cpanel-goa/login')
           })
           .catch(err => {
             this.submitForm = false

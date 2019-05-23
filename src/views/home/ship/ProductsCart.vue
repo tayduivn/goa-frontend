@@ -201,12 +201,8 @@
       getTotalPriceCheckout() {
         return parseInt(this.totalPrice.toString().replace(".", ""))
       },
-      paymentsData() {
-        return this.$store.getters.this.$store.getters.getProductsCategories
-      },
     },
     created() {
-      this.$store.dispatch('getPayments')
       this.getCartProduct()
       this.getPaypal()
     },
@@ -261,9 +257,10 @@
         // do stuff
       },
       getPaypal() {
-        let env = this.paymentsData.production_paypal ? 'sandbox' : 'production'
         getAxios(`${apiTransactions.all}?payment=Paypal`, 'GET')
           .then(res => {
+            let env = res.data.data.production_paypal === '0' ? 'sandbox' : 'production'
+            console.log(env)
             if (res.data.data.paypal_client !== '') {
               const paypal = require('paypal-checkout');
               const client = require('braintree-web/client');
@@ -287,7 +284,7 @@
                 }),
 
                 onAuthorize: function (payload, actions) {
-                  actions.payment.get().then(function(data) {
+                  actions.payment.get().then(function (data) {
                     self.transaction.processor = 'Paypal'
                     self.transaction.payload_paypal = {
                       nonce: payload.nonce,
@@ -406,7 +403,7 @@
     padding: 40px 0;
 
     .payment-separator {
-      background-color: rgba(0,0,0,.1);
+      background-color: rgba(0, 0, 0, .1);
       height: 75%;
       position: absolute;
       left: 50%;

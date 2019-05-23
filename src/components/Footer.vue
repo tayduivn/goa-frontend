@@ -18,7 +18,7 @@
             <div class="payment-image">
               <!--<img src="./../assets/img/Footer/Amazon_icon.jpg" alt="amazon logo">-->
               <img src="./../assets/img/Footer/American_Express_icon.jpg" alt="american express logo">
-              <img src="./../assets/img/Footer/Pay_icon.jpg" alt="apple logo">
+              <!--<img src="./../assets/img/Footer/Pay_icon.jpg" alt="apple logo">-->
               <img src="./../assets/img/Footer/Discover_icon.jpg" alt="discover logo">
               <img src="./../assets/img/Footer/JCB_icon.jpg" alt="JCB logo">
               <img src="./../assets/img/Footer/MasterdCard_icon.jpg" alt="mastercard logo">

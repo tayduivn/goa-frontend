@@ -10,7 +10,7 @@
         <div class="dropdown">
           <button @click.prevent="dropdownShow" class="dropbtn"></button>
           <div id="myDropdown" class="dropdown-content">
-            <router-link to="/cpanel/profile">{{wordEng.profile}}</router-link>
+            <router-link to="/cpanel-goa/profile">{{wordEng.profile}}</router-link>
             <a @click.prevent="logout">{{wordEng.logOut}}</a>
           </div>
         </div>
@@ -26,34 +26,34 @@
           <img src="../../assets/logo.png" alt="logo"> <span class="ml-3"><strong>Garden of America</strong></span>
         </li>
         <li class="sidenav__list-item">
-          <router-link to="/cpanel/client">{{wordEng.clients}}</router-link>
+          <router-link to="/cpanel-goa/client">{{wordEng.clients}}</router-link>
         </li>
         <li class="sidenav__list-item">
-          <router-link to="/cpanel/p-products">{{wordEng.products}}</router-link>
+          <router-link to="/cpanel-goa/p-products">{{wordEng.products}}</router-link>
         </li>
         <li class="sidenav__list-item">
-          <router-link to="/cpanel/categories">{{wordEng.categories}}</router-link>
+          <router-link to="/cpanel-goa/categories">{{wordEng.categories}}</router-link>
         </li>
         <li class="sidenav__list-item">
-          <router-link to="/cpanel/reviews">{{wordEng.reviews}}</router-link>
+          <router-link to="/cpanel-goa/reviews">{{wordEng.reviews}}</router-link>
         </li>
         <li class="sidenav__list-item">
-          <router-link to="/cpanel/orders">
+          <router-link to="/cpanel-goa/orders">
             {{wordEng.orders}}
             <span style="display: none" :class="{isActive: (ordersBase > 0)}">{{ordersBase}}</span>
           </router-link>
         </li>
         <li class="sidenav__list-item">
-          <router-link to="/cpanel/users">{{wordEng.users}}</router-link>
+          <router-link to="/cpanel-goa/users">{{wordEng.users}}</router-link>
         </li>
         <li class="sidenav__list-item">
-          <router-link to="/cpanel/emails">{{wordEng.emails}}</router-link>
+          <router-link to="/cpanel-goa/emails">{{wordEng.emails}}</router-link>
         </li>
         <li class="sidenav__list-item">
-          <router-link to="/cpanel/payments">{{wordEng.payments}}</router-link>
+          <router-link to="/cpanel-goa/payments">{{wordEng.payments}}</router-link>
         </li>
         <li class="sidenav__list-item">
-          <router-link to="/cpanel/guide">{{wordEng.guide}}</router-link>
+          <router-link to="/cpanel-goa/guide">{{wordEng.guide}}</router-link>
         </li>
       </ul>
     </aside>
@@ -144,7 +144,7 @@
       logout() {
         this.$store.dispatch('logout')
           .then(() => {
-            this.$router.push('/cpanel/login')
+            this.$router.push('/cpanel-goa/login')
           })
       }
     }

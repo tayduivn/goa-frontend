@@ -76,7 +76,7 @@
                 localStorage.setItem("email", this.user.email)
                 localStorage.setItem("password", this.user.password)
               }
-              this.$router.push('/cpanel')
+              this.$router.push('/cpanel-goa')
             }
           })
           .catch(err => {

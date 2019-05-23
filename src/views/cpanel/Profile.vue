@@ -140,7 +140,7 @@
                   infoMessage(this.$swal, null, this.wordEng.profileDelete)
                   this.$store.dispatch('logout')
                     .then(() => {
-                      this.$router.push('/cpanel/login')
+                      this.$router.push('/cpanel-goa/login')
                     })
                 })
                 .catch(err => {

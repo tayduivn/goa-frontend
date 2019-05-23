@@ -82,7 +82,7 @@
               const id = res.data.data.user.id
               this.$store.dispatch('getCartStatus', `?userId=${id}&status=current`)
                 .then((res) => {
-                  console.log(res.cart_id)
+                  /*console.log(res.cart_id)*/
                   localStorage.setItem('cartId', res.cart_id)
                   this.$router.push('home')
                 })

@@ -114,7 +114,7 @@ Authorization: Bearer {{auth_token}}
 Content-Disposition: form-data; name="id"
 Content-Type: text/plain
 
-21
+1
 
 --WebAppBoundary
 Content-Disposition: form-data; name="sku"
@@ -126,13 +126,13 @@ Content-Type: text/plain
 Content-Disposition: form-data; name="name"
 Content-Type: text/plain
 
-Cacao 22
+Cacao 2
 
 --WebAppBoundary
 Content-Disposition: form-data; name="description_short"
 Content-Type: text/plain
 
-Short
+Short 2
 
 --WebAppBoundary
 Content-Disposition: form-data; name="description_one"
@@ -175,8 +175,6 @@ Content-Type: image/jpeg
 
 < ./../image/fuki.jpeg
 --WebAppBoundary--
-
-###
 
 ###
 

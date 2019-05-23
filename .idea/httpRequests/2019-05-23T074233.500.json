@@ -1,0 +1,43 @@
+{
+  "message": "Slim Application Error",
+  "exception": [
+    {
+      "type": "Braintree\\Exception\\Configuration",
+      "code": 0,
+      "message": "Incorrect accessToken syntax. Expected: type$environment$merchant_id$token",
+      "file": "C:\\xampp\\htdocs\\goa-backend\\vendor\\braintree\\braintree_php\\lib\\Braintree\\CredentialsParser.php",
+      "line": 106,
+      "trace": [
+        "#0 C:\\xampp\\htdocs\\goa-backend\\vendor\\braintree\\braintree_php\\lib\\Braintree\\CredentialsParser.php(61): Braintree\\CredentialsParser->_parseAccessToken()",
+        "#1 C:\\xampp\\htdocs\\goa-backend\\vendor\\braintree\\braintree_php\\lib\\Braintree\\CredentialsParser.php(33): Braintree\\CredentialsParser->parse()",
+        "#2 C:\\xampp\\htdocs\\goa-backend\\vendor\\braintree\\braintree_php\\lib\\Braintree\\Configuration.php(67): Braintree\\CredentialsParser->__construct(Array)",
+        "#3 C:\\xampp\\htdocs\\goa-backend\\vendor\\braintree\\braintree_php\\lib\\Braintree\\Gateway.php(21): Braintree\\Configuration->__construct(Array)",
+        "#4 C:\\xampp\\htdocs\\goa-backend\\utils\\Utils.php(156): Braintree\\Gateway->__construct(Array)",
+        "#5 C:\\xampp\\htdocs\\goa-backend\\controllers\\TransactionController.php(34): App\\Utils\\Utils->gateWayPaypal(Object(PDO))",
+        "#6 [internal function]: App\\Controller\\TransactionController->getAll(Object(Slim\\Http\\Request), Object(Slim\\Http\\Response), Array)",
+        "#7 C:\\xampp\\htdocs\\goa-backend\\vendor\\slim\\slim\\Slim\\Handlers\\Strategies\\RequestResponse.php(41): call_user_func(Array, Object(Slim\\Http\\Request), Object(Slim\\Http\\Response), Array)",
+        "#8 C:\\xampp\\htdocs\\goa-backend\\vendor\\slim\\slim\\Slim\\Route.php(356): Slim\\Handlers\\Strategies\\RequestResponse->__invoke(Array, Object(Slim\\Http\\Request), Object(Slim\\Http\\Response), Array)",
+        "#9 C:\\xampp\\htdocs\\goa-backend\\vendor\\slim\\slim\\Slim\\MiddlewareAwareTrait.php(117): Slim\\Route->__invoke(Object(Slim\\Http\\Request), Object(Slim\\Http\\Response))",
+        "#10 C:\\xampp\\htdocs\\goa-backend\\vendor\\slim\\slim\\Slim\\Route.php(334): Slim\\Route->callMiddlewareStack(Object(Slim\\Http\\Request), Object(Slim\\Http\\Response))",
+        "#11 C:\\xampp\\htdocs\\goa-backend\\vendor\\slim\\slim\\Slim\\App.php(515): Slim\\Route->run(Object(Slim\\Http\\Request), Object(Slim\\Http\\Response))",
+        "#12 C:\\xampp\\htdocs\\goa-backend\\vendor\\tuupola\\callable-handler\\src\\CallableHandler.php(51): Slim\\App->__invoke(Object(Slim\\Http\\Request), Object(Slim\\Http\\Response))",
+        "#13 C:\\xampp\\htdocs\\goa-backend\\vendor\\tuupola\\slim-jwt-auth\\src\\JwtAuthentication.php(166): Tuupola\\Middleware\\CallableHandler->handle(Object(Slim\\Http\\Request))",
+        "#14 C:\\xampp\\htdocs\\goa-backend\\vendor\\tuupola\\callable-handler\\src\\DoublePassTrait.php(47): Tuupola\\Middleware\\JwtAuthentication->process(Object(Slim\\Http\\Request), Object(Tuupola\\Middleware\\CallableHandler))",
+        "#15 [internal function]: Tuupola\\Middleware\\JwtAuthentication->__invoke(Object(Slim\\Http\\Request), Object(Slim\\Http\\Response), Object(Slim\\App))",
+        "#16 C:\\xampp\\htdocs\\goa-backend\\vendor\\slim\\slim\\Slim\\DeferredCallable.php(43): call_user_func_array(Object(Tuupola\\Middleware\\JwtAuthentication), Array)",
+        "#17 [internal function]: Slim\\DeferredCallable->__invoke(Object(Slim\\Http\\Request), Object(Slim\\Http\\Response), Object(Slim\\App))",
+        "#18 C:\\xampp\\htdocs\\goa-backend\\vendor\\slim\\slim\\Slim\\MiddlewareAwareTrait.php(70): call_user_func(Object(Slim\\DeferredCallable), Object(Slim\\Http\\Request), Object(Slim\\Http\\Response), Object(Slim\\App))",
+        "#19 C:\\xampp\\htdocs\\goa-backend\\src\\middleware.php(29): Slim\\App->Slim\\{closure}(Object(Slim\\Http\\Request), Object(Slim\\Http\\Response))",
+        "#20 [internal function]: Closure->{closure}(Object(Slim\\Http\\Request), Object(Slim\\Http\\Response), Object(Closure))",
+        "#21 C:\\xampp\\htdocs\\goa-backend\\vendor\\slim\\slim\\Slim\\DeferredCallable.php(43): call_user_func_array(Object(Closure), Array)",
+        "#22 [internal function]: Slim\\DeferredCallable->__invoke(Object(Slim\\Http\\Request), Object(Slim\\Http\\Response), Object(Closure))",
+        "#23 C:\\xampp\\htdocs\\goa-backend\\vendor\\slim\\slim\\Slim\\MiddlewareAwareTrait.php(70): call_user_func(Object(Slim\\DeferredCallable), Object(Slim\\Http\\Request), Object(Slim\\Http\\Response), Object(Closure))",
+        "#24 C:\\xampp\\htdocs\\goa-backend\\vendor\\slim\\slim\\Slim\\MiddlewareAwareTrait.php(117): Slim\\App->Slim\\{closure}(Object(Slim\\Http\\Request), Object(Slim\\Http\\Response))",
+        "#25 C:\\xampp\\htdocs\\goa-backend\\vendor\\slim\\slim\\Slim\\App.php(405): Slim\\App->callMiddlewareStack(Object(Slim\\Http\\Request), Object(Slim\\Http\\Response))",
+        "#26 C:\\xampp\\htdocs\\goa-backend\\vendor\\slim\\slim\\Slim\\App.php(313): Slim\\App->process(Object(Slim\\Http\\Request), Object(Slim\\Http\\Response))",
+        "#27 C:\\xampp\\htdocs\\goa-backend\\public\\index.php(37): Slim\\App->run()",
+        "#28 {main}"
+      ]
+    }
+  ]
+}

@@ -75,21 +75,21 @@ let router = new Router({
       ]
     },
     {
-      path: '/cpanel/login',
+      path: '/cpanel-goa/login',
       name: 'cpanelLogin',
       component: () => import('./views/cpanel/Login'),
       meta: {isNoUserLogAdmin: true}
     },
     {
-      path: '/cpanel/forgot',
+      path: '/cpanel-goa/forgot',
       name: 'cpanel-forgot',
       component: () => import('./views/cpanel/Forgot'),
       meta: {isNoUserLogAdmin: true}
     },
     {
-      path: '/cpanel',
+      path: '/cpanel-goa',
       name: 'cPanelBaseView',
-      redirect: 'cpanel/pHome',
+      redirect: 'cpanel-goa/pHome',
       component: () => import('./views/cpanel/BaseView'),
       meta: {requiresAuthAdmin: true},
       children: [
@@ -190,14 +190,14 @@ router.beforeEach((to, from, next) => {
       next()
     } else {
       next({
-        path: '/cpanel/login',
+        path: '/cpanel-goa/login',
         params: {nextUrl: to.fullPath}
       })
     }
   } else if (to.matched.some(record => record.meta.isNoUserLogAdmin)) {
     if (token && level === 'Admin') {
       next({
-        path: '/cpanel/pHome',
+        path: '/cpanel-goa/pHome',
         params: {nextUrl: to.fullPath}
       })
     } else {
